@@ -1,4 +1,4 @@
-#System zarządzania zasobami firmy robiącej nadruki na koszulki</h1>
+# System zarządzania zasobami firmy robiącej nadruki na koszulki</h1>
 
 -Dodawanie, usuwanie oraz edycja ilości koszulek w magazynie</li>
 -Dodawanie, usuwanie, edycja firm produkujących koszulki</li>
