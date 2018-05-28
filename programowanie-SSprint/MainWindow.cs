@@ -16,5 +16,10 @@ namespace programowanie_SSprint
         {
             InitializeComponent();
         }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
