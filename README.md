@@ -7,4 +7,4 @@
 - Obsługa statystycznej ilości nieudanych produktów już na poziomie rezerwacji do druku poprzez globalną szacowaną procentową ilość odpadów, możliwą do nadpisania przy poszczególnej rezerwacji</li>
 - Wygodny i czytelny interfejs użytkownika </li>
 - Baza danych przechowywana w chmurze, umożliwiająca korzystanie z programu nie tylko na jednym komputerze w firmie</li>
-- * Możliwość przechowywania plików graficznych (.jpg, .cdr itp.) przypisanych do każdego zamówienia *</li>
+- _ Możliwość przechowywania plików graficznych (.jpg, .cdr itp.) przypisanych do każdego zamówienia _ </li>
