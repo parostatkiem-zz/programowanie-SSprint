@@ -16,7 +16,11 @@ namespace programowanie_SSprint
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Model model = new Model();
+            MainWindow view = new MainWindow();
+            Presenter p = new Presenter(model, view);
+            Application.Run(view);
+            Application.Run(new MainWindow());
         }
     }
 }
