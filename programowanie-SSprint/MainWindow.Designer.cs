@@ -180,7 +180,7 @@
             this.btnCurrentOrderAdd.Location = new System.Drawing.Point(3, 580);
             this.btnCurrentOrderAdd.Name = "btnCurrentOrderAdd";
             this.btnCurrentOrderAdd.Size = new System.Drawing.Size(133, 23);
-            this.btnCurrentOrderAdd.TabIndex = 3;
+            this.btnCurrentOrderAdd.TabIndex = 0;
             this.btnCurrentOrderAdd.Text = "Dodaj zamówienie";
             this.btnCurrentOrderAdd.UseVisualStyleBackColor = false;
             // 
@@ -192,7 +192,7 @@
             this.btnCurrentOrderCancel.Location = new System.Drawing.Point(380, 580);
             this.btnCurrentOrderCancel.Name = "btnCurrentOrderCancel";
             this.btnCurrentOrderCancel.Size = new System.Drawing.Size(133, 23);
-            this.btnCurrentOrderCancel.TabIndex = 4;
+            this.btnCurrentOrderCancel.TabIndex = 1;
             this.btnCurrentOrderCancel.Text = "Anuluj / Wyczyść ";
             this.btnCurrentOrderCancel.UseVisualStyleBackColor = false;
             // 
@@ -223,7 +223,7 @@
             this.tbCurrentOrderEndDate.Name = "tbCurrentOrderEndDate";
             this.tbCurrentOrderEndDate.ReadOnly = true;
             this.tbCurrentOrderEndDate.Size = new System.Drawing.Size(153, 20);
-            this.tbCurrentOrderEndDate.TabIndex = 6;
+            this.tbCurrentOrderEndDate.TabIndex = 1;
             this.tbCurrentOrderEndDate.Text = "Nie ustalono";
             // 
             // lCurrentOrderEndDate
@@ -242,7 +242,7 @@
             this.btnCurrentOrderSetDate.Location = new System.Drawing.Point(251, 113);
             this.btnCurrentOrderSetDate.Name = "btnCurrentOrderSetDate";
             this.btnCurrentOrderSetDate.Size = new System.Drawing.Size(75, 23);
-            this.btnCurrentOrderSetDate.TabIndex = 4;
+            this.btnCurrentOrderSetDate.TabIndex = 0;
             this.btnCurrentOrderSetDate.Text = "Ustal datę";
             this.btnCurrentOrderSetDate.UseVisualStyleBackColor = true;
             // 
@@ -252,7 +252,7 @@
             this.btnCurrentOrderBrowseImage.Location = new System.Drawing.Point(380, 14);
             this.btnCurrentOrderBrowseImage.Name = "btnCurrentOrderBrowseImage";
             this.btnCurrentOrderBrowseImage.Size = new System.Drawing.Size(112, 23);
-            this.btnCurrentOrderBrowseImage.TabIndex = 3;
+            this.btnCurrentOrderBrowseImage.TabIndex = 1;
             this.btnCurrentOrderBrowseImage.Text = "Wybierz plik...";
             this.btnCurrentOrderBrowseImage.UseVisualStyleBackColor = true;
             // 
@@ -299,7 +299,7 @@
             this.tbCurrentOrderPhone.Location = new System.Drawing.Point(96, 65);
             this.tbCurrentOrderPhone.Name = "tbCurrentOrderPhone";
             this.tbCurrentOrderPhone.Size = new System.Drawing.Size(217, 20);
-            this.tbCurrentOrderPhone.TabIndex = 5;
+            this.tbCurrentOrderPhone.TabIndex = 2;
             // 
             // tbCurrentOrderEmail
             // 
@@ -308,7 +308,7 @@
             this.tbCurrentOrderEmail.Location = new System.Drawing.Point(96, 41);
             this.tbCurrentOrderEmail.Name = "tbCurrentOrderEmail";
             this.tbCurrentOrderEmail.Size = new System.Drawing.Size(217, 20);
-            this.tbCurrentOrderEmail.TabIndex = 4;
+            this.tbCurrentOrderEmail.TabIndex = 1;
             // 
             // tbCurrentOrderName
             // 
@@ -317,7 +317,7 @@
             this.tbCurrentOrderName.Location = new System.Drawing.Point(96, 16);
             this.tbCurrentOrderName.Name = "tbCurrentOrderName";
             this.tbCurrentOrderName.Size = new System.Drawing.Size(217, 20);
-            this.tbCurrentOrderName.TabIndex = 3;
+            this.tbCurrentOrderName.TabIndex = 0;
             // 
             // lCurrentOrderPhone
             // 
@@ -385,7 +385,7 @@
             this.numericAddingProductAmount.Location = new System.Drawing.Point(152, 5);
             this.numericAddingProductAmount.Name = "numericAddingProductAmount";
             this.numericAddingProductAmount.Size = new System.Drawing.Size(51, 20);
-            this.numericAddingProductAmount.TabIndex = 3;
+            this.numericAddingProductAmount.TabIndex = 0;
             // 
             // btnAddProductToOrder
             // 
@@ -395,7 +395,7 @@
             this.btnAddProductToOrder.Location = new System.Drawing.Point(3, 3);
             this.btnAddProductToOrder.Name = "btnAddProductToOrder";
             this.btnAddProductToOrder.Size = new System.Drawing.Size(142, 23);
-            this.btnAddProductToOrder.TabIndex = 2;
+            this.btnAddProductToOrder.TabIndex = 1;
             this.btnAddProductToOrder.Text = "Dodaj do puli zamówienia";
             this.btnAddProductToOrder.UseVisualStyleBackColor = false;
             // 
@@ -579,7 +579,7 @@
             this.btnSelectedOrderSave.Location = new System.Drawing.Point(3, 580);
             this.btnSelectedOrderSave.Name = "btnSelectedOrderSave";
             this.btnSelectedOrderSave.Size = new System.Drawing.Size(133, 23);
-            this.btnSelectedOrderSave.TabIndex = 8;
+            this.btnSelectedOrderSave.TabIndex = 0;
             this.btnSelectedOrderSave.Text = "Zapisz zmiany";
             this.btnSelectedOrderSave.UseVisualStyleBackColor = false;
             // 
@@ -591,7 +591,7 @@
             this.btnSelectedOrderDelete.Location = new System.Drawing.Point(443, 580);
             this.btnSelectedOrderDelete.Name = "btnSelectedOrderDelete";
             this.btnSelectedOrderDelete.Size = new System.Drawing.Size(115, 23);
-            this.btnSelectedOrderDelete.TabIndex = 9;
+            this.btnSelectedOrderDelete.TabIndex = 1;
             this.btnSelectedOrderDelete.Text = "Usuń zamówienie";
             this.btnSelectedOrderDelete.UseVisualStyleBackColor = false;
             // 
@@ -629,7 +629,7 @@
             this.comboBoxSelectedOrderStatus.Location = new System.Drawing.Point(52, 185);
             this.comboBoxSelectedOrderStatus.Name = "comboBoxSelectedOrderStatus";
             this.comboBoxSelectedOrderStatus.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxSelectedOrderStatus.TabIndex = 10;
+            this.comboBoxSelectedOrderStatus.TabIndex = 1;
             // 
             // lSelectedOrderStatus
             // 
@@ -650,7 +650,7 @@
             this.tbSelectedOrderStartDate.Name = "tbSelectedOrderStartDate";
             this.tbSelectedOrderStartDate.ReadOnly = true;
             this.tbSelectedOrderStartDate.Size = new System.Drawing.Size(278, 20);
-            this.tbSelectedOrderStartDate.TabIndex = 8;
+            this.tbSelectedOrderStartDate.TabIndex = 153;
             this.tbSelectedOrderStartDate.Text = "Nie ustalono";
             // 
             // lSelectedOrderStartDate
@@ -672,7 +672,7 @@
             this.tbSelectedOrderEndDate.Name = "tbSelectedOrderEndDate";
             this.tbSelectedOrderEndDate.ReadOnly = true;
             this.tbSelectedOrderEndDate.Size = new System.Drawing.Size(210, 20);
-            this.tbSelectedOrderEndDate.TabIndex = 6;
+            this.tbSelectedOrderEndDate.TabIndex = 453;
             this.tbSelectedOrderEndDate.Text = "Nie ustalono";
             // 
             // lSelectedOrderEndDate
@@ -692,7 +692,7 @@
             this.btnSelectedOrderSetEndDate.Location = new System.Drawing.Point(305, 157);
             this.btnSelectedOrderSetEndDate.Name = "btnSelectedOrderSetEndDate";
             this.btnSelectedOrderSetEndDate.Size = new System.Drawing.Size(75, 23);
-            this.btnSelectedOrderSetEndDate.TabIndex = 4;
+            this.btnSelectedOrderSetEndDate.TabIndex = 0;
             this.btnSelectedOrderSetEndDate.Text = "Ustal datę";
             this.btnSelectedOrderSetEndDate.UseVisualStyleBackColor = true;
             // 
@@ -702,7 +702,7 @@
             this.btnSelectedOrderBrowseImage.Location = new System.Drawing.Point(443, 11);
             this.btnSelectedOrderBrowseImage.Name = "btnSelectedOrderBrowseImage";
             this.btnSelectedOrderBrowseImage.Size = new System.Drawing.Size(110, 23);
-            this.btnSelectedOrderBrowseImage.TabIndex = 3;
+            this.btnSelectedOrderBrowseImage.TabIndex = 2;
             this.btnSelectedOrderBrowseImage.Text = "Wybierz plik...";
             this.btnSelectedOrderBrowseImage.UseVisualStyleBackColor = true;
             // 
@@ -738,7 +738,7 @@
             this.gbSelectedOrderData.Location = new System.Drawing.Point(6, 19);
             this.gbSelectedOrderData.Name = "gbSelectedOrderData";
             this.gbSelectedOrderData.Size = new System.Drawing.Size(380, 113);
-            this.gbSelectedOrderData.TabIndex = 0;
+            this.gbSelectedOrderData.TabIndex = 7;
             this.gbSelectedOrderData.TabStop = false;
             this.gbSelectedOrderData.Text = "Dane zamawiającego";
             // 
@@ -749,7 +749,7 @@
             this.tbSelectedOrderPhone.Location = new System.Drawing.Point(96, 83);
             this.tbSelectedOrderPhone.Name = "tbSelectedOrderPhone";
             this.tbSelectedOrderPhone.Size = new System.Drawing.Size(278, 20);
-            this.tbSelectedOrderPhone.TabIndex = 11;
+            this.tbSelectedOrderPhone.TabIndex = 2;
             // 
             // tbSelectedOrderName
             // 
@@ -758,7 +758,7 @@
             this.tbSelectedOrderName.Location = new System.Drawing.Point(96, 23);
             this.tbSelectedOrderName.Name = "tbSelectedOrderName";
             this.tbSelectedOrderName.Size = new System.Drawing.Size(278, 20);
-            this.tbSelectedOrderName.TabIndex = 9;
+            this.tbSelectedOrderName.TabIndex = 0;
             // 
             // tbSelectedOrderEmail
             // 
@@ -767,7 +767,7 @@
             this.tbSelectedOrderEmail.Location = new System.Drawing.Point(96, 52);
             this.tbSelectedOrderEmail.Name = "tbSelectedOrderEmail";
             this.tbSelectedOrderEmail.Size = new System.Drawing.Size(278, 20);
-            this.tbSelectedOrderEmail.TabIndex = 10;
+            this.tbSelectedOrderEmail.TabIndex = 1;
             // 
             // lSelectedOrderName
             // 
