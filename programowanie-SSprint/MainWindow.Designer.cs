@@ -97,17 +97,6 @@
             this.columnAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnReserved = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnActions = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvAllOrders = new System.Windows.Forms.ListView();
-            this.columnHeaderID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderTypes = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderEndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderCompany = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderCost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderProfit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnSelectedOrderSave = new System.Windows.Forms.Button();
-            this.btnSelectedOrderDelete = new System.Windows.Forms.Button();
             this.gbSelectedOrderParams = new System.Windows.Forms.GroupBox();
             this.comboBoxSelectedOrderStatus = new System.Windows.Forms.ComboBox();
             this.lSelectedOrderStatus = new System.Windows.Forms.Label();
@@ -126,6 +115,17 @@
             this.lSelectedOrderName = new System.Windows.Forms.Label();
             this.lSelectedOrderEmail = new System.Windows.Forms.Label();
             this.lSelectedOrderPhone = new System.Windows.Forms.Label();
+            this.btnSelectedOrderSave = new System.Windows.Forms.Button();
+            this.btnSelectedOrderDelete = new System.Windows.Forms.Button();
+            this.lvAllOrders = new System.Windows.Forms.ListView();
+            this.columnHeaderID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderTypes = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderEndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderCompany = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderCost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderProfit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
@@ -253,7 +253,7 @@
             this.btnCurrentOrderBrowseImage.Name = "btnCurrentOrderBrowseImage";
             this.btnCurrentOrderBrowseImage.Size = new System.Drawing.Size(112, 23);
             this.btnCurrentOrderBrowseImage.TabIndex = 1;
-            this.btnCurrentOrderBrowseImage.Text = "Wybierz plik...";
+            this.btnCurrentOrderBrowseImage.Text = "Wybierz z listy";
             this.btnCurrentOrderBrowseImage.UseVisualStyleBackColor = true;
             // 
             // lCurrentOrderPicture
@@ -364,7 +364,7 @@
             // 
             this.splitContainerHorizLeft.Panel2.Controls.Add(this.lvOrderedProducts);
             this.splitContainerHorizLeft.Size = new System.Drawing.Size(510, 428);
-            this.splitContainerHorizLeft.SplitterDistance = 213;
+            this.splitContainerHorizLeft.SplitterDistance = 212;
             this.splitContainerHorizLeft.TabIndex = 1;
             // 
             // panelProductSelector
@@ -373,7 +373,7 @@
             this.panelProductSelector.Controls.Add(this.numericAddingProductAmount);
             this.panelProductSelector.Controls.Add(this.btnAddProductToOrder);
             this.panelProductSelector.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelProductSelector.Location = new System.Drawing.Point(0, 181);
+            this.panelProductSelector.Location = new System.Drawing.Point(0, 180);
             this.panelProductSelector.Name = "panelProductSelector";
             this.panelProductSelector.Size = new System.Drawing.Size(510, 32);
             this.panelProductSelector.TabIndex = 1;
@@ -452,7 +452,7 @@
             treeNode16,
             treeNode19,
             treeNode21});
-            this.treeViewProductBrowser.Size = new System.Drawing.Size(510, 179);
+            this.treeViewProductBrowser.Size = new System.Drawing.Size(510, 178);
             this.treeViewProductBrowser.TabIndex = 0;
             // 
             // lvOrderedProducts
@@ -471,7 +471,7 @@
             this.lvOrderedProducts.GridLines = true;
             this.lvOrderedProducts.Location = new System.Drawing.Point(0, 0);
             this.lvOrderedProducts.Name = "lvOrderedProducts";
-            this.lvOrderedProducts.Size = new System.Drawing.Size(510, 211);
+            this.lvOrderedProducts.Size = new System.Drawing.Size(510, 212);
             this.lvOrderedProducts.TabIndex = 0;
             this.lvOrderedProducts.UseCompatibleStateImageBehavior = false;
             this.lvOrderedProducts.View = System.Windows.Forms.View.Details;
@@ -507,93 +507,6 @@
             this.columnActions.Text = "Akcje";
             this.columnActions.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnActions.Width = 121;
-            // 
-            // lvAllOrders
-            // 
-            this.lvAllOrders.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvAllOrders.BackColor = System.Drawing.SystemColors.Window;
-            this.lvAllOrders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeaderID,
-            this.columnHeaderTypes,
-            this.columnHeaderAmount,
-            this.columnHeaderEndDate,
-            this.columnHeaderCompany,
-            this.columnHeaderPrice,
-            this.columnHeaderCost,
-            this.columnHeaderProfit});
-            this.lvAllOrders.FullRowSelect = true;
-            this.lvAllOrders.GridLines = true;
-            this.lvAllOrders.Location = new System.Drawing.Point(3, 3);
-            this.lvAllOrders.Name = "lvAllOrders";
-            this.lvAllOrders.Size = new System.Drawing.Size(555, 345);
-            this.lvAllOrders.TabIndex = 6;
-            this.lvAllOrders.UseCompatibleStateImageBehavior = false;
-            this.lvAllOrders.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeaderID
-            // 
-            this.columnHeaderID.Text = "ID";
-            this.columnHeaderID.Width = 36;
-            // 
-            // columnHeaderTypes
-            // 
-            this.columnHeaderTypes.Text = "Rodzaje produktów";
-            this.columnHeaderTypes.Width = 68;
-            // 
-            // columnHeaderAmount
-            // 
-            this.columnHeaderAmount.Text = "Ilośc produktów";
-            this.columnHeaderAmount.Width = 66;
-            // 
-            // columnHeaderEndDate
-            // 
-            this.columnHeaderEndDate.Text = "Termin";
-            this.columnHeaderEndDate.Width = 58;
-            // 
-            // columnHeaderCompany
-            // 
-            this.columnHeaderCompany.Text = "Zamawiający";
-            this.columnHeaderCompany.Width = 87;
-            // 
-            // columnHeaderPrice
-            // 
-            this.columnHeaderPrice.Text = "Cena";
-            this.columnHeaderPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeaderPrice.Width = 84;
-            // 
-            // columnHeaderCost
-            // 
-            this.columnHeaderCost.Text = "Koszt";
-            // 
-            // columnHeaderProfit
-            // 
-            this.columnHeaderProfit.Text = "Zysk";
-            // 
-            // btnSelectedOrderSave
-            // 
-            this.btnSelectedOrderSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSelectedOrderSave.BackColor = System.Drawing.Color.LightGreen;
-            this.btnSelectedOrderSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelectedOrderSave.Location = new System.Drawing.Point(3, 580);
-            this.btnSelectedOrderSave.Name = "btnSelectedOrderSave";
-            this.btnSelectedOrderSave.Size = new System.Drawing.Size(133, 23);
-            this.btnSelectedOrderSave.TabIndex = 0;
-            this.btnSelectedOrderSave.Text = "Zapisz zmiany";
-            this.btnSelectedOrderSave.UseVisualStyleBackColor = false;
-            // 
-            // btnSelectedOrderDelete
-            // 
-            this.btnSelectedOrderDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelectedOrderDelete.BackColor = System.Drawing.Color.Salmon;
-            this.btnSelectedOrderDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSelectedOrderDelete.Location = new System.Drawing.Point(443, 580);
-            this.btnSelectedOrderDelete.Name = "btnSelectedOrderDelete";
-            this.btnSelectedOrderDelete.Size = new System.Drawing.Size(115, 23);
-            this.btnSelectedOrderDelete.TabIndex = 1;
-            this.btnSelectedOrderDelete.Text = "Usuń zamówienie";
-            this.btnSelectedOrderDelete.UseVisualStyleBackColor = false;
             // 
             // gbSelectedOrderParams
             // 
@@ -703,7 +616,7 @@
             this.btnSelectedOrderBrowseImage.Name = "btnSelectedOrderBrowseImage";
             this.btnSelectedOrderBrowseImage.Size = new System.Drawing.Size(110, 23);
             this.btnSelectedOrderBrowseImage.TabIndex = 2;
-            this.btnSelectedOrderBrowseImage.Text = "Wybierz plik...";
+            this.btnSelectedOrderBrowseImage.Text = "Wybierz z listy";
             this.btnSelectedOrderBrowseImage.UseVisualStyleBackColor = true;
             // 
             // lSelectedOrderImage
@@ -795,6 +708,93 @@
             this.lSelectedOrderPhone.Size = new System.Drawing.Size(46, 13);
             this.lSelectedOrderPhone.TabIndex = 8;
             this.lSelectedOrderPhone.Text = "Telefon:";
+            // 
+            // btnSelectedOrderSave
+            // 
+            this.btnSelectedOrderSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSelectedOrderSave.BackColor = System.Drawing.Color.LightGreen;
+            this.btnSelectedOrderSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelectedOrderSave.Location = new System.Drawing.Point(3, 580);
+            this.btnSelectedOrderSave.Name = "btnSelectedOrderSave";
+            this.btnSelectedOrderSave.Size = new System.Drawing.Size(133, 23);
+            this.btnSelectedOrderSave.TabIndex = 0;
+            this.btnSelectedOrderSave.Text = "Zapisz zmiany";
+            this.btnSelectedOrderSave.UseVisualStyleBackColor = false;
+            // 
+            // btnSelectedOrderDelete
+            // 
+            this.btnSelectedOrderDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelectedOrderDelete.BackColor = System.Drawing.Color.Salmon;
+            this.btnSelectedOrderDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSelectedOrderDelete.Location = new System.Drawing.Point(443, 580);
+            this.btnSelectedOrderDelete.Name = "btnSelectedOrderDelete";
+            this.btnSelectedOrderDelete.Size = new System.Drawing.Size(115, 23);
+            this.btnSelectedOrderDelete.TabIndex = 1;
+            this.btnSelectedOrderDelete.Text = "Usuń zamówienie";
+            this.btnSelectedOrderDelete.UseVisualStyleBackColor = false;
+            // 
+            // lvAllOrders
+            // 
+            this.lvAllOrders.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvAllOrders.BackColor = System.Drawing.SystemColors.Window;
+            this.lvAllOrders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderID,
+            this.columnHeaderTypes,
+            this.columnHeaderAmount,
+            this.columnHeaderEndDate,
+            this.columnHeaderCompany,
+            this.columnHeaderPrice,
+            this.columnHeaderCost,
+            this.columnHeaderProfit});
+            this.lvAllOrders.FullRowSelect = true;
+            this.lvAllOrders.GridLines = true;
+            this.lvAllOrders.Location = new System.Drawing.Point(3, 3);
+            this.lvAllOrders.Name = "lvAllOrders";
+            this.lvAllOrders.Size = new System.Drawing.Size(555, 345);
+            this.lvAllOrders.TabIndex = 6;
+            this.lvAllOrders.UseCompatibleStateImageBehavior = false;
+            this.lvAllOrders.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeaderID
+            // 
+            this.columnHeaderID.Text = "ID";
+            this.columnHeaderID.Width = 36;
+            // 
+            // columnHeaderTypes
+            // 
+            this.columnHeaderTypes.Text = "Rodzaje produktów";
+            this.columnHeaderTypes.Width = 68;
+            // 
+            // columnHeaderAmount
+            // 
+            this.columnHeaderAmount.Text = "Ilośc produktów";
+            this.columnHeaderAmount.Width = 66;
+            // 
+            // columnHeaderEndDate
+            // 
+            this.columnHeaderEndDate.Text = "Termin";
+            this.columnHeaderEndDate.Width = 58;
+            // 
+            // columnHeaderCompany
+            // 
+            this.columnHeaderCompany.Text = "Zamawiający";
+            this.columnHeaderCompany.Width = 87;
+            // 
+            // columnHeaderPrice
+            // 
+            this.columnHeaderPrice.Text = "Cena";
+            this.columnHeaderPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeaderPrice.Width = 84;
+            // 
+            // columnHeaderCost
+            // 
+            this.columnHeaderCost.Text = "Koszt";
+            // 
+            // columnHeaderProfit
+            // 
+            this.columnHeaderProfit.Text = "Zysk";
             // 
             // MainWindow
             // 
