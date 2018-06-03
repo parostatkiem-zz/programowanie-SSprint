@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace programowanie_SSprint.DB_classes
 {
     public enum OrderStatus { JustOrdered, InProgress, Done};
-    class Order
+    public class Order
     {
         public uint Id { get; set; }
         public OrderStatus Status { get; set; }

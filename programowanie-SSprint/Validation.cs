@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace programowanie_SSprint.DB_classes
+namespace programowanie_SSprint
 {
-    public class Style
+    class Validation
     {
     }
 }

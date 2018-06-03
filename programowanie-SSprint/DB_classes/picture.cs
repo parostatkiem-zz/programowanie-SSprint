@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace programowanie_SSprint.DB_classes
 {
-    class Picture
+    public class Picture
     {
         public uint Id { get; set; }
         public string Name { get; set; }

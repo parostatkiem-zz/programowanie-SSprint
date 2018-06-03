@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace programowanie_SSprint.DB_classes
 {
-    class SingleItemOrder
+    public class SingleItemOrder
     {
         public uint Id { get; set; }
         public uint TshirtId { get; set; }

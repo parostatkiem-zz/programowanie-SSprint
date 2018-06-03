@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace programowanie_SSprint.DB_classes
 {
-    class Tshirt
+    public class Tshirt
     {
     }
 }
