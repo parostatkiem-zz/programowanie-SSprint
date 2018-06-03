@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "Czerwony",
             "#ff0000"}, -1);
@@ -45,6 +45,8 @@
             this.lHex = new System.Windows.Forms.Label();
             this.btnApplyChanges = new System.Windows.Forms.Button();
             this.columnHeaderID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lID = new System.Windows.Forms.Label();
+            this.tbID = new System.Windows.Forms.TextBox();
             this.groupBoxEditArea.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +62,7 @@
             this.lvColors.FullRowSelect = true;
             this.lvColors.GridLines = true;
             this.lvColors.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem2});
             this.lvColors.Location = new System.Drawing.Point(12, 36);
             this.lvColors.Name = "lvColors";
             this.lvColors.Size = new System.Drawing.Size(216, 209);
@@ -91,6 +93,8 @@
             // 
             this.groupBoxEditArea.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxEditArea.Controls.Add(this.tbID);
+            this.groupBoxEditArea.Controls.Add(this.lID);
             this.groupBoxEditArea.Controls.Add(this.btnApplyChanges);
             this.groupBoxEditArea.Controls.Add(this.lHex);
             this.groupBoxEditArea.Controls.Add(this.lName);
@@ -131,9 +135,9 @@
             // 
             this.tbName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbName.Location = new System.Drawing.Point(52, 34);
+            this.tbName.Location = new System.Drawing.Point(61, 34);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(138, 20);
+            this.tbName.Size = new System.Drawing.Size(129, 20);
             this.tbName.TabIndex = 0;
             // 
             // tbHex
@@ -151,18 +155,18 @@
             this.lName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lName.Location = new System.Drawing.Point(6, 37);
             this.lName.Name = "lName";
-            this.lName.Size = new System.Drawing.Size(45, 13);
+            this.lName.Size = new System.Drawing.Size(49, 13);
             this.lName.TabIndex = 2;
-            this.lName.Text = "Nazwa";
+            this.lName.Text = "Nazwa:";
             // 
             // lHex
             // 
             this.lHex.AutoSize = true;
             this.lHex.Location = new System.Drawing.Point(6, 65);
             this.lHex.Name = "lHex";
-            this.lHex.Size = new System.Drawing.Size(72, 13);
+            this.lHex.Size = new System.Drawing.Size(75, 13);
             this.lHex.TabIndex = 3;
-            this.lHex.Text = "Wartość HEX";
+            this.lHex.Text = "Wartość HEX:";
             // 
             // btnApplyChanges
             // 
@@ -182,6 +186,25 @@
             this.columnHeaderID.Text = "ID";
             this.columnHeaderID.Width = 44;
             // 
+            // lID
+            // 
+            this.lID.AutoSize = true;
+            this.lID.Location = new System.Drawing.Point(6, 90);
+            this.lID.Name = "lID";
+            this.lID.Size = new System.Drawing.Size(21, 13);
+            this.lID.TabIndex = 6;
+            this.lID.Text = "ID:";
+            // 
+            // tbID
+            // 
+            this.tbID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbID.Location = new System.Drawing.Point(33, 87);
+            this.tbID.Name = "tbID";
+            this.tbID.ReadOnly = true;
+            this.tbID.Size = new System.Drawing.Size(157, 20);
+            this.tbID.TabIndex = 7;
+            // 
             // ColorEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,7 +217,7 @@
             this.Controls.Add(this.lvColors);
             this.MinimumSize = new System.Drawing.Size(457, 274);
             this.Name = "ColorEditor";
-            this.Text = "ColorEditor";
+            this.Text = "Edytor kolorów";
             this.groupBoxEditArea.ResumeLayout(false);
             this.groupBoxEditArea.PerformLayout();
             this.ResumeLayout(false);
@@ -217,5 +240,7 @@
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Button btnAddNew;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TextBox tbID;
+        private System.Windows.Forms.Label lID;
     }
 }
