@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("S (dostępne: 530) 20zł");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("M (dostępne: 13) 25zł");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("L (dostępne: 51) 27zł");
@@ -126,6 +127,7 @@
             this.columnHeaderPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderCost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderProfit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lCopyright = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
@@ -269,9 +271,12 @@
             // pictureBoxCurrentOrderImage
             // 
             this.pictureBoxCurrentOrderImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxCurrentOrderImage.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxCurrentOrderImage.Image")));
+            this.pictureBoxCurrentOrderImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxCurrentOrderImage.InitialImage")));
             this.pictureBoxCurrentOrderImage.Location = new System.Drawing.Point(331, 42);
             this.pictureBoxCurrentOrderImage.Name = "pictureBoxCurrentOrderImage";
-            this.pictureBoxCurrentOrderImage.Size = new System.Drawing.Size(161, 92);
+            this.pictureBoxCurrentOrderImage.Size = new System.Drawing.Size(161, 94);
+            this.pictureBoxCurrentOrderImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxCurrentOrderImage.TabIndex = 1;
             this.pictureBoxCurrentOrderImage.TabStop = false;
             // 
@@ -364,7 +369,7 @@
             // 
             this.splitContainerHorizLeft.Panel2.Controls.Add(this.lvOrderedProducts);
             this.splitContainerHorizLeft.Size = new System.Drawing.Size(510, 428);
-            this.splitContainerHorizLeft.SplitterDistance = 212;
+            this.splitContainerHorizLeft.SplitterDistance = 211;
             this.splitContainerHorizLeft.TabIndex = 1;
             // 
             // panelProductSelector
@@ -373,7 +378,7 @@
             this.panelProductSelector.Controls.Add(this.numericAddingProductAmount);
             this.panelProductSelector.Controls.Add(this.btnAddProductToOrder);
             this.panelProductSelector.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelProductSelector.Location = new System.Drawing.Point(0, 180);
+            this.panelProductSelector.Location = new System.Drawing.Point(0, 179);
             this.panelProductSelector.Name = "panelProductSelector";
             this.panelProductSelector.Size = new System.Drawing.Size(510, 32);
             this.panelProductSelector.TabIndex = 1;
@@ -452,7 +457,7 @@
             treeNode16,
             treeNode19,
             treeNode21});
-            this.treeViewProductBrowser.Size = new System.Drawing.Size(510, 178);
+            this.treeViewProductBrowser.Size = new System.Drawing.Size(510, 177);
             this.treeViewProductBrowser.TabIndex = 0;
             // 
             // lvOrderedProducts
@@ -471,7 +476,7 @@
             this.lvOrderedProducts.GridLines = true;
             this.lvOrderedProducts.Location = new System.Drawing.Point(0, 0);
             this.lvOrderedProducts.Name = "lvOrderedProducts";
-            this.lvOrderedProducts.Size = new System.Drawing.Size(510, 212);
+            this.lvOrderedProducts.Size = new System.Drawing.Size(510, 213);
             this.lvOrderedProducts.TabIndex = 0;
             this.lvOrderedProducts.UseCompatibleStateImageBehavior = false;
             this.lvOrderedProducts.View = System.Windows.Forms.View.Details;
@@ -632,9 +637,12 @@
             // pictureBoxSelectedOrderImage
             // 
             this.pictureBoxSelectedOrderImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxSelectedOrderImage.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxSelectedOrderImage.Image")));
+            this.pictureBoxSelectedOrderImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxSelectedOrderImage.InitialImage")));
             this.pictureBoxSelectedOrderImage.Location = new System.Drawing.Point(392, 39);
             this.pictureBoxSelectedOrderImage.Name = "pictureBoxSelectedOrderImage";
             this.pictureBoxSelectedOrderImage.Size = new System.Drawing.Size(161, 164);
+            this.pictureBoxSelectedOrderImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxSelectedOrderImage.TabIndex = 1;
             this.pictureBoxSelectedOrderImage.TabStop = false;
             // 
@@ -796,15 +804,27 @@
             // 
             this.columnHeaderProfit.Text = "Zysk";
             // 
+            // lCopyright
+            // 
+            this.lCopyright.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lCopyright.AutoSize = true;
+            this.lCopyright.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lCopyright.Location = new System.Drawing.Point(930, 9);
+            this.lCopyright.Name = "lCopyright";
+            this.lCopyright.Size = new System.Drawing.Size(155, 13);
+            this.lCopyright.TabIndex = 1;
+            this.lCopyright.Text = "© 2018 Jan Sudczak, Filip Strózik";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1085, 634);
+            this.Controls.Add(this.lCopyright);
             this.Controls.Add(this.splitContainerMain);
             this.MinimumSize = new System.Drawing.Size(900, 500);
             this.Name = "MainWindow";
-            this.Text = "Form1";
+            this.Text = "SSprint";
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.splitContainerMain.Panel1.ResumeLayout(false);
             this.splitContainerMain.Panel2.ResumeLayout(false);
@@ -827,6 +847,7 @@
             this.gbSelectedOrderData.ResumeLayout(false);
             this.gbSelectedOrderData.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -891,6 +912,7 @@
         private System.Windows.Forms.Label lSelectedOrderName;
         private System.Windows.Forms.Label lSelectedOrderEmail;
         private System.Windows.Forms.Label lSelectedOrderPhone;
+        private System.Windows.Forms.Label lCopyright;
     }
 }
 

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "Słoneczko",
             "JanuszSoft"}, -1);
@@ -62,7 +62,7 @@
             this.lvPictures.FullRowSelect = true;
             this.lvPictures.GridLines = true;
             this.lvPictures.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem4});
             this.lvPictures.Location = new System.Drawing.Point(12, 36);
             this.lvPictures.Name = "lvPictures";
             this.lvPictures.Size = new System.Drawing.Size(275, 224);
@@ -191,10 +191,12 @@
             this.pictureBoxGraphics.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxGraphics.Image = global::programowanie_SSprint.Properties.Resources.empty_image;
             this.pictureBoxGraphics.InitialImage = global::programowanie_SSprint.Properties.Resources.empty_image;
             this.pictureBoxGraphics.Location = new System.Drawing.Point(9, 86);
             this.pictureBoxGraphics.Name = "pictureBoxGraphics";
             this.pictureBoxGraphics.Size = new System.Drawing.Size(181, 138);
+            this.pictureBoxGraphics.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxGraphics.TabIndex = 8;
             this.pictureBoxGraphics.TabStop = false;
             // 
