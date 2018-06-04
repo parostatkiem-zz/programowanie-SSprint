@@ -11,7 +11,7 @@
  Target Server Version : 50639
  File Encoding         : 65001
 
- Date: 28/05/2018 15:15:54
+ Date: 01/06/2018 15:59:46
 */
 
 SET NAMES utf8mb4;
@@ -82,8 +82,8 @@ CREATE TABLE `singleitemorder`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `tshirt_id`(`tshirt_id`) USING BTREE,
   INDEX `order_id`(`order_id`) USING BTREE,
-  CONSTRAINT `tshirt_id` FOREIGN KEY (`tshirt_id`) REFERENCES `tshirts` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
-  CONSTRAINT `order_id` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
+  CONSTRAINT `order_id` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  CONSTRAINT `tshirt_id` FOREIGN KEY (`tshirt_id`) REFERENCES `tshirts` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_polish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
