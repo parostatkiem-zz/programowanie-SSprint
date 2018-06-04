@@ -26,6 +26,9 @@ namespace programowanie_SSprint
         public MainWindow()
         {
             InitializeComponent();
+            // THIS IS HOW TO USE ErrorWindow
+            //var ErrorWindow = new Views.HelperViews.Error("dgf gfs dgas gasg gdasg ", "long message text (optional)", "Title text (optional)");
+          //  ErrorWindow.ShowDialog();
         }
 
         #endregion

@@ -13,9 +13,9 @@ namespace programowanie_SSprint
     public partial class PictureEditor : Form
     {
         #region EVENTS
-        public event Func<DB_classes.Color, bool> insertColor; //jesli color.id==null, to dodaje nowy color, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
-        public event Func<List<DB_classes.Color>> getAllColors; //zwraca listę wszystkich kolorów
-        public event Func<DB_classes.Color, bool> removeColor; //usuwa kolor. Istotne jest tylko color.id. Zwraca bool czy się udało
+        public event Func<DB_classes.Picture, bool> insertPicture; //jesli color.id==null, to dodaje nowy obraz, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Func<List<DB_classes.Picture>> getAllPictures; //zwraca listę wszystkich obrazow
+        public event Func<DB_classes.Picture, bool> removePicture; //usuwa obraz. Istotne jest tylko picture.id. Zwraca bool czy się udało
 
         #endregion
         public PictureEditor()
