@@ -11,7 +11,7 @@
  Target Server Version : 50639
  File Encoding         : 65001
 
- Date: 01/06/2018 15:59:46
+ Date: 08/06/2018 09:50:34
 */
 
 SET NAMES utf8mb4;
@@ -54,6 +54,7 @@ CREATE TABLE `orders`  (
   `client_phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_polish_ci NULL DEFAULT NULL,
   `end_date` datetime(0) NOT NULL,
   `order_date` datetime(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `markup_percentage` varchar(255) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL DEFAULT '10' COMMENT 'marża %',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `picture_id`(`picture_id`) USING BTREE,
   CONSTRAINT `picture_id` FOREIGN KEY (`picture_id`) REFERENCES `pictures` (`id`) ON DELETE SET NULL ON UPDATE RESTRICT
@@ -106,8 +107,8 @@ CREATE TABLE `tshirts`  (
   `style_id` int(255) UNSIGNED NOT NULL,
   `sex` enum('man','woman','unisex') CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL DEFAULT 'unisex',
   `color_id` int(255) UNSIGNED NOT NULL,
+  `price` decimal(10, 2) NOT NULL,
   `available` int(255) NOT NULL DEFAULT 0,
-  `reserver` int(255) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `company_id`(`company_id`) USING BTREE,
   INDEX `style_id`(`style_id`) USING BTREE,
