@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace programowanie_SSprint.DB_classes
 {
-    public enum OrderStatus { JustOrdered, InProgress, Done};
+   // public enum OrderStatus { JustOrdered, InProgress, Done};
     public class Order
     {
         public uint Id { get; set; }
-        public OrderStatus Status { get; set; }
+        public int Status { get; set; } //0 - JustOrdered, 1 - InProgress, 2 - Done
 
         public uint PictureId { get; set; }
 
