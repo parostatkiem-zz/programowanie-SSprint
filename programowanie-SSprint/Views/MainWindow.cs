@@ -10,15 +10,15 @@ using System.Windows.Forms;
 
 namespace programowanie_SSprint
 {
-    public partial class MainWindow : Form, ImainView
+    public partial class MainWindow : Form, ImainView, IErrorable
     {
 
         #region EVENTS
-        public event Func<List<DB_classes.Tshirt>> getAllThsirts; //pobiera wszystkie dane z tabeli Tshirts
-        public event Func<int, DB_classes.Order> getSingleOrder; //pobiera jeden order o danym ID
+        public event Func<IErrorable, List<DB_classes.Tshirt>> getAllThsirts; //pobiera wszystkie dane z tabeli Tshirts
+        public event Func<IErrorable, int, DB_classes.Order> getSingleOrder; //pobiera jeden order o danym ID
 
-        public event Func<DB_classes.Order, bool> insertSingleOrder;//jesli order.id==null, to dodaje nowy order, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
-        public event Func<List<DB_classes.SingleItemOrder>,bool> insertListOfItems;//wstawia listę zamówionych koszulek. MAją one ustawione order_id. Zwraca bool czy się udało
+        public event Func<IErrorable, DB_classes.Order, bool> insertSingleOrder;//jesli order.id==null, to dodaje nowy order, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Func<IErrorable, List<DB_classes.SingleItemOrder>,bool> insertListOfItems;//wstawia listę zamówionych koszulek. MAją one ustawione order_id. Zwraca bool czy się udało
         #endregion
 
         #region PUBLIC
@@ -27,8 +27,13 @@ namespace programowanie_SSprint
         {
             InitializeComponent();
             // THIS IS HOW TO USE ErrorWindow
-            //var ErrorWindow = new Views.HelperViews.Error("dgf gfs dgas gasg gdasg ", "long message text (optional)", "Title text (optional)");
-          //  ErrorWindow.ShowDialog();
+            //
+        }
+
+        public void ShowError(string message, string longMessage = null, string title = null)
+        {
+            var ErrorWindow = new Views.HelperViews.Error(message, longMessage, title);
+            ErrorWindow.ShowDialog();
         }
 
         #endregion
