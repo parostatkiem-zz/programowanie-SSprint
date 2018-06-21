@@ -53,6 +53,7 @@
     <Compile Include="Views\HelperViews\Error.Designer.cs">
       <DependentUpon>Error.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\IErrorable.cs" />
     <Compile Include="Views\PictureEditor.cs">
       <SubType>Form</SubType>
     </Compile>
