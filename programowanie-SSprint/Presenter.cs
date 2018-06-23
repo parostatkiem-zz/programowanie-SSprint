@@ -12,21 +12,41 @@ namespace programowanie_SSprint
         Model model;
         public Presenter(Model model, ImainView view)
         {
+            this.view = view;
+            this.model = model;
             view.getAllThsirts += View_getAllThsirts;
+            view.getAllCompany += View_getAllCompany;
         }
 
-        private List<DB_classes.Tshirt> View_getAllThsirts(IErrorable senderWindow)
+        private List<company> View_getAllCompany(IErrorable senderWindow)
         {
-            throw new NotImplementedException();
+            try
+            {
+                model.ConnectToBase();
 
-            /*
-             try{ return model.GetAllTshirts();}
-             catch(Exception ex)
-             { 
-                senderWindow.ShowError("Nie udało się pobrać listy koszulek",ex.ToString()); 
-                return new List<DB_classes.Tshirt>();
-             }
-             */
+                return model.getAllCompanies();
+            }
+            catch (Exception ex)
+            {
+                senderWindow.ShowError(ex.ToString());
+                return null;
+            }
+        }
+
+        private List<tshirt> View_getAllThsirts(IErrorable senderWindow)
+        {
+            try
+            {
+                model.ConnectToBase();
+
+                return model.getAllTshirts();
+            }
+            catch(Exception ex)
+            {
+                senderWindow.ShowError(ex.ToString());
+                return null;
+            }
+            
         }
     }
 }
