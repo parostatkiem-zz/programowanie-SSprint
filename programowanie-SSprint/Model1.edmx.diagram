@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6eb56bcaef92496cbb39d96b8a05156f" Name="Diagram1">
+        <EntityTypeShape EntityType="SSprintModel.color" Width="1.5" PointX="0.625" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSprintModel.company" Width="1.5" PointX="0.5" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSprintModel.order" Width="1.5" PointX="10" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSprintModel.picture" Width="1.5" PointX="7.5" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSprintModel.singleItemOrder" Width="1.5" PointX="5.125" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSprintModel.style" Width="1.5" PointX="5.125" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSprintModel.tshirt" Width="1.5" PointX="2.875" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="SSprintModel.color_id" ManuallyRouted="false" />
+        <AssociationConnector Association="SSprintModel.company_id" ManuallyRouted="false" />
+        <AssociationConnector Association="SSprintModel.order_id" ManuallyRouted="false" />
+        <AssociationConnector Association="SSprintModel.picture_id" ManuallyRouted="false" />
+        <AssociationConnector Association="SSprintModel.tshirt_id" ManuallyRouted="false" />
+        <AssociationConnector Association="SSprintModel.style_id" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
