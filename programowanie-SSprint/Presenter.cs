@@ -16,7 +16,32 @@ namespace programowanie_SSprint
             this.model = model;
             view.getAllThsirts += View_getAllThsirts;
             view.getAllCompany += View_getAllCompany;
+
+            view.getAllColors += View_getAllColors;
+            view.insertColor += View_insertColor;
         }
+
+        private bool View_insertColor(IErrorable arg1, color arg2)
+        {
+            throw new NotImplementedException();
+            //TODO
+        }
+
+        private List<color> View_getAllColors(IErrorable senderWindow)
+        {
+            try
+            {
+                model.ConnectToBase();
+
+                return model.getAllColors();
+            }
+            catch (Exception ex)
+            {
+                senderWindow.ShowError(ex.ToString());
+                return null; //moze lepiej niech zwraca new List<color>()?
+            }
+        }
+    
 
         private List<company> View_getAllCompany(IErrorable senderWindow)
         {
@@ -48,5 +73,7 @@ namespace programowanie_SSprint
             }
             
         }
+
+
     }
 }

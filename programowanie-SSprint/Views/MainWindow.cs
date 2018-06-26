@@ -34,6 +34,7 @@ namespace programowanie_SSprint
         public MainWindow()
         {
             InitializeComponent();
+            colorEditorWindow = new ColorEditor();
             colorEditorWindow.getAllColors += ColorEditorWindow_getAllColors;
             colorEditorWindow.insertColor += ColorEditorWindow_insertColor;
         }
@@ -58,11 +59,12 @@ namespace programowanie_SSprint
         #region GENERATED_EVENTS
         private void MainWindow_Load(object sender, EventArgs e)
         {
-
+     
+           // colorEditorWindow.ShowDialog();
         }
         #endregion
         #region PRIVATE_VARIABLES_PROPERTIES
-        private ColorEditor colorEditorWindow = new ColorEditor();
+        private ColorEditor colorEditorWindow;
         #endregion
         #region PRIVATE_METHODS
         #endregion

@@ -90,6 +90,11 @@ namespace programowanie_SSprint
             return SSprintDataBase.tshirts.ToList();
         }
 
+        public List<color> getAllColors()
+        {
+            return SSprintDataBase.colors.ToList();
+        }
+
         public List<tshirt> findTshirtsByCompany(string name)
         {
             company companyName = SSprintDataBase.companies.FirstOrDefault(c => c.name == name);
