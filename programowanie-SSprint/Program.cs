@@ -20,7 +20,7 @@ namespace programowanie_SSprint
             MainWindow view = new MainWindow();
             Presenter p = new Presenter(model, view);
             Application.Run(view);
-            Application.Run(new MainWindow());
+          //  Application.Run(new MainWindow());
         }
     }
 }

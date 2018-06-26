@@ -21,6 +21,12 @@ namespace programowanie_SSprint
 
         public event Func<IErrorable, order, bool> insertSingleOrder;//jesli order.id==null, to dodaje nowy order, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
         public event Func<IErrorable, List<singleItemOrder>,bool> insertListOfItems;//wstawia listę zamówionych koszulek. MAją one ustawione order_id. Zwraca bool czy się udało
+
+        public event Func<IErrorable, color, bool> insertColor; //jesli color.id==null, to dodaje nowy color, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Func<IErrorable, List<color>> getAllColors; //zwraca listę wszystkich kolorów
+        public event Func<IErrorable, color, bool> removeColor; //usuwa kolor. Istotne jest tylko color.id. Zwraca bool czy się udało
+
+
         #endregion
 
         #region PUBLIC
@@ -28,8 +34,18 @@ namespace programowanie_SSprint
         public MainWindow()
         {
             InitializeComponent();
-            // THIS IS HOW TO USE ErrorWindow
-            //
+            colorEditorWindow.getAllColors += ColorEditorWindow_getAllColors;
+            colorEditorWindow.insertColor += ColorEditorWindow_insertColor;
+        }
+
+        private bool ColorEditorWindow_insertColor(IErrorable arg1, color arg2)
+        {
+            return insertColor(arg1, arg2);
+        }
+
+        private List<color> ColorEditorWindow_getAllColors(IErrorable arg)
+        {
+            return getAllColors(arg);
         }
 
         public void ShowError(string message, string longMessage = null, string title = null)
@@ -46,6 +62,7 @@ namespace programowanie_SSprint
         }
         #endregion
         #region PRIVATE_VARIABLES_PROPERTIES
+        private ColorEditor colorEditorWindow = new ColorEditor();
         #endregion
         #region PRIVATE_METHODS
         #endregion

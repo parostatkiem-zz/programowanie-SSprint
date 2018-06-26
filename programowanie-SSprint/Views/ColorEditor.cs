@@ -32,9 +32,9 @@ namespace programowanie_SSprint
             currentlySelectedColor = null;
             currentlyEditedColor = null;
         }
-        private DB_classes.Color currentlyEditedColor;
-        private DB_classes.Color currentlySelectedColor;
-        private DB_classes.Color CurrentlySelectedColor
+        private color currentlyEditedColor;
+        private color currentlySelectedColor;
+        private color CurrentlySelectedColor
         {
             get { return currentlySelectedColor; }
             set
@@ -53,15 +53,15 @@ namespace programowanie_SSprint
         {
             lvColors.Items.Clear();
 
-            List<DB_classes.Color> recievedColors = getAllColors(this);
+            List<color> recievedColors = getAllColors(this);
 
             ListViewItem item;
             foreach(var c in recievedColors)
             {
-                item = new ListViewItem(c.Id.ToString());
+                item = new ListViewItem(c.id.ToString());
                 item.Tag = c;
-                item.SubItems.Add(c.Name);
-                item.SubItems.Add(c.Hex_value);
+                item.SubItems.Add(c.name);
+                item.SubItems.Add(c.hex_value);
                 lvColors.Items.Add(item);
             }
         }
@@ -70,17 +70,17 @@ namespace programowanie_SSprint
         {
             if (lvColors.SelectedItems.Count <= 0 || lvColors.SelectedItems[0].Tag == null) return; //nic nie jest zaznaczone
 
-            CurrentlySelectedColor = lvColors.SelectedItems[0].Tag as DB_classes.Color;
+            CurrentlySelectedColor = lvColors.SelectedItems[0].Tag as color;
         }
 
-        private void displaySingleColor(DB_classes.Color c)
+        private void displaySingleColor(color c)
         {
             currentlyEditedColor = c;
             if (c != null)
-            { 
-                tbName.Text = c.Name;
-                tbID.Text = c.Id.ToString();
-                tbHex.Text = c.Hex_value;
+            {
+                tbName.Text = c.name;
+                tbID.Text = c.id.ToString();
+                tbHex.Text = c.hex_value;
             }
             else
             {
@@ -90,6 +90,45 @@ namespace programowanie_SSprint
                 tbHex.Text = "";
             }
             return;
+        }
+
+        private void tbName_TextChanged(object sender, EventArgs e)
+        {
+            if (tbName.Text.Length <= 0) { return; }//error
+
+            currentlyEditedColor.name = tbName.Text;
+        }
+
+        private void tbHex_TextChanged(object sender, EventArgs e)
+        {
+            if (tbHex.Text.Length <= 0) { return; }//error
+
+            currentlyEditedColor.hex_value = tbHex.Text;
+        }
+
+        private void btnApplyChanges_Click(object sender, EventArgs e)
+        {
+            //sprawdzanie poprawnosci
+            if (currentlyEditedColor == null) return;
+            insertColor(this, currentlyEditedColor);
+            groupBoxColorList.Visible = true;
+            RefreshColorList();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            //wypada dać potwierdzenie
+            groupBoxColorList.Visible = true;
+            currentlyEditedColor = null;
+            CurrentlySelectedColor = CurrentlySelectedColor; //odswiezenie
+
+        }
+
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            CurrentlySelectedColor = null;
+            currentlyEditedColor = new color();
+            groupBoxColorList.Visible = false;
         }
     }
 }

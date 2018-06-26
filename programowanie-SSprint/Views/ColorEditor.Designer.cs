@@ -36,8 +36,8 @@
             this.columnHeaderID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderHex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lListHeader = new System.Windows.Forms.Label();
             this.groupBoxEditArea = new System.Windows.Forms.GroupBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.tbID = new System.Windows.Forms.TextBox();
             this.lID = new System.Windows.Forms.Label();
             this.btnApplyChanges = new System.Windows.Forms.Button();
@@ -47,26 +47,25 @@
             this.tbName = new System.Windows.Forms.TextBox();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.groupBoxColorList = new System.Windows.Forms.GroupBox();
             this.groupBoxEditArea.SuspendLayout();
+            this.groupBoxColorList.SuspendLayout();
             this.SuspendLayout();
             // 
             // lvColors
             // 
-            this.lvColors.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lvColors.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderID,
             this.columnHeaderName,
             this.columnHeaderHex});
+            this.lvColors.Dock = System.Windows.Forms.DockStyle.Top;
             this.lvColors.FullRowSelect = true;
             this.lvColors.GridLines = true;
             this.lvColors.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
-            this.lvColors.Location = new System.Drawing.Point(12, 36);
+            this.lvColors.Location = new System.Drawing.Point(3, 16);
             this.lvColors.Name = "lvColors";
-            this.lvColors.Size = new System.Drawing.Size(216, 209);
+            this.lvColors.Size = new System.Drawing.Size(218, 212);
             this.lvColors.TabIndex = 0;
             this.lvColors.UseCompatibleStateImageBehavior = false;
             this.lvColors.View = System.Windows.Forms.View.Details;
@@ -87,15 +86,6 @@
             this.columnHeaderHex.Text = "Wartość HEX";
             this.columnHeaderHex.Width = 82;
             // 
-            // lListHeader
-            // 
-            this.lListHeader.AutoSize = true;
-            this.lListHeader.Location = new System.Drawing.Point(13, 13);
-            this.lListHeader.Name = "lListHeader";
-            this.lListHeader.Size = new System.Drawing.Size(127, 13);
-            this.lListHeader.TabIndex = 1;
-            this.lListHeader.Text = "Lista dostępnych kolorów";
-            // 
             // groupBoxEditArea
             // 
             this.groupBoxEditArea.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -114,6 +104,20 @@
             this.groupBoxEditArea.TabIndex = 2;
             this.groupBoxEditArea.TabStop = false;
             this.groupBoxEditArea.Text = "Edycja zaznaczonego koloru";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.BackColor = System.Drawing.Color.Tomato;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancel.Location = new System.Drawing.Point(6, 186);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(184, 23);
+            this.btnCancel.TabIndex = 8;
+            this.btnCancel.Text = "Anuluj";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // tbID
             // 
@@ -146,6 +150,7 @@
             this.btnApplyChanges.TabIndex = 5;
             this.btnApplyChanges.Text = "Zapisz zmiany";
             this.btnApplyChanges.UseVisualStyleBackColor = false;
+            this.btnApplyChanges.Click += new System.EventHandler(this.btnApplyChanges_Click);
             // 
             // lHex
             // 
@@ -174,6 +179,7 @@
             this.tbHex.Name = "tbHex";
             this.tbHex.Size = new System.Drawing.Size(106, 20);
             this.tbHex.TabIndex = 1;
+            this.tbHex.TextChanged += new System.EventHandler(this.tbHex_TextChanged);
             // 
             // tbName
             // 
@@ -183,62 +189,60 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(129, 20);
             this.tbName.TabIndex = 0;
+            this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
             // btnAddNew
             // 
             this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddNew.BackColor = System.Drawing.Color.LightBlue;
             this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAddNew.Location = new System.Drawing.Point(153, 251);
+            this.btnAddNew.Location = new System.Drawing.Point(143, 237);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(75, 23);
             this.btnAddNew.TabIndex = 3;
             this.btnAddNew.Text = "Dodaj nowy";
             this.btnAddNew.UseVisualStyleBackColor = false;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDelete.BackColor = System.Drawing.Color.Tomato;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelete.Location = new System.Drawing.Point(12, 251);
+            this.btnDelete.Location = new System.Drawing.Point(6, 237);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Usuń";
             this.btnDelete.UseVisualStyleBackColor = false;
             // 
-            // btnCancel
+            // groupBoxColorList
             // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.BackColor = System.Drawing.Color.Tomato;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel.Location = new System.Drawing.Point(6, 186);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(184, 23);
-            this.btnCancel.TabIndex = 8;
-            this.btnCancel.Text = "Anuluj";
-            this.btnCancel.UseVisualStyleBackColor = false;
+            this.groupBoxColorList.Controls.Add(this.lvColors);
+            this.groupBoxColorList.Controls.Add(this.btnDelete);
+            this.groupBoxColorList.Controls.Add(this.btnAddNew);
+            this.groupBoxColorList.Location = new System.Drawing.Point(4, 8);
+            this.groupBoxColorList.Name = "groupBoxColorList";
+            this.groupBoxColorList.Size = new System.Drawing.Size(224, 266);
+            this.groupBoxColorList.TabIndex = 5;
+            this.groupBoxColorList.TabStop = false;
+            this.groupBoxColorList.Text = "Lista wprowadzonych kolorów";
             // 
             // ColorEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(445, 286);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnAddNew);
+            this.Controls.Add(this.groupBoxColorList);
             this.Controls.Add(this.groupBoxEditArea);
-            this.Controls.Add(this.lListHeader);
-            this.Controls.Add(this.lvColors);
             this.MinimumSize = new System.Drawing.Size(457, 274);
             this.Name = "ColorEditor";
             this.Text = "Edytor kolorów";
             this.Load += new System.EventHandler(this.ColorEditor_Load);
             this.groupBoxEditArea.ResumeLayout(false);
             this.groupBoxEditArea.PerformLayout();
+            this.groupBoxColorList.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -248,7 +252,6 @@
         private System.Windows.Forms.ColumnHeader columnHeaderID;
         private System.Windows.Forms.ColumnHeader columnHeaderName;
         private System.Windows.Forms.ColumnHeader columnHeaderHex;
-        private System.Windows.Forms.Label lListHeader;
         private System.Windows.Forms.GroupBox groupBoxEditArea;
         private System.Windows.Forms.Button btnApplyChanges;
         private System.Windows.Forms.Label lHex;
@@ -260,5 +263,6 @@
         private System.Windows.Forms.TextBox tbID;
         private System.Windows.Forms.Label lID;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.GroupBox groupBoxColorList;
     }
 }
