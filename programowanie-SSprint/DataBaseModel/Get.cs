@@ -8,16 +8,16 @@ namespace programowanie_SSprint
 {
     partial class Model
     {
-        public List<company> getAllCompanies()
+        public List<company> GetAllCompanies()
         {
             return SSprintDataBase.companies.ToList();
         }
-        public List<tshirt> getAllTshirts()
+        public List<tshirt> GetAllTshirts()
         {
             return SSprintDataBase.tshirts.ToList();
         }
 
-        public List<color> getAllColors()
+        public List<color> GetAllColors()
         {
             return SSprintDataBase.colors.ToList();
         }
