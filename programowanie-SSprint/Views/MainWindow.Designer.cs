@@ -121,6 +121,15 @@
             this.columnHeaderCost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderProfit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lCopyright = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.programToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.getDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resourcesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tshirtsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.companiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stylesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
@@ -137,6 +146,7 @@
             this.gbSelectedOrderParams.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedOrderImage)).BeginInit();
             this.gbSelectedOrderData.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainerMain
@@ -250,6 +260,7 @@
             this.btnCurrentOrderBrowseImage.TabIndex = 1;
             this.btnCurrentOrderBrowseImage.Text = "Wybierz z listy";
             this.btnCurrentOrderBrowseImage.UseVisualStyleBackColor = true;
+            this.btnCurrentOrderBrowseImage.Click += new System.EventHandler(this.btnCurrentOrderBrowseImage_Click);
             // 
             // lCurrentOrderPicture
             // 
@@ -808,6 +819,78 @@
             this.lCopyright.TabIndex = 1;
             this.lCopyright.Text = "© 2018 Jan Sudczak, Filip Strózik";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.programToolStripMenuItem,
+            this.resourcesToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1085, 24);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // programToolStripMenuItem
+            // 
+            this.programToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.getDataToolStripMenuItem});
+            this.programToolStripMenuItem.Name = "programToolStripMenuItem";
+            this.programToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.programToolStripMenuItem.Text = "Program";
+            // 
+            // getDataToolStripMenuItem
+            // 
+            this.getDataToolStripMenuItem.Name = "getDataToolStripMenuItem";
+            this.getDataToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.getDataToolStripMenuItem.Text = "Pobierz Dane";
+            this.getDataToolStripMenuItem.Click += new System.EventHandler(this.getDataToolStripMenuItem_Click);
+            // 
+            // resourcesToolStripMenuItem
+            // 
+            this.resourcesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tshirtsToolStripMenuItem,
+            this.companiesToolStripMenuItem,
+            this.colorsToolStripMenuItem,
+            this.stylesToolStripMenuItem});
+            this.resourcesToolStripMenuItem.Name = "resourcesToolStripMenuItem";
+            this.resourcesToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.resourcesToolStripMenuItem.Text = "Zasoby";
+            // 
+            // tshirtsToolStripMenuItem
+            // 
+            this.tshirtsToolStripMenuItem.Name = "tshirtsToolStripMenuItem";
+            this.tshirtsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tshirtsToolStripMenuItem.Text = "Koszulki";
+            this.tshirtsToolStripMenuItem.Click += new System.EventHandler(this.tshirtsToolStripMenuItem_Click);
+            // 
+            // companiesToolStripMenuItem
+            // 
+            this.companiesToolStripMenuItem.Name = "companiesToolStripMenuItem";
+            this.companiesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.companiesToolStripMenuItem.Text = "Firmy";
+            this.companiesToolStripMenuItem.Click += new System.EventHandler(this.companiesToolStripMenuItem_Click);
+            // 
+            // colorsToolStripMenuItem
+            // 
+            this.colorsToolStripMenuItem.Name = "colorsToolStripMenuItem";
+            this.colorsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.colorsToolStripMenuItem.Text = "Kolory";
+            this.colorsToolStripMenuItem.Click += new System.EventHandler(this.colorsToolStripMenuItem_Click);
+            // 
+            // stylesToolStripMenuItem
+            // 
+            this.stylesToolStripMenuItem.Name = "stylesToolStripMenuItem";
+            this.stylesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.stylesToolStripMenuItem.Text = "Style";
+            this.stylesToolStripMenuItem.Click += new System.EventHandler(this.stylesToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.helpToolStripMenuItem.Text = "Pomoc";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -815,6 +898,8 @@
             this.ClientSize = new System.Drawing.Size(1085, 634);
             this.Controls.Add(this.lCopyright);
             this.Controls.Add(this.splitContainerMain);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(900, 500);
             this.Name = "MainWindow";
             this.Text = "SSprint";
@@ -839,6 +924,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedOrderImage)).EndInit();
             this.gbSelectedOrderData.ResumeLayout(false);
             this.gbSelectedOrderData.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -906,6 +993,15 @@
         private System.Windows.Forms.Label lSelectedOrderEmail;
         private System.Windows.Forms.Label lSelectedOrderPhone;
         private System.Windows.Forms.Label lCopyright;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem resourcesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tshirtsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem companiesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem colorsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stylesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem programToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem getDataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
     }
 }
 
