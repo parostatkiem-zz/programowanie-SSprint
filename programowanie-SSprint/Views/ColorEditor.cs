@@ -118,6 +118,9 @@ namespace programowanie_SSprint
         private void btnCancel_Click(object sender, EventArgs e)
         {
             //wypada dać potwierdzenie
+            DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz odrzucić wprowadzone zmiany?", "Potwierdzenie odrzucenia zmian", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.No) return;
+            
             groupBoxColorList.Visible = true;
             currentlyEditedColor = null;
             CurrentlySelectedColor = CurrentlySelectedColor; //odswiezenie
@@ -129,6 +132,17 @@ namespace programowanie_SSprint
             CurrentlySelectedColor = null;
             currentlyEditedColor = new color();
             groupBoxColorList.Visible = false;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (CurrentlySelectedColor == null)
+            {
+                ShowError("Wygląda na to, że żaden kolor nie jest zaznaczony");
+                return;
+            }
+
+            removeColor(this, CurrentlySelectedColor);
         }
     }
 }

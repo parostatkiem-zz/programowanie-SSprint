@@ -26,6 +26,10 @@ namespace programowanie_SSprint
         public event Func<IErrorable, List<color>> getAllColors; //zwraca listę wszystkich kolorów
         public event Func<IErrorable, color, bool> removeColor; //usuwa kolor. Istotne jest tylko color.id. Zwraca bool czy się udało
 
+        public event Func<IErrorable, picture, bool> insertPicture; //jesli color.id==null, to dodaje nowy obraz, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Func<IErrorable, List<picture>> getAllPictures; //zwraca listę wszystkich obrazow
+        public event Func<IErrorable, picture, bool> removePicture; //usuwa obraz. Istotne jest tylko picture.id. Zwraca bool czy się udało
+
 
         #endregion
 
@@ -37,6 +41,21 @@ namespace programowanie_SSprint
             colorEditorWindow = new ColorEditor();
             colorEditorWindow.getAllColors += ColorEditorWindow_getAllColors;
             colorEditorWindow.insertColor += ColorEditorWindow_insertColor;
+            colorEditorWindow.removeColor += ColorEditorWindow_removeColor;
+        }
+      
+        public void ShowError(string message, string longMessage = null, string title = null)
+        {
+            var ErrorWindow = new Views.HelperViews.Error(message, longMessage, title);
+            ErrorWindow.ShowDialog();
+        }
+
+        #endregion
+
+        #region CHILD_EVENT_METHODS
+        private bool ColorEditorWindow_removeColor(IErrorable arg1, color arg2)
+        {
+            return removeColor(arg1, arg2);
         }
 
         private bool ColorEditorWindow_insertColor(IErrorable arg1, color arg2)
@@ -47,12 +66,6 @@ namespace programowanie_SSprint
         private List<color> ColorEditorWindow_getAllColors(IErrorable arg)
         {
             return getAllColors(arg);
-        }
-
-        public void ShowError(string message, string longMessage = null, string title = null)
-        {
-            var ErrorWindow = new Views.HelperViews.Error(message, longMessage, title);
-            ErrorWindow.ShowDialog();
         }
 
         #endregion
@@ -81,6 +94,8 @@ namespace programowanie_SSprint
             // TODO
             // event odpowiadający za dodawanie/usuwanie/edytowanie kolorów
             //
+
+            colorEditorWindow.ShowDialog();
         }
 
         private void stylesToolStripMenuItem_Click(object sender, EventArgs e)
