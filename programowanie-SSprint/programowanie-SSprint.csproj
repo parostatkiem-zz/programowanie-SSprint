@@ -76,6 +76,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelData.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\AddingData.cs" />
+    <Compile Include="Model\GettingData.cs" />
+    <Compile Include="Model\SearchingData.cs" />
     <Compile Include="order.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -118,7 +121,7 @@
     <Compile Include="Views\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model.cs" />
+    <Compile Include="Model\MainDataModel.cs" />
     <Compile Include="Presenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
