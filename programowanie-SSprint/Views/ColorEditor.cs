@@ -25,13 +25,14 @@ namespace programowanie_SSprint
             var ErrorWindow = new Views.HelperViews.Error(message, longMessage, title);
             ErrorWindow.ShowDialog();
         }
-        #endregion
+       
         public ColorEditor()
         {
             InitializeComponent();
             currentlySelectedColor = null;
             currentlyEditedColor = null;
         }
+        #endregion
         private color currentlyEditedColor;
         private color currentlySelectedColor;
         private color CurrentlySelectedColor

@@ -42,8 +42,15 @@ namespace programowanie_SSprint
             colorEditorWindow.getAllColors += ColorEditorWindow_getAllColors;
             colorEditorWindow.insertColor += ColorEditorWindow_insertColor;
             colorEditorWindow.removeColor += ColorEditorWindow_removeColor;
+
+            pictureEditorWindow = new PictureEditor();
+            pictureEditorWindow.insertPicture += PictureEditorWindow_insertPicture;
+            pictureEditorWindow.getAllPictures += PictureEditorWindow_getAllPictures;
+            pictureEditorWindow.removePicture += PictureEditorWindow_removePicture;
         }
+
       
+
         public void ShowError(string message, string longMessage = null, string title = null)
         {
             var ErrorWindow = new Views.HelperViews.Error(message, longMessage, title);
@@ -68,6 +75,18 @@ namespace programowanie_SSprint
             return getAllColors(arg);
         }
 
+        private bool PictureEditorWindow_insertPicture(IErrorable arg1, picture arg2)
+        {
+            return insertPicture(arg1, arg2);
+        }
+        private List<picture> PictureEditorWindow_getAllPictures(IErrorable arg)
+        {
+            return getAllPictures(arg);
+        }
+        private bool PictureEditorWindow_removePicture(IErrorable arg1, picture arg2)
+        {
+            return removePicture(arg1, arg2);
+        }
         #endregion
         #region GENERATED_EVENTS
         private void MainWindow_Load(object sender, EventArgs e)
@@ -87,6 +106,7 @@ namespace programowanie_SSprint
             // TODO
             // event odpowiadający za dodawanie/usuwanie/edytowanie firm
             //
+          //  pictureEditorWindow.ShowDialog();
         }
 
         private void colorsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -114,10 +134,16 @@ namespace programowanie_SSprint
         #endregion
         #region PRIVATE_VARIABLES_PROPERTIES
         private ColorEditor colorEditorWindow;
+        private PictureEditor pictureEditorWindow;
+        // private 
         #endregion
 
         #region PRIVATE_METHODS
         #endregion
- 
+
+        private void btnCurrentOrderBrowseImage_Click(object sender, EventArgs e)
+        {
+            pictureEditorWindow.ShowDialog();
+        }
     }
 }
