@@ -61,7 +61,6 @@
     <Compile Include="company.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB_classes\Style.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -112,12 +111,6 @@
       <DependentUpon>ColorEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="DB.cs" />
-    <Compile Include="DB_classes\Color.cs" />
-    <Compile Include="DB_classes\Company.cs" />
-    <Compile Include="DB_classes\Order.cs" />
-    <Compile Include="DB_classes\Picture.cs" />
-    <Compile Include="DB_classes\SingleItemOrder.cs" />
-    <Compile Include="DB_classes\Tshirt.cs" />
     <Compile Include="Views\ImainView.cs" />
     <Compile Include="Views\MainWindow.cs">
       <SubType>Form</SubType>
