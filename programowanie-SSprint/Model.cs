@@ -81,6 +81,7 @@ namespace programowanie_SSprint
         #endregion
 
         #region public database methods
+            #region values returned from DataBase
         public List<company> getAllCompanies()
         {
             return SSprintDataBase.companies.ToList();
@@ -89,7 +90,28 @@ namespace programowanie_SSprint
         {
             return SSprintDataBase.tshirts.ToList();
         }
-
+        public List<color> getAllColors()
+        {
+            return SSprintDataBase.colors.ToList();
+        }
+        public List<order> getAllOrders()
+        {
+            return SSprintDataBase.orders.ToList();
+        }
+        public List<picture> getAllPictures()
+        {
+            return SSprintDataBase.pictures.ToList();
+        }
+        public List<style> getAllStyles()
+        {
+            return SSprintDataBase.styles.ToList();
+        }
+        public List<singleItemOrder> getAllSingleItemOrders()
+        {
+            return SSprintDataBase.singleItemOrders.ToList();
+        }
+        #endregion
+        #region values finded in DataBase
         public List<tshirt> findTshirtsByCompany(string name)
         {
             company companyName = SSprintDataBase.companies.FirstOrDefault(c => c.name == name);
@@ -105,7 +127,7 @@ namespace programowanie_SSprint
             style styleName = SSprintDataBase.styles.FirstOrDefault(c => c.name == name);
             return styleName.tshirts.ToList();
         }
-
+            #endregion
         #endregion
     }
 }
