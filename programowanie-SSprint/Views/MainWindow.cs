@@ -62,13 +62,47 @@ namespace programowanie_SSprint
      
            // colorEditorWindow.ShowDialog();
         }
+        private void tshirtsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO
+            // event odpowiadający za dodawanie/usuwanie/edytowanie stanu magazynowego koszulek
+            //
+        }
+
+        private void companiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO
+            // event odpowiadający za dodawanie/usuwanie/edytowanie firm
+            //
+        }
+
+        private void colorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO
+            // event odpowiadający za dodawanie/usuwanie/edytowanie kolorów
+            //
+        }
+
+        private void stylesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO
+            // event odpowiadający za dodawanie/usuwanie/edytowanie styli
+            //
+        }
+
+        private void getDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO
+            // event odpowiadający za odświeżanie danych bazowych
+            //
+        }
         #endregion
         #region PRIVATE_VARIABLES_PROPERTIES
         private ColorEditor colorEditorWindow;
         #endregion
+
         #region PRIVATE_METHODS
         #endregion
-
-
+ 
     }
 }
