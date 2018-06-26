@@ -28,25 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "Czerwony",
             "#ff0000"}, -1);
             this.lvColors = new System.Windows.Forms.ListView();
+            this.columnHeaderID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderHex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lListHeader = new System.Windows.Forms.Label();
             this.groupBoxEditArea = new System.Windows.Forms.GroupBox();
+            this.tbID = new System.Windows.Forms.TextBox();
+            this.lID = new System.Windows.Forms.Label();
+            this.btnApplyChanges = new System.Windows.Forms.Button();
+            this.lHex = new System.Windows.Forms.Label();
+            this.lName = new System.Windows.Forms.Label();
+            this.tbHex = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.tbName = new System.Windows.Forms.TextBox();
-            this.tbHex = new System.Windows.Forms.TextBox();
-            this.lName = new System.Windows.Forms.Label();
-            this.lHex = new System.Windows.Forms.Label();
-            this.btnApplyChanges = new System.Windows.Forms.Button();
-            this.columnHeaderID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lID = new System.Windows.Forms.Label();
-            this.tbID = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.groupBoxEditArea.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,13 +63,19 @@
             this.lvColors.FullRowSelect = true;
             this.lvColors.GridLines = true;
             this.lvColors.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
             this.lvColors.Location = new System.Drawing.Point(12, 36);
             this.lvColors.Name = "lvColors";
             this.lvColors.Size = new System.Drawing.Size(216, 209);
             this.lvColors.TabIndex = 0;
             this.lvColors.UseCompatibleStateImageBehavior = false;
             this.lvColors.View = System.Windows.Forms.View.Details;
+            this.lvColors.SelectedIndexChanged += new System.EventHandler(this.lvColors_SelectedIndexChanged);
+            // 
+            // columnHeaderID
+            // 
+            this.columnHeaderID.Text = "ID";
+            this.columnHeaderID.Width = 44;
             // 
             // columnHeaderName
             // 
@@ -93,6 +100,7 @@
             // 
             this.groupBoxEditArea.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxEditArea.Controls.Add(this.btnCancel);
             this.groupBoxEditArea.Controls.Add(this.tbID);
             this.groupBoxEditArea.Controls.Add(this.lID);
             this.groupBoxEditArea.Controls.Add(this.btnApplyChanges);
@@ -106,6 +114,75 @@
             this.groupBoxEditArea.TabIndex = 2;
             this.groupBoxEditArea.TabStop = false;
             this.groupBoxEditArea.Text = "Edycja zaznaczonego koloru";
+            // 
+            // tbID
+            // 
+            this.tbID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbID.Location = new System.Drawing.Point(33, 87);
+            this.tbID.Name = "tbID";
+            this.tbID.ReadOnly = true;
+            this.tbID.Size = new System.Drawing.Size(157, 20);
+            this.tbID.TabIndex = 7;
+            // 
+            // lID
+            // 
+            this.lID.AutoSize = true;
+            this.lID.Location = new System.Drawing.Point(6, 90);
+            this.lID.Name = "lID";
+            this.lID.Size = new System.Drawing.Size(21, 13);
+            this.lID.TabIndex = 6;
+            this.lID.Text = "ID:";
+            // 
+            // btnApplyChanges
+            // 
+            this.btnApplyChanges.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnApplyChanges.BackColor = System.Drawing.Color.LightGreen;
+            this.btnApplyChanges.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnApplyChanges.Location = new System.Drawing.Point(6, 215);
+            this.btnApplyChanges.Name = "btnApplyChanges";
+            this.btnApplyChanges.Size = new System.Drawing.Size(184, 23);
+            this.btnApplyChanges.TabIndex = 5;
+            this.btnApplyChanges.Text = "Zapisz zmiany";
+            this.btnApplyChanges.UseVisualStyleBackColor = false;
+            // 
+            // lHex
+            // 
+            this.lHex.AutoSize = true;
+            this.lHex.Location = new System.Drawing.Point(6, 65);
+            this.lHex.Name = "lHex";
+            this.lHex.Size = new System.Drawing.Size(75, 13);
+            this.lHex.TabIndex = 3;
+            this.lHex.Text = "Wartość HEX:";
+            // 
+            // lName
+            // 
+            this.lName.AutoSize = true;
+            this.lName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lName.Location = new System.Drawing.Point(6, 37);
+            this.lName.Name = "lName";
+            this.lName.Size = new System.Drawing.Size(49, 13);
+            this.lName.TabIndex = 2;
+            this.lName.Text = "Nazwa:";
+            // 
+            // tbHex
+            // 
+            this.tbHex.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbHex.Location = new System.Drawing.Point(84, 62);
+            this.tbHex.Name = "tbHex";
+            this.tbHex.Size = new System.Drawing.Size(106, 20);
+            this.tbHex.TabIndex = 1;
+            // 
+            // tbName
+            // 
+            this.tbName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbName.Location = new System.Drawing.Point(61, 34);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(129, 20);
+            this.tbName.TabIndex = 0;
             // 
             // btnAddNew
             // 
@@ -122,7 +199,7 @@
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDelete.BackColor = System.Drawing.Color.Salmon;
+            this.btnDelete.BackColor = System.Drawing.Color.Tomato;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDelete.Location = new System.Drawing.Point(12, 251);
             this.btnDelete.Name = "btnDelete";
@@ -131,79 +208,18 @@
             this.btnDelete.Text = "Usuń";
             this.btnDelete.UseVisualStyleBackColor = false;
             // 
-            // tbName
+            // btnCancel
             // 
-            this.tbName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbName.Location = new System.Drawing.Point(61, 34);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(129, 20);
-            this.tbName.TabIndex = 0;
-            // 
-            // tbHex
-            // 
-            this.tbHex.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbHex.Location = new System.Drawing.Point(84, 62);
-            this.tbHex.Name = "tbHex";
-            this.tbHex.Size = new System.Drawing.Size(106, 20);
-            this.tbHex.TabIndex = 1;
-            // 
-            // lName
-            // 
-            this.lName.AutoSize = true;
-            this.lName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lName.Location = new System.Drawing.Point(6, 37);
-            this.lName.Name = "lName";
-            this.lName.Size = new System.Drawing.Size(49, 13);
-            this.lName.TabIndex = 2;
-            this.lName.Text = "Nazwa:";
-            // 
-            // lHex
-            // 
-            this.lHex.AutoSize = true;
-            this.lHex.Location = new System.Drawing.Point(6, 65);
-            this.lHex.Name = "lHex";
-            this.lHex.Size = new System.Drawing.Size(75, 13);
-            this.lHex.TabIndex = 3;
-            this.lHex.Text = "Wartość HEX:";
-            // 
-            // btnApplyChanges
-            // 
-            this.btnApplyChanges.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApplyChanges.BackColor = System.Drawing.Color.LightGreen;
-            this.btnApplyChanges.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnApplyChanges.Location = new System.Drawing.Point(6, 215);
-            this.btnApplyChanges.Name = "btnApplyChanges";
-            this.btnApplyChanges.Size = new System.Drawing.Size(184, 23);
-            this.btnApplyChanges.TabIndex = 5;
-            this.btnApplyChanges.Text = "Zapisz zmiany";
-            this.btnApplyChanges.UseVisualStyleBackColor = false;
-            // 
-            // columnHeaderID
-            // 
-            this.columnHeaderID.Text = "ID";
-            this.columnHeaderID.Width = 44;
-            // 
-            // lID
-            // 
-            this.lID.AutoSize = true;
-            this.lID.Location = new System.Drawing.Point(6, 90);
-            this.lID.Name = "lID";
-            this.lID.Size = new System.Drawing.Size(21, 13);
-            this.lID.TabIndex = 6;
-            this.lID.Text = "ID:";
-            // 
-            // tbID
-            // 
-            this.tbID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbID.Location = new System.Drawing.Point(33, 87);
-            this.tbID.Name = "tbID";
-            this.tbID.ReadOnly = true;
-            this.tbID.Size = new System.Drawing.Size(157, 20);
-            this.tbID.TabIndex = 7;
+            this.btnCancel.BackColor = System.Drawing.Color.Tomato;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancel.Location = new System.Drawing.Point(6, 186);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(184, 23);
+            this.btnCancel.TabIndex = 8;
+            this.btnCancel.Text = "Anuluj";
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // ColorEditor
             // 
@@ -218,6 +234,7 @@
             this.MinimumSize = new System.Drawing.Size(457, 274);
             this.Name = "ColorEditor";
             this.Text = "Edytor kolorów";
+            this.Load += new System.EventHandler(this.ColorEditor_Load);
             this.groupBoxEditArea.ResumeLayout(false);
             this.groupBoxEditArea.PerformLayout();
             this.ResumeLayout(false);
@@ -242,5 +259,6 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TextBox tbID;
         private System.Windows.Forms.Label lID;
+        private System.Windows.Forms.Button btnCancel;
     }
 }
