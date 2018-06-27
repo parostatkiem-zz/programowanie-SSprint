@@ -31,7 +31,7 @@ namespace programowanie_SSprint
         {
             InitializeComponent();
             currentlySelectedColor = null;
-            currentlyEditedColor = null;
+            currentlyEditedColor = new color();
         }
         #endregion
         private color currentlyEditedColor;

@@ -66,7 +66,7 @@ namespace programowanie_SSprint
         #region CHILD_EVENT_METHODS
         private void FireSaveDatabaseToRemoteEvent()
         {
-            saveDatabaseToRemote();
+            //saveDatabaseToRemote();
         }
         private bool ColorEditorWindow_removeColor(IErrorable arg1, color arg2)
         {

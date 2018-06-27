@@ -115,6 +115,7 @@ namespace programowanie_SSprint
             {
                 try
                 {
+                    model.ConnectToBase();
                     model.AddColor(color);
                 }
                 catch(Exception ex)
