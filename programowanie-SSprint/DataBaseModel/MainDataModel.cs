@@ -7,7 +7,7 @@ using System.Data.Entity;
 
 namespace programowanie_SSprint
 {
-    class Model
+    partial class Model
     {
         private SSprintEntities SSprintDataBase;
 
@@ -18,7 +18,6 @@ namespace programowanie_SSprint
         private object reloadBaseLock = new object();
         #endregion
 
-        #region creating, saving, updating base
         public void ConnectToBase() // tworzy połączenie z bazą danych
         {
             lock (connectToBaseLock)
@@ -61,7 +60,7 @@ namespace programowanie_SSprint
                     throw ex;
                 }
             }
-        }
+        }   
         //public void reloadbase()
         //{
         //    lock (reloadbaselock)
@@ -78,39 +77,6 @@ namespace programowanie_SSprint
         //        }
         //    }
         //}
-        #endregion
-
-        #region public database methods
-        public List<company> getAllCompanies()
-        {
-            return SSprintDataBase.companies.ToList();
-        }
-        public List<tshirt> getAllTshirts()
-        {
-            return SSprintDataBase.tshirts.ToList();
-        }
-
-        public List<color> getAllColors()
-        {
-            return SSprintDataBase.colors.ToList();
-        }
-
-        public List<tshirt> findTshirtsByCompany(string name)
-        {
-            company companyName = SSprintDataBase.companies.FirstOrDefault(c => c.name == name);
-            return companyName.tshirts.ToList();
-        }
-        public List<tshirt> findTshirtsByColor(string name)
-        {
-            color colorName = SSprintDataBase.colors.FirstOrDefault(c => c.name == name);
-            return colorName.tshirts.ToList();
-        }
-        public List<tshirt> findTshirtsByStyle(string name)
-        {
-            style styleName = SSprintDataBase.styles.FirstOrDefault(c => c.name == name);
-            return styleName.tshirts.ToList();
-        }
-
-        #endregion
+        //todo : uzupełnić metodę reloadbase()
     }
 }
