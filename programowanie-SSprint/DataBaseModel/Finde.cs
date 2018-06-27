@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace programowanie_SSprint
 {
@@ -12,6 +13,11 @@ namespace programowanie_SSprint
        public color FindColor(color color)
         {
             return this.SSprintDataBase.colors.FirstOrDefault(c => c.id == color.id);
+        }
+
+        public picture FindPicture(picture picture)
+        {
+            return this.SSprintDataBase.pictures.FirstOrDefault(p => p.id == picture.id);
         }
 
     }

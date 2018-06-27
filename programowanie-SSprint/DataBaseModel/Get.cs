@@ -10,16 +10,21 @@ namespace programowanie_SSprint
     {
         public List<company> GetAllCompanies()
         {
-            return SSprintDataBase.companies.ToList();
+            return this.SSprintDataBase.companies.ToList();
         }
         public List<tshirt> GetAllTshirts()
         {
-            return SSprintDataBase.tshirts.ToList();
+            return this.SSprintDataBase.tshirts.ToList();
         }
 
         public List<color> GetAllColors()
         {
-            return SSprintDataBase.colors.ToList();
+            return this.SSprintDataBase.colors.ToList();
+        }
+
+        public List<picture> GetAllPictures()
+        {
+            return this.SSprintDataBase.pictures.ToList();
         }
 
         //todo : uzupełnić o więcej metod pobierania danych

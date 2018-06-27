@@ -22,11 +22,68 @@ namespace programowanie_SSprint
             view.getAllCompany += View_getAllCompany;
 
             //kolory
-            view.getAllColors += View_getAllColors; // 
+            view.getAllColors += View_getAllColors; 
             view.insertColor += View_insertColor; // zwrraca true jeśli uda się dodać/zmodyfikuje, false jeśli nie
             view.removeColor += View_removeColor; // zwraca true jeśli się usunie, false jeśli nie ma takiego koloru i wyjątek, jeśli wystąpi błąd
 
+            // obrazki
+            view.getAllPictures += View_getAllPictures;
+            view.insertPicture += View_insertPicture; 
+            view.removePicture += View_removePicture; 
             
+        }
+        
+        private bool View_removePicture(IErrorable senderWindow, picture picture)
+        {
+            picture isInData = model.FindPicture(picture);
+            if(isInData != null)
+            {
+                try
+                {
+                    model.RemovePicture(picture);
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    senderWindow.ShowError(ex.ToString());
+                    return false;
+                }
+            }
+            else
+                return false;
+        }
+        private bool View_insertPicture(IErrorable senderWindow, picture picture)
+        {
+            picture isInData = model.FindPicture(picture);
+            if (isInData != null)
+                isInData = picture;
+            else
+            {
+                try
+                {
+                    model.AddPicture(picture);
+                }
+                catch (Exception ex)
+                {
+                    senderWindow.ShowError(ex.ToString());
+                    return false;
+                }
+            }
+            return true;
+        }
+        private List<picture> View_getAllPictures(IErrorable senderWindow)
+        {
+            try
+            {
+                model.ConnectToBase();
+
+                return model.GetAllPictures();
+            }
+            catch(Exception ex)
+            {
+                senderWindow.ShowError(ex.ToString());
+                return null;
+            }
         }
 
         private bool View_removeColor(IErrorable senderWindow, color color)

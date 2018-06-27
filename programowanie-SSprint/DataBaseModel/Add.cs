@@ -132,5 +132,17 @@ namespace programowanie_SSprint
                 throw ex;
             }
         }
+
+        public void AddPicture(picture picture)
+        {
+            try
+            {
+                this.SSprintDataBase.pictures.Add(picture);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

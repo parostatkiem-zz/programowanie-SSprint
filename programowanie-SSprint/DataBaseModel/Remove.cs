@@ -20,5 +20,17 @@ namespace programowanie_SSprint
                 throw ex;
             }
         }
+
+        public void RemovePicture(picture picture)
+        {
+            try
+            {
+                this.SSprintDataBase.pictures.Remove(picture);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
