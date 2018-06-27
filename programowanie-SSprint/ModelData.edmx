@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="hex_value" Type="varchar" MaxLength="255" />
         </EntityType>
@@ -17,7 +17,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity"/>
           <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="phone" Type="varchar" MaxLength="255" />
           <Property Name="email" Type="varchar" MaxLength="255" />
@@ -26,7 +26,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity"/>
           <Property Name="status" Type="int" Nullable="false" />
           <Property Name="picture_id" Type="int" />
           <Property Name="client_name" Type="varchar" MaxLength="255" Nullable="false" />
@@ -39,7 +39,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity"/>
           <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="picture_data" Type="text" Nullable="false" />
         </EntityType>
@@ -47,7 +47,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity"/>
           <Property Name="order_id" Type="int" Nullable="false" />
           <Property Name="tshirt_id" Type="int" Nullable="false" />
           <Property Name="amount" Type="int" Nullable="false" />
@@ -56,14 +56,14 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity"/>
           <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="tshirts">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity"/>
           <Property Name="company_id" Type="int" Nullable="false" />
           <Property Name="style_id" Type="int" Nullable="false" />
           <Property Name="sex" Type="varchar" MaxLength="255" Nullable="false" />
