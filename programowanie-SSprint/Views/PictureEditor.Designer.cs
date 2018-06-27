@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "Słoneczko",
             "JanuszSoft"}, -1);
@@ -37,6 +37,7 @@
             this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderLastUsedIn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBoxEditArea = new System.Windows.Forms.GroupBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.pictureBoxGraphics = new System.Windows.Forms.PictureBox();
             this.tbID = new System.Windows.Forms.TextBox();
             this.lID = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@
             this.btnAddNew = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.groupBoxGraphicList = new System.Windows.Forms.GroupBox();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.groupBoxEditArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGraphics)).BeginInit();
             this.groupBoxGraphicList.SuspendLayout();
@@ -62,7 +62,7 @@
             this.lvPictures.FullRowSelect = true;
             this.lvPictures.GridLines = true;
             this.lvPictures.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
             this.lvPictures.Location = new System.Drawing.Point(3, 16);
             this.lvPictures.Name = "lvPictures";
             this.lvPictures.Size = new System.Drawing.Size(269, 226);
@@ -103,6 +103,20 @@
             this.groupBoxEditArea.TabIndex = 2;
             this.groupBoxEditArea.TabStop = false;
             this.groupBoxEditArea.Text = "Edycja zaznaczonej grafiki";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.BackColor = System.Drawing.Color.Tomato;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancel.Location = new System.Drawing.Point(6, 219);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(184, 23);
+            this.btnCancel.TabIndex = 9;
+            this.btnCancel.Text = "Anuluj";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // pictureBoxGraphics
             // 
@@ -208,20 +222,6 @@
             this.groupBoxGraphicList.TabStop = false;
             this.groupBoxGraphicList.Text = "Lista dostępnych grafik";
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.BackColor = System.Drawing.Color.Tomato;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel.Location = new System.Drawing.Point(6, 219);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(184, 23);
-            this.btnCancel.TabIndex = 9;
-            this.btnCancel.Text = "Anuluj";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // PictureEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,6 +232,7 @@
             this.MinimumSize = new System.Drawing.Size(457, 274);
             this.Name = "PictureEditor";
             this.Text = "Edytor grafik";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PictureEditor_FormClosed);
             this.Load += new System.EventHandler(this.PictureEditor_Load);
             this.groupBoxEditArea.ResumeLayout(false);
             this.groupBoxEditArea.PerformLayout();

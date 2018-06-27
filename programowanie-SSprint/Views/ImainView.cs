@@ -8,6 +8,9 @@ namespace programowanie_SSprint
 {
     interface ImainView
     {
+
+         event Action saveDatabaseToRemote; //zapisuje dane do bazy zdalnej
+
          event Func<IErrorable, List<company>> getAllCompany; // pobiera wszystkie dane z tabeli company
 
          event Func<IErrorable, List<tshirt>> getAllThsirts; //pobiera wszystkie dane z tabeli Tshirts
@@ -24,6 +27,7 @@ namespace programowanie_SSprint
          event Func<IErrorable, picture, bool> insertPicture; //jesli color.id==null, to dodaje nowy obraz, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
          event Func<IErrorable, List<picture>> getAllPictures; //zwraca listę wszystkich obrazow
          event Func<IErrorable, picture, bool> removePicture; //usuwa obraz. Istotne jest tylko picture.id. Zwraca bool czy się udało
+
 
 
     }

@@ -13,6 +13,7 @@ namespace programowanie_SSprint
     public partial class ColorEditor : Form,IErrorable
     {
         #region EVENTS
+        public event Action saveDatabaseToRemote; //zapisuje dane do bazy zdalnej
         public event Func<IErrorable, color, bool> insertColor; //jesli color.id==null, to dodaje nowy color, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
         public event Func<IErrorable, List<color>> getAllColors; //zwraca listę wszystkich kolorów
         public event Func<IErrorable, color, bool> removeColor; //usuwa kolor. Istotne jest tylko color.id. Zwraca bool czy się udało
@@ -144,6 +145,11 @@ namespace programowanie_SSprint
             }
 
             removeColor(this, CurrentlySelectedColor);
+        }
+
+        private void ColorEditor_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            saveDatabaseToRemote();
         }
     }
 }

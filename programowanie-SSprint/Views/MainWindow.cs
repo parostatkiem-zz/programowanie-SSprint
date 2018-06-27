@@ -14,6 +14,8 @@ namespace programowanie_SSprint
     {
 
         #region EVENTS
+        public event Action saveDatabaseToRemote; //zapisuje dane do bazy zdalnej
+
         public event Func<IErrorable, List<company>> getAllCompany;
 
         public event Func<IErrorable, List<tshirt>> getAllThsirts; //pobiera wszystkie dane z tabeli Tshirts
@@ -42,11 +44,13 @@ namespace programowanie_SSprint
             colorEditorWindow.getAllColors += ColorEditorWindow_getAllColors;
             colorEditorWindow.insertColor += ColorEditorWindow_insertColor;
             colorEditorWindow.removeColor += ColorEditorWindow_removeColor;
+            colorEditorWindow.saveDatabaseToRemote += FireSaveDatabaseToRemoteEvent;
 
             pictureEditorWindow = new PictureEditor();
             pictureEditorWindow.insertPicture += PictureEditorWindow_insertPicture;
             pictureEditorWindow.getAllPictures += PictureEditorWindow_getAllPictures;
             pictureEditorWindow.removePicture += PictureEditorWindow_removePicture;
+            pictureEditorWindow.saveDatabaseToRemote += FireSaveDatabaseToRemoteEvent;
         }
 
       
@@ -60,6 +64,10 @@ namespace programowanie_SSprint
         #endregion
 
         #region CHILD_EVENT_METHODS
+        private void FireSaveDatabaseToRemoteEvent()
+        {
+            saveDatabaseToRemote();
+        }
         private bool ColorEditorWindow_removeColor(IErrorable arg1, color arg2)
         {
             return removeColor(arg1, arg2);
