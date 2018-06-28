@@ -9,74 +9,46 @@ namespace programowanie_SSprint
 {
     partial class Model
     {
-        private SSprintEntities SSprintDataBase;
+        private Exception threadOverloaded = new Exception("Zbyt wiele wątków próbuje się połączyć z bazą!");
 
-        #region locks
-        private object saveChangesLock = new object();
-        private object getBaseLock = new object();
-        private object connectToBaseLock = new object();
-        private object reloadBaseLock = new object();
-        #endregion
+        SSprintEntities SSprintDataBase;
 
-        public void ConnectToBase() // tworzy połączenie z bazą danych
-        {
-            lock (connectToBaseLock)
-            {
-                if (SSprintDataBase == null)
-                    try
-                    {
-                        SSprintDataBase = new SSprintEntities();
-                    }
-                    catch(Exception ex)
-                    {
-                        throw ex;
-                    }     
-            } 
-        }
         public SSprintEntities GetBase() // pobiera referencję do bazy danych, na której możemy wykonywać zapytania
         {
-            lock (getBaseLock)
+            try
             {
-                try
+                if (this.SSprintDataBase != null)
+                    throw threadOverloaded;
+                else
                 {
+                    this.SSprintDataBase = new SSprintEntities();
                     return SSprintDataBase;
                 }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-            }       
-        }
-        public void SaveChanges() // zapisuje zmiany do bazy danych
-        {
-            lock(saveChangesLock)
+            }
+            catch (Exception ex)
             {
-                try
-                {
-                    SSprintDataBase.SaveChangesAsync();
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
+                throw ex;
+            }    
+        }
+        public void SaveChanges(SSprintEntities data) // zapisuje zmiany do bazy danych
+        {
+            try
+            {
+                data.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.FinalizeBase();
             }
         }   
-        //public void reloadbase()
-        //{
-        //    lock (reloadbaselock)
-        //    {
-        //        if (ssprintdatabase == null)
-        //            this.connecttobase();
-        //        try
-        //        {
-        //            ssprintdatabase.entry(ssprintdatabase).reload();
-        //        }
-        //        catch (exception ex)
-        //        {
-        //            throw ex;
-        //        }
-        //    }
-        //}
-        //todo : uzupełnić metodę reloadbase()
+
+        public void FinalizeBase() // zamyka połączenie z bazą
+        {
+            SSprintDataBase = null;
+        }
     }
 }

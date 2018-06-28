@@ -9,60 +9,35 @@ namespace programowanie_SSprint
     partial class Model
     {
         //todo : dodać metody dodawania obiektów do bazy
-        //firmy
-        public void AddCompany(company newCompany)
+        public void AddCompany(SSprintEntities data, company newCompany)
         {
             try
             {
-                SSprintDataBase.companies.Add(newCompany);
+                data.companies.Add(newCompany);
             }
             catch(Exception ex)
             {
                 throw ex;
             }
         }
-        public company AddCompany(string name, string phone = "", string email = "")
-        {
-            try
-            {
-                company newCompany = new company
-                {
-                    name = name,
-                    phone = phone,
-                    email = email
-                };
-                SSprintDataBase.companies.Add(newCompany);
-                return newCompany;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
 
-        //kolory
-        public void AddColor(color newColor)
+        public void AddColor(SSprintEntities data, color newColor)
         {
             try
             {
-                SSprintDataBase.colors.Add(newColor);
+                data.colors.Add(newColor);
             }
             catch(Exception ex)
             {
                 throw ex;
             }
         }
-        public color AddColor(string name, string hex_value)
+
+        public void AddStyle(SSprintEntities data, style newStyle)
         {
             try
             {
-                color newColor = new color
-                {
-                    name = name,
-                    hex_value = hex_value
-                };
-                SSprintDataBase.colors.Add(newColor);
-                return newColor;
+                data.styles.Add(newStyle);
             }
             catch (Exception ex)
             {
@@ -70,28 +45,11 @@ namespace programowanie_SSprint
             }
         }
 
-        //style
-        public void AddStyle(style newStyle)
+        public void AddTshirt(SSprintEntities data, tshirt newTshirt)
         {
             try
             {
-                SSprintDataBase.styles.Add(newStyle);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        public style AddStyle(string name)
-        {
-            try
-            {
-                style newStyle = new style
-                {
-                    name = name
-                };
-                SSprintDataBase.styles.Add(newStyle);
-                return newStyle;
+                data.tshirts.Add(newTshirt);
             }
             catch (Exception ex)
             {
@@ -99,45 +57,35 @@ namespace programowanie_SSprint
             }
         }
 
-        //koszulki
-        public void AddTshirt(tshirt newTshirt)
+        public void AddPicture(SSprintEntities data, picture picture)
         {
             try
             {
-                SSprintDataBase.tshirts.Add(newTshirt);
+                data.pictures.Add(picture);
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        public tshirt AddTshirt(company company, style style, color color, string sex, int in_stock, int default_loss_percentage)
-        {
-            try
-            {
-                tshirt newTshirt = new tshirt
-                {
-                    company_id = company.id,
-                    style_id = style.id,
-                    color_id = color.id,
-                    sex = sex,
-                    in_stock = in_stock,
-                    default_loss_percentage = default_loss_percentage
-                };
-                SSprintDataBase.tshirts.Add(newTshirt);
-                return newTshirt;
-            }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 throw ex;
             }
         }
 
-        public void AddPicture(picture picture)
+        public void AddOrder(SSprintEntities data, order order)
         {
             try
             {
-                this.SSprintDataBase.pictures.Add(picture);
+                data.orders.Add(order);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void AddSingleItemOrder(SSprintEntities data, singleItemOrder order)
+        {
+            try
+            {
+                data.singleItemOrders.Add(order);
             }
             catch(Exception ex)
             {

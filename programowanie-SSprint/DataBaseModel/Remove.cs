@@ -9,11 +9,11 @@ namespace programowanie_SSprint
     partial class Model
     {
         //todo : dodać metody usuwające zawartość bazy
-        public void RemoveColor(color color)
+        public void RemoveColor(SSprintEntities data, color color)
         {
             try
             {
-                this.SSprintDataBase.colors.Remove(color);
+                data.colors.Remove(color);
             }
             catch(Exception ex)
             {
@@ -21,11 +21,11 @@ namespace programowanie_SSprint
             }
         }
 
-        public void RemovePicture(picture picture)
+        public void RemovePicture(SSprintEntities data, picture picture)
         {
             try
             {
-                this.SSprintDataBase.pictures.Remove(picture);
+                data.pictures.Remove(picture);
             }
             catch(Exception ex)
             {
