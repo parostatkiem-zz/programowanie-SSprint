@@ -284,6 +284,7 @@ namespace programowanie_SSprint
                     model.SaveChanges(dataBase);
 
                     return true;
+
                 }
                 catch(Exception ex)
                 {
