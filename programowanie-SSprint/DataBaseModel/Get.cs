@@ -8,23 +8,23 @@ namespace programowanie_SSprint
 {
     partial class Model
     {
-        public List<company> GetAllCompanies()
+        public List<company> GetAllCompanies(SSprintEntities data)
         {
-            return this.SSprintDataBase.companies.ToList();
+            return data.companies.ToList();
         }
-        public List<tshirt> GetAllTshirts()
+        public List<tshirt> GetAllTshirts(SSprintEntities data)
         {
-            return this.SSprintDataBase.tshirts.ToList();
-        }
-
-        public List<color> GetAllColors()
-        {
-            return this.SSprintDataBase.colors.ToList();
+            return data.tshirts.ToList();
         }
 
-        public List<picture> GetAllPictures()
+        public List<color> GetAllColors(SSprintEntities data)
         {
-            return this.SSprintDataBase.pictures.ToList();
+            return data.colors.ToList();
+        }
+
+        public List<picture> GetAllPictures(SSprintEntities data)
+        {
+            return data.pictures.ToList();
         }
 
         //todo : uzupełnić o więcej metod pobierania danych
