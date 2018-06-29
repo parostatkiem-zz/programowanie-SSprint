@@ -16,7 +16,7 @@ namespace programowanie_SSprint
         #region EVENTS
         public event Action saveDatabaseToRemote; //zapisuje dane do bazy zdalnej
 
-        public event Func<IErrorable, List<company>> getAllCompany;
+       // public event Func<IErrorable, List<company>> getAllCompany;
 
         public event Func<IErrorable, List<tshirt>> getAllThsirts; //pobiera wszystkie dane z tabeli Tshirts
         public event Func<IErrorable, int, order> getSingleOrder; //pobiera jeden order o danym ID
@@ -37,6 +37,10 @@ namespace programowanie_SSprint
         public event Func<IErrorable, List<style>> getAllStyles; //zwraca listę wszystkich obrazow
         public event Func<IErrorable, style, bool> removeStyle; //usuwa obraz. Istotne jest tylko picture.id. Zwraca bool czy się udało
 
+
+        public event Func<IErrorable, company, bool> insertCompany; //jesli company.id==null, to dodaje nowy company, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Func<IErrorable, List<company>> getAllCompanies; //zwraca listę wszystkich kolorów
+        public event Func<IErrorable, company, bool> removeCompany; //usuwa kolor. Istotne jest tylko company.id. Zwraca bool czy się udało
 
 
         #endregion
@@ -63,10 +67,28 @@ namespace programowanie_SSprint
             styleEditorWindow.getAllStyles += StyleEditorWindow_getAllStyles;
             styleEditorWindow.removeStyle += StyleEditorWindow_removeStyle;
 
+            companyEditorWindow = new CompanyEditor();
+            companyEditorWindow.insertCompany += CompanyEditorWindow_insertCompany;
+            companyEditorWindow.getAllCompanies += CompanyEditorWindow_getAllCompanies;
+            companyEditorWindow.removeCompany += CompanyEditorWindow_removeCompany;
 
 
         }
 
+        private bool CompanyEditorWindow_removeCompany(IErrorable arg1, company arg2)
+        {
+            return removeCompany(arg1, arg2);
+        }
+
+        private List<company> CompanyEditorWindow_getAllCompanies(IErrorable arg)
+        {
+            return getAllCompanies(arg);
+        }
+
+        private bool CompanyEditorWindow_insertCompany(IErrorable arg1, company arg2)
+        {
+            return insertCompany(arg1, arg2);
+        }
 
         public void ShowError(string message, string longMessage = null, string title = null)
         {
@@ -142,7 +164,7 @@ namespace programowanie_SSprint
             // TODO
             // event odpowiadający za dodawanie/usuwanie/edytowanie firm
             //
-          //  pictureEditorWindow.ShowDialog();
+            companyEditorWindow.ShowDialog();
         }
 
         private void colorsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -179,6 +201,7 @@ namespace programowanie_SSprint
     private ColorEditor colorEditorWindow;
         private PictureEditor pictureEditorWindow;
         private StyleEditor styleEditorWindow;
+        private CompanyEditor companyEditorWindow;
         // private 
         #endregion
 

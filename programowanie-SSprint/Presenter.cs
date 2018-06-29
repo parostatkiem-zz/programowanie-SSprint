@@ -25,7 +25,7 @@ namespace programowanie_SSprint
 
 
             view.getAllThsirts += View_getAllTshirts;
-            view.getAllCompany += View_getAllCompany;
+           // view.getAllCompany += View_getAllCompany;
 
             // kolory
             view.getAllColors += View_getAllColors; 

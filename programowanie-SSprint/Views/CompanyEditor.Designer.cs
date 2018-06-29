@@ -1,6 +1,6 @@
 ﻿namespace programowanie_SSprint
 {
-    partial class StyleEditor
+    partial class CompanyEditor
     {
         /// <summary>
         /// Required designer variable.
@@ -32,69 +32,87 @@
             "1",
             "Czerwony",
             "#ff0000"}, -1);
-            this.lvStyles = new System.Windows.Forms.ListView();
-            this.columnHeaderID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBoxEditArea = new System.Windows.Forms.GroupBox();
+            this.lPhone = new System.Windows.Forms.Label();
+            this.tbPhone = new System.Windows.Forms.TextBox();
+            this.lEmail = new System.Windows.Forms.Label();
+            this.tbEmail = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.tbID = new System.Windows.Forms.TextBox();
             this.lID = new System.Windows.Forms.Label();
             this.btnApplyChanges = new System.Windows.Forms.Button();
             this.lName = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
+            this.groupBoxCompanyList = new System.Windows.Forms.GroupBox();
+            this.lvCompanies = new System.Windows.Forms.ListView();
+            this.columnHeaderID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAddNew = new System.Windows.Forms.Button();
-            this.groupBoxStyleList = new System.Windows.Forms.GroupBox();
             this.groupBoxEditArea.SuspendLayout();
-            this.groupBoxStyleList.SuspendLayout();
+            this.groupBoxCompanyList.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lvStyles
-            // 
-            this.lvStyles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvStyles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeaderID,
-            this.columnHeaderName});
-            this.lvStyles.FullRowSelect = true;
-            this.lvStyles.GridLines = true;
-            this.lvStyles.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
-            this.lvStyles.Location = new System.Drawing.Point(3, 16);
-            this.lvStyles.Name = "lvStyles";
-            this.lvStyles.Size = new System.Drawing.Size(252, 287);
-            this.lvStyles.TabIndex = 0;
-            this.lvStyles.UseCompatibleStateImageBehavior = false;
-            this.lvStyles.View = System.Windows.Forms.View.Details;
-            this.lvStyles.SelectedIndexChanged += new System.EventHandler(this.lvStyles_SelectedIndexChanged);
-            // 
-            // columnHeaderID
-            // 
-            this.columnHeaderID.Text = "ID";
-            this.columnHeaderID.Width = 47;
-            // 
-            // columnHeaderName
-            // 
-            this.columnHeaderName.Text = "Nazwa";
-            this.columnHeaderName.Width = 171;
             // 
             // groupBoxEditArea
             // 
             this.groupBoxEditArea.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxEditArea.Controls.Add(this.lPhone);
+            this.groupBoxEditArea.Controls.Add(this.tbPhone);
+            this.groupBoxEditArea.Controls.Add(this.lEmail);
+            this.groupBoxEditArea.Controls.Add(this.tbEmail);
             this.groupBoxEditArea.Controls.Add(this.btnCancel);
             this.groupBoxEditArea.Controls.Add(this.tbID);
             this.groupBoxEditArea.Controls.Add(this.lID);
             this.groupBoxEditArea.Controls.Add(this.btnApplyChanges);
             this.groupBoxEditArea.Controls.Add(this.lName);
             this.groupBoxEditArea.Controls.Add(this.tbName);
-            this.groupBoxEditArea.Location = new System.Drawing.Point(273, 34);
+            this.groupBoxEditArea.Location = new System.Drawing.Point(289, 28);
             this.groupBoxEditArea.Name = "groupBoxEditArea";
-            this.groupBoxEditArea.Size = new System.Drawing.Size(211, 316);
-            this.groupBoxEditArea.TabIndex = 6;
+            this.groupBoxEditArea.Size = new System.Drawing.Size(281, 341);
+            this.groupBoxEditArea.TabIndex = 8;
             this.groupBoxEditArea.TabStop = false;
-            this.groupBoxEditArea.Text = "Edycja zaznaczonego stylu";
+            this.groupBoxEditArea.Text = "Edycja zaznaczonej firmy";
+            // 
+            // lPhone
+            // 
+            this.lPhone.AutoSize = true;
+            this.lPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lPhone.Location = new System.Drawing.Point(6, 89);
+            this.lPhone.Name = "lPhone";
+            this.lPhone.Size = new System.Drawing.Size(54, 13);
+            this.lPhone.TabIndex = 12;
+            this.lPhone.Text = "Telefon:";
+            // 
+            // tbPhone
+            // 
+            this.tbPhone.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbPhone.Location = new System.Drawing.Point(61, 86);
+            this.tbPhone.Name = "tbPhone";
+            this.tbPhone.Size = new System.Drawing.Size(214, 20);
+            this.tbPhone.TabIndex = 11;
+            this.tbPhone.TextChanged += new System.EventHandler(this.tbPhone_TextChanged);
+            // 
+            // lEmail
+            // 
+            this.lEmail.AutoSize = true;
+            this.lEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lEmail.Location = new System.Drawing.Point(6, 63);
+            this.lEmail.Name = "lEmail";
+            this.lEmail.Size = new System.Drawing.Size(45, 13);
+            this.lEmail.TabIndex = 10;
+            this.lEmail.Text = "E-mail:";
+            // 
+            // tbEmail
+            // 
+            this.tbEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbEmail.Location = new System.Drawing.Point(61, 60);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(214, 20);
+            this.tbEmail.TabIndex = 9;
+            this.tbEmail.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
             // 
             // btnCancel
             // 
@@ -102,9 +120,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.BackColor = System.Drawing.Color.Tomato;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel.Location = new System.Drawing.Point(6, 258);
+            this.btnCancel.Location = new System.Drawing.Point(6, 283);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(199, 23);
+            this.btnCancel.Size = new System.Drawing.Size(269, 23);
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Anuluj";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -114,16 +132,16 @@
             // 
             this.tbID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbID.Location = new System.Drawing.Point(33, 60);
+            this.tbID.Location = new System.Drawing.Point(33, 239);
             this.tbID.Name = "tbID";
             this.tbID.ReadOnly = true;
-            this.tbID.Size = new System.Drawing.Size(172, 20);
+            this.tbID.Size = new System.Drawing.Size(242, 20);
             this.tbID.TabIndex = 7;
             // 
             // lID
             // 
             this.lID.AutoSize = true;
-            this.lID.Location = new System.Drawing.Point(6, 63);
+            this.lID.Location = new System.Drawing.Point(6, 242);
             this.lID.Name = "lID";
             this.lID.Size = new System.Drawing.Size(21, 13);
             this.lID.TabIndex = 6;
@@ -135,9 +153,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnApplyChanges.BackColor = System.Drawing.Color.LightGreen;
             this.btnApplyChanges.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnApplyChanges.Location = new System.Drawing.Point(6, 287);
+            this.btnApplyChanges.Location = new System.Drawing.Point(6, 312);
             this.btnApplyChanges.Name = "btnApplyChanges";
-            this.btnApplyChanges.Size = new System.Drawing.Size(199, 23);
+            this.btnApplyChanges.Size = new System.Drawing.Size(269, 23);
             this.btnApplyChanges.TabIndex = 5;
             this.btnApplyChanges.Text = "Zapisz zmiany";
             this.btnApplyChanges.UseVisualStyleBackColor = false;
@@ -159,16 +177,61 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbName.Location = new System.Drawing.Point(61, 34);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(144, 20);
+            this.tbName.Size = new System.Drawing.Size(214, 20);
             this.tbName.TabIndex = 0;
             this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
+            // 
+            // groupBoxCompanyList
+            // 
+            this.groupBoxCompanyList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxCompanyList.Controls.Add(this.lvCompanies);
+            this.groupBoxCompanyList.Controls.Add(this.btnDelete);
+            this.groupBoxCompanyList.Controls.Add(this.btnAddNew);
+            this.groupBoxCompanyList.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxCompanyList.Name = "groupBoxCompanyList";
+            this.groupBoxCompanyList.Size = new System.Drawing.Size(271, 357);
+            this.groupBoxCompanyList.TabIndex = 9;
+            this.groupBoxCompanyList.TabStop = false;
+            this.groupBoxCompanyList.Text = "Lista wprowadzonych firm";
+            // 
+            // lvCompanies
+            // 
+            this.lvCompanies.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvCompanies.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderID,
+            this.columnHeaderName});
+            this.lvCompanies.FullRowSelect = true;
+            this.lvCompanies.GridLines = true;
+            this.lvCompanies.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1});
+            this.lvCompanies.Location = new System.Drawing.Point(3, 16);
+            this.lvCompanies.Name = "lvCompanies";
+            this.lvCompanies.Size = new System.Drawing.Size(268, 306);
+            this.lvCompanies.TabIndex = 0;
+            this.lvCompanies.UseCompatibleStateImageBehavior = false;
+            this.lvCompanies.View = System.Windows.Forms.View.Details;
+            this.lvCompanies.SelectedIndexChanged += new System.EventHandler(this.lvCompanies_SelectedIndexChanged);
+            // 
+            // columnHeaderID
+            // 
+            this.columnHeaderID.Text = "ID";
+            this.columnHeaderID.Width = 47;
+            // 
+            // columnHeaderName
+            // 
+            this.columnHeaderName.Text = "Nazwa";
+            this.columnHeaderName.Width = 171;
             // 
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDelete.BackColor = System.Drawing.Color.Tomato;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelete.Location = new System.Drawing.Point(6, 309);
+            this.btnDelete.Location = new System.Drawing.Point(6, 328);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 4;
@@ -181,7 +244,7 @@
             this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddNew.BackColor = System.Drawing.Color.LightBlue;
             this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAddNew.Location = new System.Drawing.Point(174, 309);
+            this.btnAddNew.Location = new System.Drawing.Point(190, 328);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(75, 23);
             this.btnAddNew.TabIndex = 3;
@@ -189,43 +252,25 @@
             this.btnAddNew.UseVisualStyleBackColor = false;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
-            // groupBoxStyleList
-            // 
-            this.groupBoxStyleList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxStyleList.Controls.Add(this.lvStyles);
-            this.groupBoxStyleList.Controls.Add(this.btnDelete);
-            this.groupBoxStyleList.Controls.Add(this.btnAddNew);
-            this.groupBoxStyleList.Location = new System.Drawing.Point(12, 12);
-            this.groupBoxStyleList.Name = "groupBoxStyleList";
-            this.groupBoxStyleList.Size = new System.Drawing.Size(255, 338);
-            this.groupBoxStyleList.TabIndex = 7;
-            this.groupBoxStyleList.TabStop = false;
-            this.groupBoxStyleList.Text = "Lista wprowadzonych styli";
-            // 
-            // StyleEditor
+            // CompanyEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(496, 362);
+            this.ClientSize = new System.Drawing.Size(582, 381);
             this.Controls.Add(this.groupBoxEditArea);
-            this.Controls.Add(this.groupBoxStyleList);
-            this.Name = "StyleEditor";
-            this.Text = "Edytor styli";
-            this.Load += new System.EventHandler(this.StyleEditor_Load);
+            this.Controls.Add(this.groupBoxCompanyList);
+            this.Name = "CompanyEditor";
+            this.Text = "Edycja firm";
+            this.Load += new System.EventHandler(this.CompanyEditor_Load);
             this.groupBoxEditArea.ResumeLayout(false);
             this.groupBoxEditArea.PerformLayout();
-            this.groupBoxStyleList.ResumeLayout(false);
+            this.groupBoxCompanyList.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListView lvStyles;
-        private System.Windows.Forms.ColumnHeader columnHeaderID;
-        private System.Windows.Forms.ColumnHeader columnHeaderName;
         private System.Windows.Forms.GroupBox groupBoxEditArea;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox tbID;
@@ -233,8 +278,15 @@
         private System.Windows.Forms.Button btnApplyChanges;
         private System.Windows.Forms.Label lName;
         private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.GroupBox groupBoxCompanyList;
+        private System.Windows.Forms.ListView lvCompanies;
+        private System.Windows.Forms.ColumnHeader columnHeaderID;
+        private System.Windows.Forms.ColumnHeader columnHeaderName;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAddNew;
-        private System.Windows.Forms.GroupBox groupBoxStyleList;
+        private System.Windows.Forms.Label lPhone;
+        private System.Windows.Forms.TextBox tbPhone;
+        private System.Windows.Forms.Label lEmail;
+        private System.Windows.Forms.TextBox tbEmail;
     }
 }

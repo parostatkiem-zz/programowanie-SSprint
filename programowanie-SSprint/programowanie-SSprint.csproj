@@ -95,6 +95,12 @@
     <Compile Include="tshirt.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Views\CompanyEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CompanyEditor.Designer.cs">
+      <DependentUpon>CompanyEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\HelperViews\Error.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
     <Compile Include="Views\TshirtEditor.Designer.cs">
       <DependentUpon>TshirtEditor.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\CompanyEditor.resx">
+      <DependentUpon>CompanyEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\HelperViews\Error.resx">
       <DependentUpon>Error.cs</DependentUpon>
     </EmbeddedResource>

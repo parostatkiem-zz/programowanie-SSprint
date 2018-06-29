@@ -11,7 +11,7 @@ namespace programowanie_SSprint
 
          event Action saveDatabaseToRemote; //zapisuje dane do bazy zdalnej
 
-         event Func<IErrorable, List<company>> getAllCompany; // pobiera wszystkie dane z tabeli company
+         //event Func<IErrorable, List<company>> getAllCompany; // pobiera wszystkie dane z tabeli company
 
          event Func<IErrorable, List<tshirt>> getAllThsirts; //pobiera wszystkie dane z tabeli Tshirts
          event Func<IErrorable, int, order> getSingleOrder; //pobiera jeden order o danym ID
@@ -31,6 +31,10 @@ namespace programowanie_SSprint
          event Func<IErrorable, style, bool> insertStyle; //jesli color.id==null, to dodaje nowy obraz, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
          event Func<IErrorable, List<style>> getAllStyles; //zwraca listę wszystkich obrazow
          event Func<IErrorable, style, bool> removeStyle; //usuwa obraz. Istotne jest tylko picture.id. Zwraca bool czy się udało
+
+         event Func<IErrorable, company, bool> insertCompany; //jesli company.id==null, to dodaje nowy company, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+         event Func<IErrorable, List<company>> getAllCompanies; //zwraca listę wszystkich kolorów
+         event Func<IErrorable, company, bool> removeCompany; //usuwa kolor. Istotne jest tylko company.id. Zwraca bool czy się udało
 
 
     }

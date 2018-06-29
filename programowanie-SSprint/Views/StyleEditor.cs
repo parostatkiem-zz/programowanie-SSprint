@@ -133,7 +133,7 @@ namespace programowanie_SSprint
         {
             if (CurrentlySelectedStyle == null)
             {
-                ShowError("Wygląda na to, że żaden kolor nie jest zaznaczony");
+                ShowError("Wygląda na to, że żaden styl nie jest zaznaczony");
                 return;
             }
 
