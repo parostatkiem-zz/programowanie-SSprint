@@ -28,6 +28,9 @@ namespace programowanie_SSprint
          event Func<IErrorable, List<picture>> getAllPictures; //zwraca listę wszystkich obrazow
          event Func<IErrorable, picture, bool> removePicture; //usuwa obraz. Istotne jest tylko picture.id. Zwraca bool czy się udało
 
+         event Func<IErrorable, style, bool> insertStyle; //jesli color.id==null, to dodaje nowy obraz, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+         event Func<IErrorable, List<style>> getAllStyles; //zwraca listę wszystkich obrazow
+         event Func<IErrorable, style, bool> removeStyle; //usuwa obraz. Istotne jest tylko picture.id. Zwraca bool czy się udało
 
 
     }

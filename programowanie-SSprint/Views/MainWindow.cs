@@ -33,6 +33,12 @@ namespace programowanie_SSprint
         public event Func<IErrorable, picture, bool> removePicture; //usuwa obraz. Istotne jest tylko picture.id. Zwraca bool czy się udało
 
 
+        public event Func<IErrorable, style, bool> insertStyle; //jesli color.id==null, to dodaje nowy obraz, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Func<IErrorable, List<style>> getAllStyles; //zwraca listę wszystkich obrazow
+        public event Func<IErrorable, style, bool> removeStyle; //usuwa obraz. Istotne jest tylko picture.id. Zwraca bool czy się udało
+
+
+
         #endregion
 
         #region PUBLIC
@@ -51,9 +57,16 @@ namespace programowanie_SSprint
             pictureEditorWindow.getAllPictures += PictureEditorWindow_getAllPictures;
             pictureEditorWindow.removePicture += PictureEditorWindow_removePicture;
             pictureEditorWindow.saveDatabaseToRemote += FireSaveDatabaseToRemoteEvent;
+
+            styleEditorWindow = new StyleEditor();
+            styleEditorWindow.insertStyle += StyleEditorWindow_insertStyle;
+            styleEditorWindow.getAllStyles += StyleEditorWindow_getAllStyles;
+            styleEditorWindow.removeStyle += StyleEditorWindow_removeStyle;
+
+
+
         }
 
-      
 
         public void ShowError(string message, string longMessage = null, string title = null)
         {
@@ -95,6 +108,21 @@ namespace programowanie_SSprint
         {
             return removePicture(arg1, arg2);
         }
+
+        private bool StyleEditorWindow_removeStyle(IErrorable arg1, style arg2)
+        {
+            return removeStyle(arg1, arg2);
+        }
+
+        private List<style> StyleEditorWindow_getAllStyles(IErrorable arg)
+        {
+            return getAllStyles(arg);
+        }
+
+        private bool StyleEditorWindow_insertStyle(IErrorable arg1, style arg2)
+        {
+            return insertStyle(arg1, arg2);
+        }
         #endregion
         #region GENERATED_EVENTS
         private void MainWindow_Load(object sender, EventArgs e)
@@ -131,6 +159,8 @@ namespace programowanie_SSprint
             // TODO
             // event odpowiadający za dodawanie/usuwanie/edytowanie styli
             //
+
+            styleEditorWindow.ShowDialog();
         }
 
         private void getDataToolStripMenuItem_Click(object sender, EventArgs e)
@@ -139,19 +169,21 @@ namespace programowanie_SSprint
             // event odpowiadający za odświeżanie danych bazowych
             //
         }
-        #endregion
-        #region PRIVATE_VARIABLES_PROPERTIES
-        private ColorEditor colorEditorWindow;
+        private void btnCurrentOrderBrowseImage_Click(object sender, EventArgs e)
+        {
+            pictureEditorWindow.ShowDialog();
+        }
+   
+    #endregion
+    #region PRIVATE_VARIABLES_PROPERTIES
+    private ColorEditor colorEditorWindow;
         private PictureEditor pictureEditorWindow;
+        private StyleEditor styleEditorWindow;
         // private 
         #endregion
 
         #region PRIVATE_METHODS
         #endregion
 
-        private void btnCurrentOrderBrowseImage_Click(object sender, EventArgs e)
-        {
-            pictureEditorWindow.ShowDialog();
-        }
     }
 }

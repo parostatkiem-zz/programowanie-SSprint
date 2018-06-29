@@ -22,6 +22,8 @@ namespace programowanie_SSprint
         public PictureEditor()
         {
             InitializeComponent();
+            currentlySelectedPicture = null;
+            currentlyEditedPicture = new picture();
         }
         public void ShowError(string message, string longMessage = null, string title = null)
         {
