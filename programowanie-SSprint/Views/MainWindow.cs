@@ -43,6 +43,11 @@ namespace programowanie_SSprint
         public event Func<IErrorable, company, bool> removeCompany; //usuwa kolor. Istotne jest tylko company.id. Zwraca bool czy się udało
 
 
+        public event Func<IErrorable, tshirt, bool> insertTshirt; //jesli tshirt.id==null, to dodaje nowy tshirt, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Func<IErrorable, List<tshirt>> getAllTshirts; //zwraca listę wszystkich tshirt
+        public event Func<IErrorable, tshirt, bool> removeTshirt; //usuwa tshirt. Istotne jest tylko tshirt.id. Zwraca bool czy się udało
+
+
         #endregion
 
         #region PUBLIC
@@ -71,6 +76,8 @@ namespace programowanie_SSprint
             companyEditorWindow.insertCompany += CompanyEditorWindow_insertCompany;
             companyEditorWindow.getAllCompanies += CompanyEditorWindow_getAllCompanies;
             companyEditorWindow.removeCompany += CompanyEditorWindow_removeCompany;
+
+            tshirtEditorWindow = new TshirtEditor();
 
 
         }
@@ -156,7 +163,8 @@ namespace programowanie_SSprint
         {
             // TODO
             // event odpowiadający za dodawanie/usuwanie/edytowanie stanu magazynowego koszulek
-            //
+            tshirtEditorWindow.ShowDialog();
+
         }
 
         private void companiesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -202,6 +210,8 @@ namespace programowanie_SSprint
         private PictureEditor pictureEditorWindow;
         private StyleEditor styleEditorWindow;
         private CompanyEditor companyEditorWindow;
+
+        private TshirtEditor tshirtEditorWindow;
         // private 
         #endregion
 

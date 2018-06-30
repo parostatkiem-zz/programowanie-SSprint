@@ -36,6 +36,11 @@ namespace programowanie_SSprint
          event Func<IErrorable, List<company>> getAllCompanies; //zwraca listę wszystkich kolorów
          event Func<IErrorable, company, bool> removeCompany; //usuwa kolor. Istotne jest tylko company.id. Zwraca bool czy się udało
 
+         event Func<IErrorable, tshirt, bool> insertTshirt; //jesli tshirt.id==null, to dodaje nowy tshirt, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+         event Func<IErrorable, List<tshirt>> getAllTshirts; //zwraca listę wszystkich tshirt
+         event Func<IErrorable, tshirt, bool> removeTshirt; //usuwa tshirt. Istotne jest tylko tshirt.id. Zwraca bool czy się udało
+
+
 
     }
 }
