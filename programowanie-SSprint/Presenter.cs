@@ -23,346 +23,257 @@ namespace programowanie_SSprint
             this.view = view;
             this.model = model;
 
-
-            view.getAllThsirts += View_getAllTshirts;
-           // view.getAllCompany += View_getAllCompany;
-
-            // kolory
-            view.getAllColors += View_getAllColors; 
-            view.insertColor += View_insertColor; // zwrraca true jeśli uda się dodać/zmodyfikuje, false jeśli nie
-            view.removeColor += View_removeColor; // zwraca true jeśli się usunie, false jeśli nie ma takiego koloru i wyjątek, jeśli wystąpi błąd
-
-            // obrazki
-            view.getAllPictures += View_getAllPictures;
-            view.insertPicture += View_insertPicture; 
-            view.removePicture += View_removePicture;
-
-            // zamówienia
-            view.insertListOfItems += View_insertListOfItems;
-            view.insertSingleOrder += View_insertSingleOrder;
+            //view.insertTshirt += View_insertTshirt;
+            view.getAllThsirts += View_getAllThsirts;
+            
+            // poj. zamówienia
             view.getSingleOrder += View_getSingleOrder;
 
+            view.insertSingleOrder += View_insertSingleOrder;
+            view.insertListOfItems += View_insertListOfItems;
 
+            // kolory
+            view.insertColor += View_insertColor; 
+            view.getAllColors += View_getAllColors;
+            view.removeColor += View_removeColor;
+
+            // obrazki
+            view.insertPicture += View_insertPicture;
+            view.getAllPictures += View_getAllPictures;
+            view.removePicture += View_removePicture;
+
+            //style
+            view.insertStyle += View_insertStyle;
+            view.getAllStyles += View_getAllStyles;
+            view.removeStyle += View_removeStyle;
+
+            // firmy
+            view.insertCompany += View_insertCompany;
+            view.getAllCompanies += View_getAllCompanies;
+            view.removeCompany += View_removeCompany;
         }
 
-        private order View_getSingleOrder(IErrorable senderWindow, int orderID)
+        private bool View_insertTshirt(IErrorable windowInterface, tshirt newOrder)
         {
-            //todo : przetestować | na dzień dzisijeszy baza jest źle stworzona pod tą metodę
-            lock (mainThreadLock)
+            try
             {
-                try
-                {
-                    SSprintEntities dataBase = model.GetBase();
-                    return model.FindOrder(dataBase, new order { id = orderID });
-
-                }
-                catch (Exception ex)
-                {
-                    senderWindow.ShowError(ex.ToString());
-                    return null;
-                }
-                finally
-                {
-                    model.FinalizeBase();
-                }
+                model.InsertElement<tshirt>(new Communicator.TshirtCommunicator(), newOrder);
+                return true;
             }
-        }
-        private bool View_insertSingleOrder(IErrorable senderWindow, order newOrder)
-        {
-            //todo : przetestować | na dzień dzisijeszy baza jest źle stworzona pod tą metodę
-            lock (mainThreadLock)
+            catch (Exception ex)
             {
-                try
-                {
-                    SSprintEntities dataBase = model.GetBase();
-
-                    order isInData = model.FindOrder(dataBase, newOrder);
-                    if (isInData != null)
-                    {
-                        isInData.client_name = newOrder.client_name;
-                        isInData.client_email = newOrder.client_email;
-                        isInData.client_phone = newOrder.client_phone;
-                        isInData.end_date = newOrder.end_date;
-                        isInData.status = newOrder.status;
-                        isInData.singleItemOrders = newOrder.singleItemOrders;
-                        isInData.picture_id = newOrder.picture_id;
-                        isInData.picture = newOrder.picture;
-                        isInData.order_date = newOrder.order_date;
-                    }
-                    else
-                    {
-                        model.AddOrder(dataBase, newOrder);
-                    }
-
-                    model.SaveChanges(dataBase);
-
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    senderWindow.ShowError(ex.ToString());
-                    return false;
-                }
-            }
-        }
-        private bool View_insertListOfItems(IErrorable senderWindow, List<singleItemOrder> singleItemOrdersList)
-        {
-            //todo : przetestować | na dzień dzisijeszy baza jest źle stworzona pod tą metodę
-            lock (mainThreadLock)
-            {
-                try
-                {
-                    SSprintEntities dataBase = model.GetBase();
-                    foreach (singleItemOrder order in singleItemOrdersList)
-                    {
-                        singleItemOrder isInData = model.FindSingleItemOrder(dataBase, order);
-                        if (isInData != null)
-                        {
-                            isInData.order = order.order;
-                            isInData.order_id = order.order_id;
-                            isInData.tshirt = order.tshirt;
-                            isInData.tshirt_id = order.tshirt_id;
-                        }
-                        else
-                        {
-                            model.AddSingleItemOrder(dataBase, order);
-                        }
-                    }
-
-                    model.SaveChanges(dataBase);
-
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    senderWindow.ShowError(ex.ToString());
-                    return false;
-                }
+                windowInterface.ShowError(ex.ToString());
+                return false;
             }
         }
 
-        private bool View_removePicture(IErrorable senderWindow, picture newPicture)
+        private bool View_removeCompany(IErrorable windowInterface, company orderToRemove)
         {
-            lock (mainThreadLock)
+            try
             {
-                try
-                {
-                    SSprintEntities dataBase = model.GetBase();
-
-                    picture isInData = model.FindPicture(dataBase, newPicture);
-                    if (isInData != null)
-                    {
-                        model.RemovePicture(dataBase, newPicture);
-                    }
-                    else
-                    {
-                        return false;
-                    }
-
-                    model.SaveChanges(dataBase);
-
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    senderWindow.ShowError(ex.ToString());
-                    return false;
-                }
-                finally
-                {
-                    model.FinalizeBase();
-                }
+                model.RemoveElement<company>(new Communicator.CompanyCommunicator(), orderToRemove);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                windowInterface.ShowError(ex.ToString());
+                return false;
             }
         }
-        private bool View_insertPicture(IErrorable senderWindow, picture newPicture)
+        private List<company> View_getAllCompanies(IErrorable windowInterface)
         {
-            lock (mainThreadLock)
+            try
             {
-                try
-                {
-                    SSprintEntities dataBase = model.GetBase();
-
-                    picture isInData = model.FindPicture(dataBase, newPicture);
-                    if (isInData != null)
-                    {
-                        isInData.name = newPicture.name;
-                        isInData.picture_data = newPicture.picture_data;
-                        isInData.orders = newPicture.orders;
-                    }
-                    else
-                    {
-                        model.AddPicture(dataBase, newPicture);
-                    }
-
-                    model.SaveChanges(dataBase);
-
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    senderWindow.ShowError(ex.ToString());
-                    return false;
-                }
+                return model.GetAllElements<company>(new Communicator.CompanyCommunicator());
+            }
+            catch (Exception ex)
+            {
+                windowInterface.ShowError(ex.ToString());
+                return null;
             }
         }
-        private List<picture> View_getAllPictures(IErrorable senderWindow)
+        private bool View_insertCompany(IErrorable windowInterface, company newOrder)
         {
-            lock (mainThreadLock)
+            try
             {
-                try
-                {
-                    SSprintEntities dataBase = model.GetBase();
-
-                    return model.GetAllPictures(dataBase);
-                }
-                catch (Exception ex)
-                {
-                    senderWindow.ShowError(ex.ToString());
-                    return null;
-                }
-                finally
-                {
-                    model.FinalizeBase();
-                }
-
+                model.InsertElement<company>(new Communicator.CompanyCommunicator(), newOrder);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                windowInterface.ShowError(ex.ToString());
+                return false;
             }
         }
 
-        private bool View_removeColor(IErrorable senderWindow, color newColor)
+        private bool View_removeStyle(IErrorable windowInterface, style orderToRemove)
         {
-            lock (mainThreadLock)
+            try
             {
-                try
-                {
-                    SSprintEntities dataBase = model.GetBase();
-
-                    color isInData = model.FindColor(dataBase, newColor);
-                    if (isInData != null)
-                    {
-                        model.RemoveColor(dataBase, isInData);
-                    }
-                    else
-                    {
-                        return false;
-                    }
-
-                    model.SaveChanges(dataBase);
-
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    senderWindow.ShowError(ex.ToString());
-                    return false;
-                }
-                finally
-                {
-                    model.FinalizeBase();
-                }
+                model.RemoveElement<style>(new Communicator.StyleCommunicator(), orderToRemove);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                windowInterface.ShowError(ex.ToString());
+                return false;
             }
         }
-        private bool View_insertColor(IErrorable senderWindow, color newColor)
+        private List<style> View_getAllStyles(IErrorable windowInterface)
         {
-            lock (mainThreadLock)
+            try
             {
-                try
-                {
-                    SSprintEntities dataBase = model.GetBase();
-
-                    color isInData = model.FindColor(dataBase, newColor);
-                    if(isInData != null)
-                    {
-                        isInData.name = newColor.name;
-                        isInData.hex_value = newColor.hex_value;
-                        isInData.tshirts = isInData.tshirts;
-                    }
-                    else
-                    {
-                        model.AddColor(dataBase, newColor);
-                    }
-
-                    model.SaveChanges(dataBase);
-
-                    return true;
-
-                }
-                catch(Exception ex)
-                {
-                    senderWindow.ShowError(ex.ToString());
-                    return false;
-                }
+                return model.GetAllElements<style>(new Communicator.StyleCommunicator());
+            }
+            catch (Exception ex)
+            {
+                windowInterface.ShowError(ex.ToString());
+                return null;
             }
         }
-        private List<color> View_getAllColors(IErrorable senderWindow)
+        private bool View_insertStyle(IErrorable windowInterface, style newOrder)
         {
-            lock (mainThreadLock)
+            try
             {
-                try
-                {
-                    SSprintEntities dataBase = model.GetBase();
-
-                    return model.GetAllColors(dataBase);
-                }
-                catch (Exception ex)
-                {
-                    senderWindow.ShowError(ex.ToString());
-                    return null;
-                }
-                finally
-                {
-                    model.FinalizeBase();
-                }
-
+                model.InsertElement<style>(new Communicator.StyleCommunicator(), newOrder);
+                return true;
             }
-        }
-    
-
-        private List<company> View_getAllCompany(IErrorable senderWindow)
-        {
-            lock (mainThreadLock)
+            catch (Exception ex)
             {
-                try
-                {
-                    SSprintEntities dataBase = model.GetBase();
-
-                    return model.GetAllCompanies(dataBase);
-                }
-                catch (Exception ex)
-                {
-                    senderWindow.ShowError(ex.ToString());
-                    return null;
-                }
-                finally
-                {
-                    model.FinalizeBase();
-                }
-
+                windowInterface.ShowError(ex.ToString());
+                return false;
             }
         }
 
-        private List<tshirt> View_getAllTshirts(IErrorable senderWindow)
+        private bool View_removePicture(IErrorable windowInterface, picture orderToRemove)
         {
-            lock (mainThreadLock)
+            try
             {
-                try
-                {
-                    SSprintEntities dataBase = model.GetBase();
-
-                    return model.GetAllTshirts(dataBase);
-                }
-                catch (Exception ex)
-                {
-                    senderWindow.ShowError(ex.ToString());
-                    return null;
-                }
-                finally
-                {
-                    model.FinalizeBase();
-                }
-
+                model.RemoveElement<picture>(new Communicator.PictureCommunicator(), orderToRemove);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                windowInterface.ShowError(ex.ToString());
+                return false;
+            }
+        }
+        private List<picture> View_getAllPictures(IErrorable windowInterface)
+        {
+            try
+            {
+                return model.GetAllElements<picture>(new Communicator.PictureCommunicator());
+            }
+            catch (Exception ex)
+            {
+                windowInterface.ShowError(ex.ToString());
+                return null;
+            }
+        }
+        private bool View_insertPicture(IErrorable windowInterface, picture newOrder)
+        {
+            try
+            {
+                model.InsertElement<picture>(new Communicator.PictureCommunicator(), newOrder);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                windowInterface.ShowError(ex.ToString());
+                return false;
             }
         }
 
+        private bool View_removeColor(IErrorable windowInterface, color orderToRemove)
+        {
+            try
+            {
+                model.RemoveElement<color>(new Communicator.ColorCommunicator(), orderToRemove);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                windowInterface.ShowError(ex.ToString());
+                return false;
+            }
+        }
+        private List<color> View_getAllColors(IErrorable windowInterface)
+        {
+            try
+            {
+                return model.GetAllElements<color>(new Communicator.ColorCommunicator());
+            }
+            catch (Exception ex)
+            {
+                windowInterface.ShowError(ex.ToString());
+                return null;
+            }
+        }
+        private bool View_insertColor(IErrorable windowInterface, color newOrder)
+        {
+            try
+            {
+                model.InsertElement<color>(new Communicator.ColorCommunicator(), newOrder);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                windowInterface.ShowError(ex.ToString());
+                return false;
+            }
+        }
 
+        private bool View_insertListOfItems(IErrorable windowInterface, List<singleItemOrder> newOrders)
+        {
+            try
+            {
+                model.InsertListOfElements<singleItemOrder>(new Communicator.singleOrderCommunicator(), newOrders);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                windowInterface.ShowError(ex.ToString());
+                return false;
+            }
+        }
+        private bool View_insertSingleOrder(IErrorable windowInterface, order newOrder)
+        {
+            try
+            {
+                model.InsertElement<order>(new Communicator.OrderCommunicator(), newOrder);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                windowInterface.ShowError(ex.ToString());
+                return false;
+            }
+        }
+
+        private order View_getSingleOrder(IErrorable windowInterface, int itemID)
+        {
+            try
+            {
+                List<order> toReturn = model.GetAllElements<order>(new Communicator.OrderCommunicator());
+                return toReturn.FirstOrDefault(e => e.id == itemID);
+            }
+            catch (Exception ex)
+            {
+                windowInterface.ShowError(ex.ToString());
+                return null;
+            }
+        }
+        private List<tshirt> View_getAllThsirts(IErrorable windowInterface)
+        {
+            try
+            {
+                return model.GetAllElements<tshirt>(new Communicator.TshirtCommunicator());
+            }
+            catch(Exception ex)
+            {
+                windowInterface.ShowError(ex.ToString());
+                return null;
+            }
+        }
     }
 }

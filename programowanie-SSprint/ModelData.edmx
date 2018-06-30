@@ -70,6 +70,7 @@
           <Property Name="in_stock" Type="int" Nullable="false" />
           <Property Name="default_loss_percentage" Type="int" Nullable="false" />
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="size" Type="varchar" MaxLength="1" />
         </EntityType>
         <Association Name="color_id">
           <End Role="colors" Type="Self.colors" Multiplicity="1" />
@@ -259,6 +260,7 @@
           <NavigationProperty Name="company" Relationship="Self.company_id" FromRole="tshirts" ToRole="companies" />
           <NavigationProperty Name="singleItemOrders" Relationship="Self.tshirt_id" FromRole="tshirts" ToRole="singleItemOrder" />
           <NavigationProperty Name="style" Relationship="Self.style_id" FromRole="tshirts" ToRole="styles" />
+          <Property Name="size" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="color_id">
           <End Role="colors" Type="Self.color" Multiplicity="1" />
@@ -436,6 +438,7 @@
           <EntitySetMapping Name="tshirts">
             <EntityTypeMapping TypeName="SSprintModel.tshirt">
               <MappingFragment StoreEntitySet="tshirts">
+                <ScalarProperty Name="size" ColumnName="size" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="company_id" ColumnName="company_id" />
                 <ScalarProperty Name="style_id" ColumnName="style_id" />

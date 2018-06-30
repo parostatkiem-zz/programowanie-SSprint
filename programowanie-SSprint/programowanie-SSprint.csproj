@@ -56,44 +56,48 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="color.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelDataContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Communicator\ColorCommunicator.cs" />
+    <Compile Include="Communicator\BaseCommunicator.cs" />
+    <Compile Include="Communicator\CompanyCommunicator.cs" />
+    <Compile Include="Communicator\OrderCommunicator.cs" />
+    <Compile Include="Communicator\PictureCommunicator.cs" />
+    <Compile Include="Communicator\singleOrderCommunicator.cs" />
+    <Compile Include="Communicator\StyleCommunicator.cs" />
+    <Compile Include="Communicator\TshirtCommunicator.cs" />
     <Compile Include="company.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelDataContext.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelData.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DataBaseModel\Add.cs" />
-    <Compile Include="DataBaseModel\Get.cs" />
-    <Compile Include="DataBaseModel\Remove.cs" />
-    <Compile Include="DataBaseModel\Finde.cs" />
+    <Compile Include="ModelDataContext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDataContext.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelDataContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDataContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="order.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelDataContext.tt</DependentUpon>
     </Compile>
     <Compile Include="picture.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelDataContext.tt</DependentUpon>
     </Compile>
     <Compile Include="singleItemOrder.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelDataContext.tt</DependentUpon>
     </Compile>
     <Compile Include="style.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelDataContext.tt</DependentUpon>
     </Compile>
     <Compile Include="tshirt.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelDataContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Views\CompanyEditor.cs">
       <SubType>Form</SubType>
@@ -120,7 +124,6 @@
     <Compile Include="Views\ColorEditor.Designer.cs">
       <DependentUpon>ColorEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="DB.cs" />
     <Compile Include="Views\ImainView.cs" />
     <Compile Include="Views\MainWindow.cs">
       <SubType>Form</SubType>
@@ -128,7 +131,7 @@
     <Compile Include="Views\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataBaseModel\MainDataModel.cs" />
+    <Compile Include="Model.cs" />
     <Compile Include="Presenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -180,6 +183,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelData.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="ClassDiagram1.cd" />
     <None Include="ModelData.edmx.diagram">
       <DependentUpon>ModelData.edmx</DependentUpon>
     </None>
@@ -201,19 +205,19 @@
     <None Include="Resources\empty-image.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>ModelData.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelData.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="ModelDataContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelDataContext.Context.cs</LastGenOutput>
+      <DependentUpon>ModelData.edmx</DependentUpon>
+    </Content>
+    <Content Include="ModelDataContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelDataContext.cs</LastGenOutput>
+      <DependentUpon>ModelData.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
