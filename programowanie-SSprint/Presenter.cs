@@ -24,11 +24,10 @@ namespace programowanie_SSprint
             this.model = model;
 
             //view.insertTshirt += View_insertTshirt;
-            view.getAllThsirts += View_getAllThsirts;
+            //view.getAllThsirts += View_getAllThsirts;
             
             // poj. zamówienia
             view.getSingleOrder += View_getSingleOrder;
-
             view.insertSingleOrder += View_insertSingleOrder;
             view.insertListOfItems += View_insertListOfItems;
 
@@ -51,13 +50,43 @@ namespace programowanie_SSprint
             view.insertCompany += View_insertCompany;
             view.getAllCompanies += View_getAllCompanies;
             view.removeCompany += View_removeCompany;
+
+            // koszulki
+            view.insertTshirt += View_insertTshirt;
+            view.getAllTshirts += View_getAllTshirts;
+            view.removeTshirt += View_removeTshirt;
         }
 
-        private bool View_insertTshirt(IErrorable windowInterface, tshirt newOrder)
+        private bool View_removeTshirt(IErrorable windowInterface, tshirt itemToRemove)
         {
             try
             {
-                model.InsertElement<tshirt>(new Communicator.TshirtCommunicator(), newOrder);
+                model.RemoveElement<tshirt>(new Communicator.TshirtCommunicator(), itemToRemove);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                windowInterface.ShowError(ex.Message);
+                return false;
+            }
+        }
+        private List<tshirt> View_getAllTshirts(IErrorable windowInterface)
+        {
+            try
+            {
+                return model.GetAllElements<tshirt>(new Communicator.TshirtCommunicator());
+            }
+            catch (Exception ex)
+            {
+                windowInterface.ShowError(ex.ToString());
+                return null;
+            }
+        }
+        private bool View_insertTshirt(IErrorable windowInterface, tshirt newItem)
+        {
+            try
+            {
+                model.InsertElement<tshirt>(new Communicator.TshirtCommunicator(), newItem);
                 return true;
             }
             catch (Exception ex)
@@ -67,11 +96,11 @@ namespace programowanie_SSprint
             }
         }
 
-        private bool View_removeCompany(IErrorable windowInterface, company orderToRemove)
+        private bool View_removeCompany(IErrorable windowInterface, company itemToRemove)
         {
             try
             {
-                model.RemoveElement<company>(new Communicator.CompanyCommunicator(), orderToRemove);
+                model.RemoveElement<company>(new Communicator.CompanyCommunicator(), itemToRemove);
                 return true;
             }
             catch (Exception ex)
@@ -92,11 +121,11 @@ namespace programowanie_SSprint
                 return null;
             }
         }
-        private bool View_insertCompany(IErrorable windowInterface, company newOrder)
+        private bool View_insertCompany(IErrorable windowInterface, company newItem)
         {
             try
             {
-                model.InsertElement<company>(new Communicator.CompanyCommunicator(), newOrder);
+                model.InsertElement<company>(new Communicator.CompanyCommunicator(), newItem);
                 return true;
             }
             catch (Exception ex)
@@ -106,11 +135,11 @@ namespace programowanie_SSprint
             }
         }
 
-        private bool View_removeStyle(IErrorable windowInterface, style orderToRemove)
+        private bool View_removeStyle(IErrorable windowInterface, style itemToRemove)
         {
             try
             {
-                model.RemoveElement<style>(new Communicator.StyleCommunicator(), orderToRemove);
+                model.RemoveElement<style>(new Communicator.StyleCommunicator(), itemToRemove);
                 return true;
             }
             catch (Exception ex)
@@ -131,11 +160,11 @@ namespace programowanie_SSprint
                 return null;
             }
         }
-        private bool View_insertStyle(IErrorable windowInterface, style newOrder)
+        private bool View_insertStyle(IErrorable windowInterface, style newItem)
         {
             try
             {
-                model.InsertElement<style>(new Communicator.StyleCommunicator(), newOrder);
+                model.InsertElement<style>(new Communicator.StyleCommunicator(), newItem);
                 return true;
             }
             catch (Exception ex)
@@ -145,11 +174,11 @@ namespace programowanie_SSprint
             }
         }
 
-        private bool View_removePicture(IErrorable windowInterface, picture orderToRemove)
+        private bool View_removePicture(IErrorable windowInterface, picture itemToRemove)
         {
             try
             {
-                model.RemoveElement<picture>(new Communicator.PictureCommunicator(), orderToRemove);
+                model.RemoveElement<picture>(new Communicator.PictureCommunicator(), itemToRemove);
                 return true;
             }
             catch (Exception ex)
@@ -170,11 +199,11 @@ namespace programowanie_SSprint
                 return null;
             }
         }
-        private bool View_insertPicture(IErrorable windowInterface, picture newOrder)
+        private bool View_insertPicture(IErrorable windowInterface, picture newItem)
         {
             try
             {
-                model.InsertElement<picture>(new Communicator.PictureCommunicator(), newOrder);
+                model.InsertElement<picture>(new Communicator.PictureCommunicator(), newItem);
                 return true;
             }
             catch (Exception ex)
@@ -184,11 +213,11 @@ namespace programowanie_SSprint
             }
         }
 
-        private bool View_removeColor(IErrorable windowInterface, color orderToRemove)
+        private bool View_removeColor(IErrorable windowInterface, color itemToRemove)
         {
             try
             {
-                model.RemoveElement<color>(new Communicator.ColorCommunicator(), orderToRemove);
+                model.RemoveElement<color>(new Communicator.ColorCommunicator(), itemToRemove);
                 return true;
             }
             catch (Exception ex)
@@ -209,11 +238,11 @@ namespace programowanie_SSprint
                 return null;
             }
         }
-        private bool View_insertColor(IErrorable windowInterface, color newOrder)
+        private bool View_insertColor(IErrorable windowInterface, color newItem)
         {
             try
             {
-                model.InsertElement<color>(new Communicator.ColorCommunicator(), newOrder);
+                model.InsertElement<color>(new Communicator.ColorCommunicator(), newItem);
                 return true;
             }
             catch (Exception ex)
@@ -223,11 +252,11 @@ namespace programowanie_SSprint
             }
         }
 
-        private bool View_insertListOfItems(IErrorable windowInterface, List<singleItemOrder> newOrders)
+        private bool View_insertListOfItems(IErrorable windowInterface, List<singleItemOrder> itemToRemove)
         {
             try
             {
-                model.InsertListOfElements<singleItemOrder>(new Communicator.singleOrderCommunicator(), newOrders);
+                model.InsertListOfElements<singleItemOrder>(new Communicator.singleOrderCommunicator(), itemToRemove);
                 return true;
             }
             catch (Exception ex)
@@ -236,11 +265,11 @@ namespace programowanie_SSprint
                 return false;
             }
         }
-        private bool View_insertSingleOrder(IErrorable windowInterface, order newOrder)
+        private bool View_insertSingleOrder(IErrorable windowInterface, order newItem)
         {
             try
             {
-                model.InsertElement<order>(new Communicator.OrderCommunicator(), newOrder);
+                model.InsertElement<order>(new Communicator.OrderCommunicator(), newItem);
                 return true;
             }
             catch (Exception ex)
@@ -249,7 +278,6 @@ namespace programowanie_SSprint
                 return false;
             }
         }
-
         private order View_getSingleOrder(IErrorable windowInterface, int itemID)
         {
             try
@@ -258,18 +286,6 @@ namespace programowanie_SSprint
                 return toReturn.FirstOrDefault(e => e.id == itemID);
             }
             catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.ToString());
-                return null;
-            }
-        }
-        private List<tshirt> View_getAllThsirts(IErrorable windowInterface)
-        {
-            try
-            {
-                return model.GetAllElements<tshirt>(new Communicator.TshirtCommunicator());
-            }
-            catch(Exception ex)
             {
                 windowInterface.ShowError(ex.ToString());
                 return null;
