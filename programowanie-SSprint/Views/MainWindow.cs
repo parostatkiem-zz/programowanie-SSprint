@@ -77,6 +77,8 @@ namespace programowanie_SSprint
             companyEditorWindow.getAllCompanies += CompanyEditorWindow_getAllCompanies;
             companyEditorWindow.removeCompany += CompanyEditorWindow_removeCompany;
 
+            tshirtEditorWindow = new TshirtEditor();
+
 
         }
 
@@ -161,7 +163,8 @@ namespace programowanie_SSprint
         {
             // TODO
             // event odpowiadający za dodawanie/usuwanie/edytowanie stanu magazynowego koszulek
-            //
+            tshirtEditorWindow.ShowDialog();
+
         }
 
         private void companiesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -207,6 +210,8 @@ namespace programowanie_SSprint
         private PictureEditor pictureEditorWindow;
         private StyleEditor styleEditorWindow;
         private CompanyEditor companyEditorWindow;
+
+        private TshirtEditor tshirtEditorWindow;
         // private 
         #endregion
 

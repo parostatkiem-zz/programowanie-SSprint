@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace programowanie_SSprint.Views
-{
-    public partial class TshirtEditor : Form
+namespace programowanie_SSprint
+{ 
+    public partial class TshirtEditor : Form,IErrorable
     {
         #region EVENTS
         public event Func<IErrorable, List<tshirt>> getAllThsirts; //pobiera wszystkie dane z tabeli Tshirts
@@ -20,9 +20,17 @@ namespace programowanie_SSprint.Views
 
 
         #endregion
+        #region PUBLIC
         public TshirtEditor()
         {
             InitializeComponent();
         }
+        public void ShowError(string message, string longMessage = null, string title = null)
+        {
+            var ErrorWindow = new Views.HelperViews.Error(message, longMessage, title);
+            ErrorWindow.ShowDialog();
+        }
+        #endregion
+
     }
 }

@@ -27,6 +27,7 @@ namespace programowanie_SSprint
         public int color_id { get; set; }
         public int in_stock { get; set; }
         public int default_loss_percentage { get; set; }
+        public string size { get; set; }
     
         public virtual color color { get; set; }
         public virtual company company { get; set; }

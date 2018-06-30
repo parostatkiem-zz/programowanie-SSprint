@@ -1,4 +1,4 @@
-﻿namespace programowanie_SSprint.Views
+﻿namespace programowanie_SSprint
 {
     partial class TshirtEditor
     {
@@ -69,29 +69,34 @@
             treeNode20});
             this.treeViewProductBrowser = new System.Windows.Forms.TreeView();
             this.gbTshirtProperties = new System.Windows.Forms.GroupBox();
-            this.btnApply = new System.Windows.Forms.Button();
-            this.lCompany = new System.Windows.Forms.Label();
-            this.lSex = new System.Windows.Forms.Label();
-            this.lModel = new System.Windows.Forms.Label();
-            this.lColor = new System.Windows.Forms.Label();
-            this.tbModel = new System.Windows.Forms.TextBox();
-            this.comboBoxColor = new System.Windows.Forms.ComboBox();
-            this.comboBoxSex = new System.Windows.Forms.ComboBox();
-            this.comboBoxCompany = new System.Windows.Forms.ComboBox();
-            this.lInStock = new System.Windows.Forms.Label();
-            this.lReserved = new System.Windows.Forms.Label();
-            this.numInStock = new System.Windows.Forms.NumericUpDown();
-            this.numReserved = new System.Windows.Forms.NumericUpDown();
-            this.numAvailable = new System.Windows.Forms.NumericUpDown();
-            this.lAvailable = new System.Windows.Forms.Label();
             this.lId = new System.Windows.Forms.Label();
-            this.numId = new System.Windows.Forms.NumericUpDown();
+            this.lAvailable = new System.Windows.Forms.Label();
+            this.numInStock = new System.Windows.Forms.NumericUpDown();
+            this.lReserved = new System.Windows.Forms.Label();
+            this.lInStock = new System.Windows.Forms.Label();
+            this.comboBoxCompany = new System.Windows.Forms.ComboBox();
+            this.comboBoxSex = new System.Windows.Forms.ComboBox();
+            this.comboBoxColor = new System.Windows.Forms.ComboBox();
+            this.tbModel = new System.Windows.Forms.TextBox();
+            this.lColor = new System.Windows.Forms.Label();
+            this.lModel = new System.Windows.Forms.Label();
+            this.lSex = new System.Windows.Forms.Label();
+            this.lCompany = new System.Windows.Forms.Label();
+            this.btnApply = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.tbReserved = new System.Windows.Forms.TextBox();
+            this.tbAvailable = new System.Windows.Forms.TextBox();
+            this.tbId = new System.Windows.Forms.TextBox();
+            this.comboBoxSize = new System.Windows.Forms.ComboBox();
+            this.lSize = new System.Windows.Forms.Label();
+            this.numericDefaultLoss = new System.Windows.Forms.NumericUpDown();
+            this.ldefaultLoss1 = new System.Windows.Forms.Label();
+            this.ldefaultLoss2 = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnApplyChanges = new System.Windows.Forms.Button();
             this.gbTshirtProperties.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numInStock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numReserved)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numAvailable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericDefaultLoss)).BeginInit();
             this.SuspendLayout();
             // 
             // treeViewProductBrowser
@@ -147,17 +152,24 @@
             treeNode16,
             treeNode19,
             treeNode21});
-            this.treeViewProductBrowser.Size = new System.Drawing.Size(525, 294);
+            this.treeViewProductBrowser.Size = new System.Drawing.Size(325, 430);
             this.treeViewProductBrowser.TabIndex = 1;
             // 
             // gbTshirtProperties
             // 
             this.gbTshirtProperties.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbTshirtProperties.Controls.Add(this.numId);
+            this.gbTshirtProperties.Controls.Add(this.btnCancel);
+            this.gbTshirtProperties.Controls.Add(this.ldefaultLoss2);
+            this.gbTshirtProperties.Controls.Add(this.btnApplyChanges);
+            this.gbTshirtProperties.Controls.Add(this.numericDefaultLoss);
+            this.gbTshirtProperties.Controls.Add(this.ldefaultLoss1);
+            this.gbTshirtProperties.Controls.Add(this.comboBoxSize);
+            this.gbTshirtProperties.Controls.Add(this.lSize);
+            this.gbTshirtProperties.Controls.Add(this.tbId);
+            this.gbTshirtProperties.Controls.Add(this.tbAvailable);
+            this.gbTshirtProperties.Controls.Add(this.tbReserved);
             this.gbTshirtProperties.Controls.Add(this.lId);
-            this.gbTshirtProperties.Controls.Add(this.numAvailable);
             this.gbTshirtProperties.Controls.Add(this.lAvailable);
-            this.gbTshirtProperties.Controls.Add(this.numReserved);
             this.gbTshirtProperties.Controls.Add(this.numInStock);
             this.gbTshirtProperties.Controls.Add(this.lReserved);
             this.gbTshirtProperties.Controls.Add(this.lInStock);
@@ -169,49 +181,96 @@
             this.gbTshirtProperties.Controls.Add(this.lModel);
             this.gbTshirtProperties.Controls.Add(this.lSex);
             this.gbTshirtProperties.Controls.Add(this.lCompany);
-            this.gbTshirtProperties.Location = new System.Drawing.Point(543, 12);
+            this.gbTshirtProperties.Location = new System.Drawing.Point(343, 12);
             this.gbTshirtProperties.Name = "gbTshirtProperties";
-            this.gbTshirtProperties.Size = new System.Drawing.Size(229, 266);
+            this.gbTshirtProperties.Size = new System.Drawing.Size(229, 386);
             this.gbTshirtProperties.TabIndex = 2;
             this.gbTshirtProperties.TabStop = false;
             this.gbTshirtProperties.Text = "Właściwości koszulki";
             // 
-            // btnApply
+            // lId
             // 
-            this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApply.Location = new System.Drawing.Point(697, 284);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(75, 23);
-            this.btnApply.TabIndex = 3;
-            this.btnApply.Text = "Dodaj nową";
-            this.btnApply.UseVisualStyleBackColor = true;
+            this.lId.AutoSize = true;
+            this.lId.Location = new System.Drawing.Point(7, 294);
+            this.lId.Name = "lId";
+            this.lId.Size = new System.Drawing.Size(52, 13);
+            this.lId.TabIndex = 14;
+            this.lId.Text = "Numer ID";
             // 
-            // lCompany
+            // lAvailable
             // 
-            this.lCompany.AutoSize = true;
-            this.lCompany.Location = new System.Drawing.Point(7, 20);
-            this.lCompany.Name = "lCompany";
-            this.lCompany.Size = new System.Drawing.Size(32, 13);
-            this.lCompany.TabIndex = 0;
-            this.lCompany.Text = "Firma";
+            this.lAvailable.AutoSize = true;
+            this.lAvailable.Location = new System.Drawing.Point(7, 261);
+            this.lAvailable.Name = "lAvailable";
+            this.lAvailable.Size = new System.Drawing.Size(53, 13);
+            this.lAvailable.TabIndex = 12;
+            this.lAvailable.Text = "Dostępne";
             // 
-            // lSex
+            // numInStock
             // 
-            this.lSex.AutoSize = true;
-            this.lSex.Location = new System.Drawing.Point(7, 48);
-            this.lSex.Name = "lSex";
-            this.lSex.Size = new System.Drawing.Size(30, 13);
-            this.lSex.TabIndex = 1;
-            this.lSex.Text = "Płeć";
+            this.numInStock.Location = new System.Drawing.Point(96, 201);
+            this.numInStock.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numInStock.Name = "numInStock";
+            this.numInStock.Size = new System.Drawing.Size(120, 20);
+            this.numInStock.TabIndex = 10;
             // 
-            // lModel
+            // lReserved
             // 
-            this.lModel.AutoSize = true;
-            this.lModel.Location = new System.Drawing.Point(7, 75);
-            this.lModel.Name = "lModel";
-            this.lModel.Size = new System.Drawing.Size(36, 13);
-            this.lModel.TabIndex = 2;
-            this.lModel.Text = "Model";
+            this.lReserved.AutoSize = true;
+            this.lReserved.Location = new System.Drawing.Point(7, 231);
+            this.lReserved.Name = "lReserved";
+            this.lReserved.Size = new System.Drawing.Size(83, 13);
+            this.lReserved.TabIndex = 9;
+            this.lReserved.Text = "Zarezerwowane";
+            // 
+            // lInStock
+            // 
+            this.lInStock.AutoSize = true;
+            this.lInStock.Location = new System.Drawing.Point(7, 203);
+            this.lInStock.Name = "lInStock";
+            this.lInStock.Size = new System.Drawing.Size(71, 13);
+            this.lInStock.TabIndex = 8;
+            this.lInStock.Text = "W magazynie";
+            // 
+            // comboBoxCompany
+            // 
+            this.comboBoxCompany.FormattingEnabled = true;
+            this.comboBoxCompany.Location = new System.Drawing.Point(49, 17);
+            this.comboBoxCompany.Name = "comboBoxCompany";
+            this.comboBoxCompany.Size = new System.Drawing.Size(167, 21);
+            this.comboBoxCompany.TabIndex = 7;
+            // 
+            // comboBoxSex
+            // 
+            this.comboBoxSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSex.FormattingEnabled = true;
+            this.comboBoxSex.Items.AddRange(new object[] {
+            "Męska",
+            "Żeńska",
+            "Unisex"});
+            this.comboBoxSex.Location = new System.Drawing.Point(49, 45);
+            this.comboBoxSex.Name = "comboBoxSex";
+            this.comboBoxSex.Size = new System.Drawing.Size(167, 21);
+            this.comboBoxSex.TabIndex = 6;
+            // 
+            // comboBoxColor
+            // 
+            this.comboBoxColor.FormattingEnabled = true;
+            this.comboBoxColor.Location = new System.Drawing.Point(49, 101);
+            this.comboBoxColor.Name = "comboBoxColor";
+            this.comboBoxColor.Size = new System.Drawing.Size(167, 21);
+            this.comboBoxColor.TabIndex = 5;
+            // 
+            // tbModel
+            // 
+            this.tbModel.Location = new System.Drawing.Point(49, 72);
+            this.tbModel.Name = "tbModel";
+            this.tbModel.Size = new System.Drawing.Size(167, 20);
+            this.tbModel.TabIndex = 4;
             // 
             // lColor
             // 
@@ -222,139 +281,159 @@
             this.lColor.TabIndex = 3;
             this.lColor.Text = "Kolor";
             // 
-            // tbModel
+            // lModel
             // 
-            this.tbModel.Location = new System.Drawing.Point(49, 72);
-            this.tbModel.Name = "tbModel";
-            this.tbModel.Size = new System.Drawing.Size(167, 20);
-            this.tbModel.TabIndex = 4;
+            this.lModel.AutoSize = true;
+            this.lModel.Location = new System.Drawing.Point(7, 75);
+            this.lModel.Name = "lModel";
+            this.lModel.Size = new System.Drawing.Size(36, 13);
+            this.lModel.TabIndex = 2;
+            this.lModel.Text = "Model";
             // 
-            // comboBoxColor
+            // lSex
             // 
-            this.comboBoxColor.FormattingEnabled = true;
-            this.comboBoxColor.Location = new System.Drawing.Point(49, 101);
-            this.comboBoxColor.Name = "comboBoxColor";
-            this.comboBoxColor.Size = new System.Drawing.Size(167, 21);
-            this.comboBoxColor.TabIndex = 5;
+            this.lSex.AutoSize = true;
+            this.lSex.Location = new System.Drawing.Point(7, 48);
+            this.lSex.Name = "lSex";
+            this.lSex.Size = new System.Drawing.Size(30, 13);
+            this.lSex.TabIndex = 1;
+            this.lSex.Text = "Płeć";
             // 
-            // comboBoxSex
+            // lCompany
             // 
-            this.comboBoxSex.FormattingEnabled = true;
-            this.comboBoxSex.Location = new System.Drawing.Point(49, 45);
-            this.comboBoxSex.Name = "comboBoxSex";
-            this.comboBoxSex.Size = new System.Drawing.Size(167, 21);
-            this.comboBoxSex.TabIndex = 6;
+            this.lCompany.AutoSize = true;
+            this.lCompany.Location = new System.Drawing.Point(7, 20);
+            this.lCompany.Name = "lCompany";
+            this.lCompany.Size = new System.Drawing.Size(32, 13);
+            this.lCompany.TabIndex = 0;
+            this.lCompany.Text = "Firma";
             // 
-            // comboBoxCompany
+            // btnApply
             // 
-            this.comboBoxCompany.FormattingEnabled = true;
-            this.comboBoxCompany.Location = new System.Drawing.Point(49, 17);
-            this.comboBoxCompany.Name = "comboBoxCompany";
-            this.comboBoxCompany.Size = new System.Drawing.Size(167, 21);
-            this.comboBoxCompany.TabIndex = 7;
-            // 
-            // lInStock
-            // 
-            this.lInStock.AutoSize = true;
-            this.lInStock.Location = new System.Drawing.Point(7, 136);
-            this.lInStock.Name = "lInStock";
-            this.lInStock.Size = new System.Drawing.Size(71, 13);
-            this.lInStock.TabIndex = 8;
-            this.lInStock.Text = "W magazynie";
-            // 
-            // lReserved
-            // 
-            this.lReserved.AutoSize = true;
-            this.lReserved.Location = new System.Drawing.Point(7, 164);
-            this.lReserved.Name = "lReserved";
-            this.lReserved.Size = new System.Drawing.Size(83, 13);
-            this.lReserved.TabIndex = 9;
-            this.lReserved.Text = "Zarezerwowane";
-            // 
-            // numInStock
-            // 
-            this.numInStock.Location = new System.Drawing.Point(96, 134);
-            this.numInStock.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numInStock.Name = "numInStock";
-            this.numInStock.Size = new System.Drawing.Size(120, 20);
-            this.numInStock.TabIndex = 10;
-            // 
-            // numReserved
-            // 
-            this.numReserved.Location = new System.Drawing.Point(96, 162);
-            this.numReserved.Maximum = new decimal(new int[] {
-            1410065407,
-            2,
-            0,
-            0});
-            this.numReserved.Name = "numReserved";
-            this.numReserved.ReadOnly = true;
-            this.numReserved.Size = new System.Drawing.Size(120, 20);
-            this.numReserved.TabIndex = 11;
-            // 
-            // numAvailable
-            // 
-            this.numAvailable.Location = new System.Drawing.Point(96, 192);
-            this.numAvailable.Maximum = new decimal(new int[] {
-            1410065407,
-            2,
-            0,
-            0});
-            this.numAvailable.Name = "numAvailable";
-            this.numAvailable.ReadOnly = true;
-            this.numAvailable.Size = new System.Drawing.Size(120, 20);
-            this.numAvailable.TabIndex = 13;
-            // 
-            // lAvailable
-            // 
-            this.lAvailable.AutoSize = true;
-            this.lAvailable.Location = new System.Drawing.Point(7, 194);
-            this.lAvailable.Name = "lAvailable";
-            this.lAvailable.Size = new System.Drawing.Size(53, 13);
-            this.lAvailable.TabIndex = 12;
-            this.lAvailable.Text = "Dostępne";
-            // 
-            // lId
-            // 
-            this.lId.AutoSize = true;
-            this.lId.Location = new System.Drawing.Point(7, 227);
-            this.lId.Name = "lId";
-            this.lId.Size = new System.Drawing.Size(52, 13);
-            this.lId.TabIndex = 14;
-            this.lId.Text = "Numer ID";
-            // 
-            // numId
-            // 
-            this.numId.Location = new System.Drawing.Point(96, 225);
-            this.numId.Maximum = new decimal(new int[] {
-            1410065407,
-            2,
-            0,
-            0});
-            this.numId.Name = "numId";
-            this.numId.ReadOnly = true;
-            this.numId.Size = new System.Drawing.Size(120, 20);
-            this.numId.TabIndex = 15;
+            this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnApply.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnApply.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnApply.Location = new System.Drawing.Point(497, 420);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(75, 23);
+            this.btnApply.TabIndex = 3;
+            this.btnApply.Text = "Dodaj nową";
+            this.btnApply.UseVisualStyleBackColor = false;
             // 
             // btnDelete
             // 
-            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.Location = new System.Drawing.Point(543, 284);
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.BackColor = System.Drawing.Color.Tomato;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDelete.Location = new System.Drawing.Point(343, 420);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Usuń";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // tbReserved
+            // 
+            this.tbReserved.Location = new System.Drawing.Point(96, 228);
+            this.tbReserved.Name = "tbReserved";
+            this.tbReserved.ReadOnly = true;
+            this.tbReserved.Size = new System.Drawing.Size(120, 20);
+            this.tbReserved.TabIndex = 15;
+            // 
+            // tbAvailable
+            // 
+            this.tbAvailable.Location = new System.Drawing.Point(96, 258);
+            this.tbAvailable.Name = "tbAvailable";
+            this.tbAvailable.ReadOnly = true;
+            this.tbAvailable.Size = new System.Drawing.Size(120, 20);
+            this.tbAvailable.TabIndex = 16;
+            // 
+            // tbId
+            // 
+            this.tbId.Location = new System.Drawing.Point(96, 291);
+            this.tbId.Name = "tbId";
+            this.tbId.ReadOnly = true;
+            this.tbId.Size = new System.Drawing.Size(120, 20);
+            this.tbId.TabIndex = 17;
+            // 
+            // comboBoxSize
+            // 
+            this.comboBoxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSize.FormattingEnabled = true;
+            this.comboBoxSize.Items.AddRange(new object[] {
+            "Męska",
+            "Żeńska",
+            "Unisex"});
+            this.comboBoxSize.Location = new System.Drawing.Point(49, 128);
+            this.comboBoxSize.Name = "comboBoxSize";
+            this.comboBoxSize.Size = new System.Drawing.Size(167, 21);
+            this.comboBoxSize.TabIndex = 19;
+            // 
+            // lSize
+            // 
+            this.lSize.AutoSize = true;
+            this.lSize.Location = new System.Drawing.Point(6, 131);
+            this.lSize.Name = "lSize";
+            this.lSize.Size = new System.Drawing.Size(45, 13);
+            this.lSize.TabIndex = 18;
+            this.lSize.Text = "Rozmiar";
+            // 
+            // numericDefaultLoss
+            // 
+            this.numericDefaultLoss.Location = new System.Drawing.Point(96, 175);
+            this.numericDefaultLoss.Name = "numericDefaultLoss";
+            this.numericDefaultLoss.Size = new System.Drawing.Size(120, 20);
+            this.numericDefaultLoss.TabIndex = 21;
+            // 
+            // ldefaultLoss1
+            // 
+            this.ldefaultLoss1.AutoSize = true;
+            this.ldefaultLoss1.Location = new System.Drawing.Point(6, 164);
+            this.ldefaultLoss1.Name = "ldefaultLoss1";
+            this.ldefaultLoss1.Size = new System.Drawing.Size(63, 13);
+            this.ldefaultLoss1.TabIndex = 20;
+            this.ldefaultLoss1.Text = "Domyślny %";
+            // 
+            // ldefaultLoss2
+            // 
+            this.ldefaultLoss2.AutoSize = true;
+            this.ldefaultLoss2.Location = new System.Drawing.Point(7, 177);
+            this.ldefaultLoss2.Name = "ldefaultLoss2";
+            this.ldefaultLoss2.Size = new System.Drawing.Size(62, 13);
+            this.ldefaultLoss2.TabIndex = 22;
+            this.ldefaultLoss2.Text = "nieudanych";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.BackColor = System.Drawing.Color.Tomato;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancel.Location = new System.Drawing.Point(10, 325);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(213, 23);
+            this.btnCancel.TabIndex = 11;
+            this.btnCancel.Text = "Anuluj";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            // 
+            // btnApplyChanges
+            // 
+            this.btnApplyChanges.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnApplyChanges.BackColor = System.Drawing.Color.LightGreen;
+            this.btnApplyChanges.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnApplyChanges.Location = new System.Drawing.Point(10, 354);
+            this.btnApplyChanges.Name = "btnApplyChanges";
+            this.btnApplyChanges.Size = new System.Drawing.Size(213, 23);
+            this.btnApplyChanges.TabIndex = 10;
+            this.btnApplyChanges.Text = "Zapisz zmiany";
+            this.btnApplyChanges.UseVisualStyleBackColor = false;
             // 
             // TshirtEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(776, 313);
+            this.ClientSize = new System.Drawing.Size(576, 449);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.gbTshirtProperties);
@@ -365,9 +444,7 @@
             this.gbTshirtProperties.ResumeLayout(false);
             this.gbTshirtProperties.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numInStock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numReserved)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numAvailable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericDefaultLoss)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -385,14 +462,21 @@
         private System.Windows.Forms.ComboBox comboBoxColor;
         private System.Windows.Forms.TextBox tbModel;
         private System.Windows.Forms.Label lColor;
-        private System.Windows.Forms.NumericUpDown numAvailable;
         private System.Windows.Forms.Label lAvailable;
-        private System.Windows.Forms.NumericUpDown numReserved;
         private System.Windows.Forms.NumericUpDown numInStock;
         private System.Windows.Forms.Label lReserved;
         private System.Windows.Forms.Label lInStock;
-        private System.Windows.Forms.NumericUpDown numId;
         private System.Windows.Forms.Label lId;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.TextBox tbId;
+        private System.Windows.Forms.TextBox tbAvailable;
+        private System.Windows.Forms.TextBox tbReserved;
+        private System.Windows.Forms.ComboBox comboBoxSize;
+        private System.Windows.Forms.Label lSize;
+        private System.Windows.Forms.Label ldefaultLoss2;
+        private System.Windows.Forms.NumericUpDown numericDefaultLoss;
+        private System.Windows.Forms.Label ldefaultLoss1;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnApplyChanges;
     }
 }
