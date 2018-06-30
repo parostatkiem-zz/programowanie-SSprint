@@ -10,14 +10,14 @@ namespace programowanie_SSprint
     partial class Model
     {
         private object mainThreadLock = new object();
-
-        public void InsertElement<argType>(Communicator.BaseCommunicator<argType> baseCommunicator, argType objToInsert)
+        public void InsertElement<elementType>(elementType objToInsert) 
+            where elementType : Communicator.CommunicatorElement
         {
             lock (mainThreadLock)
             {
                 try
                 {
-                    this.InsertListOfElements<argType>(baseCommunicator, new List<argType>() { objToInsert });
+                    this.InsertListOfElements<elementType>(new List<elementType>() { objToInsert });
                 }
                 catch(Exception ex)
                 {
@@ -26,19 +26,23 @@ namespace programowanie_SSprint
             } 
         }
 
-        public void InsertListOfElements<argType>(Communicator.BaseCommunicator<argType> baseCommunicator, List<argType> listToInsert)
+        public void InsertListOfElements<elementType>(List<elementType> listToInsert) 
+            where elementType : Communicator.CommunicatorElement
         {
             lock (mainThreadLock)
             {
                 try
                 {
-                    baseCommunicator.NewConnection();
+                    Communicator.Communicator<elementType> baseCommunicator = new Communicator.Communicator<elementType>();
+                    baseCommunicator.Connect();
                     
-                    foreach(argType objToInsert in listToInsert)
+                    foreach(elementType objToInsert in listToInsert)
                     {
-                        argType foundedElem = baseCommunicator.Find(objToInsert);
+                        elementType foundedElem = baseCommunicator.Find(objToInsert.getId());
                         if (foundedElem != null)
-                            baseCommunicator.Update(ref foundedElem, objToInsert);
+                        {
+                            baseCommunicator.Insert(objToInsert);
+                        }
                         else
                             baseCommunicator.Insert(objToInsert);
                     }
@@ -49,21 +53,20 @@ namespace programowanie_SSprint
                 {
                     throw ex;
                 }
-                finally
-                {
-                    baseCommunicator.FinalizeBase();
-                }
             }
         }
 
-        public List<argType> GetAllElements<argType>(Communicator.BaseCommunicator<argType> baseCommunicator)
+        public List<elementType> GetAllElements<elementType>() 
+            where elementType : Communicator.CommunicatorElement
         {
             lock (mainThreadLock)
             {
                 try
                 {
-                    baseCommunicator.NewConnection();
-                    List<argType> toReturn = baseCommunicator.getEntireTable();
+                    Communicator.Communicator<elementType> baseCommunicator = new Communicator.Communicator<elementType>();
+                    baseCommunicator.Connect();
+
+                    List<elementType> toReturn = baseCommunicator.getEntireTable();
                     baseCommunicator.FinalizeBase();
                     return toReturn;
                 }
@@ -71,32 +74,46 @@ namespace programowanie_SSprint
                 {
                     throw ex;
                 }
-                finally
-                {
-                    baseCommunicator.FinalizeBase();
-                }
             }
         }
 
-        public void RemoveElement<argType>(Communicator.BaseCommunicator<argType> baseCommunicator, argType objToRemove)
+        public void RemoveElement<elementType>(elementType objToRemove) 
+            where elementType : Communicator.CommunicatorElement
         {
             lock (mainThreadLock)
             {
                 try
                 {
-                    baseCommunicator.NewConnection();
-                    argType ble = baseCommunicator.Find(objToRemove);
-                    baseCommunicator.Remove(ble);
+                    Communicator.Communicator<elementType> baseCommunicator = new Communicator.Communicator<elementType>();
+                    baseCommunicator.Connect();
+
+                    baseCommunicator.Remove(baseCommunicator.Find(objToRemove.getId()));
+
                     baseCommunicator.SaveChanges();
                 }
                 catch (Exception ex)
                 {
                     throw ex;
                 }
-                finally
-                {
-                    baseCommunicator.FinalizeBase();
-                }
+            }
+        }
+
+        public elementType Find<elementType>(int elementID)
+            where elementType : Communicator.CommunicatorElement
+        {
+            try
+            {
+                Communicator.Communicator<elementType> baseCommunicator = new Communicator.Communicator<elementType>();
+                baseCommunicator.Connect();
+
+                elementType toReturn = baseCommunicator.Find(elementID);
+
+                baseCommunicator.FinalizeBase();
+                return toReturn;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
             }
         }
     }

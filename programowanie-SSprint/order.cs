@@ -12,7 +12,7 @@ namespace programowanie_SSprint
     using System;
     using System.Collections.Generic;
     
-    public partial class order
+    public partial class order : Communicator.CommunicatorElement
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public order()
@@ -32,5 +32,10 @@ namespace programowanie_SSprint
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<singleItemOrder> singleItemOrders { get; set; }
         public virtual picture picture { get; set; }
+
+        public override int getId()
+        {
+            return id;
+        }
     }
 }
