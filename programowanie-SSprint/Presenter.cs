@@ -15,9 +15,6 @@ namespace programowanie_SSprint
         ImainView view;
         Model model;
 
-        //lock
-        object mainThreadLock = new object();
-
         public Presenter(Model model, ImainView view)
         {
             this.view = view;
@@ -25,43 +22,44 @@ namespace programowanie_SSprint
 
             //view.insertTshirt += View_insertTshirt;
             //view.getAllThsirts += View_getAllThsirts;
-            
-            // poj. zamówienia
-            view.getSingleOrder += View_getSingleOrder;
-            view.insertSingleOrder += View_insertSingleOrder;
-            view.insertListOfItems += View_insertListOfItems;
 
-            // kolory
-            view.insertColor += View_insertColor; 
-            view.getAllColors += View_getAllColors;
-            view.removeColor += View_removeColor;
+            //poj. zamówienia
+            view.getSingleOrder += View_find<order>;
+            view.insertSingleOrder += View_insertElement<order>;
+            view.insertListOfItems += View_insertListOfElements<singleItemOrder>;
 
-            // obrazki
-            view.insertPicture += View_insertPicture;
-            view.getAllPictures += View_getAllPictures;
-            view.removePicture += View_removePicture;
+            //kolory
+            view.insertColor += View_insertElement<color>;
+            view.getAllColors += View_getAllElements<color>;
+            view.removeColor += View_removeElement<color>;
+
+            //obrazki
+            view.insertPicture += View_insertElement<picture>;
+            view.getAllPictures += View_getAllElements<picture>;
+            view.removePicture += View_removeElement<picture>;
 
             //style
-            view.insertStyle += View_insertStyle;
-            view.getAllStyles += View_getAllStyles;
-            view.removeStyle += View_removeStyle;
+            view.insertStyle += View_insertElement<style>;
+            view.getAllStyles += View_getAllElements<style>;
+            view.removeStyle += View_removeElement<style>;
 
-            // firmy
-            view.insertCompany += View_insertCompany;
-            view.getAllCompanies += View_getAllCompanies;
-            view.removeCompany += View_removeCompany;
+            //firmy
+            view.insertCompany += View_insertElement<company>;
+            view.getAllCompanies += View_getAllElements<company>;
+            view.removeCompany += View_removeElement<company>;
 
-            // koszulki
-            view.insertTshirt += View_insertTshirt;
-            view.getAllTshirts += View_getAllTshirts;
-            view.removeTshirt += View_removeTshirt;
+            //koszulki
+            view.insertTshirt += View_insertElement<tshirt>;
+            view.getAllTshirts += View_getAllElements<tshirt>;
+            view.removeTshirt += View_removeElement<tshirt>;
         }
 
-        private bool View_removeTshirt(IErrorable windowInterface, tshirt itemToRemove)
+        private bool View_removeElement<elementType>(IErrorable windowInterface, elementType itemToRemove)
+            where elementType : Communicator.CommunicatorElement
         {
             try
             {
-                model.RemoveElement<tshirt>(new Communicator.TshirtCommunicator(), itemToRemove);
+                model.RemoveElement<elementType>(itemToRemove);
                 return true;
             }
             catch (Exception ex)
@@ -70,11 +68,12 @@ namespace programowanie_SSprint
                 return false;
             }
         }
-        private List<tshirt> View_getAllTshirts(IErrorable windowInterface)
+        private List<elementType> View_getAllElements<elementType>(IErrorable windowInterface)
+            where elementType : Communicator.CommunicatorElement
         {
             try
             {
-                return model.GetAllElements<tshirt>(new Communicator.TshirtCommunicator());
+                return model.GetAllElements<elementType>();
             }
             catch (Exception ex)
             {
@@ -82,11 +81,12 @@ namespace programowanie_SSprint
                 return null;
             }
         }
-        private bool View_insertTshirt(IErrorable windowInterface, tshirt newItem)
+        private bool View_insertElement<elementType>(IErrorable windowInterface, elementType newItem)
+            where elementType : Communicator.CommunicatorElement
         {
             try
             {
-                model.InsertElement<tshirt>(new Communicator.TshirtCommunicator(), newItem);
+                model.InsertElement<elementType>(newItem);
                 return true;
             }
             catch (Exception ex)
@@ -95,197 +95,28 @@ namespace programowanie_SSprint
                 return false;
             }
         }
-
-        private bool View_removeCompany(IErrorable windowInterface, company itemToRemove)
+        private bool View_insertListOfElements<elementType>(IErrorable windowInterface, List<elementType> newItems)
+            where elementType : Communicator.CommunicatorElement
         {
             try
             {
-                model.RemoveElement<company>(new Communicator.CompanyCommunicator(), itemToRemove);
+                model.InsertListOfElements<elementType>(newItems);
                 return true;
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 windowInterface.ShowError(ex.ToString());
                 return false;
             }
         }
-        private List<company> View_getAllCompanies(IErrorable windowInterface)
+        private elementType View_find<elementType>(IErrorable windowInterface, int elementID)
+            where elementType : Communicator.CommunicatorElement
         {
             try
             {
-                return model.GetAllElements<company>(new Communicator.CompanyCommunicator());
+                return model.Find<elementType>(elementID);
             }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.ToString());
-                return null;
-            }
-        }
-        private bool View_insertCompany(IErrorable windowInterface, company newItem)
-        {
-            try
-            {
-                model.InsertElement<company>(new Communicator.CompanyCommunicator(), newItem);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.ToString());
-                return false;
-            }
-        }
-
-        private bool View_removeStyle(IErrorable windowInterface, style itemToRemove)
-        {
-            try
-            {
-                model.RemoveElement<style>(new Communicator.StyleCommunicator(), itemToRemove);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.ToString());
-                return false;
-            }
-        }
-        private List<style> View_getAllStyles(IErrorable windowInterface)
-        {
-            try
-            {
-                return model.GetAllElements<style>(new Communicator.StyleCommunicator());
-            }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.ToString());
-                return null;
-            }
-        }
-        private bool View_insertStyle(IErrorable windowInterface, style newItem)
-        {
-            try
-            {
-                model.InsertElement<style>(new Communicator.StyleCommunicator(), newItem);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.ToString());
-                return false;
-            }
-        }
-
-        private bool View_removePicture(IErrorable windowInterface, picture itemToRemove)
-        {
-            try
-            {
-                model.RemoveElement<picture>(new Communicator.PictureCommunicator(), itemToRemove);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.ToString());
-                return false;
-            }
-        }
-        private List<picture> View_getAllPictures(IErrorable windowInterface)
-        {
-            try
-            {
-                return model.GetAllElements<picture>(new Communicator.PictureCommunicator());
-            }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.ToString());
-                return null;
-            }
-        }
-        private bool View_insertPicture(IErrorable windowInterface, picture newItem)
-        {
-            try
-            {
-                model.InsertElement<picture>(new Communicator.PictureCommunicator(), newItem);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.ToString());
-                return false;
-            }
-        }
-
-        private bool View_removeColor(IErrorable windowInterface, color itemToRemove)
-        {
-            try
-            {
-                model.RemoveElement<color>(new Communicator.ColorCommunicator(), itemToRemove);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.ToString());
-                return false;
-            }
-        }
-        private List<color> View_getAllColors(IErrorable windowInterface)
-        {
-            try
-            {
-                return model.GetAllElements<color>(new Communicator.ColorCommunicator());
-            }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.ToString());
-                return null;
-            }
-        }
-        private bool View_insertColor(IErrorable windowInterface, color newItem)
-        {
-            try
-            {
-                model.InsertElement<color>(new Communicator.ColorCommunicator(), newItem);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.ToString());
-                return false;
-            }
-        }
-
-        private bool View_insertListOfItems(IErrorable windowInterface, List<singleItemOrder> itemToRemove)
-        {
-            try
-            {
-                model.InsertListOfElements<singleItemOrder>(new Communicator.singleOrderCommunicator(), itemToRemove);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.ToString());
-                return false;
-            }
-        }
-        private bool View_insertSingleOrder(IErrorable windowInterface, order newItem)
-        {
-            try
-            {
-                model.InsertElement<order>(new Communicator.OrderCommunicator(), newItem);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.ToString());
-                return false;
-            }
-        }
-        private order View_getSingleOrder(IErrorable windowInterface, int itemID)
-        {
-            try
-            {
-                List<order> toReturn = model.GetAllElements<order>(new Communicator.OrderCommunicator());
-                return toReturn.FirstOrDefault(e => e.id == itemID);
-            }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 windowInterface.ShowError(ex.ToString());
                 return null;

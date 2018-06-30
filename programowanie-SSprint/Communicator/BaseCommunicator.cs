@@ -7,7 +7,7 @@ using System.Data.Entity;
 
 namespace programowanie_SSprint.Communicator
 {
-    abstract class BaseCommunicator<elementType>
+    abstract class BaseCommunicator<elementType> where elementType : CommunicatorElement
     {
         protected static SSprintEntities dataBase;
         protected static readonly Exception threadConflict;
@@ -26,7 +26,7 @@ namespace programowanie_SSprint.Communicator
             return dataBase;
         }
 
-        public virtual void NewConnection()
+        public virtual void Connect()
         {
             if (dataBase == null)
                 dataBase = new SSprintEntities();
@@ -55,9 +55,10 @@ namespace programowanie_SSprint.Communicator
         }
 
         public abstract void Insert(elementType newElement);
+        public abstract void InsertRange(List<elementType> newElements);
         public abstract void Remove(elementType elementToRemove);
         public abstract void Update(ref elementType sourceElement, elementType newElement);
         public abstract List<elementType> getEntireTable();
-        public abstract elementType Find(elementType element);
+        public abstract elementType Find(int elementID);
     }
 }

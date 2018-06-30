@@ -58,17 +58,12 @@
     <Compile Include="color.cs">
       <DependentUpon>ModelDataContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Communicator\ColorCommunicator.cs" />
     <Compile Include="Communicator\BaseCommunicator.cs" />
-    <Compile Include="Communicator\CompanyCommunicator.cs" />
-    <Compile Include="Communicator\OrderCommunicator.cs" />
-    <Compile Include="Communicator\PictureCommunicator.cs" />
-    <Compile Include="Communicator\singleOrderCommunicator.cs" />
-    <Compile Include="Communicator\StyleCommunicator.cs" />
-    <Compile Include="Communicator\TshirtCommunicator.cs" />
+    <Compile Include="Communicator\Communicator.cs" />
     <Compile Include="company.cs">
       <DependentUpon>ModelDataContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Communicator\CommunicatorElement.cs" />
     <Compile Include="ModelData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

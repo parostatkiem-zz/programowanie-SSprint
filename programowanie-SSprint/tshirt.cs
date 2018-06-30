@@ -12,7 +12,7 @@ namespace programowanie_SSprint
     using System;
     using System.Collections.Generic;
     
-    public partial class tshirt
+    public partial class tshirt : Communicator.CommunicatorElement
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tshirt()
@@ -34,5 +34,10 @@ namespace programowanie_SSprint
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<singleItemOrder> singleItemOrders { get; set; }
         public virtual style style { get; set; }
+
+        public override int getId()
+        {
+            return id;
+        }
     }
 }
