@@ -80,10 +80,21 @@ namespace programowanie_SSprint
             tshirtEditorWindow.getAllCompanies += _getAllCompanies;
             tshirtEditorWindow.getAllColors += _getAllColors;
             tshirtEditorWindow.getAllStyles += _getAllStyles;
+            tshirtEditorWindow.insertSingleTshirt += TshirtEditorWindow_insertSingleTshirt;
+            tshirtEditorWindow.removeTshirt += TshirtEditorWindow_removeTshirt;
 
 
         }
 
+        private bool TshirtEditorWindow_removeTshirt(IErrorable arg1, tshirt arg2)
+        {
+            return removeTshirt(arg1, arg2);
+        }
+
+        private bool TshirtEditorWindow_insertSingleTshirt(IErrorable arg1, tshirt arg2)
+        {
+            return insertTshirt(arg1, arg2);
+        }
 
         private List<tshirt> TshirtEditorWindow_getAllThsirts(IErrorable arg)
         {

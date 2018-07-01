@@ -28,45 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode148 = new System.Windows.Forms.TreeNode("S (dostępne: 530) 20zł");
-            System.Windows.Forms.TreeNode treeNode149 = new System.Windows.Forms.TreeNode("M (dostępne: 13) 25zł");
-            System.Windows.Forms.TreeNode treeNode150 = new System.Windows.Forms.TreeNode("L (dostępne: 51) 27zł");
-            System.Windows.Forms.TreeNode treeNode151 = new System.Windows.Forms.TreeNode("Męski", new System.Windows.Forms.TreeNode[] {
-            treeNode148,
-            treeNode149,
-            treeNode150});
-            System.Windows.Forms.TreeNode treeNode152 = new System.Windows.Forms.TreeNode("S (dostępne: 10) 18zł");
-            System.Windows.Forms.TreeNode treeNode153 = new System.Windows.Forms.TreeNode("M (dostępne: 64) 21zł");
-            System.Windows.Forms.TreeNode treeNode154 = new System.Windows.Forms.TreeNode("Damski", new System.Windows.Forms.TreeNode[] {
-            treeNode152,
-            treeNode153});
-            System.Windows.Forms.TreeNode treeNode155 = new System.Windows.Forms.TreeNode("L (dostępne: 11) 20zł");
-            System.Windows.Forms.TreeNode treeNode156 = new System.Windows.Forms.TreeNode("XXL (dostepne: 3) 35zł");
-            System.Windows.Forms.TreeNode treeNode157 = new System.Windows.Forms.TreeNode("Unisex", new System.Windows.Forms.TreeNode[] {
-            treeNode155,
-            treeNode156});
-            System.Windows.Forms.TreeNode treeNode158 = new System.Windows.Forms.TreeNode("Model A", new System.Windows.Forms.TreeNode[] {
-            treeNode151,
-            treeNode154,
-            treeNode157});
-            System.Windows.Forms.TreeNode treeNode159 = new System.Windows.Forms.TreeNode("Męski");
-            System.Windows.Forms.TreeNode treeNode160 = new System.Windows.Forms.TreeNode("T-shirt", new System.Windows.Forms.TreeNode[] {
-            treeNode159});
-            System.Windows.Forms.TreeNode treeNode161 = new System.Windows.Forms.TreeNode("Unisex");
-            System.Windows.Forms.TreeNode treeNode162 = new System.Windows.Forms.TreeNode("Koszulka Polo", new System.Windows.Forms.TreeNode[] {
-            treeNode161});
-            System.Windows.Forms.TreeNode treeNode163 = new System.Windows.Forms.TreeNode("Firma A", new System.Windows.Forms.TreeNode[] {
-            treeNode158,
-            treeNode160,
-            treeNode162});
-            System.Windows.Forms.TreeNode treeNode164 = new System.Windows.Forms.TreeNode("Model A");
-            System.Windows.Forms.TreeNode treeNode165 = new System.Windows.Forms.TreeNode("Bluza");
-            System.Windows.Forms.TreeNode treeNode166 = new System.Windows.Forms.TreeNode("Firma B", new System.Windows.Forms.TreeNode[] {
-            treeNode164,
-            treeNode165});
-            System.Windows.Forms.TreeNode treeNode167 = new System.Windows.Forms.TreeNode("Model C");
-            System.Windows.Forms.TreeNode treeNode168 = new System.Windows.Forms.TreeNode("Firma C", new System.Windows.Forms.TreeNode[] {
-            treeNode167});
+            System.Windows.Forms.TreeNode treeNode232 = new System.Windows.Forms.TreeNode("S (dostępne: 530) 20zł");
+            System.Windows.Forms.TreeNode treeNode233 = new System.Windows.Forms.TreeNode("M (dostępne: 13) 25zł");
+            System.Windows.Forms.TreeNode treeNode234 = new System.Windows.Forms.TreeNode("L (dostępne: 51) 27zł");
+            System.Windows.Forms.TreeNode treeNode235 = new System.Windows.Forms.TreeNode("Męski", new System.Windows.Forms.TreeNode[] {
+            treeNode232,
+            treeNode233,
+            treeNode234});
+            System.Windows.Forms.TreeNode treeNode236 = new System.Windows.Forms.TreeNode("S (dostępne: 10) 18zł");
+            System.Windows.Forms.TreeNode treeNode237 = new System.Windows.Forms.TreeNode("M (dostępne: 64) 21zł");
+            System.Windows.Forms.TreeNode treeNode238 = new System.Windows.Forms.TreeNode("Damski", new System.Windows.Forms.TreeNode[] {
+            treeNode236,
+            treeNode237});
+            System.Windows.Forms.TreeNode treeNode239 = new System.Windows.Forms.TreeNode("L (dostępne: 11) 20zł");
+            System.Windows.Forms.TreeNode treeNode240 = new System.Windows.Forms.TreeNode("XXL (dostepne: 3) 35zł");
+            System.Windows.Forms.TreeNode treeNode241 = new System.Windows.Forms.TreeNode("Unisex", new System.Windows.Forms.TreeNode[] {
+            treeNode239,
+            treeNode240});
+            System.Windows.Forms.TreeNode treeNode242 = new System.Windows.Forms.TreeNode("Model A", new System.Windows.Forms.TreeNode[] {
+            treeNode235,
+            treeNode238,
+            treeNode241});
+            System.Windows.Forms.TreeNode treeNode243 = new System.Windows.Forms.TreeNode("Męski");
+            System.Windows.Forms.TreeNode treeNode244 = new System.Windows.Forms.TreeNode("T-shirt", new System.Windows.Forms.TreeNode[] {
+            treeNode243});
+            System.Windows.Forms.TreeNode treeNode245 = new System.Windows.Forms.TreeNode("Unisex");
+            System.Windows.Forms.TreeNode treeNode246 = new System.Windows.Forms.TreeNode("Koszulka Polo", new System.Windows.Forms.TreeNode[] {
+            treeNode245});
+            System.Windows.Forms.TreeNode treeNode247 = new System.Windows.Forms.TreeNode("Firma A", new System.Windows.Forms.TreeNode[] {
+            treeNode242,
+            treeNode244,
+            treeNode246});
+            System.Windows.Forms.TreeNode treeNode248 = new System.Windows.Forms.TreeNode("Model A");
+            System.Windows.Forms.TreeNode treeNode249 = new System.Windows.Forms.TreeNode("Bluza");
+            System.Windows.Forms.TreeNode treeNode250 = new System.Windows.Forms.TreeNode("Firma B", new System.Windows.Forms.TreeNode[] {
+            treeNode248,
+            treeNode249});
+            System.Windows.Forms.TreeNode treeNode251 = new System.Windows.Forms.TreeNode("Model C");
+            System.Windows.Forms.TreeNode treeNode252 = new System.Windows.Forms.TreeNode("Firma C", new System.Windows.Forms.TreeNode[] {
+            treeNode251});
             this.treeViewProductBrowser = new System.Windows.Forms.TreeView();
             this.gbTshirtProperties = new System.Windows.Forms.GroupBox();
             this.comboBoxModel = new System.Windows.Forms.ComboBox();
@@ -106,52 +106,52 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeViewProductBrowser.Location = new System.Drawing.Point(12, 12);
             this.treeViewProductBrowser.Name = "treeViewProductBrowser";
-            treeNode148.Name = "Node15";
-            treeNode148.Text = "S (dostępne: 530) 20zł";
-            treeNode149.Name = "Node16";
-            treeNode149.Text = "M (dostępne: 13) 25zł";
-            treeNode150.Name = "Node17";
-            treeNode150.Text = "L (dostępne: 51) 27zł";
-            treeNode151.Name = "Node10";
-            treeNode151.Text = "Męski";
-            treeNode152.Name = "Node18";
-            treeNode152.Text = "S (dostępne: 10) 18zł";
-            treeNode153.Name = "Node19";
-            treeNode153.Text = "M (dostępne: 64) 21zł";
-            treeNode154.Name = "Node13";
-            treeNode154.Text = "Damski";
-            treeNode155.Name = "Node20";
-            treeNode155.Text = "L (dostępne: 11) 20zł";
-            treeNode156.Name = "Node21";
-            treeNode156.Text = "XXL (dostepne: 3) 35zł";
-            treeNode157.Name = "Node14";
-            treeNode157.Text = "Unisex";
-            treeNode158.Name = "Node3";
-            treeNode158.Text = "Model A";
-            treeNode159.Name = "Node11";
-            treeNode159.Text = "Męski";
-            treeNode160.Name = "Node5";
-            treeNode160.Text = "T-shirt";
-            treeNode161.Name = "Node12";
-            treeNode161.Text = "Unisex";
-            treeNode162.Name = "Node6";
-            treeNode162.Text = "Koszulka Polo";
-            treeNode163.Name = "Node0";
-            treeNode163.Text = "Firma A";
-            treeNode164.Name = "Node7";
-            treeNode164.Text = "Model A";
-            treeNode165.Name = "Node8";
-            treeNode165.Text = "Bluza";
-            treeNode166.Name = "Node1";
-            treeNode166.Text = "Firma B";
-            treeNode167.Name = "Node9";
-            treeNode167.Text = "Model C";
-            treeNode168.Name = "Node2";
-            treeNode168.Text = "Firma C";
+            treeNode232.Name = "Node15";
+            treeNode232.Text = "S (dostępne: 530) 20zł";
+            treeNode233.Name = "Node16";
+            treeNode233.Text = "M (dostępne: 13) 25zł";
+            treeNode234.Name = "Node17";
+            treeNode234.Text = "L (dostępne: 51) 27zł";
+            treeNode235.Name = "Node10";
+            treeNode235.Text = "Męski";
+            treeNode236.Name = "Node18";
+            treeNode236.Text = "S (dostępne: 10) 18zł";
+            treeNode237.Name = "Node19";
+            treeNode237.Text = "M (dostępne: 64) 21zł";
+            treeNode238.Name = "Node13";
+            treeNode238.Text = "Damski";
+            treeNode239.Name = "Node20";
+            treeNode239.Text = "L (dostępne: 11) 20zł";
+            treeNode240.Name = "Node21";
+            treeNode240.Text = "XXL (dostepne: 3) 35zł";
+            treeNode241.Name = "Node14";
+            treeNode241.Text = "Unisex";
+            treeNode242.Name = "Node3";
+            treeNode242.Text = "Model A";
+            treeNode243.Name = "Node11";
+            treeNode243.Text = "Męski";
+            treeNode244.Name = "Node5";
+            treeNode244.Text = "T-shirt";
+            treeNode245.Name = "Node12";
+            treeNode245.Text = "Unisex";
+            treeNode246.Name = "Node6";
+            treeNode246.Text = "Koszulka Polo";
+            treeNode247.Name = "Node0";
+            treeNode247.Text = "Firma A";
+            treeNode248.Name = "Node7";
+            treeNode248.Text = "Model A";
+            treeNode249.Name = "Node8";
+            treeNode249.Text = "Bluza";
+            treeNode250.Name = "Node1";
+            treeNode250.Text = "Firma B";
+            treeNode251.Name = "Node9";
+            treeNode251.Text = "Model C";
+            treeNode252.Name = "Node2";
+            treeNode252.Text = "Firma C";
             this.treeViewProductBrowser.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode163,
-            treeNode166,
-            treeNode168});
+            treeNode247,
+            treeNode250,
+            treeNode252});
             this.treeViewProductBrowser.Size = new System.Drawing.Size(325, 430);
             this.treeViewProductBrowser.TabIndex = 1;
             this.treeViewProductBrowser.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewProductBrowser_AfterSelect);
@@ -215,6 +215,7 @@
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Anuluj";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // ldefaultLoss2
             // 
@@ -237,6 +238,7 @@
             this.btnApplyChanges.TabIndex = 10;
             this.btnApplyChanges.Text = "Zapisz zmiany";
             this.btnApplyChanges.UseVisualStyleBackColor = false;
+            this.btnApplyChanges.Click += new System.EventHandler(this.btnApplyChanges_Click);
             // 
             // numericDefaultLoss
             // 
@@ -435,6 +437,7 @@
             this.btnApply.TabIndex = 3;
             this.btnApply.Text = "Dodaj nową";
             this.btnApply.UseVisualStyleBackColor = false;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // btnDelete
             // 
@@ -447,6 +450,7 @@
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Usuń";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // TshirtEditor
             // 
