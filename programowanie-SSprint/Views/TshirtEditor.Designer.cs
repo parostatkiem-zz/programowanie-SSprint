@@ -28,52 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("S (dostępne: 530) 20zł");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("M (dostępne: 13) 25zł");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("L (dostępne: 51) 27zł");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Męski", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("S (dostępne: 10) 18zł");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("M (dostępne: 64) 21zł");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Damski", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6});
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("L (dostępne: 11) 20zł");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("XXL (dostepne: 3) 35zł");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Unisex", new System.Windows.Forms.TreeNode[] {
-            treeNode8,
-            treeNode9});
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Model A", new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode7,
-            treeNode10});
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Męski");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("T-shirt", new System.Windows.Forms.TreeNode[] {
-            treeNode12});
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Unisex");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Koszulka Polo", new System.Windows.Forms.TreeNode[] {
-            treeNode14});
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Firma A", new System.Windows.Forms.TreeNode[] {
-            treeNode11,
-            treeNode13,
-            treeNode15});
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Model A");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Bluza");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Firma B", new System.Windows.Forms.TreeNode[] {
-            treeNode17,
-            treeNode18});
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Model C");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Firma C", new System.Windows.Forms.TreeNode[] {
-            treeNode20});
+            System.Windows.Forms.TreeNode treeNode148 = new System.Windows.Forms.TreeNode("S (dostępne: 530) 20zł");
+            System.Windows.Forms.TreeNode treeNode149 = new System.Windows.Forms.TreeNode("M (dostępne: 13) 25zł");
+            System.Windows.Forms.TreeNode treeNode150 = new System.Windows.Forms.TreeNode("L (dostępne: 51) 27zł");
+            System.Windows.Forms.TreeNode treeNode151 = new System.Windows.Forms.TreeNode("Męski", new System.Windows.Forms.TreeNode[] {
+            treeNode148,
+            treeNode149,
+            treeNode150});
+            System.Windows.Forms.TreeNode treeNode152 = new System.Windows.Forms.TreeNode("S (dostępne: 10) 18zł");
+            System.Windows.Forms.TreeNode treeNode153 = new System.Windows.Forms.TreeNode("M (dostępne: 64) 21zł");
+            System.Windows.Forms.TreeNode treeNode154 = new System.Windows.Forms.TreeNode("Damski", new System.Windows.Forms.TreeNode[] {
+            treeNode152,
+            treeNode153});
+            System.Windows.Forms.TreeNode treeNode155 = new System.Windows.Forms.TreeNode("L (dostępne: 11) 20zł");
+            System.Windows.Forms.TreeNode treeNode156 = new System.Windows.Forms.TreeNode("XXL (dostepne: 3) 35zł");
+            System.Windows.Forms.TreeNode treeNode157 = new System.Windows.Forms.TreeNode("Unisex", new System.Windows.Forms.TreeNode[] {
+            treeNode155,
+            treeNode156});
+            System.Windows.Forms.TreeNode treeNode158 = new System.Windows.Forms.TreeNode("Model A", new System.Windows.Forms.TreeNode[] {
+            treeNode151,
+            treeNode154,
+            treeNode157});
+            System.Windows.Forms.TreeNode treeNode159 = new System.Windows.Forms.TreeNode("Męski");
+            System.Windows.Forms.TreeNode treeNode160 = new System.Windows.Forms.TreeNode("T-shirt", new System.Windows.Forms.TreeNode[] {
+            treeNode159});
+            System.Windows.Forms.TreeNode treeNode161 = new System.Windows.Forms.TreeNode("Unisex");
+            System.Windows.Forms.TreeNode treeNode162 = new System.Windows.Forms.TreeNode("Koszulka Polo", new System.Windows.Forms.TreeNode[] {
+            treeNode161});
+            System.Windows.Forms.TreeNode treeNode163 = new System.Windows.Forms.TreeNode("Firma A", new System.Windows.Forms.TreeNode[] {
+            treeNode158,
+            treeNode160,
+            treeNode162});
+            System.Windows.Forms.TreeNode treeNode164 = new System.Windows.Forms.TreeNode("Model A");
+            System.Windows.Forms.TreeNode treeNode165 = new System.Windows.Forms.TreeNode("Bluza");
+            System.Windows.Forms.TreeNode treeNode166 = new System.Windows.Forms.TreeNode("Firma B", new System.Windows.Forms.TreeNode[] {
+            treeNode164,
+            treeNode165});
+            System.Windows.Forms.TreeNode treeNode167 = new System.Windows.Forms.TreeNode("Model C");
+            System.Windows.Forms.TreeNode treeNode168 = new System.Windows.Forms.TreeNode("Firma C", new System.Windows.Forms.TreeNode[] {
+            treeNode167});
             this.treeViewProductBrowser = new System.Windows.Forms.TreeView();
             this.gbTshirtProperties = new System.Windows.Forms.GroupBox();
+            this.comboBoxModel = new System.Windows.Forms.ComboBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.ldefaultLoss2 = new System.Windows.Forms.Label();
             this.btnApplyChanges = new System.Windows.Forms.Button();
             this.numericDefaultLoss = new System.Windows.Forms.NumericUpDown();
             this.ldefaultLoss1 = new System.Windows.Forms.Label();
+            this.comboBoxSize = new System.Windows.Forms.ComboBox();
             this.lSize = new System.Windows.Forms.Label();
             this.tbId = new System.Windows.Forms.TextBox();
             this.tbAvailable = new System.Windows.Forms.TextBox();
@@ -92,8 +94,6 @@
             this.lCompany = new System.Windows.Forms.Label();
             this.btnApply = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.comboBoxSize = new System.Windows.Forms.ComboBox();
-            this.comboBoxModel = new System.Windows.Forms.ComboBox();
             this.gbTshirtProperties.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericDefaultLoss)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numInStock)).BeginInit();
@@ -106,52 +106,52 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeViewProductBrowser.Location = new System.Drawing.Point(12, 12);
             this.treeViewProductBrowser.Name = "treeViewProductBrowser";
-            treeNode1.Name = "Node15";
-            treeNode1.Text = "S (dostępne: 530) 20zł";
-            treeNode2.Name = "Node16";
-            treeNode2.Text = "M (dostępne: 13) 25zł";
-            treeNode3.Name = "Node17";
-            treeNode3.Text = "L (dostępne: 51) 27zł";
-            treeNode4.Name = "Node10";
-            treeNode4.Text = "Męski";
-            treeNode5.Name = "Node18";
-            treeNode5.Text = "S (dostępne: 10) 18zł";
-            treeNode6.Name = "Node19";
-            treeNode6.Text = "M (dostępne: 64) 21zł";
-            treeNode7.Name = "Node13";
-            treeNode7.Text = "Damski";
-            treeNode8.Name = "Node20";
-            treeNode8.Text = "L (dostępne: 11) 20zł";
-            treeNode9.Name = "Node21";
-            treeNode9.Text = "XXL (dostepne: 3) 35zł";
-            treeNode10.Name = "Node14";
-            treeNode10.Text = "Unisex";
-            treeNode11.Name = "Node3";
-            treeNode11.Text = "Model A";
-            treeNode12.Name = "Node11";
-            treeNode12.Text = "Męski";
-            treeNode13.Name = "Node5";
-            treeNode13.Text = "T-shirt";
-            treeNode14.Name = "Node12";
-            treeNode14.Text = "Unisex";
-            treeNode15.Name = "Node6";
-            treeNode15.Text = "Koszulka Polo";
-            treeNode16.Name = "Node0";
-            treeNode16.Text = "Firma A";
-            treeNode17.Name = "Node7";
-            treeNode17.Text = "Model A";
-            treeNode18.Name = "Node8";
-            treeNode18.Text = "Bluza";
-            treeNode19.Name = "Node1";
-            treeNode19.Text = "Firma B";
-            treeNode20.Name = "Node9";
-            treeNode20.Text = "Model C";
-            treeNode21.Name = "Node2";
-            treeNode21.Text = "Firma C";
+            treeNode148.Name = "Node15";
+            treeNode148.Text = "S (dostępne: 530) 20zł";
+            treeNode149.Name = "Node16";
+            treeNode149.Text = "M (dostępne: 13) 25zł";
+            treeNode150.Name = "Node17";
+            treeNode150.Text = "L (dostępne: 51) 27zł";
+            treeNode151.Name = "Node10";
+            treeNode151.Text = "Męski";
+            treeNode152.Name = "Node18";
+            treeNode152.Text = "S (dostępne: 10) 18zł";
+            treeNode153.Name = "Node19";
+            treeNode153.Text = "M (dostępne: 64) 21zł";
+            treeNode154.Name = "Node13";
+            treeNode154.Text = "Damski";
+            treeNode155.Name = "Node20";
+            treeNode155.Text = "L (dostępne: 11) 20zł";
+            treeNode156.Name = "Node21";
+            treeNode156.Text = "XXL (dostepne: 3) 35zł";
+            treeNode157.Name = "Node14";
+            treeNode157.Text = "Unisex";
+            treeNode158.Name = "Node3";
+            treeNode158.Text = "Model A";
+            treeNode159.Name = "Node11";
+            treeNode159.Text = "Męski";
+            treeNode160.Name = "Node5";
+            treeNode160.Text = "T-shirt";
+            treeNode161.Name = "Node12";
+            treeNode161.Text = "Unisex";
+            treeNode162.Name = "Node6";
+            treeNode162.Text = "Koszulka Polo";
+            treeNode163.Name = "Node0";
+            treeNode163.Text = "Firma A";
+            treeNode164.Name = "Node7";
+            treeNode164.Text = "Model A";
+            treeNode165.Name = "Node8";
+            treeNode165.Text = "Bluza";
+            treeNode166.Name = "Node1";
+            treeNode166.Text = "Firma B";
+            treeNode167.Name = "Node9";
+            treeNode167.Text = "Model C";
+            treeNode168.Name = "Node2";
+            treeNode168.Text = "Firma C";
             this.treeViewProductBrowser.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode16,
-            treeNode19,
-            treeNode21});
+            treeNode163,
+            treeNode166,
+            treeNode168});
             this.treeViewProductBrowser.Size = new System.Drawing.Size(325, 430);
             this.treeViewProductBrowser.TabIndex = 1;
             this.treeViewProductBrowser.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewProductBrowser_AfterSelect);
@@ -188,6 +188,20 @@
             this.gbTshirtProperties.TabIndex = 2;
             this.gbTshirtProperties.TabStop = false;
             this.gbTshirtProperties.Text = "Właściwości koszulki";
+            // 
+            // comboBoxModel
+            // 
+            this.comboBoxModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxModel.FormattingEnabled = true;
+            this.comboBoxModel.Items.AddRange(new object[] {
+            "Męska",
+            "Żeńska",
+            "Unisex"});
+            this.comboBoxModel.Location = new System.Drawing.Point(49, 74);
+            this.comboBoxModel.Name = "comboBoxModel";
+            this.comboBoxModel.Size = new System.Drawing.Size(167, 21);
+            this.comboBoxModel.TabIndex = 23;
+            this.comboBoxModel.SelectedIndexChanged += new System.EventHandler(this.comboBoxModel_SelectedIndexChanged);
             // 
             // btnCancel
             // 
@@ -230,6 +244,7 @@
             this.numericDefaultLoss.Name = "numericDefaultLoss";
             this.numericDefaultLoss.Size = new System.Drawing.Size(120, 20);
             this.numericDefaultLoss.TabIndex = 21;
+            this.numericDefaultLoss.ValueChanged += new System.EventHandler(this.numericDefaultLoss_ValueChanged);
             // 
             // ldefaultLoss1
             // 
@@ -239,6 +254,23 @@
             this.ldefaultLoss1.Size = new System.Drawing.Size(63, 13);
             this.ldefaultLoss1.TabIndex = 20;
             this.ldefaultLoss1.Text = "Domyślny %";
+            // 
+            // comboBoxSize
+            // 
+            this.comboBoxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSize.FormattingEnabled = true;
+            this.comboBoxSize.Items.AddRange(new object[] {
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"});
+            this.comboBoxSize.Location = new System.Drawing.Point(49, 128);
+            this.comboBoxSize.Name = "comboBoxSize";
+            this.comboBoxSize.Size = new System.Drawing.Size(167, 21);
+            this.comboBoxSize.TabIndex = 19;
+            this.comboBoxSize.SelectedIndexChanged += new System.EventHandler(this.comboBoxSize_SelectedIndexChanged);
             // 
             // lSize
             // 
@@ -302,6 +334,7 @@
             this.numInStock.Name = "numInStock";
             this.numInStock.Size = new System.Drawing.Size(120, 20);
             this.numInStock.TabIndex = 10;
+            this.numInStock.ValueChanged += new System.EventHandler(this.numInStock_ValueChanged);
             // 
             // lReserved
             // 
@@ -329,19 +362,21 @@
             this.comboBoxCompany.Name = "comboBoxCompany";
             this.comboBoxCompany.Size = new System.Drawing.Size(167, 21);
             this.comboBoxCompany.TabIndex = 7;
+            this.comboBoxCompany.SelectedIndexChanged += new System.EventHandler(this.comboBoxCompany_SelectedIndexChanged);
             // 
             // comboBoxSex
             // 
             this.comboBoxSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSex.FormattingEnabled = true;
             this.comboBoxSex.Items.AddRange(new object[] {
-            "Męska",
-            "Żeńska",
+            "Man",
+            "Woman",
             "Unisex"});
             this.comboBoxSex.Location = new System.Drawing.Point(49, 45);
             this.comboBoxSex.Name = "comboBoxSex";
             this.comboBoxSex.Size = new System.Drawing.Size(167, 21);
             this.comboBoxSex.TabIndex = 6;
+            this.comboBoxSex.SelectedIndexChanged += new System.EventHandler(this.comboBoxSex_SelectedIndexChanged);
             // 
             // comboBoxColor
             // 
@@ -351,6 +386,7 @@
             this.comboBoxColor.Name = "comboBoxColor";
             this.comboBoxColor.Size = new System.Drawing.Size(167, 21);
             this.comboBoxColor.TabIndex = 5;
+            this.comboBoxColor.SelectedIndexChanged += new System.EventHandler(this.comboBoxColor_SelectedIndexChanged);
             // 
             // lColor
             // 
@@ -411,35 +447,6 @@
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Usuń";
             this.btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // comboBoxSize
-            // 
-            this.comboBoxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSize.FormattingEnabled = true;
-            this.comboBoxSize.Items.AddRange(new object[] {
-            "XS",
-            "S",
-            "M",
-            "L",
-            "XL",
-            "XXL"});
-            this.comboBoxSize.Location = new System.Drawing.Point(49, 128);
-            this.comboBoxSize.Name = "comboBoxSize";
-            this.comboBoxSize.Size = new System.Drawing.Size(167, 21);
-            this.comboBoxSize.TabIndex = 19;
-            // 
-            // comboBoxModel
-            // 
-            this.comboBoxModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxModel.FormattingEnabled = true;
-            this.comboBoxModel.Items.AddRange(new object[] {
-            "Męska",
-            "Żeńska",
-            "Unisex"});
-            this.comboBoxModel.Location = new System.Drawing.Point(49, 74);
-            this.comboBoxModel.Name = "comboBoxModel";
-            this.comboBoxModel.Size = new System.Drawing.Size(167, 21);
-            this.comboBoxModel.TabIndex = 23;
             // 
             // TshirtEditor
             // 

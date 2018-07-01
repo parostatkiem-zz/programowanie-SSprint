@@ -147,9 +147,6 @@ namespace programowanie_SSprint
             removeColor(this, CurrentlySelectedColor);
         }
 
-        private void ColorEditor_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            saveDatabaseToRemote();
-        }
+       
     }
 }

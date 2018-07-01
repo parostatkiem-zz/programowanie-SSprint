@@ -47,6 +47,10 @@ namespace programowanie_SSprint
             {
                 currentlySelectedTshirt = value;
                 DisplaySingleTshirt(currentlySelectedTshirt);
+        
+                currentlyEditedTshirt = new tshirt();
+                if (value != null)
+                    currentlyEditedTshirt.CopyFrom(currentlySelectedTshirt);
             }
         }
 
@@ -82,6 +86,8 @@ namespace programowanie_SSprint
             tbId.Text = t.id.ToString();
             numericDefaultLoss.Value = t.default_loss_percentage;
             numInStock.Value = t.in_stock;
+            tbAvailable.Text = t.getNotOrdered().ToString() ;
+            tbReserved.Text = t.getOrdered().ToString();
 
         }
 
@@ -127,7 +133,7 @@ namespace programowanie_SSprint
 
 
                 //konkretna koszulka
-                tmp= new TreeNode(t.color.name+" | "+t.size + " | "+t.in_stock.ToString());
+                tmp= new TreeNode(t.ToString());
                 tmp.Tag = t;
                 tmp.NodeFont = new Font(treeViewProductBrowser.Font, FontStyle.Bold);
                 
@@ -172,6 +178,50 @@ namespace programowanie_SSprint
             FillCompanyControl();
             FillColorControl();
             FillStyleControl();
+        }
+
+        private void comboBoxCompany_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentlyEditedTshirt.company_id = (comboBoxCompany.SelectedItem as company).id;
+        }
+
+        private void comboBoxSex_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentlyEditedTshirt.sex = comboBoxSex.SelectedItem.ToString();
+        }
+
+        private void comboBoxModel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentlyEditedTshirt.style_id = (comboBoxModel.SelectedItem as style).id;
+        }
+
+        private void comboBoxColor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentlyEditedTshirt.color_id = (comboBoxColor.SelectedItem as color).id;
+
+        }
+
+        private void comboBoxSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentlyEditedTshirt.sex = comboBoxSize.SelectedItem.ToString();
+        }
+
+        private void numericDefaultLoss_ValueChanged(object sender, EventArgs e)
+        {
+            currentlyEditedTshirt.default_loss_percentage =(int)numericDefaultLoss.Value;
+        }
+
+        private void numInStock_ValueChanged(object sender, EventArgs e)
+        {
+            if(numInStock.Value<currentlyEditedTshirt.getNotOrdered())
+            {
+                ShowError("Ilosć koszulek w magazynie nie może być mniejsza, niż ilośc zarezerwowana");
+                numInStock.Value = currentlyEditedTshirt.in_stock;
+                return;
+            }
+            currentlyEditedTshirt.in_stock = (int)numInStock.Value;
+            tbAvailable.Text = currentlyEditedTshirt.getNotOrdered().ToString();
+            tbReserved.Text = currentlyEditedTshirt.getOrdered().ToString();
         }
     }
 }

@@ -239,7 +239,6 @@
             this.MinimumSize = new System.Drawing.Size(457, 274);
             this.Name = "ColorEditor";
             this.Text = "Edytor kolorów";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ColorEditor_FormClosed);
             this.Load += new System.EventHandler(this.ColorEditor_Load);
             this.groupBoxEditArea.ResumeLayout(false);
             this.groupBoxEditArea.PerformLayout();
