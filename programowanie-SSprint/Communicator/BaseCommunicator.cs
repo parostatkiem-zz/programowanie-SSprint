@@ -7,7 +7,7 @@ using System.Data.Entity;
 
 namespace programowanie_SSprint.Communicator
 {
-    abstract class BaseCommunicator<elementType> where elementType : CommunicatorElement
+    abstract class BaseCommunicator<elementType> where elementType : CommunicatorElement<elementType>
     {
         protected static SSprintEntities dataBase;
         protected static readonly Exception threadConflict;
