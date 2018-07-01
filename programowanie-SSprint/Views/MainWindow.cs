@@ -78,8 +78,14 @@ namespace programowanie_SSprint
             companyEditorWindow.removeCompany += CompanyEditorWindow_removeCompany;
 
             tshirtEditorWindow = new TshirtEditor();
+            tshirtEditorWindow.getAllThsirts += TshirtEditorWindow_getAllThsirts;
 
 
+        }
+
+        private List<tshirt> TshirtEditorWindow_getAllThsirts(IErrorable arg)
+        {
+            return getAllTshirts(arg);
         }
 
         private bool CompanyEditorWindow_removeCompany(IErrorable arg1, company arg2)
