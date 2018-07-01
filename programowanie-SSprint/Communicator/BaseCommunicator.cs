@@ -9,7 +9,7 @@ namespace programowanie_SSprint.Communicator
 {
     abstract class BaseCommunicator<elementType> where elementType : CommunicatorElement<elementType>
     {
-        protected static SSprintEntities dataBase;
+        protected static SSprintContext dataBase;
         protected static readonly Exception threadConflict;
 
         static BaseCommunicator()
@@ -21,7 +21,7 @@ namespace programowanie_SSprint.Communicator
             dataBase = null;
         }
 
-        protected virtual SSprintEntities GetBase()
+        protected virtual SSprintContext GetBase()
         {
             return dataBase;
         }
@@ -29,7 +29,7 @@ namespace programowanie_SSprint.Communicator
         public virtual void Connect()
         {
             if (dataBase == null)
-                dataBase = new SSprintEntities();
+                dataBase = new SSprintContext();
             else
                 throw threadConflict;
         }

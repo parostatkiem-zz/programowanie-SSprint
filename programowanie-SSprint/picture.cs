@@ -20,9 +20,9 @@ namespace programowanie_SSprint
             this.orders = new HashSet<order>();
         }
     
-        public int id { get; set; }
         public string name { get; set; }
         public string picture_data { get; set; }
+        public int id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<order> orders { get; set; }

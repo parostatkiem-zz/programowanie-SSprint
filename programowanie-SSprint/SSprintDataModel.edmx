@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SSprintModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SSprintModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="colors">
           <Key>
             <PropertyRef Name="id" />
@@ -34,6 +34,7 @@
           <Property Name="end_date" Type="datetime" />
           <Property Name="order_date" Type="datetime" Nullable="false" />
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="price_for_client" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="pictures">
           <Key>
@@ -70,7 +71,8 @@
           <Property Name="in_stock" Type="int" Nullable="false" />
           <Property Name="default_loss_percentage" Type="int" Nullable="false" />
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="size" Type="varchar" MaxLength="1" />
+          <Property Name="size" Type="varchar" MaxLength="3" />
+          <Property Name="price" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="color_id">
           <End Role="colors" Type="Self.colors" Multiplicity="1" />
@@ -179,7 +181,8 @@
             <End Role="singleItemOrder" EntitySet="singleItemOrder" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SSprintModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -187,26 +190,25 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="hex_value" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="tshirts" Relationship="Self.color_id" FromRole="colors" ToRole="tshirts" />
         </EntityType>
         <EntityType Name="company">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="tshirts" Relationship="Self.company_id" FromRole="companies" ToRole="tshirts" />
         </EntityType>
         <EntityType Name="order">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="status" Type="Int32" Nullable="false" />
           <Property Name="picture_id" Type="Int32" />
           <Property Name="client_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
@@ -214,6 +216,8 @@
           <Property Name="client_phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="end_date" Type="DateTime" Precision="3" />
           <Property Name="order_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="price_for_client" Type="Int32" Nullable="false" />
           <NavigationProperty Name="singleItemOrders" Relationship="Self.order_id" FromRole="orders" ToRole="singleItemOrder" />
           <NavigationProperty Name="picture" Relationship="Self.picture_id" FromRole="orders" ToRole="pictures" />
         </EntityType>
@@ -221,19 +225,19 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="picture_data" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="orders" Relationship="Self.picture_id" FromRole="pictures" ToRole="orders" />
         </EntityType>
         <EntityType Name="singleItemOrder">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="order_id" Type="Int32" Nullable="false" />
           <Property Name="tshirt_id" Type="Int32" Nullable="false" />
           <Property Name="amount" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="order" Relationship="Self.order_id" FromRole="singleItemOrder" ToRole="orders" />
           <NavigationProperty Name="tshirt" Relationship="Self.tshirt_id" FromRole="singleItemOrder" ToRole="tshirts" />
         </EntityType>
@@ -241,26 +245,27 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="tshirts" Relationship="Self.style_id" FromRole="styles" ToRole="tshirts" />
         </EntityType>
         <EntityType Name="tshirt">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="company_id" Type="Int32" Nullable="false" />
           <Property Name="style_id" Type="Int32" Nullable="false" />
           <Property Name="sex" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="color_id" Type="Int32" Nullable="false" />
           <Property Name="in_stock" Type="Int32" Nullable="false" />
           <Property Name="default_loss_percentage" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="size" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Int32" Nullable="false" />
           <NavigationProperty Name="color" Relationship="Self.color_id" FromRole="tshirts" ToRole="colors" />
           <NavigationProperty Name="company" Relationship="Self.company_id" FromRole="tshirts" ToRole="companies" />
           <NavigationProperty Name="singleItemOrders" Relationship="Self.tshirt_id" FromRole="tshirts" ToRole="singleItemOrder" />
           <NavigationProperty Name="style" Relationship="Self.style_id" FromRole="tshirts" ToRole="styles" />
-          <Property Name="size" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="color_id">
           <End Role="colors" Type="Self.color" Multiplicity="1" />
@@ -336,7 +341,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SSprintEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SSprintContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="colors" EntityType="Self.color" />
           <EntitySet Name="companies" EntityType="Self.company" />
           <EntitySet Name="orders" EntityType="Self.order" />
@@ -374,30 +379,29 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SSprintModelStoreContainer" CdmEntityContainer="SSprintEntities">
+        <EntityContainerMapping StorageEntityContainer="SSprintModelStoreContainer" CdmEntityContainer="SSprintContext">
           <EntitySetMapping Name="colors">
             <EntityTypeMapping TypeName="SSprintModel.color">
               <MappingFragment StoreEntitySet="colors">
-                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="hex_value" ColumnName="hex_value" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="companies">
             <EntityTypeMapping TypeName="SSprintModel.company">
               <MappingFragment StoreEntitySet="companies">
-                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="phone" ColumnName="phone" />
                 <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="orders">
             <EntityTypeMapping TypeName="SSprintModel.order">
               <MappingFragment StoreEntitySet="orders">
-                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="picture_id" ColumnName="picture_id" />
                 <ScalarProperty Name="client_name" ColumnName="client_name" />
@@ -405,47 +409,50 @@
                 <ScalarProperty Name="client_phone" ColumnName="client_phone" />
                 <ScalarProperty Name="end_date" ColumnName="end_date" />
                 <ScalarProperty Name="order_date" ColumnName="order_date" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="price_for_client" ColumnName="price_for_client" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="pictures">
             <EntityTypeMapping TypeName="SSprintModel.picture">
               <MappingFragment StoreEntitySet="pictures">
-                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="picture_data" ColumnName="picture_data" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="singleItemOrders">
             <EntityTypeMapping TypeName="SSprintModel.singleItemOrder">
               <MappingFragment StoreEntitySet="singleItemOrder">
-                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="order_id" ColumnName="order_id" />
                 <ScalarProperty Name="tshirt_id" ColumnName="tshirt_id" />
                 <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="styles">
             <EntityTypeMapping TypeName="SSprintModel.style">
               <MappingFragment StoreEntitySet="styles">
-                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tshirts">
             <EntityTypeMapping TypeName="SSprintModel.tshirt">
               <MappingFragment StoreEntitySet="tshirts">
-                <ScalarProperty Name="size" ColumnName="size" />
-                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="company_id" ColumnName="company_id" />
                 <ScalarProperty Name="style_id" ColumnName="style_id" />
                 <ScalarProperty Name="sex" ColumnName="sex" />
                 <ScalarProperty Name="color_id" ColumnName="color_id" />
                 <ScalarProperty Name="in_stock" ColumnName="in_stock" />
                 <ScalarProperty Name="default_loss_percentage" ColumnName="default_loss_percentage" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="price" ColumnName="price" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

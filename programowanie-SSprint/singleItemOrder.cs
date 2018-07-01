@@ -14,10 +14,10 @@ namespace programowanie_SSprint
     
     public partial class singleItemOrder
     {
-        public int id { get; set; }
         public int order_id { get; set; }
         public int tshirt_id { get; set; }
         public int amount { get; set; }
+        public int id { get; set; }
     
         public virtual order order { get; set; }
         public virtual tshirt tshirt { get; set; }
