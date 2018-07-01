@@ -69,6 +69,16 @@
             treeNode20});
             this.treeViewProductBrowser = new System.Windows.Forms.TreeView();
             this.gbTshirtProperties = new System.Windows.Forms.GroupBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.ldefaultLoss2 = new System.Windows.Forms.Label();
+            this.btnApplyChanges = new System.Windows.Forms.Button();
+            this.numericDefaultLoss = new System.Windows.Forms.NumericUpDown();
+            this.ldefaultLoss1 = new System.Windows.Forms.Label();
+            this.comboBoxSize = new System.Windows.Forms.ComboBox();
+            this.lSize = new System.Windows.Forms.Label();
+            this.tbId = new System.Windows.Forms.TextBox();
+            this.tbAvailable = new System.Windows.Forms.TextBox();
+            this.tbReserved = new System.Windows.Forms.TextBox();
             this.lId = new System.Windows.Forms.Label();
             this.lAvailable = new System.Windows.Forms.Label();
             this.numInStock = new System.Windows.Forms.NumericUpDown();
@@ -84,19 +94,9 @@
             this.lCompany = new System.Windows.Forms.Label();
             this.btnApply = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.tbReserved = new System.Windows.Forms.TextBox();
-            this.tbAvailable = new System.Windows.Forms.TextBox();
-            this.tbId = new System.Windows.Forms.TextBox();
-            this.comboBoxSize = new System.Windows.Forms.ComboBox();
-            this.lSize = new System.Windows.Forms.Label();
-            this.numericDefaultLoss = new System.Windows.Forms.NumericUpDown();
-            this.ldefaultLoss1 = new System.Windows.Forms.Label();
-            this.ldefaultLoss2 = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnApplyChanges = new System.Windows.Forms.Button();
             this.gbTshirtProperties.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numInStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericDefaultLoss)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numInStock)).BeginInit();
             this.SuspendLayout();
             // 
             // treeViewProductBrowser
@@ -187,6 +187,103 @@
             this.gbTshirtProperties.TabIndex = 2;
             this.gbTshirtProperties.TabStop = false;
             this.gbTshirtProperties.Text = "Właściwości koszulki";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.BackColor = System.Drawing.Color.Tomato;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancel.Location = new System.Drawing.Point(10, 325);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(213, 23);
+            this.btnCancel.TabIndex = 11;
+            this.btnCancel.Text = "Anuluj";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            // 
+            // ldefaultLoss2
+            // 
+            this.ldefaultLoss2.AutoSize = true;
+            this.ldefaultLoss2.Location = new System.Drawing.Point(7, 177);
+            this.ldefaultLoss2.Name = "ldefaultLoss2";
+            this.ldefaultLoss2.Size = new System.Drawing.Size(62, 13);
+            this.ldefaultLoss2.TabIndex = 22;
+            this.ldefaultLoss2.Text = "nieudanych";
+            // 
+            // btnApplyChanges
+            // 
+            this.btnApplyChanges.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnApplyChanges.BackColor = System.Drawing.Color.LightGreen;
+            this.btnApplyChanges.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnApplyChanges.Location = new System.Drawing.Point(10, 354);
+            this.btnApplyChanges.Name = "btnApplyChanges";
+            this.btnApplyChanges.Size = new System.Drawing.Size(213, 23);
+            this.btnApplyChanges.TabIndex = 10;
+            this.btnApplyChanges.Text = "Zapisz zmiany";
+            this.btnApplyChanges.UseVisualStyleBackColor = false;
+            // 
+            // numericDefaultLoss
+            // 
+            this.numericDefaultLoss.Location = new System.Drawing.Point(96, 175);
+            this.numericDefaultLoss.Name = "numericDefaultLoss";
+            this.numericDefaultLoss.Size = new System.Drawing.Size(120, 20);
+            this.numericDefaultLoss.TabIndex = 21;
+            // 
+            // ldefaultLoss1
+            // 
+            this.ldefaultLoss1.AutoSize = true;
+            this.ldefaultLoss1.Location = new System.Drawing.Point(6, 164);
+            this.ldefaultLoss1.Name = "ldefaultLoss1";
+            this.ldefaultLoss1.Size = new System.Drawing.Size(63, 13);
+            this.ldefaultLoss1.TabIndex = 20;
+            this.ldefaultLoss1.Text = "Domyślny %";
+            // 
+            // comboBoxSize
+            // 
+            this.comboBoxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSize.FormattingEnabled = true;
+            this.comboBoxSize.Items.AddRange(new object[] {
+            "Męska",
+            "Żeńska",
+            "Unisex"});
+            this.comboBoxSize.Location = new System.Drawing.Point(49, 128);
+            this.comboBoxSize.Name = "comboBoxSize";
+            this.comboBoxSize.Size = new System.Drawing.Size(167, 21);
+            this.comboBoxSize.TabIndex = 19;
+            // 
+            // lSize
+            // 
+            this.lSize.AutoSize = true;
+            this.lSize.Location = new System.Drawing.Point(6, 131);
+            this.lSize.Name = "lSize";
+            this.lSize.Size = new System.Drawing.Size(45, 13);
+            this.lSize.TabIndex = 18;
+            this.lSize.Text = "Rozmiar";
+            // 
+            // tbId
+            // 
+            this.tbId.Location = new System.Drawing.Point(96, 291);
+            this.tbId.Name = "tbId";
+            this.tbId.ReadOnly = true;
+            this.tbId.Size = new System.Drawing.Size(120, 20);
+            this.tbId.TabIndex = 17;
+            // 
+            // tbAvailable
+            // 
+            this.tbAvailable.Location = new System.Drawing.Point(96, 258);
+            this.tbAvailable.Name = "tbAvailable";
+            this.tbAvailable.ReadOnly = true;
+            this.tbAvailable.Size = new System.Drawing.Size(120, 20);
+            this.tbAvailable.TabIndex = 16;
+            // 
+            // tbReserved
+            // 
+            this.tbReserved.Location = new System.Drawing.Point(96, 228);
+            this.tbReserved.Name = "tbReserved";
+            this.tbReserved.ReadOnly = true;
+            this.tbReserved.Size = new System.Drawing.Size(120, 20);
+            this.tbReserved.TabIndex = 15;
             // 
             // lId
             // 
@@ -332,103 +429,6 @@
             this.btnDelete.Text = "Usuń";
             this.btnDelete.UseVisualStyleBackColor = false;
             // 
-            // tbReserved
-            // 
-            this.tbReserved.Location = new System.Drawing.Point(96, 228);
-            this.tbReserved.Name = "tbReserved";
-            this.tbReserved.ReadOnly = true;
-            this.tbReserved.Size = new System.Drawing.Size(120, 20);
-            this.tbReserved.TabIndex = 15;
-            // 
-            // tbAvailable
-            // 
-            this.tbAvailable.Location = new System.Drawing.Point(96, 258);
-            this.tbAvailable.Name = "tbAvailable";
-            this.tbAvailable.ReadOnly = true;
-            this.tbAvailable.Size = new System.Drawing.Size(120, 20);
-            this.tbAvailable.TabIndex = 16;
-            // 
-            // tbId
-            // 
-            this.tbId.Location = new System.Drawing.Point(96, 291);
-            this.tbId.Name = "tbId";
-            this.tbId.ReadOnly = true;
-            this.tbId.Size = new System.Drawing.Size(120, 20);
-            this.tbId.TabIndex = 17;
-            // 
-            // comboBoxSize
-            // 
-            this.comboBoxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSize.FormattingEnabled = true;
-            this.comboBoxSize.Items.AddRange(new object[] {
-            "Męska",
-            "Żeńska",
-            "Unisex"});
-            this.comboBoxSize.Location = new System.Drawing.Point(49, 128);
-            this.comboBoxSize.Name = "comboBoxSize";
-            this.comboBoxSize.Size = new System.Drawing.Size(167, 21);
-            this.comboBoxSize.TabIndex = 19;
-            // 
-            // lSize
-            // 
-            this.lSize.AutoSize = true;
-            this.lSize.Location = new System.Drawing.Point(6, 131);
-            this.lSize.Name = "lSize";
-            this.lSize.Size = new System.Drawing.Size(45, 13);
-            this.lSize.TabIndex = 18;
-            this.lSize.Text = "Rozmiar";
-            // 
-            // numericDefaultLoss
-            // 
-            this.numericDefaultLoss.Location = new System.Drawing.Point(96, 175);
-            this.numericDefaultLoss.Name = "numericDefaultLoss";
-            this.numericDefaultLoss.Size = new System.Drawing.Size(120, 20);
-            this.numericDefaultLoss.TabIndex = 21;
-            // 
-            // ldefaultLoss1
-            // 
-            this.ldefaultLoss1.AutoSize = true;
-            this.ldefaultLoss1.Location = new System.Drawing.Point(6, 164);
-            this.ldefaultLoss1.Name = "ldefaultLoss1";
-            this.ldefaultLoss1.Size = new System.Drawing.Size(63, 13);
-            this.ldefaultLoss1.TabIndex = 20;
-            this.ldefaultLoss1.Text = "Domyślny %";
-            // 
-            // ldefaultLoss2
-            // 
-            this.ldefaultLoss2.AutoSize = true;
-            this.ldefaultLoss2.Location = new System.Drawing.Point(7, 177);
-            this.ldefaultLoss2.Name = "ldefaultLoss2";
-            this.ldefaultLoss2.Size = new System.Drawing.Size(62, 13);
-            this.ldefaultLoss2.TabIndex = 22;
-            this.ldefaultLoss2.Text = "nieudanych";
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.BackColor = System.Drawing.Color.Tomato;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel.Location = new System.Drawing.Point(10, 325);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(213, 23);
-            this.btnCancel.TabIndex = 11;
-            this.btnCancel.Text = "Anuluj";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            // 
-            // btnApplyChanges
-            // 
-            this.btnApplyChanges.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApplyChanges.BackColor = System.Drawing.Color.LightGreen;
-            this.btnApplyChanges.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnApplyChanges.Location = new System.Drawing.Point(10, 354);
-            this.btnApplyChanges.Name = "btnApplyChanges";
-            this.btnApplyChanges.Size = new System.Drawing.Size(213, 23);
-            this.btnApplyChanges.TabIndex = 10;
-            this.btnApplyChanges.Text = "Zapisz zmiany";
-            this.btnApplyChanges.UseVisualStyleBackColor = false;
-            // 
             // TshirtEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -441,10 +441,11 @@
             this.MinimumSize = new System.Drawing.Size(450, 352);
             this.Name = "TshirtEditor";
             this.Text = "Edytor koszulek w magazynie";
+            this.Load += new System.EventHandler(this.TshirtEditor_Load);
             this.gbTshirtProperties.ResumeLayout(false);
             this.gbTshirtProperties.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numInStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericDefaultLoss)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numInStock)).EndInit();
             this.ResumeLayout(false);
 
         }
