@@ -13,7 +13,7 @@ namespace programowanie_SSprint
 
          //event Func<IErrorable, List<company>> getAllCompany; // pobiera wszystkie dane z tabeli company
 
-         event Func<IErrorable, List<tshirt>> getAllThsirts; //pobiera wszystkie dane z tabeli Tshirts
+        // event Func<IErrorable, List<tshirt>> getAllThsirts; //pobiera wszystkie dane z tabeli Tshirts
          event Func<IErrorable, int, order> getSingleOrder; //pobiera jeden order o danym ID
 
          event Func<IErrorable, order, bool> insertSingleOrder;//jesli order.id==null, to dodaje nowy order, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
