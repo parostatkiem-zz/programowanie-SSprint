@@ -7,8 +7,9 @@ using System.Data.Entity;
 
 namespace programowanie_SSprint.Communicator
 {
-    public abstract class CommunicatorElement
+    public abstract class CommunicatorElement<elementType> where elementType : class
     {
+        public abstract void CopyFrom(elementType otherELement);
         public abstract int getId();
     }
 }

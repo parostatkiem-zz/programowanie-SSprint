@@ -12,7 +12,7 @@ namespace programowanie_SSprint
     using System;
     using System.Collections.Generic;
     
-    public partial class singleItemOrder : Communicator.CommunicatorElement
+    public partial class singleItemOrder
     {
         public int id { get; set; }
         public int order_id { get; set; }
@@ -21,10 +21,5 @@ namespace programowanie_SSprint
     
         public virtual order order { get; set; }
         public virtual tshirt tshirt { get; set; }
-
-        public override int getId()
-        {
-            return id;
-        }
     }
 }

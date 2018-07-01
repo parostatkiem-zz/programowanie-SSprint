@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="Communicator\BaseCommunicator.cs" />
     <Compile Include="Communicator\Communicator.cs" />
+    <Compile Include="Communicator\SSprintExpansions.cs" />
     <Compile Include="company.cs">
       <DependentUpon>ModelDataContext.tt</DependentUpon>
     </Compile>

@@ -8,7 +8,7 @@ using System.Data.Entity.Infrastructure;
 
 namespace programowanie_SSprint.Communicator
 {
-    class Communicator<elementType> : BaseCommunicator<elementType> where elementType : CommunicatorElement
+    class Communicator<elementType> : BaseCommunicator<elementType> where elementType : CommunicatorElement<elementType>
     {
 
         public override elementType Find(int elementID)
@@ -75,8 +75,7 @@ namespace programowanie_SSprint.Communicator
         {
             try
             {
-                dataBase.Set<elementType>().Remove(sourceElement);
-                dataBase.Set<elementType>().Add(newElement);
+                sourceElement.CopyFrom(newElement);
             }
             catch (Exception ex)
             {
