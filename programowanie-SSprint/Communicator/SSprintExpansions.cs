@@ -23,19 +23,6 @@ namespace programowanie_SSprint
         {
             return shirt.in_stock - getOrdered(shirt);
         }
-
-        public static string NameString(this tshirt shirt)
-        {
-            return shirt.color.name + " | " + shirt.size + " | " + shirt.in_stock.ToString();
-        }
-        public static string NameString(this color color)
-        {
-            return color.name;
-        }
-        public static string NameString(this company company)
-        {
-            return company.name;
-        }
     }
     public partial class color : Communicator.CommunicatorElement<color>
     {
@@ -48,6 +35,11 @@ namespace programowanie_SSprint
         public override int getId()
         {
             return this.id;
+        }
+
+        public override string ToString()
+        {
+            return this.name;
         }
     }
 
@@ -64,6 +56,11 @@ namespace programowanie_SSprint
         public override int getId()
         {
             return this.id;
+        }
+
+        public override string ToString()
+        {
+            return this.name;
         }
     }
 
@@ -148,6 +145,11 @@ namespace programowanie_SSprint
         public override int getId()
         {
             return this.id;
+        }
+
+        public override string ToString()
+        {
+            return this.color.name + " | " + this.size + " | " + this.in_stock.ToString();
         }
     }
     
