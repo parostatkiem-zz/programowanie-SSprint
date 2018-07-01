@@ -14,11 +14,6 @@ namespace programowanie_SSprint
     {
 
         #region EVENTS
-        public event Action saveDatabaseToRemote; //zapisuje dane do bazy zdalnej
-
-       // public event Func<IErrorable, List<company>> getAllCompany;
-
-        //public event Func<IErrorable, List<tshirt>> getAllThsirts; //pobiera wszystkie dane z tabeli Tshirts
         public event Func<IErrorable, int, order> getSingleOrder; //pobiera jeden order o danym ID
 
         public event Func<IErrorable, order, bool> insertSingleOrder;//jesli order.id==null, to dodaje nowy order, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
@@ -125,10 +120,7 @@ namespace programowanie_SSprint
         #endregion
 
         #region CHILD_EVENT_METHODS
-        private void FireSaveDatabaseToRemoteEvent()
-        {
-            //saveDatabaseToRemote();
-        }
+       
         private bool ColorEditorWindow_removeColor(IErrorable arg1, color arg2)
         {
             return removeColor(arg1, arg2);

@@ -232,7 +232,6 @@
             this.MinimumSize = new System.Drawing.Size(457, 274);
             this.Name = "PictureEditor";
             this.Text = "Edytor grafik";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PictureEditor_FormClosed);
             this.Load += new System.EventHandler(this.PictureEditor_Load);
             this.groupBoxEditArea.ResumeLayout(false);
             this.groupBoxEditArea.PerformLayout();

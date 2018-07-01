@@ -39,6 +39,121 @@ namespace programowanie_SSprint
 
         #endregion
 
+        #region GENERATED_EVENTS
+
+        private void TshirtEditor_Load(object sender, EventArgs e)
+        {
+            RefreshTshirtList(getAllThsirts(this));
+            FillAllControls();
+            CurrentlySelectedTshirt = null;
+        }
+
+        private void treeViewProductBrowser_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if ((treeViewProductBrowser.SelectedNode.Tag as tshirt) == null) return;
+            CurrentlySelectedTshirt = treeViewProductBrowser.SelectedNode.Tag as tshirt;
+        }
+
+
+        private void comboBoxCompany_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxCompany.SelectedItem == null) return;
+            currentlyEditedTshirt.company_id = (comboBoxCompany.SelectedItem as company).id;
+        }
+
+        private void comboBoxSex_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxSex.SelectedItem == null) return;
+            currentlyEditedTshirt.sex = comboBoxSex.SelectedItem.ToString();
+        }
+
+        private void comboBoxModel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxModel.SelectedItem == null) return;
+            currentlyEditedTshirt.style_id = (comboBoxModel.SelectedItem as style).id;
+        }
+
+        private void comboBoxColor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxColor.SelectedItem == null) return;
+            currentlyEditedTshirt.color_id = (comboBoxColor.SelectedItem as color).id;
+        }
+
+        private void comboBoxSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxSize.SelectedItem == null) return;
+            currentlyEditedTshirt.size = comboBoxSize.SelectedItem.ToString();
+        }
+
+        private void numericDefaultLoss_ValueChanged(object sender, EventArgs e)
+        {
+            if (currentlyEditedTshirt == null) return;
+            currentlyEditedTshirt.default_loss_percentage = (int)numericDefaultLoss.Value;
+        }
+
+        private void numInStock_ValueChanged(object sender, EventArgs e)
+        {
+            if (CurrentlySelectedTshirt != null && numInStock.Value < CurrentlySelectedTshirt.getOrdered())
+            {
+                ShowError("Ilosć koszulek w magazynie nie może być mniejsza, niż ilośc zarezerwowana");
+                numInStock.Value = CurrentlySelectedTshirt.in_stock;
+                return;
+            }
+            currentlyEditedTshirt.in_stock = (int)numInStock.Value;
+            tbAvailable.Text = currentlyEditedTshirt.getNotOrdered().ToString();
+            tbReserved.Text = currentlyEditedTshirt.getOrdered().ToString();
+        }
+
+        private void numPrice_ValueChanged(object sender, EventArgs e)
+        {
+            currentlyEditedTshirt.price = (int)numPrice.Value;
+        }
+
+        private void btnApplyChanges_Click(object sender, EventArgs e)
+        {
+            // int theNodeId = currentlyEditedTshirt.id;
+            insertSingleTshirt(this, currentlyEditedTshirt);
+            if (!treeViewProductBrowser.Visible)
+            {
+
+                treeViewProductBrowser.Visible = true;
+                RefreshTshirtList(getAllThsirts(this));
+            }
+
+            //  TryToSelectNode(theNodeId);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (CurrentlySelectedTshirt == null) return;
+            DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz nieodwracalnie usunąć wybraną koszulkę (" + CurrentlySelectedTshirt.ToString() + ")?", "Potwierdzenie usunięcia", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.No) return;
+
+            removeTshirt(this, CurrentlySelectedTshirt);
+            RefreshTshirtList(getAllThsirts(this));
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz odrzucić wprowadzone zmiany?", "Potwierdzenie odrzucenia zmian", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.No) return;
+
+            DisplaySingleTshirt(CurrentlySelectedTshirt);
+            treeViewProductBrowser.Visible = true;
+        }
+
+        private void btnApply_Click(object sender, EventArgs e)
+        {
+            treeViewProductBrowser.Visible = false;
+            CurrentlySelectedTshirt = null;
+            currentlyEditedTshirt = new tshirt();
+            currentlyEditedTshirt.singleItemOrders = new List<singleItemOrder>();
+            //currentlyEditedTshirt.
+        }
+
+        #endregion
+
+        #region PRIVATE
         private tshirt currentlyEditedTshirt;
         private tshirt currentlySelectedTshirt;
         private tshirt CurrentlySelectedTshirt
@@ -48,10 +163,10 @@ namespace programowanie_SSprint
             {
                 currentlySelectedTshirt = value;
                 DisplaySingleTshirt(currentlySelectedTshirt);
-        
+
                 currentlyEditedTshirt = new tshirt();
                 if (value != null)
-                { 
+                {
                     currentlyEditedTshirt.CopyFrom(currentlySelectedTshirt);
                     currentlyEditedTshirt.id = CurrentlySelectedTshirt.id;
                 }
@@ -60,13 +175,18 @@ namespace programowanie_SSprint
 
         private void DisplaySingleTshirt(tshirt t)
         {
-            if(t==null)
+            if (t == null)
             {
                 //czyszczenie pól
                 comboBoxCompany.SelectedItem = null;
                 comboBoxColor.SelectedItem = null;
                 comboBoxSize.SelectedItem = null;
                 comboBoxCompany.SelectedItem = null;
+                comboBoxModel.SelectedItem = null;
+                comboBoxSex.SelectedItem = null;
+                numericDefaultLoss.Value = 10;
+                numInStock.Value = 0;
+                numPrice.Value = 0;
                 return;
             }
 
@@ -77,7 +197,7 @@ namespace programowanie_SSprint
                 if ((c as style).id == t.style.id) comboBoxModel.SelectedItem = c;
 
             foreach (var c in comboBoxSex.Items)
-                if (c.ToString()==t.sex) comboBoxSex.SelectedItem = c;
+                if (c.ToString() == t.sex) comboBoxSex.SelectedItem = c;
 
             foreach (var c in comboBoxSize.Items)
                 if (c.ToString() == t.size) comboBoxSize.SelectedItem = c;
@@ -90,8 +210,17 @@ namespace programowanie_SSprint
             tbId.Text = t.id.ToString();
             numericDefaultLoss.Value = t.default_loss_percentage;
             numInStock.Value = t.in_stock;
-            tbAvailable.Text = t.getNotOrdered().ToString() ;
-            tbReserved.Text = t.getOrdered().ToString();
+            numPrice.Value = t.price;
+            try
+            {
+                tbAvailable.Text = t.getNotOrdered().ToString();
+                tbReserved.Text = t.getOrdered().ToString();
+            }
+            catch
+            {
+                tbAvailable.Text = "";
+                tbReserved.Text = "";
+            }
 
         }
 
@@ -101,8 +230,8 @@ namespace programowanie_SSprint
             TreeNode tmp;
             TreeNode currentParentNode;
 
-            
-            foreach(tshirt t in theList)
+
+            foreach (tshirt t in theList)
             {
                 //firma
                 tmp = new TreeNode(t.company.name);
@@ -137,33 +266,19 @@ namespace programowanie_SSprint
 
 
                 //konkretna koszulka
-                tmp= new TreeNode(t.ToString());
+                tmp = new TreeNode(t.ToString());
                 tmp.Tag = t;
                 tmp.NodeFont = new Font(treeViewProductBrowser.Font, FontStyle.Bold);
-                
+
                 currentParentNode.Nodes.Add(tmp);
             }
 
-           
-        }
 
-        private void TshirtEditor_Load(object sender, EventArgs e)
-        {
-            RefreshTshirtList(getAllThsirts(this));
-            FillAllControls();
-            CurrentlySelectedTshirt = null;
         }
-
-        private void treeViewProductBrowser_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            if ((treeViewProductBrowser.SelectedNode.Tag as tshirt) == null) return;
-            CurrentlySelectedTshirt= treeViewProductBrowser.SelectedNode.Tag as tshirt;
-        }
-
         private void FillCompanyControl()
         {
             comboBoxCompany.Items.Clear();
-            comboBoxCompany.Items.AddRange(getAllCompanies(this).ToArray()); 
+            comboBoxCompany.Items.AddRange(getAllCompanies(this).ToArray());
         }
 
         private void FillStyleControl()
@@ -184,85 +299,22 @@ namespace programowanie_SSprint
             FillStyleControl();
         }
 
-        private void comboBoxCompany_SelectedIndexChanged(object sender, EventArgs e)
+        private void TryToSelectNode(int index)
         {
-            if (comboBoxCompany.SelectedItem == null) return;
-            currentlyEditedTshirt.company_id = (comboBoxCompany.SelectedItem as company).id;
-        }
-
-        private void comboBoxSex_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxSex.SelectedItem == null) return;
-            currentlyEditedTshirt.sex = comboBoxSex.SelectedItem.ToString();
-        }
-
-        private void comboBoxModel_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxModel.SelectedItem == null) return;
-            currentlyEditedTshirt.style_id = (comboBoxModel.SelectedItem as style).id;
-        }
-
-        private void comboBoxColor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxColor.SelectedItem == null) return;
-            currentlyEditedTshirt.color_id = (comboBoxColor.SelectedItem as color).id;
-        }
-
-        private void comboBoxSize_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxSize.SelectedItem == null) return;
-            currentlyEditedTshirt.size = comboBoxSize.SelectedItem.ToString();
-        }
-
-        private void numericDefaultLoss_ValueChanged(object sender, EventArgs e)
-        {
-            currentlyEditedTshirt.default_loss_percentage =(int)numericDefaultLoss.Value;
-        }
-
-        private void numInStock_ValueChanged(object sender, EventArgs e)
-        {
-            if(numInStock.Value<CurrentlySelectedTshirt.getNotOrdered())
+            try
             {
-                ShowError("Ilosć koszulek w magazynie nie może być mniejsza, niż ilośc zarezerwowana");
-                numInStock.Value = CurrentlySelectedTshirt.in_stock;
-                return;
+                foreach (TreeNode n in treeViewProductBrowser.Nodes)
+                {
+                    if (n.Tag is tshirt && (n.Tag as tshirt).id == index)
+                        treeViewProductBrowser.SelectedNode = n;
+                }
+                //   treeViewProductBrowser.SelectedNode = treeViewProductBrowser.Nodes.Find(t.ToString(), true).First();
+                treeViewProductBrowser.SelectedNode.EnsureVisible();
             }
-            currentlyEditedTshirt.in_stock = (int)numInStock.Value;
-            tbAvailable.Text = currentlyEditedTshirt.getNotOrdered().ToString();
-            tbReserved.Text = currentlyEditedTshirt.getOrdered().ToString();
+            catch { }
+
         }
 
-        private void btnApplyChanges_Click(object sender, EventArgs e)
-        {
-            insertSingleTshirt(this, currentlyEditedTshirt);
-           // RefreshTshirtList(getAllThsirts(this));
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            if (CurrentlySelectedTshirt == null) return;
-            DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz nieodwracalnie usunąć wybraną koszulkę ("+CurrentlySelectedTshirt.ToString()+")?", "Potwierdzenie usunięcia", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.No) return;
-
-            removeTshirt(this, CurrentlySelectedTshirt);
-            RefreshTshirtList(getAllThsirts(this));
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz odrzucić wprowadzone zmiany?", "Potwierdzenie odrzucenia zmian", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.No) return;
-
-            DisplaySingleTshirt(CurrentlySelectedTshirt);
-            treeViewProductBrowser.Visible = true;
-        }
-
-        private void btnApply_Click(object sender, EventArgs e)
-        {
-            treeViewProductBrowser.Visible = false;
-            CurrentlySelectedTshirt = null;
-            currentlyEditedTshirt = new tshirt();
-            //currentlyEditedTshirt.
-        }
+        #endregion
     }
 }

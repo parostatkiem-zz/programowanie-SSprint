@@ -79,6 +79,7 @@
             this.Controls.Add(this.tbLongMessage);
             this.Controls.Add(this.lMessage);
             this.Controls.Add(this.btnOk);
+            this.MaximumSize = new System.Drawing.Size(900, 400);
             this.Name = "Error";
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;

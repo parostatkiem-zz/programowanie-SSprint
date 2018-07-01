@@ -14,7 +14,7 @@ namespace programowanie_SSprint
     {
       
 
-       // public event Action saveDatabaseToRemote; //zapisuje dane do bazy zdalnej
+      
         public event Func<IErrorable, style, bool> insertStyle; //jesli style.id==null, to dodaje nowy style, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
         public event Func<IErrorable, List<style>> getAllStyles; //zwraca listę wszystkich kolorów
         public event Func<IErrorable, style, bool> removeStyle; //usuwa kolor. Istotne jest tylko style.id. Zwraca bool czy się udało

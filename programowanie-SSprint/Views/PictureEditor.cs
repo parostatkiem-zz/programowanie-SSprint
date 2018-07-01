@@ -13,7 +13,7 @@ namespace programowanie_SSprint
     public partial class PictureEditor : Form,IErrorable
     {
         #region EVENTS
-        public event Action saveDatabaseToRemote; //zapisuje dane do bazy zdalnej
+       
         public event Func<IErrorable, picture, bool> insertPicture; //jesli color.id==null, to dodaje nowy obraz, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
         public event Func<IErrorable, List<picture>> getAllPictures; //zwraca listę wszystkich obrazow
         public event Func<IErrorable, picture, bool> removePicture; //usuwa obraz. Istotne jest tylko picture.id. Zwraca bool czy się udało
@@ -131,9 +131,6 @@ namespace programowanie_SSprint
             groupBoxGraphicList.Visible = false;
         }
 
-        private void PictureEditor_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            saveDatabaseToRemote();
-        }
+        
     }
 }
