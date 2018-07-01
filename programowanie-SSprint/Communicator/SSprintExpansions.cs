@@ -76,6 +76,7 @@ namespace programowanie_SSprint
             this.picture_id = otherOrder.picture_id;
             this.status = otherOrder.status;
             this.singleItemOrders = otherOrder.singleItemOrders;
+            this.price_for_client = otherOrder.price_for_client;
         }
 
         public override int getId()
@@ -126,6 +127,11 @@ namespace programowanie_SSprint
         {
             return this.id;
         }
+
+        public override string ToString()
+        {
+            return this.name;
+        }
     }
 
     public partial class tshirt : Communicator.CommunicatorElement<tshirt>
@@ -140,6 +146,7 @@ namespace programowanie_SSprint
             this.singleItemOrders = other.singleItemOrders;
             this.size = other.size;
             this.style_id = other.style_id;
+            this.price = other.price;
         }
 
         public override int getId()
@@ -149,7 +156,7 @@ namespace programowanie_SSprint
 
         public override string ToString()
         {
-            return this.color.name + " | " + this.size + " | " + this.in_stock.ToString();
+            return this.color.name + " | " + this.size + " | ( dostępne: " + this.getNotOrdered() + " ) " + this.price + "zł";
         }
     }
     

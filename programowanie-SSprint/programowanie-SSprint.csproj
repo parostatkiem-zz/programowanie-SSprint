@@ -56,44 +56,44 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="color.cs">
-      <DependentUpon>ModelDataContext.tt</DependentUpon>
+      <DependentUpon>SSprintDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Communicator\BaseCommunicator.cs" />
     <Compile Include="Communicator\Communicator.cs" />
     <Compile Include="Communicator\SSprintExpansions.cs" />
-    <Compile Include="company.cs">
-      <DependentUpon>ModelDataContext.tt</DependentUpon>
-    </Compile>
     <Compile Include="Communicator\CommunicatorElement.cs" />
-    <Compile Include="ModelData.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelData.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="ModelDataContext.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelDataContext.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelDataContext.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelDataContext.tt</DependentUpon>
+    <Compile Include="company.cs">
+      <DependentUpon>SSprintDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="order.cs">
-      <DependentUpon>ModelDataContext.tt</DependentUpon>
+      <DependentUpon>SSprintDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="picture.cs">
-      <DependentUpon>ModelDataContext.tt</DependentUpon>
+      <DependentUpon>SSprintDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="singleItemOrder.cs">
-      <DependentUpon>ModelDataContext.tt</DependentUpon>
+      <DependentUpon>SSprintDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SSprintDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SSprintDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SSprintDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SSprintDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SSprintDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SSprintDataModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="style.cs">
-      <DependentUpon>ModelDataContext.tt</DependentUpon>
+      <DependentUpon>SSprintDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="tshirt.cs">
-      <DependentUpon>ModelDataContext.tt</DependentUpon>
+      <DependentUpon>SSprintDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Views\CompanyEditor.cs">
       <SubType>Form</SubType>
@@ -175,14 +175,6 @@
     <EmbeddedResource Include="Views\TshirtEditor.resx">
       <DependentUpon>TshirtEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="ModelData.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelData.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ModelData.edmx.diagram">
-      <DependentUpon>ModelData.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -193,6 +185,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EntityDeploy Include="SSprintDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SSprintDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SSprintDataModel.edmx.diagram">
+      <DependentUpon>SSprintDataModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -204,15 +203,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ModelDataContext.Context.tt">
+    <Content Include="SSprintDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelDataContext.Context.cs</LastGenOutput>
-      <DependentUpon>ModelData.edmx</DependentUpon>
+      <DependentUpon>SSprintDataModel.edmx</DependentUpon>
+      <LastGenOutput>SSprintDataModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="ModelDataContext.tt">
+    <Content Include="SSprintDataModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelDataContext.cs</LastGenOutput>
-      <DependentUpon>ModelData.edmx</DependentUpon>
+      <DependentUpon>SSprintDataModel.edmx</DependentUpon>
+      <LastGenOutput>SSprintDataModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

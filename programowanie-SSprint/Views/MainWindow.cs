@@ -18,7 +18,7 @@ namespace programowanie_SSprint
 
        // public event Func<IErrorable, List<company>> getAllCompany;
 
-        public event Func<IErrorable, List<tshirt>> getAllThsirts; //pobiera wszystkie dane z tabeli Tshirts
+        //public event Func<IErrorable, List<tshirt>> getAllThsirts; //pobiera wszystkie dane z tabeli Tshirts
         public event Func<IErrorable, int, order> getSingleOrder; //pobiera jeden order o danym ID
 
         public event Func<IErrorable, order, bool> insertSingleOrder;//jesli order.id==null, to dodaje nowy order, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
@@ -78,8 +78,14 @@ namespace programowanie_SSprint
             companyEditorWindow.removeCompany += CompanyEditorWindow_removeCompany;
 
             tshirtEditorWindow = new TshirtEditor();
+            tshirtEditorWindow.getAllThsirts += TshirtEditorWindow_getAllThsirts;
 
 
+        }
+
+        private List<tshirt> TshirtEditorWindow_getAllThsirts(IErrorable arg)
+        {
+            return getAllTshirts(arg);
         }
 
         private bool CompanyEditorWindow_removeCompany(IErrorable arg1, company arg2)

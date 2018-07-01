@@ -20,7 +20,6 @@ namespace programowanie_SSprint
             this.singleItemOrders = new HashSet<singleItemOrder>();
         }
     
-        public int id { get; set; }
         public int status { get; set; }
         public Nullable<int> picture_id { get; set; }
         public string client_name { get; set; }
@@ -28,6 +27,8 @@ namespace programowanie_SSprint
         public string client_phone { get; set; }
         public Nullable<System.DateTime> end_date { get; set; }
         public System.DateTime order_date { get; set; }
+        public int id { get; set; }
+        public int price_for_client { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<singleItemOrder> singleItemOrders { get; set; }

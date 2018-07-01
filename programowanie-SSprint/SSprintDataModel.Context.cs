@@ -13,10 +13,10 @@ namespace programowanie_SSprint
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SSprintEntities : DbContext
+    public partial class SSprintContext : DbContext
     {
-        public SSprintEntities()
-            : base("name=SSprintEntities")
+        public SSprintContext()
+            : base("name=SSprintContext")
         {
         }
     
