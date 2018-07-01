@@ -74,7 +74,6 @@
             this.btnApplyChanges = new System.Windows.Forms.Button();
             this.numericDefaultLoss = new System.Windows.Forms.NumericUpDown();
             this.ldefaultLoss1 = new System.Windows.Forms.Label();
-            this.comboBoxSize = new System.Windows.Forms.ComboBox();
             this.lSize = new System.Windows.Forms.Label();
             this.tbId = new System.Windows.Forms.TextBox();
             this.tbAvailable = new System.Windows.Forms.TextBox();
@@ -87,13 +86,14 @@
             this.comboBoxCompany = new System.Windows.Forms.ComboBox();
             this.comboBoxSex = new System.Windows.Forms.ComboBox();
             this.comboBoxColor = new System.Windows.Forms.ComboBox();
-            this.tbModel = new System.Windows.Forms.TextBox();
             this.lColor = new System.Windows.Forms.Label();
             this.lModel = new System.Windows.Forms.Label();
             this.lSex = new System.Windows.Forms.Label();
             this.lCompany = new System.Windows.Forms.Label();
             this.btnApply = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.comboBoxSize = new System.Windows.Forms.ComboBox();
+            this.comboBoxModel = new System.Windows.Forms.ComboBox();
             this.gbTshirtProperties.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericDefaultLoss)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numInStock)).BeginInit();
@@ -154,10 +154,12 @@
             treeNode21});
             this.treeViewProductBrowser.Size = new System.Drawing.Size(325, 430);
             this.treeViewProductBrowser.TabIndex = 1;
+            this.treeViewProductBrowser.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewProductBrowser_AfterSelect);
             // 
             // gbTshirtProperties
             // 
             this.gbTshirtProperties.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbTshirtProperties.Controls.Add(this.comboBoxModel);
             this.gbTshirtProperties.Controls.Add(this.btnCancel);
             this.gbTshirtProperties.Controls.Add(this.ldefaultLoss2);
             this.gbTshirtProperties.Controls.Add(this.btnApplyChanges);
@@ -176,7 +178,6 @@
             this.gbTshirtProperties.Controls.Add(this.comboBoxCompany);
             this.gbTshirtProperties.Controls.Add(this.comboBoxSex);
             this.gbTshirtProperties.Controls.Add(this.comboBoxColor);
-            this.gbTshirtProperties.Controls.Add(this.tbModel);
             this.gbTshirtProperties.Controls.Add(this.lColor);
             this.gbTshirtProperties.Controls.Add(this.lModel);
             this.gbTshirtProperties.Controls.Add(this.lSex);
@@ -238,19 +239,6 @@
             this.ldefaultLoss1.Size = new System.Drawing.Size(63, 13);
             this.ldefaultLoss1.TabIndex = 20;
             this.ldefaultLoss1.Text = "Domyślny %";
-            // 
-            // comboBoxSize
-            // 
-            this.comboBoxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSize.FormattingEnabled = true;
-            this.comboBoxSize.Items.AddRange(new object[] {
-            "Męska",
-            "Żeńska",
-            "Unisex"});
-            this.comboBoxSize.Location = new System.Drawing.Point(49, 128);
-            this.comboBoxSize.Name = "comboBoxSize";
-            this.comboBoxSize.Size = new System.Drawing.Size(167, 21);
-            this.comboBoxSize.TabIndex = 19;
             // 
             // lSize
             // 
@@ -335,6 +323,7 @@
             // 
             // comboBoxCompany
             // 
+            this.comboBoxCompany.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCompany.FormattingEnabled = true;
             this.comboBoxCompany.Location = new System.Drawing.Point(49, 17);
             this.comboBoxCompany.Name = "comboBoxCompany";
@@ -356,18 +345,12 @@
             // 
             // comboBoxColor
             // 
+            this.comboBoxColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxColor.FormattingEnabled = true;
             this.comboBoxColor.Location = new System.Drawing.Point(49, 101);
             this.comboBoxColor.Name = "comboBoxColor";
             this.comboBoxColor.Size = new System.Drawing.Size(167, 21);
             this.comboBoxColor.TabIndex = 5;
-            // 
-            // tbModel
-            // 
-            this.tbModel.Location = new System.Drawing.Point(49, 72);
-            this.tbModel.Name = "tbModel";
-            this.tbModel.Size = new System.Drawing.Size(167, 20);
-            this.tbModel.TabIndex = 4;
             // 
             // lColor
             // 
@@ -429,6 +412,35 @@
             this.btnDelete.Text = "Usuń";
             this.btnDelete.UseVisualStyleBackColor = false;
             // 
+            // comboBoxSize
+            // 
+            this.comboBoxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSize.FormattingEnabled = true;
+            this.comboBoxSize.Items.AddRange(new object[] {
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"});
+            this.comboBoxSize.Location = new System.Drawing.Point(49, 128);
+            this.comboBoxSize.Name = "comboBoxSize";
+            this.comboBoxSize.Size = new System.Drawing.Size(167, 21);
+            this.comboBoxSize.TabIndex = 19;
+            // 
+            // comboBoxModel
+            // 
+            this.comboBoxModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxModel.FormattingEnabled = true;
+            this.comboBoxModel.Items.AddRange(new object[] {
+            "Męska",
+            "Żeńska",
+            "Unisex"});
+            this.comboBoxModel.Location = new System.Drawing.Point(49, 74);
+            this.comboBoxModel.Name = "comboBoxModel";
+            this.comboBoxModel.Size = new System.Drawing.Size(167, 21);
+            this.comboBoxModel.TabIndex = 23;
+            // 
             // TshirtEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -461,7 +473,6 @@
         private System.Windows.Forms.ComboBox comboBoxCompany;
         private System.Windows.Forms.ComboBox comboBoxSex;
         private System.Windows.Forms.ComboBox comboBoxColor;
-        private System.Windows.Forms.TextBox tbModel;
         private System.Windows.Forms.Label lColor;
         private System.Windows.Forms.Label lAvailable;
         private System.Windows.Forms.NumericUpDown numInStock;
@@ -472,12 +483,13 @@
         private System.Windows.Forms.TextBox tbId;
         private System.Windows.Forms.TextBox tbAvailable;
         private System.Windows.Forms.TextBox tbReserved;
-        private System.Windows.Forms.ComboBox comboBoxSize;
         private System.Windows.Forms.Label lSize;
         private System.Windows.Forms.Label ldefaultLoss2;
         private System.Windows.Forms.NumericUpDown numericDefaultLoss;
         private System.Windows.Forms.Label ldefaultLoss1;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnApplyChanges;
+        private System.Windows.Forms.ComboBox comboBoxSize;
+        private System.Windows.Forms.ComboBox comboBoxModel;
     }
 }

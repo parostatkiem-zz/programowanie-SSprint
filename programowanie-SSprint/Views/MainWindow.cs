@@ -56,32 +56,34 @@ namespace programowanie_SSprint
         {
             InitializeComponent();
             colorEditorWindow = new ColorEditor();
-            colorEditorWindow.getAllColors += ColorEditorWindow_getAllColors;
+            colorEditorWindow.getAllColors += _getAllColors;
             colorEditorWindow.insertColor += ColorEditorWindow_insertColor;
             colorEditorWindow.removeColor += ColorEditorWindow_removeColor;
-            colorEditorWindow.saveDatabaseToRemote += FireSaveDatabaseToRemoteEvent;
 
             pictureEditorWindow = new PictureEditor();
             pictureEditorWindow.insertPicture += PictureEditorWindow_insertPicture;
             pictureEditorWindow.getAllPictures += PictureEditorWindow_getAllPictures;
             pictureEditorWindow.removePicture += PictureEditorWindow_removePicture;
-            pictureEditorWindow.saveDatabaseToRemote += FireSaveDatabaseToRemoteEvent;
 
             styleEditorWindow = new StyleEditor();
             styleEditorWindow.insertStyle += StyleEditorWindow_insertStyle;
-            styleEditorWindow.getAllStyles += StyleEditorWindow_getAllStyles;
+            styleEditorWindow.getAllStyles += _getAllStyles;
             styleEditorWindow.removeStyle += StyleEditorWindow_removeStyle;
 
             companyEditorWindow = new CompanyEditor();
             companyEditorWindow.insertCompany += CompanyEditorWindow_insertCompany;
-            companyEditorWindow.getAllCompanies += CompanyEditorWindow_getAllCompanies;
+            companyEditorWindow.getAllCompanies += _getAllCompanies;
             companyEditorWindow.removeCompany += CompanyEditorWindow_removeCompany;
 
             tshirtEditorWindow = new TshirtEditor();
             tshirtEditorWindow.getAllThsirts += TshirtEditorWindow_getAllThsirts;
+            tshirtEditorWindow.getAllCompanies += _getAllCompanies;
+            tshirtEditorWindow.getAllColors += _getAllColors;
+            tshirtEditorWindow.getAllStyles += _getAllStyles;
 
 
         }
+
 
         private List<tshirt> TshirtEditorWindow_getAllThsirts(IErrorable arg)
         {
@@ -93,7 +95,7 @@ namespace programowanie_SSprint
             return removeCompany(arg1, arg2);
         }
 
-        private List<company> CompanyEditorWindow_getAllCompanies(IErrorable arg)
+        private List<company> _getAllCompanies(IErrorable arg)
         {
             return getAllCompanies(arg);
         }
@@ -126,7 +128,7 @@ namespace programowanie_SSprint
             return insertColor(arg1, arg2);
         }
 
-        private List<color> ColorEditorWindow_getAllColors(IErrorable arg)
+        private List<color> _getAllColors(IErrorable arg)
         {
             return getAllColors(arg);
         }
@@ -149,7 +151,7 @@ namespace programowanie_SSprint
             return removeStyle(arg1, arg2);
         }
 
-        private List<style> StyleEditorWindow_getAllStyles(IErrorable arg)
+        private List<style> _getAllStyles(IErrorable arg)
         {
             return getAllStyles(arg);
         }

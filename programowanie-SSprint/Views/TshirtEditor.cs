@@ -15,7 +15,11 @@ namespace programowanie_SSprint
         #region EVENTS
         public event Func<IErrorable, List<tshirt>> getAllThsirts; //pobiera wszystkie dane z tabeli Tshirts
         public event Func<IErrorable, tshirt, bool> insertSingleTshirt;//jesli tshirt.id==null, to dodaje nowy tshirt, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
-            public event Func<IErrorable, List<company>> getAllCompanies; //zwraca listę wszystkich firm
+        public event Func<IErrorable, List<company>> getAllCompanies; //zwraca listę wszystkich firm
+        public event Func<IErrorable, List<color>> getAllColors; //zwraca listę wszystkich kolorów
+        public event Func<IErrorable, List<style>> getAllStyles; //zwraca listę wszystkich kolorów
+
+
 
 
         #endregion
@@ -48,6 +52,36 @@ namespace programowanie_SSprint
 
         private void DisplaySingleTshirt(tshirt t)
         {
+            if(t==null)
+            {
+                //czyszczenie pól
+                comboBoxCompany.SelectedItem = null;
+                comboBoxColor.SelectedItem = null;
+                comboBoxSize.SelectedItem = null;
+                comboBoxCompany.SelectedItem = null;
+                return;
+            }
+
+            foreach (var c in comboBoxCompany.Items)
+                if ((c as company).id == t.company.id) comboBoxCompany.SelectedItem = c;
+
+            foreach (var c in comboBoxModel.Items)
+                if ((c as style).id == t.style.id) comboBoxModel.SelectedItem = c;
+
+            foreach (var c in comboBoxSex.Items)
+                if (c.ToString()==t.sex) comboBoxSex.SelectedItem = c;
+
+            foreach (var c in comboBoxSize.Items)
+                if (c.ToString() == t.size) comboBoxSize.SelectedItem = c;
+
+
+            foreach (var c in comboBoxColor.Items)
+                if ((c as color).id == t.color.id) comboBoxColor.SelectedItem = c;
+
+
+            tbId.Text = t.id.ToString();
+            numericDefaultLoss.Value = t.default_loss_percentage;
+            numInStock.Value = t.in_stock;
 
         }
 
@@ -106,6 +140,38 @@ namespace programowanie_SSprint
         private void TshirtEditor_Load(object sender, EventArgs e)
         {
             RefreshTshirtList(getAllThsirts(this));
+            FillAllControls();
+            CurrentlySelectedTshirt = null;
+        }
+
+        private void treeViewProductBrowser_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if ((treeViewProductBrowser.SelectedNode.Tag as tshirt) == null) return;
+            DisplaySingleTshirt(treeViewProductBrowser.SelectedNode.Tag as tshirt);
+        }
+
+        private void FillCompanyControl()
+        {
+            comboBoxCompany.Items.Clear();
+            comboBoxCompany.Items.AddRange(getAllCompanies(this).ToArray()); 
+        }
+
+        private void FillStyleControl()
+        {
+            comboBoxModel.Items.Clear();
+            comboBoxModel.Items.AddRange(getAllStyles(this).ToArray());
+        }
+
+        private void FillColorControl()
+        {
+            comboBoxColor.Items.Clear();
+            comboBoxColor.Items.AddRange(getAllColors(this).ToArray());
+        }
+        private void FillAllControls()
+        {
+            FillCompanyControl();
+            FillColorControl();
+            FillStyleControl();
         }
     }
 }
