@@ -55,7 +55,7 @@ namespace programowanie_SSprint
         }
 
         private bool View_removeElement<elementType>(IErrorable windowInterface, elementType itemToRemove)
-            where elementType : Communicator.CommunicatorElement
+            where elementType : Communicator.CommunicatorElement<elementType>
         {
             try
             {
@@ -69,7 +69,7 @@ namespace programowanie_SSprint
             }
         }
         private List<elementType> View_getAllElements<elementType>(IErrorable windowInterface)
-            where elementType : Communicator.CommunicatorElement
+            where elementType : Communicator.CommunicatorElement<elementType>
         {
             try
             {
@@ -82,7 +82,7 @@ namespace programowanie_SSprint
             }
         }
         private bool View_insertElement<elementType>(IErrorable windowInterface, elementType newItem)
-            where elementType : Communicator.CommunicatorElement
+            where elementType : Communicator.CommunicatorElement<elementType>
         {
             try
             {
@@ -96,7 +96,7 @@ namespace programowanie_SSprint
             }
         }
         private bool View_insertListOfElements<elementType>(IErrorable windowInterface, List<elementType> newItems)
-            where elementType : Communicator.CommunicatorElement
+            where elementType : Communicator.CommunicatorElement<elementType>
         {
             try
             {
@@ -110,7 +110,7 @@ namespace programowanie_SSprint
             }
         }
         private elementType View_find<elementType>(IErrorable windowInterface, int elementID)
-            where elementType : Communicator.CommunicatorElement
+            where elementType : Communicator.CommunicatorElement<elementType>
         {
             try
             {

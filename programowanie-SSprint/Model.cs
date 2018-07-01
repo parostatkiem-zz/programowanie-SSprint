@@ -11,7 +11,7 @@ namespace programowanie_SSprint
     {
         private object mainThreadLock = new object();
         public void InsertElement<elementType>(elementType objToInsert) 
-            where elementType : Communicator.CommunicatorElement
+            where elementType : Communicator.CommunicatorElement<elementType>
         {
             lock (mainThreadLock)
             {
@@ -27,13 +27,13 @@ namespace programowanie_SSprint
         }
 
         public void InsertListOfElements<elementType>(List<elementType> listToInsert) 
-            where elementType : Communicator.CommunicatorElement
+            where elementType : Communicator.CommunicatorElement<elementType>
         {
             lock (mainThreadLock)
             {
+                Communicator.Communicator<elementType> baseCommunicator = new Communicator.Communicator<elementType>();
                 try
                 {
-                    Communicator.Communicator<elementType> baseCommunicator = new Communicator.Communicator<elementType>();
                     baseCommunicator.Connect();
                     
                     foreach(elementType objToInsert in listToInsert)
@@ -41,7 +41,7 @@ namespace programowanie_SSprint
                         elementType foundedElem = baseCommunicator.Find(objToInsert.getId());
                         if (foundedElem != null)
                         {
-                            baseCommunicator.Insert(objToInsert);
+                            baseCommunicator.Update(ref foundedElem, objToInsert);
                         }
                         else
                             baseCommunicator.Insert(objToInsert);
@@ -53,17 +53,21 @@ namespace programowanie_SSprint
                 {
                     throw ex;
                 }
+                finally
+                {
+                    baseCommunicator.FinalizeBase();
+                }
             }
         }
 
         public List<elementType> GetAllElements<elementType>() 
-            where elementType : Communicator.CommunicatorElement
+            where elementType : Communicator.CommunicatorElement<elementType>
         {
             lock (mainThreadLock)
             {
+                Communicator.Communicator<elementType> baseCommunicator = new Communicator.Communicator<elementType>();
                 try
                 {
-                    Communicator.Communicator<elementType> baseCommunicator = new Communicator.Communicator<elementType>();
                     baseCommunicator.Connect();
 
                     List<elementType> toReturn = baseCommunicator.getEntireTable();
@@ -74,17 +78,21 @@ namespace programowanie_SSprint
                 {
                     throw ex;
                 }
+                finally
+                {
+                    baseCommunicator.FinalizeBase();
+                }
             }
         }
 
         public void RemoveElement<elementType>(elementType objToRemove) 
-            where elementType : Communicator.CommunicatorElement
+            where elementType : Communicator.CommunicatorElement<elementType>
         {
             lock (mainThreadLock)
             {
+                Communicator.Communicator<elementType> baseCommunicator = new Communicator.Communicator<elementType>();
                 try
                 {
-                    Communicator.Communicator<elementType> baseCommunicator = new Communicator.Communicator<elementType>();
                     baseCommunicator.Connect();
 
                     baseCommunicator.Remove(baseCommunicator.Find(objToRemove.getId()));
@@ -95,25 +103,36 @@ namespace programowanie_SSprint
                 {
                     throw ex;
                 }
+                finally
+                {
+                    baseCommunicator.FinalizeBase();
+                }
             }
         }
 
         public elementType Find<elementType>(int elementID)
-            where elementType : Communicator.CommunicatorElement
+            where elementType : Communicator.CommunicatorElement<elementType>
         {
-            try
+            lock (mainThreadLock)
             {
                 Communicator.Communicator<elementType> baseCommunicator = new Communicator.Communicator<elementType>();
-                baseCommunicator.Connect();
+                try
+                {
+                    baseCommunicator.Connect();
 
-                elementType toReturn = baseCommunicator.Find(elementID);
+                    elementType toReturn = baseCommunicator.Find(elementID);
 
-                baseCommunicator.FinalizeBase();
-                return toReturn;
-            }
-            catch(Exception ex)
-            {
-                throw ex;
+                    baseCommunicator.FinalizeBase();
+                    return toReturn;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    baseCommunicator.FinalizeBase();
+                }
             }
         }
     }
