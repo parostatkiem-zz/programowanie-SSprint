@@ -64,7 +64,7 @@ namespace programowanie_SSprint
             }
             catch (Exception ex)
             {
-                windowInterface.ShowError(ex.Message);
+                windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
                 return false;
             }
         }
@@ -77,7 +77,7 @@ namespace programowanie_SSprint
             }
             catch (Exception ex)
             {
-                windowInterface.ShowError(ex.ToString());
+                windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
                 return null;
             }
         }
@@ -91,7 +91,7 @@ namespace programowanie_SSprint
             }
             catch (Exception ex)
             {
-                windowInterface.ShowError(ex.ToString());
+                windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
                 return false;
             }
         }
@@ -105,7 +105,7 @@ namespace programowanie_SSprint
             }
             catch(Exception ex)
             {
-                windowInterface.ShowError(ex.ToString());
+                windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
                 return false;
             }
         }
@@ -118,7 +118,7 @@ namespace programowanie_SSprint
             }
             catch(Exception ex)
             {
-                windowInterface.ShowError(ex.ToString());
+                windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
                 return null;
             }
         }

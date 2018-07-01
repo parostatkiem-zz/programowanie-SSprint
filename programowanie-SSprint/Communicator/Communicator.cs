@@ -17,9 +17,9 @@ namespace programowanie_SSprint.Communicator
             {
                 return dataBase.Set<elementType>().Find(elementID);
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw findingFailure;
             }
         }
 
@@ -29,9 +29,9 @@ namespace programowanie_SSprint.Communicator
             {
                 return dataBase.Set<elementType>().ToList();
             }
-            catch(Exception ex)
+            catch
             {
-                throw ex;
+                throw badBaseConfiguration;
             }
         }
 
@@ -41,9 +41,13 @@ namespace programowanie_SSprint.Communicator
             {
                 dataBase.Set<elementType>().Add(newElement);
             }
-            catch (Exception ex)
+            catch (NullReferenceException)
             {
-                throw ex;
+                throw nullReference;
+            }
+            catch
+            {
+                throw badDataType;
             }
         }
 
@@ -53,9 +57,13 @@ namespace programowanie_SSprint.Communicator
             {
                 dataBase.Set<elementType>().AddRange(newElements);
             }
-            catch(Exception ex)
+            catch (NullReferenceException)
             {
-                throw ex;
+                throw nullReference;
+            }
+            catch
+            {
+                throw badDataType;
             }
         }
 
@@ -65,9 +73,13 @@ namespace programowanie_SSprint.Communicator
             {
                 dataBase.Set<elementType>().Remove(elementToRemove);
             }
-            catch (Exception ex)
+            catch (NullReferenceException)
             {
-                throw ex;
+                throw nullReference;
+            }
+            catch
+            {
+                throw findingFailure;
             }
         }
 
@@ -77,9 +89,13 @@ namespace programowanie_SSprint.Communicator
             {
                 sourceElement.CopyFrom(newElement);
             }
-            catch (Exception ex)
+            catch (NullReferenceException)
             {
-                throw ex;
+                throw nullReference;
+            }
+            catch
+            {
+                throw badDataType;
             }
         }
     }
