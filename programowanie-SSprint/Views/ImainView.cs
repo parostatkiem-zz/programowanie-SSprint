@@ -9,9 +9,9 @@ namespace programowanie_SSprint
     interface ImainView
     {
 
-         event Func<IErrorable, List<order>, bool> getAllOrders;
+         event Func<IErrorable, List<order>> getAllOrders;
          event Func<IErrorable, order, bool> insertOrder;//jesli order.id==null, to dodaje nowy order, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
-         event Func<IErrorable, order, bool> deleteOrder;
+         event Func<IErrorable, order, bool> removeOrder;
          event Func<IErrorable, List<singleItemOrder>, bool> insertListOfItems;//wstawia listę zamówionych koszulek. MAją one ustawione order_id. UWAGA: czesc z nich moze juz istnieć w bazie, wtedy robi się UPDATE. Zwraca bool czy się udało
          event Func<IErrorable, List<singleItemOrder>, bool> deleteListOfItems; //usuwa liste zamówionych koszulek
 

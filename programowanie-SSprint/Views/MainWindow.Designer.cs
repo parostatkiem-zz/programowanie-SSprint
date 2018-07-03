@@ -21,49 +21,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("S (dostępne: 530) 20zł");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("M (dostępne: 13) 25zł");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("L (dostępne: 51) 27zł");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Męski", new System.Windows.Forms.TreeNode[] {
-            treeNode22,
-            treeNode23,
-            treeNode24});
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("S (dostępne: 10) 18zł");
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("M (dostępne: 64) 21zł");
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Damski", new System.Windows.Forms.TreeNode[] {
-            treeNode26,
-            treeNode27});
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("L (dostępne: 11) 20zł");
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("XXL (dostepne: 3) 35zł");
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Unisex", new System.Windows.Forms.TreeNode[] {
-            treeNode29,
-            treeNode30});
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Model A", new System.Windows.Forms.TreeNode[] {
-            treeNode25,
-            treeNode28,
-            treeNode31});
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Męski");
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("T-shirt", new System.Windows.Forms.TreeNode[] {
-            treeNode33});
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Unisex");
-            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Koszulka Polo", new System.Windows.Forms.TreeNode[] {
-            treeNode35});
-            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Firma A", new System.Windows.Forms.TreeNode[] {
-            treeNode32,
-            treeNode34,
-            treeNode36});
-            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Model A");
-            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Bluza");
-            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Firma B", new System.Windows.Forms.TreeNode[] {
-            treeNode38,
-            treeNode39});
-            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Model C");
-            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("Firma C", new System.Windows.Forms.TreeNode[] {
-            treeNode41});
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("S (dostępne: 530) 20zł");
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("M (dostępne: 13) 25zł");
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("L (dostępne: 51) 27zł");
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Męski", new System.Windows.Forms.TreeNode[] {
+            treeNode43,
+            treeNode44,
+            treeNode45});
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("S (dostępne: 10) 18zł");
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("M (dostępne: 64) 21zł");
+            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("Damski", new System.Windows.Forms.TreeNode[] {
+            treeNode47,
+            treeNode48});
+            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("L (dostępne: 11) 20zł");
+            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("XXL (dostepne: 3) 35zł");
+            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("Unisex", new System.Windows.Forms.TreeNode[] {
+            treeNode50,
+            treeNode51});
+            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("Model A", new System.Windows.Forms.TreeNode[] {
+            treeNode46,
+            treeNode49,
+            treeNode52});
+            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("Męski");
+            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("T-shirt", new System.Windows.Forms.TreeNode[] {
+            treeNode54});
+            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("Unisex");
+            System.Windows.Forms.TreeNode treeNode57 = new System.Windows.Forms.TreeNode("Koszulka Polo", new System.Windows.Forms.TreeNode[] {
+            treeNode56});
+            System.Windows.Forms.TreeNode treeNode58 = new System.Windows.Forms.TreeNode("Firma A", new System.Windows.Forms.TreeNode[] {
+            treeNode53,
+            treeNode55,
+            treeNode57});
+            System.Windows.Forms.TreeNode treeNode59 = new System.Windows.Forms.TreeNode("Model A");
+            System.Windows.Forms.TreeNode treeNode60 = new System.Windows.Forms.TreeNode("Bluza");
+            System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("Firma B", new System.Windows.Forms.TreeNode[] {
+            treeNode59,
+            treeNode60});
+            System.Windows.Forms.TreeNode treeNode62 = new System.Windows.Forms.TreeNode("Model C");
+            System.Windows.Forms.TreeNode treeNode63 = new System.Windows.Forms.TreeNode("Firma C", new System.Windows.Forms.TreeNode[] {
+            treeNode62});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
-            this.btnCurrentOrderAdd = new System.Windows.Forms.Button();
-            this.btnCurrentOrderCancel = new System.Windows.Forms.Button();
             this.splitContainerHorizLeft = new System.Windows.Forms.SplitContainer();
             this.panelProductSelector = new System.Windows.Forms.Panel();
             this.numericAddingProductAmount = new System.Windows.Forms.NumericUpDown();
@@ -77,14 +75,16 @@
             this.columnAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnReserved = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnActions = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnAddNew = new System.Windows.Forms.Button();
             this.gbSelectedOrderParams = new System.Windows.Forms.GroupBox();
+            this.numClientPrice = new System.Windows.Forms.NumericUpDown();
+            this.btnCurrentOrderCancel = new System.Windows.Forms.Button();
+            this.btnSelectedOrderSave = new System.Windows.Forms.Button();
+            this.lClientPrice = new System.Windows.Forms.Label();
             this.comboBoxSelectedOrderStatus = new System.Windows.Forms.ComboBox();
             this.lSelectedOrderStatus = new System.Windows.Forms.Label();
-            this.tbSelectedOrderStartDate = new System.Windows.Forms.TextBox();
             this.lSelectedOrderStartDate = new System.Windows.Forms.Label();
-            this.tbSelectedOrderEndDate = new System.Windows.Forms.TextBox();
             this.lSelectedOrderEndDate = new System.Windows.Forms.Label();
-            this.btnSelectedOrderSetEndDate = new System.Windows.Forms.Button();
             this.btnSelectedOrderBrowseImage = new System.Windows.Forms.Button();
             this.lSelectedOrderImage = new System.Windows.Forms.Label();
             this.pictureBoxSelectedOrderImage = new System.Windows.Forms.PictureBox();
@@ -95,8 +95,7 @@
             this.lSelectedOrderName = new System.Windows.Forms.Label();
             this.lSelectedOrderEmail = new System.Windows.Forms.Label();
             this.lSelectedOrderPhone = new System.Windows.Forms.Label();
-            this.btnSelectedOrderSave = new System.Windows.Forms.Button();
-            this.btnSelectedOrderDelete = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.lvAllOrders = new System.Windows.Forms.ListView();
             this.columnHeaderID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderTypes = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -116,8 +115,8 @@
             this.colorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stylesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lClientPrice = new System.Windows.Forms.Label();
-            this.numClientPrice = new System.Windows.Forms.NumericUpDown();
+            this.dateTimeBegin = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeEnd = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
@@ -129,10 +128,10 @@
             this.panelProductSelector.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericAddingProductAmount)).BeginInit();
             this.gbSelectedOrderParams.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numClientPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedOrderImage)).BeginInit();
             this.gbSelectedOrderData.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numClientPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerMain
@@ -151,38 +150,14 @@
             // 
             // splitContainerMain.Panel2
             // 
-            this.splitContainerMain.Panel2.Controls.Add(this.btnCurrentOrderAdd);
+            this.splitContainerMain.Panel2.Controls.Add(this.btnAddNew);
             this.splitContainerMain.Panel2.Controls.Add(this.gbSelectedOrderParams);
-            this.splitContainerMain.Panel2.Controls.Add(this.btnSelectedOrderDelete);
+            this.splitContainerMain.Panel2.Controls.Add(this.btnDelete);
             this.splitContainerMain.Panel2.Controls.Add(this.lvAllOrders);
             this.splitContainerMain.Panel2MinSize = 420;
             this.splitContainerMain.Size = new System.Drawing.Size(1077, 558);
             this.splitContainerMain.SplitterDistance = 544;
             this.splitContainerMain.TabIndex = 0;
-            // 
-            // btnCurrentOrderAdd
-            // 
-            this.btnCurrentOrderAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCurrentOrderAdd.BackColor = System.Drawing.Color.LightGreen;
-            this.btnCurrentOrderAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCurrentOrderAdd.Location = new System.Drawing.Point(3, 530);
-            this.btnCurrentOrderAdd.Name = "btnCurrentOrderAdd";
-            this.btnCurrentOrderAdd.Size = new System.Drawing.Size(133, 23);
-            this.btnCurrentOrderAdd.TabIndex = 0;
-            this.btnCurrentOrderAdd.Text = "Dodaj zamówienie";
-            this.btnCurrentOrderAdd.UseVisualStyleBackColor = false;
-            // 
-            // btnCurrentOrderCancel
-            // 
-            this.btnCurrentOrderCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCurrentOrderCancel.BackColor = System.Drawing.Color.Salmon;
-            this.btnCurrentOrderCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCurrentOrderCancel.Location = new System.Drawing.Point(40, 227);
-            this.btnCurrentOrderCancel.Name = "btnCurrentOrderCancel";
-            this.btnCurrentOrderCancel.Size = new System.Drawing.Size(181, 23);
-            this.btnCurrentOrderCancel.TabIndex = 1;
-            this.btnCurrentOrderCancel.Text = "Anuluj / Wyczyść ";
-            this.btnCurrentOrderCancel.UseVisualStyleBackColor = false;
             // 
             // splitContainerHorizLeft
             // 
@@ -240,52 +215,52 @@
             this.treeViewProductBrowser.Dock = System.Windows.Forms.DockStyle.Top;
             this.treeViewProductBrowser.Location = new System.Drawing.Point(0, 0);
             this.treeViewProductBrowser.Name = "treeViewProductBrowser";
-            treeNode22.Name = "Node15";
-            treeNode22.Text = "S (dostępne: 530) 20zł";
-            treeNode23.Name = "Node16";
-            treeNode23.Text = "M (dostępne: 13) 25zł";
-            treeNode24.Name = "Node17";
-            treeNode24.Text = "L (dostępne: 51) 27zł";
-            treeNode25.Name = "Node10";
-            treeNode25.Text = "Męski";
-            treeNode26.Name = "Node18";
-            treeNode26.Text = "S (dostępne: 10) 18zł";
-            treeNode27.Name = "Node19";
-            treeNode27.Text = "M (dostępne: 64) 21zł";
-            treeNode28.Name = "Node13";
-            treeNode28.Text = "Damski";
-            treeNode29.Name = "Node20";
-            treeNode29.Text = "L (dostępne: 11) 20zł";
-            treeNode30.Name = "Node21";
-            treeNode30.Text = "XXL (dostepne: 3) 35zł";
-            treeNode31.Name = "Node14";
-            treeNode31.Text = "Unisex";
-            treeNode32.Name = "Node3";
-            treeNode32.Text = "Model A";
-            treeNode33.Name = "Node11";
-            treeNode33.Text = "Męski";
-            treeNode34.Name = "Node5";
-            treeNode34.Text = "T-shirt";
-            treeNode35.Name = "Node12";
-            treeNode35.Text = "Unisex";
-            treeNode36.Name = "Node6";
-            treeNode36.Text = "Koszulka Polo";
-            treeNode37.Name = "Node0";
-            treeNode37.Text = "Firma A";
-            treeNode38.Name = "Node7";
-            treeNode38.Text = "Model A";
-            treeNode39.Name = "Node8";
-            treeNode39.Text = "Bluza";
-            treeNode40.Name = "Node1";
-            treeNode40.Text = "Firma B";
-            treeNode41.Name = "Node9";
-            treeNode41.Text = "Model C";
-            treeNode42.Name = "Node2";
-            treeNode42.Text = "Firma C";
+            treeNode43.Name = "Node15";
+            treeNode43.Text = "S (dostępne: 530) 20zł";
+            treeNode44.Name = "Node16";
+            treeNode44.Text = "M (dostępne: 13) 25zł";
+            treeNode45.Name = "Node17";
+            treeNode45.Text = "L (dostępne: 51) 27zł";
+            treeNode46.Name = "Node10";
+            treeNode46.Text = "Męski";
+            treeNode47.Name = "Node18";
+            treeNode47.Text = "S (dostępne: 10) 18zł";
+            treeNode48.Name = "Node19";
+            treeNode48.Text = "M (dostępne: 64) 21zł";
+            treeNode49.Name = "Node13";
+            treeNode49.Text = "Damski";
+            treeNode50.Name = "Node20";
+            treeNode50.Text = "L (dostępne: 11) 20zł";
+            treeNode51.Name = "Node21";
+            treeNode51.Text = "XXL (dostepne: 3) 35zł";
+            treeNode52.Name = "Node14";
+            treeNode52.Text = "Unisex";
+            treeNode53.Name = "Node3";
+            treeNode53.Text = "Model A";
+            treeNode54.Name = "Node11";
+            treeNode54.Text = "Męski";
+            treeNode55.Name = "Node5";
+            treeNode55.Text = "T-shirt";
+            treeNode56.Name = "Node12";
+            treeNode56.Text = "Unisex";
+            treeNode57.Name = "Node6";
+            treeNode57.Text = "Koszulka Polo";
+            treeNode58.Name = "Node0";
+            treeNode58.Text = "Firma A";
+            treeNode59.Name = "Node7";
+            treeNode59.Text = "Model A";
+            treeNode60.Name = "Node8";
+            treeNode60.Text = "Bluza";
+            treeNode61.Name = "Node1";
+            treeNode61.Text = "Firma B";
+            treeNode62.Name = "Node9";
+            treeNode62.Text = "Model C";
+            treeNode63.Name = "Node2";
+            treeNode63.Text = "Firma C";
             this.treeViewProductBrowser.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode37,
-            treeNode40,
-            treeNode42});
+            treeNode58,
+            treeNode61,
+            treeNode63});
             this.treeViewProductBrowser.Size = new System.Drawing.Size(542, 315);
             this.treeViewProductBrowser.TabIndex = 0;
             // 
@@ -342,22 +317,34 @@
             this.columnActions.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnActions.Width = 121;
             // 
+            // btnAddNew
+            // 
+            this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAddNew.BackColor = System.Drawing.Color.LightGreen;
+            this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddNew.Location = new System.Drawing.Point(3, 530);
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Size = new System.Drawing.Size(133, 23);
+            this.btnAddNew.TabIndex = 0;
+            this.btnAddNew.Text = "Dodaj zamówienie";
+            this.btnAddNew.UseVisualStyleBackColor = false;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
+            // 
             // gbSelectedOrderParams
             // 
             this.gbSelectedOrderParams.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbSelectedOrderParams.BackColor = System.Drawing.Color.Transparent;
+            this.gbSelectedOrderParams.Controls.Add(this.dateTimeEnd);
+            this.gbSelectedOrderParams.Controls.Add(this.dateTimeBegin);
             this.gbSelectedOrderParams.Controls.Add(this.numClientPrice);
             this.gbSelectedOrderParams.Controls.Add(this.btnCurrentOrderCancel);
             this.gbSelectedOrderParams.Controls.Add(this.btnSelectedOrderSave);
             this.gbSelectedOrderParams.Controls.Add(this.lClientPrice);
             this.gbSelectedOrderParams.Controls.Add(this.comboBoxSelectedOrderStatus);
             this.gbSelectedOrderParams.Controls.Add(this.lSelectedOrderStatus);
-            this.gbSelectedOrderParams.Controls.Add(this.tbSelectedOrderStartDate);
             this.gbSelectedOrderParams.Controls.Add(this.lSelectedOrderStartDate);
-            this.gbSelectedOrderParams.Controls.Add(this.tbSelectedOrderEndDate);
             this.gbSelectedOrderParams.Controls.Add(this.lSelectedOrderEndDate);
-            this.gbSelectedOrderParams.Controls.Add(this.btnSelectedOrderSetEndDate);
             this.gbSelectedOrderParams.Controls.Add(this.btnSelectedOrderBrowseImage);
             this.gbSelectedOrderParams.Controls.Add(this.lSelectedOrderImage);
             this.gbSelectedOrderParams.Controls.Add(this.pictureBoxSelectedOrderImage);
@@ -369,10 +356,58 @@
             this.gbSelectedOrderParams.TabStop = false;
             this.gbSelectedOrderParams.Text = "Parametry zamówienia";
             // 
+            // numClientPrice
+            // 
+            this.numClientPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numClientPrice.Location = new System.Drawing.Point(397, 186);
+            this.numClientPrice.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.numClientPrice.Name = "numClientPrice";
+            this.numClientPrice.Size = new System.Drawing.Size(120, 20);
+            this.numClientPrice.TabIndex = 455;
+            // 
+            // btnCurrentOrderCancel
+            // 
+            this.btnCurrentOrderCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCurrentOrderCancel.BackColor = System.Drawing.Color.Salmon;
+            this.btnCurrentOrderCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCurrentOrderCancel.Location = new System.Drawing.Point(40, 227);
+            this.btnCurrentOrderCancel.Name = "btnCurrentOrderCancel";
+            this.btnCurrentOrderCancel.Size = new System.Drawing.Size(181, 23);
+            this.btnCurrentOrderCancel.TabIndex = 1;
+            this.btnCurrentOrderCancel.Text = "Anuluj / Wyczyść ";
+            this.btnCurrentOrderCancel.UseVisualStyleBackColor = false;
+            this.btnCurrentOrderCancel.Click += new System.EventHandler(this.btnCurrentOrderCancel_Click);
+            // 
+            // btnSelectedOrderSave
+            // 
+            this.btnSelectedOrderSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSelectedOrderSave.BackColor = System.Drawing.Color.LightGreen;
+            this.btnSelectedOrderSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelectedOrderSave.Location = new System.Drawing.Point(296, 227);
+            this.btnSelectedOrderSave.Name = "btnSelectedOrderSave";
+            this.btnSelectedOrderSave.Size = new System.Drawing.Size(172, 23);
+            this.btnSelectedOrderSave.TabIndex = 0;
+            this.btnSelectedOrderSave.Text = "Zapisz zmiany";
+            this.btnSelectedOrderSave.UseVisualStyleBackColor = false;
+            this.btnSelectedOrderSave.Click += new System.EventHandler(this.btnSelectedOrderSave_Click);
+            // 
+            // lClientPrice
+            // 
+            this.lClientPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lClientPrice.AutoSize = true;
+            this.lClientPrice.Location = new System.Drawing.Point(242, 188);
+            this.lClientPrice.Name = "lClientPrice";
+            this.lClientPrice.Size = new System.Drawing.Size(149, 13);
+            this.lClientPrice.TabIndex = 454;
+            this.lClientPrice.Text = "Cena, którą zapłaci klient (zł):";
+            // 
             // comboBoxSelectedOrderStatus
             // 
-            this.comboBoxSelectedOrderStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxSelectedOrderStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSelectedOrderStatus.FormattingEnabled = true;
             this.comboBoxSelectedOrderStatus.Items.AddRange(new object[] {
             "Własnie zamówione",
@@ -394,17 +429,6 @@
             this.lSelectedOrderStatus.TabIndex = 9;
             this.lSelectedOrderStatus.Text = "Status:";
             // 
-            // tbSelectedOrderStartDate
-            // 
-            this.tbSelectedOrderStartDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbSelectedOrderStartDate.Location = new System.Drawing.Point(102, 135);
-            this.tbSelectedOrderStartDate.Name = "tbSelectedOrderStartDate";
-            this.tbSelectedOrderStartDate.ReadOnly = true;
-            this.tbSelectedOrderStartDate.Size = new System.Drawing.Size(242, 20);
-            this.tbSelectedOrderStartDate.TabIndex = 153;
-            this.tbSelectedOrderStartDate.Text = "Nie ustalono";
-            // 
             // lSelectedOrderStartDate
             // 
             this.lSelectedOrderStartDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -416,17 +440,6 @@
             this.lSelectedOrderStartDate.TabIndex = 7;
             this.lSelectedOrderStartDate.Text = "Data rozpoczęcia:";
             // 
-            // tbSelectedOrderEndDate
-            // 
-            this.tbSelectedOrderEndDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbSelectedOrderEndDate.Location = new System.Drawing.Point(89, 160);
-            this.tbSelectedOrderEndDate.Name = "tbSelectedOrderEndDate";
-            this.tbSelectedOrderEndDate.ReadOnly = true;
-            this.tbSelectedOrderEndDate.Size = new System.Drawing.Size(183, 20);
-            this.tbSelectedOrderEndDate.TabIndex = 453;
-            this.tbSelectedOrderEndDate.Text = "Nie ustalono";
-            // 
             // lSelectedOrderEndDate
             // 
             this.lSelectedOrderEndDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -437,17 +450,6 @@
             this.lSelectedOrderEndDate.Size = new System.Drawing.Size(80, 13);
             this.lSelectedOrderEndDate.TabIndex = 5;
             this.lSelectedOrderEndDate.Text = "Data końcowa:";
-            // 
-            // btnSelectedOrderSetEndDate
-            // 
-            this.btnSelectedOrderSetEndDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelectedOrderSetEndDate.Location = new System.Drawing.Point(278, 157);
-            this.btnSelectedOrderSetEndDate.Name = "btnSelectedOrderSetEndDate";
-            this.btnSelectedOrderSetEndDate.Size = new System.Drawing.Size(66, 23);
-            this.btnSelectedOrderSetEndDate.TabIndex = 0;
-            this.btnSelectedOrderSetEndDate.Text = "Ustal datę";
-            this.btnSelectedOrderSetEndDate.UseVisualStyleBackColor = true;
             // 
             // btnSelectedOrderBrowseImage
             // 
@@ -552,29 +554,18 @@
             this.lSelectedOrderPhone.TabIndex = 8;
             this.lSelectedOrderPhone.Text = "Telefon:";
             // 
-            // btnSelectedOrderSave
+            // btnDelete
             // 
-            this.btnSelectedOrderSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSelectedOrderSave.BackColor = System.Drawing.Color.LightGreen;
-            this.btnSelectedOrderSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelectedOrderSave.Location = new System.Drawing.Point(296, 227);
-            this.btnSelectedOrderSave.Name = "btnSelectedOrderSave";
-            this.btnSelectedOrderSave.Size = new System.Drawing.Size(172, 23);
-            this.btnSelectedOrderSave.TabIndex = 0;
-            this.btnSelectedOrderSave.Text = "Zapisz zmiany";
-            this.btnSelectedOrderSave.UseVisualStyleBackColor = false;
-            // 
-            // btnSelectedOrderDelete
-            // 
-            this.btnSelectedOrderDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelectedOrderDelete.BackColor = System.Drawing.Color.Salmon;
-            this.btnSelectedOrderDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSelectedOrderDelete.Location = new System.Drawing.Point(409, 530);
-            this.btnSelectedOrderDelete.Name = "btnSelectedOrderDelete";
-            this.btnSelectedOrderDelete.Size = new System.Drawing.Size(115, 23);
-            this.btnSelectedOrderDelete.TabIndex = 1;
-            this.btnSelectedOrderDelete.Text = "Usuń zamówienie";
-            this.btnSelectedOrderDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.BackColor = System.Drawing.Color.Salmon;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDelete.Location = new System.Drawing.Point(409, 530);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(115, 23);
+            this.btnDelete.TabIndex = 1;
+            this.btnDelete.Text = "Usuń zamówienie";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnSelectedOrderDelete_Click);
             // 
             // lvAllOrders
             // 
@@ -597,6 +588,7 @@
             this.lvAllOrders.TabIndex = 6;
             this.lvAllOrders.UseCompatibleStateImageBehavior = false;
             this.lvAllOrders.View = System.Windows.Forms.View.Details;
+            this.lvAllOrders.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvAllOrders_ItemSelectionChanged);
             // 
             // columnHeaderID
             // 
@@ -722,23 +714,22 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.helpToolStripMenuItem.Text = "Pomoc";
             // 
-            // lClientPrice
+            // dateTimeBegin
             // 
-            this.lClientPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lClientPrice.AutoSize = true;
-            this.lClientPrice.Location = new System.Drawing.Point(242, 188);
-            this.lClientPrice.Name = "lClientPrice";
-            this.lClientPrice.Size = new System.Drawing.Size(149, 13);
-            this.lClientPrice.TabIndex = 454;
-            this.lClientPrice.Text = "Cena, którą zapłaci klient (zł):";
+            this.dateTimeBegin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimeBegin.Enabled = false;
+            this.dateTimeBegin.Location = new System.Drawing.Point(105, 138);
+            this.dateTimeBegin.Name = "dateTimeBegin";
+            this.dateTimeBegin.Size = new System.Drawing.Size(239, 20);
+            this.dateTimeBegin.TabIndex = 456;
             // 
-            // numClientPrice
+            // dateTimeEnd
             // 
-            this.numClientPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numClientPrice.Location = new System.Drawing.Point(397, 186);
-            this.numClientPrice.Name = "numClientPrice";
-            this.numClientPrice.Size = new System.Drawing.Size(120, 20);
-            this.numClientPrice.TabIndex = 455;
+            this.dateTimeEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimeEnd.Location = new System.Drawing.Point(92, 160);
+            this.dateTimeEnd.Name = "dateTimeEnd";
+            this.dateTimeEnd.Size = new System.Drawing.Size(252, 20);
+            this.dateTimeEnd.TabIndex = 457;
             // 
             // MainWindow
             // 
@@ -752,7 +743,6 @@
             this.MinimumSize = new System.Drawing.Size(900, 500);
             this.Name = "MainWindow";
             this.Text = "SSprint";
-        
             this.Shown += new System.EventHandler(this.MainWindow_Shown);
             this.splitContainerMain.Panel1.ResumeLayout(false);
             this.splitContainerMain.Panel2.ResumeLayout(false);
@@ -766,12 +756,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericAddingProductAmount)).EndInit();
             this.gbSelectedOrderParams.ResumeLayout(false);
             this.gbSelectedOrderParams.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numClientPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedOrderImage)).EndInit();
             this.gbSelectedOrderData.ResumeLayout(false);
             this.gbSelectedOrderData.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numClientPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -792,7 +782,7 @@
         private System.Windows.Forms.Panel panelProductSelector;
         private System.Windows.Forms.NumericUpDown numericAddingProductAmount;
         private System.Windows.Forms.Button btnAddProductToOrder;
-        private System.Windows.Forms.Button btnCurrentOrderAdd;
+        private System.Windows.Forms.Button btnAddNew;
         private System.Windows.Forms.Button btnCurrentOrderCancel;
         private System.Windows.Forms.ColumnHeader columnReserved;
         private System.Windows.Forms.ListView lvAllOrders;
@@ -805,15 +795,12 @@
         private System.Windows.Forms.ColumnHeader columnHeaderCost;
         private System.Windows.Forms.ColumnHeader columnHeaderProfit;
         private System.Windows.Forms.Button btnSelectedOrderSave;
-        private System.Windows.Forms.Button btnSelectedOrderDelete;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.GroupBox gbSelectedOrderParams;
         private System.Windows.Forms.ComboBox comboBoxSelectedOrderStatus;
         private System.Windows.Forms.Label lSelectedOrderStatus;
-        private System.Windows.Forms.TextBox tbSelectedOrderStartDate;
         private System.Windows.Forms.Label lSelectedOrderStartDate;
-        private System.Windows.Forms.TextBox tbSelectedOrderEndDate;
         private System.Windows.Forms.Label lSelectedOrderEndDate;
-        private System.Windows.Forms.Button btnSelectedOrderSetEndDate;
         private System.Windows.Forms.Button btnSelectedOrderBrowseImage;
         private System.Windows.Forms.Label lSelectedOrderImage;
         private System.Windows.Forms.PictureBox pictureBoxSelectedOrderImage;
@@ -836,6 +823,8 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.NumericUpDown numClientPrice;
         private System.Windows.Forms.Label lClientPrice;
+        private System.Windows.Forms.DateTimePicker dateTimeEnd;
+        private System.Windows.Forms.DateTimePicker dateTimeBegin;
     }
 }
 

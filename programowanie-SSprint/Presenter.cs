@@ -24,8 +24,8 @@ namespace programowanie_SSprint
             //view.getAllThsirts += View_getAllThsirts;
 
             //poj. zamówienia
-            view.getSingleOrder += View_find<order>;
-            view.insertSingleOrder += View_insertElement<order>;
+      //      view.getSingleOrder += View_find<order>;
+         //   view.insertSingleOrder += View_insertElement<order>;
             view.insertListOfItems += View_insertListOfElements<singleItemOrder>;
 
             //kolory

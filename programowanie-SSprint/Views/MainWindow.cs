@@ -14,9 +14,9 @@ namespace programowanie_SSprint
     {
 
         #region EVENTS
-        public event Func<IErrorable, List<order>, bool> getAllOrders;
+        public event Func<IErrorable, List<order>> getAllOrders;
         public event Func<IErrorable, order, bool> insertOrder;//jesli order.id==null, to dodaje nowy order, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
-        public event Func<IErrorable, order, bool> deleteOrder;
+        public event Func<IErrorable, order, bool> removeOrder;
         public event Func<IErrorable, List<singleItemOrder>, bool> insertListOfItems;//wstawia listę zamówionych koszulek. MAją one ustawione order_id. UWAGA: czesc z nich moze juz istnieć w bazie, wtedy robi się UPDATE. Zwraca bool czy się udało
         public event Func<IErrorable, List<singleItemOrder>, bool> deleteListOfItems; //usuwa liste zamówionych koszulek
 
@@ -122,7 +122,7 @@ namespace programowanie_SSprint
         #endregion
 
         #region CHILD_EVENT_METHODS
-       
+
         private bool ColorEditorWindow_removeColor(IErrorable arg1, color arg2)
         {
             return removeColor(arg1, arg2);
@@ -168,57 +168,59 @@ namespace programowanie_SSprint
         #endregion
         #region GENERATED_EVENTS
 
-            #region TOP_MENU
-            private void tshirtsToolStripMenuItem_Click(object sender, EventArgs e)
-            {
-                // TODO
-                // event odpowiadający za dodawanie/usuwanie/edytowanie stanu magazynowego koszulek
-                tshirtEditorWindow.ShowDialog();
+        #region TOP_MENU
+        private void tshirtsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO
+            // event odpowiadający za dodawanie/usuwanie/edytowanie stanu magazynowego koszulek
+            tshirtEditorWindow.ShowDialog();
 
-            }
+        }
 
-            private void companiesToolStripMenuItem_Click(object sender, EventArgs e)
-            {
-                // TODO
-                // event odpowiadający za dodawanie/usuwanie/edytowanie firm
-                //
-                companyEditorWindow.ShowDialog();
-            }
+        private void companiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO
+            // event odpowiadający za dodawanie/usuwanie/edytowanie firm
+            //
+            companyEditorWindow.ShowDialog();
+        }
 
-            private void colorsToolStripMenuItem_Click(object sender, EventArgs e)
-            {
-                // TODO
-                // event odpowiadający za dodawanie/usuwanie/edytowanie kolorów
-                //
+        private void colorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO
+            // event odpowiadający za dodawanie/usuwanie/edytowanie kolorów
+            //
 
-                colorEditorWindow.ShowDialog();
-            }
+            colorEditorWindow.ShowDialog();
+        }
 
-            private void stylesToolStripMenuItem_Click(object sender, EventArgs e)
-            {
-                // TODO
-                // event odpowiadający za dodawanie/usuwanie/edytowanie styli
-                //
+        private void stylesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO
+            // event odpowiadający za dodawanie/usuwanie/edytowanie styli
+            //
 
-                styleEditorWindow.ShowDialog();
-            }
+            styleEditorWindow.ShowDialog();
+        }
 
-            private void getDataToolStripMenuItem_Click(object sender, EventArgs e)
-            {
-                // TODO
-                // event odpowiadający za odświeżanie danych bazowych
-                //
-            }
-            private void btnCurrentOrderBrowseImage_Click(object sender, EventArgs e)
-            {
-                pictureEditorWindow.ShowDialog();
-            }
-            #endregion
+        private void getDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO
+            // event odpowiadający za odświeżanie danych bazowych
+            //
+        }
+        private void btnCurrentOrderBrowseImage_Click(object sender, EventArgs e)
+        {
+            pictureEditorWindow.ShowDialog();
+        }
+        #endregion
 
         private void MainWindow_Shown(object sender, EventArgs e)
         {
-            VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllTshirts(this));
-           // FillOrderList(getall)
+            // VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllTshirts(this));
+            CurrentlySelectedOrder = null;
+            // FillOrderList(getall)
+
         }
 
         #endregion
@@ -238,29 +240,103 @@ namespace programowanie_SSprint
             get { return currentlySelectedOrder; }
             set
             {
+
                 currentlySelectedOrder = value;
+                if (value == null)
+                {
+                    splitContainerHorizLeft.Visible = false;
+                    gbSelectedOrderParams.Visible = false;
+                    return;
+                }
+                currentlyEditedOrder = value;
+                splitContainerHorizLeft.Visible = true;
+                gbSelectedOrderParams.Visible = true;
+
+                DisplaySingleOrder(currentlyEditedOrder);
+
             }
         }
         #endregion
 
         #region PRIVATE_METHODS
-        private void FillOrderList(List<order> theList)
+        private void RefreshOrderList(List<order> theList)
         {
             lvAllOrders.Items.Clear();
 
             ListViewItem item;
 
-            foreach(order o in theList)
+            foreach (order o in theList)
             {
                 item = new ListViewItem(o.id.ToString());
                 item.Tag = o;
                 item.SubItems.AddRange(new string[] { o.end_date.ToString() });
-               
+
             }
         }
 
+
         #endregion
 
-       
+        private void lvAllOrders_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            if (lvAllOrders.SelectedItems.Count <= 0 || (lvAllOrders.SelectedItems[0].Tag as order) == null) return;
+            CurrentlySelectedOrder = lvAllOrders.SelectedItems[0].Tag as order;
+        }
+
+        private void DisplaySingleOrder(order o)
+        {
+            tbSelectedOrderName.Text = o.client_name;
+            tbSelectedOrderEmail.Text = o.client_email;
+            tbSelectedOrderPhone.Text = o.client_phone;
+            dateTimeBegin.Value = o.order_date;
+        }
+
+        private void btnSelectedOrderDelete_Click(object sender, EventArgs e)
+        {
+            if (CurrentlySelectedOrder == null) return;
+            DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz nieodwracalnie usunąć wybrane zamówienie (" + CurrentlySelectedOrder.ToString() + ")?", "Potwierdzenie usunięcia", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.No) return;
+
+            removeOrder(this, CurrentlySelectedOrder);
+            RefreshOrderList(getAllOrders(this));
+        }
+
+        private void btnCurrentOrderCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz odrzucić wprowadzone zmiany?", "Potwierdzenie odrzucenia zmian", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.No) return;
+
+            DisplaySingleOrder(CurrentlySelectedOrder);
+            btnAddNew.Visible = true;
+            btnDelete.Visible = true;
+            lvAllOrders.Visible = true;
+        }
+
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+
+
+            lvAllOrders.Visible = false;
+            CurrentlySelectedOrder = null;
+            currentlyEditedOrder = new order();
+            currentlyEditedOrder.singleItemOrders = new List<singleItemOrder>();
+            
+            btnAddNew.Visible = true;
+            btnDelete.Visible = true;
+        }
+
+        private void btnSelectedOrderSave_Click(object sender, EventArgs e)
+        {
+           
+            insertOrder(this, currentlyEditedOrder);
+            if (!lvAllOrders.Visible)
+            {
+
+                lvAllOrders.Visible = true;
+                RefreshOrderList(getAllOrders(this));
+            }
+            btnAddNew.Visible = true;
+            btnDelete.Visible = true;
+        }
     }
 }
