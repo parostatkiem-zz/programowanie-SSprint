@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace programowanie_SSprint
 {
-    public partial class StyleEditor : Form,IErrorable
+    public partial class StyleEditor : Form,IErrorable, ICommunicative
     {
       
 
       
-        public event Func<IErrorable, style, bool> insertStyle; //jesli style.id==null, to dodaje nowy style, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
-        public event Func<IErrorable, List<style>> getAllStyles; //zwraca listę wszystkich kolorów
-        public event Func<IErrorable, style, bool> removeStyle; //usuwa kolor. Istotne jest tylko style.id. Zwraca bool czy się udało
+        public event Func<IErrorable, ICommunicative, style, bool> insertStyle; //jesli style.id==null, to dodaje nowy style, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Func<IErrorable, ICommunicative, List<style>> getAllStyles; //zwraca listę wszystkich kolorów
+        public event Func<IErrorable, ICommunicative, style, bool> removeStyle; //usuwa kolor. Istotne jest tylko style.id. Zwraca bool czy się udało
 
 
 
@@ -57,7 +57,7 @@ namespace programowanie_SSprint
         {
             lvStyles.Items.Clear();
 
-            List<style> recievedStyles = getAllStyles(this);
+            List<style> recievedStyles = getAllStyles(this, this);
 
             ListViewItem item;
             foreach (var c in recievedStyles)
@@ -105,7 +105,7 @@ namespace programowanie_SSprint
         {
             //sprawdzanie poprawnosci
             if (currentlyEditedStyle == null) return;
-            insertStyle(this, currentlyEditedStyle);
+            insertStyle(this, this, currentlyEditedStyle);
             groupBoxStyleList.Visible = true;
             RefreshStyleList();
         }
@@ -137,7 +137,7 @@ namespace programowanie_SSprint
                 return;
             }
 
-            removeStyle(this, CurrentlySelectedStyle);
+            removeStyle(this, this, CurrentlySelectedStyle);
         }
 
     }

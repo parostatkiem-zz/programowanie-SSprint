@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace programowanie_SSprint
 {
-    public partial class ColorEditor : Form,IErrorable
+    public partial class ColorEditor : Form,IErrorable, ICommunicative
     {
         #region EVENTS
-        public event Func<IErrorable, color, bool> insertColor; //jesli color.id==null, to dodaje nowy color, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
-        public event Func<IErrorable, List<color>> getAllColors; //zwraca listę wszystkich kolorów
-        public event Func<IErrorable, color, bool> removeColor; //usuwa kolor. Istotne jest tylko color.id. Zwraca bool czy się udało
+        public event Func<IErrorable, ICommunicative, color, bool> insertColor; //jesli color.id==null, to dodaje nowy color, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Func<IErrorable, ICommunicative, List<color>> getAllColors; //zwraca listę wszystkich kolorów
+        public event Func<IErrorable, ICommunicative, color, bool> removeColor; //usuwa kolor. Istotne jest tylko color.id. Zwraca bool czy się udało
 
         #endregion
 
@@ -54,7 +54,7 @@ namespace programowanie_SSprint
         {
             lvColors.Items.Clear();
 
-            List<color> recievedColors = getAllColors(this);
+            List<color> recievedColors = getAllColors(this,this);
 
             ListViewItem item;
             foreach(var c in recievedColors)
@@ -111,7 +111,7 @@ namespace programowanie_SSprint
         {
             //sprawdzanie poprawnosci
             if (currentlyEditedColor == null) return;
-            insertColor(this, currentlyEditedColor);
+            insertColor(this, this, currentlyEditedColor);
             groupBoxColorList.Visible = true;
             RefreshColorList();
         }
@@ -143,7 +143,7 @@ namespace programowanie_SSprint
                 return;
             }
 
-            removeColor(this, CurrentlySelectedColor);
+            removeColor(this, this, CurrentlySelectedColor);
         }
 
        

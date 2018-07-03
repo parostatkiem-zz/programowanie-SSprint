@@ -108,6 +108,7 @@
     <Compile Include="Views\HelperViews\Error.Designer.cs">
       <DependentUpon>Error.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ICommunicative.cs" />
     <Compile Include="Views\IErrorable.cs" />
     <Compile Include="Views\PictureEditor.cs">
       <SubType>Form</SubType>
@@ -176,6 +177,7 @@
     <EmbeddedResource Include="Views\TshirtEditor.resx">
       <DependentUpon>TshirtEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

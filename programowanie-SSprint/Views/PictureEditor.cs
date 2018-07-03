@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace programowanie_SSprint
 {
-    public partial class PictureEditor : Form,IErrorable
+    public partial class PictureEditor : Form,IErrorable, ICommunicative
     {
         #region EVENTS
        
-        public event Func<IErrorable, picture, bool> insertPicture; //jesli color.id==null, to dodaje nowy obraz, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
-        public event Func<IErrorable, List<picture>> getAllPictures; //zwraca listę wszystkich obrazow
-        public event Func<IErrorable, picture, bool> removePicture; //usuwa obraz. Istotne jest tylko picture.id. Zwraca bool czy się udało
+        public event Func<IErrorable, ICommunicative, picture, bool> insertPicture; //jesli color.id==null, to dodaje nowy obraz, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Func<IErrorable, ICommunicative, List<picture>> getAllPictures; //zwraca listę wszystkich obrazow
+        public event Func<IErrorable, ICommunicative, picture, bool> removePicture; //usuwa obraz. Istotne jest tylko picture.id. Zwraca bool czy się udało
 
         #endregion
         public PictureEditor()
@@ -51,7 +51,7 @@ namespace programowanie_SSprint
         {
             lvPictures.Items.Clear();
 
-            List<picture> recievedPictures = getAllPictures(this);
+            List<picture> recievedPictures = getAllPictures(this, this);
 
             ListViewItem item;
             foreach (var c in recievedPictures)
@@ -108,7 +108,7 @@ namespace programowanie_SSprint
         {
             //sprawdzanie poprawnosci
             if (currentlyEditedPicture == null) return;
-            insertPicture(this, currentlyEditedPicture);
+            insertPicture(this, this, currentlyEditedPicture);
             groupBoxGraphicList.Visible = true;
             RefreshPictureList();
         }
@@ -140,7 +140,7 @@ namespace programowanie_SSprint
                 return;
             }
 
-            removePicture(this, CurrentlySelectedPicture);
+            removePicture(this, this, CurrentlySelectedPicture);
         }
     }
 }

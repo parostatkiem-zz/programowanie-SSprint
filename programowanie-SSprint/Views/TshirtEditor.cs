@@ -10,15 +10,15 @@ using System.Windows.Forms;
 
 namespace programowanie_SSprint
 { 
-    public partial class TshirtEditor : Form,IErrorable
+    public partial class TshirtEditor : Form,IErrorable, ICommunicative
     {
         #region EVENTS
-        public event Func<IErrorable, List<tshirt>> getAllThsirts; //pobiera wszystkie dane z tabeli Tshirts
-        public event Func<IErrorable, tshirt, bool> insertSingleTshirt;//jesli tshirt.id==null, to dodaje nowy tshirt, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
-        public event Func<IErrorable, tshirt, bool> removeTshirt;
-        public event Func<IErrorable, List<company>> getAllCompanies; //zwraca listę wszystkich firm
-        public event Func<IErrorable, List<color>> getAllColors; //zwraca listę wszystkich kolorów
-        public event Func<IErrorable, List<style>> getAllStyles; //zwraca listę wszystkich kolorów
+        public event Func<IErrorable, ICommunicative, List<tshirt>> getAllThsirts; //pobiera wszystkie dane z tabeli Tshirts
+        public event Func<IErrorable, ICommunicative, tshirt, bool> insertSingleTshirt;//jesli tshirt.id==null, to dodaje nowy tshirt, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Func<IErrorable, ICommunicative, tshirt, bool> removeTshirt;
+        public event Func<IErrorable, ICommunicative, List<company>> getAllCompanies; //zwraca listę wszystkich firm
+        public event Func<IErrorable, ICommunicative, List<color>> getAllColors; //zwraca listę wszystkich kolorów
+        public event Func<IErrorable, ICommunicative, List<style>> getAllStyles; //zwraca listę wszystkich kolorów
 
 
 
@@ -43,7 +43,7 @@ namespace programowanie_SSprint
 
         private void TshirtEditor_Load(object sender, EventArgs e)
         {
-            VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllThsirts(this));
+            VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllThsirts(this, this));
             FillAllControls();
             CurrentlySelectedTshirt = null;
         }
@@ -112,12 +112,12 @@ namespace programowanie_SSprint
         private void btnApplyChanges_Click(object sender, EventArgs e)
         {
             // int theNodeId = currentlyEditedTshirt.id;
-            insertSingleTshirt(this, currentlyEditedTshirt);
+            insertSingleTshirt(this, this, currentlyEditedTshirt);
             if (!treeViewProductBrowser.Visible)
             {
 
                 treeViewProductBrowser.Visible = true;
-                VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllThsirts(this));
+                VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllThsirts(this, this));
             }
             btnAddNew.Visible = true;
             btnDelete.Visible = true;
@@ -130,8 +130,8 @@ namespace programowanie_SSprint
             DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz nieodwracalnie usunąć wybraną koszulkę (" + CurrentlySelectedTshirt.ToString() + ")?", "Potwierdzenie usunięcia", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.No) return;
 
-            removeTshirt(this, CurrentlySelectedTshirt);
-            VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllThsirts(this));
+            removeTshirt(this, this, CurrentlySelectedTshirt);
+            VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllThsirts(this, this));
     
         }
 
@@ -239,19 +239,19 @@ namespace programowanie_SSprint
         private void FillCompanyControl()
         {
             comboBoxCompany.Items.Clear();
-            comboBoxCompany.Items.AddRange(getAllCompanies(this).ToArray());
+            comboBoxCompany.Items.AddRange(getAllCompanies(this, this).ToArray());
         }
 
         private void FillStyleControl()
         {
             comboBoxModel.Items.Clear();
-            comboBoxModel.Items.AddRange(getAllStyles(this).ToArray());
+            comboBoxModel.Items.AddRange(getAllStyles(this, this).ToArray());
         }
 
         private void FillColorControl()
         {
             comboBoxColor.Items.Clear();
-            comboBoxColor.Items.AddRange(getAllColors(this).ToArray());
+            comboBoxColor.Items.AddRange(getAllColors(this,this).ToArray());
         }
         private void FillAllControls()
         {

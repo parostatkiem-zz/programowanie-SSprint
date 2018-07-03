@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace programowanie_SSprint
 {
-    public partial class CompanyEditor : Form,IErrorable
+    public partial class CompanyEditor : Form,IErrorable, ICommunicative
     {
-        public event Func<IErrorable, company, bool> insertCompany; //jesli company.id==null, to dodaje nowy company, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
-        public event Func<IErrorable, List<company>> getAllCompanies; //zwraca listę wszystkich kolorów
-        public event Func<IErrorable, company, bool> removeCompany; //usuwa kolor. Istotne jest tylko company.id. Zwraca bool czy się udało
+        public event Func<IErrorable, ICommunicative, company, bool> insertCompany; //jesli company.id==null, to dodaje nowy company, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Func<IErrorable, ICommunicative, List<company>> getAllCompanies; //zwraca listę wszystkich kolorów
+        public event Func<IErrorable, ICommunicative, company, bool> removeCompany; //usuwa kolor. Istotne jest tylko company.id. Zwraca bool czy się udało
 
 
 
@@ -54,7 +54,7 @@ namespace programowanie_SSprint
         {
             lvCompanies.Items.Clear();
 
-            List<company> recievedCompanies = getAllCompanies(this);
+            List<company> recievedCompanies = getAllCompanies(this, this);
 
             ListViewItem item;
             foreach (var c in recievedCompanies)
@@ -118,7 +118,7 @@ namespace programowanie_SSprint
         {
             //sprawdzanie poprawnosci
             if (currentlyEditedCompany == null) return;
-            insertCompany(this, currentlyEditedCompany);
+            insertCompany(this, this, currentlyEditedCompany);
             groupBoxCompanyList.Visible = true;
             RefreshCompanyList();
         }
@@ -150,7 +150,7 @@ namespace programowanie_SSprint
                 return;
             }
 
-            removeCompany(this, CurrentlySelectedCompany);
+            removeCompany(this, this, CurrentlySelectedCompany);
         }
 
       

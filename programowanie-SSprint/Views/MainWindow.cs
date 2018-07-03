@@ -10,39 +10,39 @@ using System.Windows.Forms;
 
 namespace programowanie_SSprint
 {
-    public partial class MainWindow : Form, ImainView, IErrorable
+    public partial class MainWindow : Form, ImainView, IErrorable, ICommunicative
     {
 
         #region EVENTS
-        public event Func<IErrorable, List<order>> getAllOrders;
-        public event Func<IErrorable, order, bool> insertOrder;//jesli order.id==null, to dodaje nowy order, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
-        public event Func<IErrorable, order, bool> removeOrder;
-        public event Func<IErrorable, List<singleItemOrder>, bool> insertListOfItems;//wstawia listę zamówionych koszulek. MAją one ustawione order_id. UWAGA: czesc z nich moze juz istnieć w bazie, wtedy robi się UPDATE. Zwraca bool czy się udało
-        public event Func<IErrorable, List<singleItemOrder>, bool> deleteListOfItems; //usuwa liste zamówionych koszulek
+        public event Func<IErrorable, ICommunicative, List<order>> getAllOrders;
+        public event Func<IErrorable, ICommunicative, order, bool> insertOrder;//jesli order.id==null, to dodaje nowy order, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Func<IErrorable, ICommunicative, order, bool> removeOrder;
+        public event Func<IErrorable, ICommunicative, List<singleItemOrder>, bool> insertListOfItems;//wstawia listę zamówionych koszulek. MAją one ustawione order_id. UWAGA: czesc z nich moze juz istnieć w bazie, wtedy robi się UPDATE. Zwraca bool czy się udało
+        public event Func<IErrorable, ICommunicative, List<singleItemOrder>, bool> deleteListOfItems; //usuwa liste zamówionych koszulek
 
 
-        public event Func<IErrorable, color, bool> insertColor; //jesli color.id==null, to dodaje nowy color, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
-        public event Func<IErrorable, List<color>> getAllColors; //zwraca listę wszystkich kolorów
-        public event Func<IErrorable, color, bool> removeColor; //usuwa kolor. Istotne jest tylko color.id. Zwraca bool czy się udało
+        public event Func<IErrorable, ICommunicative, color, bool> insertColor; //jesli color.id==null, to dodaje nowy color, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Func<IErrorable, ICommunicative, List<color>> getAllColors; //zwraca listę wszystkich kolorów
+        public event Func<IErrorable, ICommunicative, color, bool> removeColor; //usuwa kolor. Istotne jest tylko color.id. Zwraca bool czy się udało
 
-        public event Func<IErrorable, picture, bool> insertPicture; //jesli color.id==null, to dodaje nowy obraz, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
-        public event Func<IErrorable, List<picture>> getAllPictures; //zwraca listę wszystkich obrazow
-        public event Func<IErrorable, picture, bool> removePicture; //usuwa obraz. Istotne jest tylko picture.id. Zwraca bool czy się udało
-
-
-        public event Func<IErrorable, style, bool> insertStyle; //jesli color.id==null, to dodaje nowy obraz, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
-        public event Func<IErrorable, List<style>> getAllStyles; //zwraca listę wszystkich obrazow
-        public event Func<IErrorable, style, bool> removeStyle; //usuwa obraz. Istotne jest tylko picture.id. Zwraca bool czy się udało
+        public event Func<IErrorable, ICommunicative, picture, bool> insertPicture; //jesli color.id==null, to dodaje nowy obraz, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Func<IErrorable, ICommunicative, List<picture>> getAllPictures; //zwraca listę wszystkich obrazow
+        public event Func<IErrorable, ICommunicative, picture, bool> removePicture; //usuwa obraz. Istotne jest tylko picture.id. Zwraca bool czy się udało
 
 
-        public event Func<IErrorable, company, bool> insertCompany; //jesli company.id==null, to dodaje nowy company, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
-        public event Func<IErrorable, List<company>> getAllCompanies; //zwraca listę wszystkich kolorów
-        public event Func<IErrorable, company, bool> removeCompany; //usuwa kolor. Istotne jest tylko company.id. Zwraca bool czy się udało
+        public event Func<IErrorable, ICommunicative, style, bool> insertStyle; //jesli color.id==null, to dodaje nowy obraz, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Func<IErrorable, ICommunicative, List<style>> getAllStyles; //zwraca listę wszystkich obrazow
+        public event Func<IErrorable, ICommunicative, style, bool> removeStyle; //usuwa obraz. Istotne jest tylko picture.id. Zwraca bool czy się udało
 
 
-        public event Func<IErrorable, tshirt, bool> insertTshirt; //jesli tshirt.id==null, to dodaje nowy tshirt, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
-        public event Func<IErrorable, List<tshirt>> getAllTshirts; //zwraca listę wszystkich tshirt
-        public event Func<IErrorable, tshirt, bool> removeTshirt; //usuwa tshirt. Istotne jest tylko tshirt.id. Zwraca bool czy się udało
+        public event Func<IErrorable, ICommunicative, company, bool> insertCompany; //jesli company.id==null, to dodaje nowy company, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Func<IErrorable, ICommunicative, List<company>> getAllCompanies; //zwraca listę wszystkich kolorów
+        public event Func<IErrorable, ICommunicative, company, bool> removeCompany; //usuwa kolor. Istotne jest tylko company.id. Zwraca bool czy się udało
+
+
+        public event Func<IErrorable, ICommunicative, tshirt, bool> insertTshirt; //jesli tshirt.id==null, to dodaje nowy tshirt, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Func<IErrorable, ICommunicative, List<tshirt>> getAllTshirts; //zwraca listę wszystkich tshirt
+        public event Func<IErrorable, ICommunicative, tshirt, bool> removeTshirt; //usuwa tshirt. Istotne jest tylko tshirt.id. Zwraca bool czy się udało
 
 
         #endregion
@@ -83,34 +83,34 @@ namespace programowanie_SSprint
 
         }
 
-        private bool TshirtEditorWindow_removeTshirt(IErrorable arg1, tshirt arg2)
+        private bool TshirtEditorWindow_removeTshirt(IErrorable arg1, ICommunicative arg3, tshirt arg2)
         {
-            return removeTshirt(arg1, arg2);
+            return removeTshirt(arg1, arg3, arg2);
         }
 
-        private bool TshirtEditorWindow_insertSingleTshirt(IErrorable arg1, tshirt arg2)
+        private bool TshirtEditorWindow_insertSingleTshirt(IErrorable arg1, ICommunicative arg3, tshirt arg2)
         {
-            return insertTshirt(arg1, arg2);
+            return insertTshirt(arg1, arg3, arg2);
         }
 
-        private List<tshirt> TshirtEditorWindow_getAllThsirts(IErrorable arg)
+        private List<tshirt> TshirtEditorWindow_getAllThsirts(IErrorable arg,ICommunicative arg1)
         {
-            return getAllTshirts(arg);
+            return getAllTshirts(arg,arg1);
         }
 
-        private bool CompanyEditorWindow_removeCompany(IErrorable arg1, company arg2)
+        private bool CompanyEditorWindow_removeCompany(IErrorable arg1, ICommunicative arg3, company arg2)
         {
-            return removeCompany(arg1, arg2);
+            return removeCompany(arg1, arg3, arg2);
         }
 
-        private List<company> _getAllCompanies(IErrorable arg)
+        private List<company> _getAllCompanies(IErrorable arg,ICommunicative arg1)
         {
-            return getAllCompanies(arg);
+            return getAllCompanies(arg,arg1);
         }
 
-        private bool CompanyEditorWindow_insertCompany(IErrorable arg1, company arg2)
+        private bool CompanyEditorWindow_insertCompany(IErrorable arg1, ICommunicative arg3, company arg2)
         {
-            return insertCompany(arg1, arg2);
+            return insertCompany(arg1, arg3, arg2);
         }
 
         public void ShowError(string message, string longMessage = null, string title = null)
@@ -123,47 +123,47 @@ namespace programowanie_SSprint
 
         #region CHILD_EVENT_METHODS
 
-        private bool ColorEditorWindow_removeColor(IErrorable arg1, color arg2)
+        private bool ColorEditorWindow_removeColor(IErrorable arg1, ICommunicative arg3, color arg2)
         {
-            return removeColor(arg1, arg2);
+            return removeColor(arg1, arg3, arg2);
         }
 
-        private bool ColorEditorWindow_insertColor(IErrorable arg1, color arg2)
+        private bool ColorEditorWindow_insertColor(IErrorable arg1, ICommunicative arg3, color arg2)
         {
-            return insertColor(arg1, arg2);
+            return insertColor(arg1, arg3, arg2);
         }
 
-        private List<color> _getAllColors(IErrorable arg)
+        private List<color> _getAllColors(IErrorable arg,ICommunicative arg1)
         {
-            return getAllColors(arg);
+            return getAllColors(arg,arg1);
         }
 
-        private bool PictureEditorWindow_insertPicture(IErrorable arg1, picture arg2)
+        private bool PictureEditorWindow_insertPicture(IErrorable arg1, ICommunicative arg3, picture arg2)
         {
-            return insertPicture(arg1, arg2);
+            return insertPicture(arg1, arg3, arg2);
         }
-        private List<picture> PictureEditorWindow_getAllPictures(IErrorable arg)
+        private List<picture> PictureEditorWindow_getAllPictures(IErrorable arg,ICommunicative arg1)
         {
-            return getAllPictures(arg);
+            return getAllPictures(arg,arg1);
         }
-        private bool PictureEditorWindow_removePicture(IErrorable arg1, picture arg2)
+        private bool PictureEditorWindow_removePicture(IErrorable arg1, ICommunicative arg3, picture arg2)
         {
-            return removePicture(arg1, arg2);
-        }
-
-        private bool StyleEditorWindow_removeStyle(IErrorable arg1, style arg2)
-        {
-            return removeStyle(arg1, arg2);
+            return removePicture(arg1, arg3, arg2);
         }
 
-        private List<style> _getAllStyles(IErrorable arg)
+        private bool StyleEditorWindow_removeStyle(IErrorable arg1, ICommunicative arg3, style arg2)
         {
-            return getAllStyles(arg);
+            return removeStyle(arg1, arg3, arg2);
         }
 
-        private bool StyleEditorWindow_insertStyle(IErrorable arg1, style arg2)
+        private List<style> _getAllStyles(IErrorable arg,ICommunicative arg1)
         {
-            return insertStyle(arg1, arg2);
+            return getAllStyles(arg,arg1);
+        }
+
+        private bool StyleEditorWindow_insertStyle(IErrorable arg1, ICommunicative arg3, style arg2)
+        {
+            return insertStyle(arg1, arg3, arg2);
         }
         #endregion
         #region GENERATED_EVENTS
@@ -310,8 +310,8 @@ namespace programowanie_SSprint
             DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz nieodwracalnie usunąć wybrane zamówienie (" + CurrentlySelectedOrder.ToString() + ")?", "Potwierdzenie usunięcia", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.No) return;
 
-            removeOrder(this, CurrentlySelectedOrder);
-            RefreshOrderList(getAllOrders(this));
+            removeOrder(this, this, CurrentlySelectedOrder);
+            RefreshOrderList(getAllOrders(this, this));
         }
 
         private void btnCurrentOrderCancel_Click(object sender, EventArgs e)
@@ -346,12 +346,12 @@ namespace programowanie_SSprint
         private void btnSelectedOrderSave_Click(object sender, EventArgs e)
         {
            
-            insertOrder(this, currentlyEditedOrder);
+            insertOrder(this, this, currentlyEditedOrder);
             if (!lvAllOrders.Visible)
             {
 
                 lvAllOrders.Visible = true;
-                RefreshOrderList(getAllOrders(this));
+                RefreshOrderList(getAllOrders(this, this));
             }
             btnAddNew.Visible = true;
             btnDelete.Visible = true;
