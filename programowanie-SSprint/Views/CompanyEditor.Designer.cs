@@ -67,9 +67,9 @@
             this.groupBoxEditArea.Controls.Add(this.btnApplyChanges);
             this.groupBoxEditArea.Controls.Add(this.lName);
             this.groupBoxEditArea.Controls.Add(this.tbName);
-            this.groupBoxEditArea.Location = new System.Drawing.Point(289, 28);
+            this.groupBoxEditArea.Location = new System.Drawing.Point(325, 28);
             this.groupBoxEditArea.Name = "groupBoxEditArea";
-            this.groupBoxEditArea.Size = new System.Drawing.Size(281, 341);
+            this.groupBoxEditArea.Size = new System.Drawing.Size(281, 293);
             this.groupBoxEditArea.TabIndex = 8;
             this.groupBoxEditArea.TabStop = false;
             this.groupBoxEditArea.Text = "Edycja zaznaczonej firmy";
@@ -120,7 +120,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.BackColor = System.Drawing.Color.Tomato;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel.Location = new System.Drawing.Point(6, 283);
+            this.btnCancel.Location = new System.Drawing.Point(6, 235);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(269, 23);
             this.btnCancel.TabIndex = 8;
@@ -132,16 +132,16 @@
             // 
             this.tbID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbID.Location = new System.Drawing.Point(33, 239);
+            this.tbID.Location = new System.Drawing.Point(61, 112);
             this.tbID.Name = "tbID";
             this.tbID.ReadOnly = true;
-            this.tbID.Size = new System.Drawing.Size(242, 20);
+            this.tbID.Size = new System.Drawing.Size(214, 20);
             this.tbID.TabIndex = 7;
             // 
             // lID
             // 
             this.lID.AutoSize = true;
-            this.lID.Location = new System.Drawing.Point(6, 242);
+            this.lID.Location = new System.Drawing.Point(7, 115);
             this.lID.Name = "lID";
             this.lID.Size = new System.Drawing.Size(21, 13);
             this.lID.TabIndex = 6;
@@ -153,7 +153,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnApplyChanges.BackColor = System.Drawing.Color.LightGreen;
             this.btnApplyChanges.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnApplyChanges.Location = new System.Drawing.Point(6, 312);
+            this.btnApplyChanges.Location = new System.Drawing.Point(6, 264);
             this.btnApplyChanges.Name = "btnApplyChanges";
             this.btnApplyChanges.Size = new System.Drawing.Size(269, 23);
             this.btnApplyChanges.TabIndex = 5;
@@ -191,7 +191,7 @@
             this.groupBoxCompanyList.Controls.Add(this.btnAddNew);
             this.groupBoxCompanyList.Location = new System.Drawing.Point(12, 12);
             this.groupBoxCompanyList.Name = "groupBoxCompanyList";
-            this.groupBoxCompanyList.Size = new System.Drawing.Size(271, 357);
+            this.groupBoxCompanyList.Size = new System.Drawing.Size(307, 309);
             this.groupBoxCompanyList.TabIndex = 9;
             this.groupBoxCompanyList.TabStop = false;
             this.groupBoxCompanyList.Text = "Lista wprowadzonych firm";
@@ -210,7 +210,7 @@
             listViewItem1});
             this.lvCompanies.Location = new System.Drawing.Point(3, 16);
             this.lvCompanies.Name = "lvCompanies";
-            this.lvCompanies.Size = new System.Drawing.Size(268, 306);
+            this.lvCompanies.Size = new System.Drawing.Size(304, 258);
             this.lvCompanies.TabIndex = 0;
             this.lvCompanies.UseCompatibleStateImageBehavior = false;
             this.lvCompanies.View = System.Windows.Forms.View.Details;
@@ -231,7 +231,7 @@
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDelete.BackColor = System.Drawing.Color.Tomato;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelete.Location = new System.Drawing.Point(6, 328);
+            this.btnDelete.Location = new System.Drawing.Point(6, 280);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 4;
@@ -244,7 +244,7 @@
             this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddNew.BackColor = System.Drawing.Color.LightBlue;
             this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAddNew.Location = new System.Drawing.Point(190, 328);
+            this.btnAddNew.Location = new System.Drawing.Point(226, 280);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(75, 23);
             this.btnAddNew.TabIndex = 3;
@@ -256,9 +256,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(582, 381);
+            this.ClientSize = new System.Drawing.Size(618, 333);
             this.Controls.Add(this.groupBoxEditArea);
             this.Controls.Add(this.groupBoxCompanyList);
+            this.MinimumSize = new System.Drawing.Size(590, 283);
             this.Name = "CompanyEditor";
             this.Text = "Edycja firm";
             this.Load += new System.EventHandler(this.CompanyEditor_Load);

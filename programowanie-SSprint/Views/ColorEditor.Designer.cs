@@ -54,18 +54,20 @@
             // 
             // lvColors
             // 
+            this.lvColors.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lvColors.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderID,
             this.columnHeaderName,
             this.columnHeaderHex});
-            this.lvColors.Dock = System.Windows.Forms.DockStyle.Top;
             this.lvColors.FullRowSelect = true;
             this.lvColors.GridLines = true;
             this.lvColors.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
             this.lvColors.Location = new System.Drawing.Point(3, 16);
             this.lvColors.Name = "lvColors";
-            this.lvColors.Size = new System.Drawing.Size(218, 212);
+            this.lvColors.Size = new System.Drawing.Size(214, 161);
             this.lvColors.TabIndex = 0;
             this.lvColors.UseCompatibleStateImageBehavior = false;
             this.lvColors.View = System.Windows.Forms.View.Details;
@@ -98,9 +100,9 @@
             this.groupBoxEditArea.Controls.Add(this.lName);
             this.groupBoxEditArea.Controls.Add(this.tbHex);
             this.groupBoxEditArea.Controls.Add(this.tbName);
-            this.groupBoxEditArea.Location = new System.Drawing.Point(234, 30);
+            this.groupBoxEditArea.Location = new System.Drawing.Point(230, 30);
             this.groupBoxEditArea.Name = "groupBoxEditArea";
-            this.groupBoxEditArea.Size = new System.Drawing.Size(196, 244);
+            this.groupBoxEditArea.Size = new System.Drawing.Size(196, 193);
             this.groupBoxEditArea.TabIndex = 2;
             this.groupBoxEditArea.TabStop = false;
             this.groupBoxEditArea.Text = "Edycja zaznaczonego koloru";
@@ -111,7 +113,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.BackColor = System.Drawing.Color.Tomato;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel.Location = new System.Drawing.Point(6, 186);
+            this.btnCancel.Location = new System.Drawing.Point(6, 135);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(184, 23);
             this.btnCancel.TabIndex = 8;
@@ -144,7 +146,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnApplyChanges.BackColor = System.Drawing.Color.LightGreen;
             this.btnApplyChanges.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnApplyChanges.Location = new System.Drawing.Point(6, 215);
+            this.btnApplyChanges.Location = new System.Drawing.Point(6, 164);
             this.btnApplyChanges.Name = "btnApplyChanges";
             this.btnApplyChanges.Size = new System.Drawing.Size(184, 23);
             this.btnApplyChanges.TabIndex = 5;
@@ -196,7 +198,7 @@
             this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddNew.BackColor = System.Drawing.Color.LightBlue;
             this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAddNew.Location = new System.Drawing.Point(143, 237);
+            this.btnAddNew.Location = new System.Drawing.Point(139, 186);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(75, 23);
             this.btnAddNew.TabIndex = 3;
@@ -209,7 +211,7 @@
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDelete.BackColor = System.Drawing.Color.Tomato;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelete.Location = new System.Drawing.Point(6, 237);
+            this.btnDelete.Location = new System.Drawing.Point(6, 186);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 4;
@@ -219,12 +221,15 @@
             // 
             // groupBoxColorList
             // 
+            this.groupBoxColorList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxColorList.Controls.Add(this.lvColors);
             this.groupBoxColorList.Controls.Add(this.btnDelete);
             this.groupBoxColorList.Controls.Add(this.btnAddNew);
             this.groupBoxColorList.Location = new System.Drawing.Point(4, 8);
             this.groupBoxColorList.Name = "groupBoxColorList";
-            this.groupBoxColorList.Size = new System.Drawing.Size(224, 266);
+            this.groupBoxColorList.Size = new System.Drawing.Size(220, 215);
             this.groupBoxColorList.TabIndex = 5;
             this.groupBoxColorList.TabStop = false;
             this.groupBoxColorList.Text = "Lista wprowadzonych kolorów";
@@ -233,7 +238,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(445, 286);
+            this.ClientSize = new System.Drawing.Size(441, 235);
             this.Controls.Add(this.groupBoxColorList);
             this.Controls.Add(this.groupBoxEditArea);
             this.MinimumSize = new System.Drawing.Size(457, 274);

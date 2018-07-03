@@ -63,7 +63,7 @@
             listViewItem1});
             this.lvStyles.Location = new System.Drawing.Point(3, 16);
             this.lvStyles.Name = "lvStyles";
-            this.lvStyles.Size = new System.Drawing.Size(252, 287);
+            this.lvStyles.Size = new System.Drawing.Size(235, 237);
             this.lvStyles.TabIndex = 0;
             this.lvStyles.UseCompatibleStateImageBehavior = false;
             this.lvStyles.View = System.Windows.Forms.View.Details;
@@ -89,9 +89,9 @@
             this.groupBoxEditArea.Controls.Add(this.btnApplyChanges);
             this.groupBoxEditArea.Controls.Add(this.lName);
             this.groupBoxEditArea.Controls.Add(this.tbName);
-            this.groupBoxEditArea.Location = new System.Drawing.Point(273, 34);
+            this.groupBoxEditArea.Location = new System.Drawing.Point(256, 34);
             this.groupBoxEditArea.Name = "groupBoxEditArea";
-            this.groupBoxEditArea.Size = new System.Drawing.Size(211, 316);
+            this.groupBoxEditArea.Size = new System.Drawing.Size(211, 266);
             this.groupBoxEditArea.TabIndex = 6;
             this.groupBoxEditArea.TabStop = false;
             this.groupBoxEditArea.Text = "Edycja zaznaczonego stylu";
@@ -102,7 +102,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.BackColor = System.Drawing.Color.Tomato;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel.Location = new System.Drawing.Point(6, 258);
+            this.btnCancel.Location = new System.Drawing.Point(6, 208);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(199, 23);
             this.btnCancel.TabIndex = 8;
@@ -135,7 +135,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnApplyChanges.BackColor = System.Drawing.Color.LightGreen;
             this.btnApplyChanges.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnApplyChanges.Location = new System.Drawing.Point(6, 287);
+            this.btnApplyChanges.Location = new System.Drawing.Point(6, 237);
             this.btnApplyChanges.Name = "btnApplyChanges";
             this.btnApplyChanges.Size = new System.Drawing.Size(199, 23);
             this.btnApplyChanges.TabIndex = 5;
@@ -168,7 +168,7 @@
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDelete.BackColor = System.Drawing.Color.Tomato;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelete.Location = new System.Drawing.Point(6, 309);
+            this.btnDelete.Location = new System.Drawing.Point(6, 259);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 4;
@@ -181,7 +181,7 @@
             this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddNew.BackColor = System.Drawing.Color.LightBlue;
             this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAddNew.Location = new System.Drawing.Point(174, 309);
+            this.btnAddNew.Location = new System.Drawing.Point(157, 259);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(75, 23);
             this.btnAddNew.TabIndex = 3;
@@ -199,7 +199,7 @@
             this.groupBoxStyleList.Controls.Add(this.btnAddNew);
             this.groupBoxStyleList.Location = new System.Drawing.Point(12, 12);
             this.groupBoxStyleList.Name = "groupBoxStyleList";
-            this.groupBoxStyleList.Size = new System.Drawing.Size(255, 338);
+            this.groupBoxStyleList.Size = new System.Drawing.Size(238, 288);
             this.groupBoxStyleList.TabIndex = 7;
             this.groupBoxStyleList.TabStop = false;
             this.groupBoxStyleList.Text = "Lista wprowadzonych styli";
@@ -208,9 +208,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(496, 362);
+            this.ClientSize = new System.Drawing.Size(479, 312);
             this.Controls.Add(this.groupBoxEditArea);
             this.Controls.Add(this.groupBoxStyleList);
+            this.MinimumSize = new System.Drawing.Size(483, 258);
             this.Name = "StyleEditor";
             this.Text = "Edytor styli";
             this.Load += new System.EventHandler(this.StyleEditor_Load);
