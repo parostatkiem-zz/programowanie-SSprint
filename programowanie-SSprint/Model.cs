@@ -90,16 +90,34 @@ namespace programowanie_SSprint
         {
             lock (mainThreadLock)
             {
+                try
+                {
+                    this.RemoveListOfElements<elementType>(new List<elementType>() { objToRemove });
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+
+        public void RemoveListOfElements<elementType>(List<elementType> elementsToRemove)
+            where elementType : Communicator.CommunicatorElement<elementType>
+        {
+            lock (mainThreadLock)
+            {
                 Communicator.Communicator<elementType> baseCommunicator = new Communicator.Communicator<elementType>();
                 try
                 {
                     baseCommunicator.Connect();
 
-                    baseCommunicator.Remove(baseCommunicator.Find(objToRemove.getId()));
-
+                    foreach(elementType element in elementsToRemove)
+                    {
+                        baseCommunicator.Remove(baseCommunicator.Find(element.getId()));
+                    }
                     baseCommunicator.SaveChanges();
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     throw ex;
                 }
