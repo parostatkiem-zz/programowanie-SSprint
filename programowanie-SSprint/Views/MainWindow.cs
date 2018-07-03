@@ -285,10 +285,23 @@ namespace programowanie_SSprint
 
         private void DisplaySingleOrder(order o)
         {
+            if(o==null)
+            {
+                tbSelectedOrderName.Text = "";
+                tbSelectedOrderEmail.Text = "";
+                tbSelectedOrderPhone.Text = "";
+                dateTimeBegin.Value = DateTime.Today;
+                dateTimeEnd.Value= DateTime.Today;
+                comboBoxSelectedOrderStatus.SelectedIndex = 0;
+                numClientPrice.Value = 0;
+            }
             tbSelectedOrderName.Text = o.client_name;
             tbSelectedOrderEmail.Text = o.client_email;
             tbSelectedOrderPhone.Text = o.client_phone;
-            dateTimeBegin.Value = o.order_date;
+            try { dateTimeBegin.Value = o.order_date; }
+            catch { }
+            comboBoxSelectedOrderStatus.SelectedIndex = o.status;
+            numClientPrice.Value = o.price_for_client;
         }
 
         private void btnSelectedOrderDelete_Click(object sender, EventArgs e)
@@ -310,17 +323,22 @@ namespace programowanie_SSprint
             btnAddNew.Visible = true;
             btnDelete.Visible = true;
             lvAllOrders.Visible = true;
+            gbSelectedOrderParams.Visible = false;
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
 
-
             lvAllOrders.Visible = false;
             CurrentlySelectedOrder = null;
             currentlyEditedOrder = new order();
             currentlyEditedOrder.singleItemOrders = new List<singleItemOrder>();
-            
+            currentlyEditedOrder.end_date = DateTime.Today;
+            currentlyEditedOrder.order_date = DateTime.Today;
+            DisplaySingleOrder(currentlyEditedOrder);
+
+
+            gbSelectedOrderParams.Visible = true;
             btnAddNew.Visible = true;
             btnDelete.Visible = true;
         }
@@ -337,6 +355,7 @@ namespace programowanie_SSprint
             }
             btnAddNew.Visible = true;
             btnDelete.Visible = true;
+            gbSelectedOrderParams.Visible = false;
         }
     }
 }
