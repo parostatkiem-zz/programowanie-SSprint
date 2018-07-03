@@ -10,7 +10,7 @@ namespace programowanie_SSprint
 {
     static class VisualHelper
     {
-       public static void RefreshTshirtList(TreeView theTreeView, List<tshirt> theList)
+        public static void RefreshTshirtList(TreeView theTreeView, List<tshirt> theList)
         {
             theTreeView.Nodes.Clear();
             TreeNode tmp;
