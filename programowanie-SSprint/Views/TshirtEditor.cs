@@ -119,7 +119,8 @@ namespace programowanie_SSprint
                 treeViewProductBrowser.Visible = true;
                 RefreshTshirtList(getAllThsirts(this));
             }
-
+            btnAddNew.Visible = true;
+            btnDelete.Visible = true;
             //  TryToSelectNode(theNodeId);
         }
 
@@ -140,6 +141,8 @@ namespace programowanie_SSprint
 
             DisplaySingleTshirt(CurrentlySelectedTshirt);
             treeViewProductBrowser.Visible = true;
+            btnAddNew.Visible = true;
+            btnDelete.Visible = true;
         }
 
         private void btnApply_Click(object sender, EventArgs e)
@@ -148,6 +151,8 @@ namespace programowanie_SSprint
             CurrentlySelectedTshirt = null;
             currentlyEditedTshirt = new tshirt();
             currentlyEditedTshirt.singleItemOrders = new List<singleItemOrder>();
+            btnAddNew.Visible = false;
+            btnDelete.Visible = false;
             //currentlyEditedTshirt.
         }
 
@@ -169,6 +174,11 @@ namespace programowanie_SSprint
                 {
                     currentlyEditedTshirt.CopyFrom(currentlySelectedTshirt);
                     currentlyEditedTshirt.id = CurrentlySelectedTshirt.id;
+                    gbTshirtProperties.Visible = true;
+                }
+                else
+                {
+                    gbTshirtProperties.Visible = false;
                 }
             }
         }
