@@ -131,6 +131,16 @@ namespace programowanie_SSprint
             groupBoxGraphicList.Visible = false;
         }
 
-        
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+            if (CurrentlySelectedPicture == null)
+            {
+                ShowError("Wygląda na to, że żaden obrazek nie jest zaznaczony");
+                return;
+            }
+
+            removePicture(this, CurrentlySelectedPicture);
+        }
     }
 }

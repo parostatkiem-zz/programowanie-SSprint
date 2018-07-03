@@ -315,6 +315,23 @@ namespace programowanie_SSprint
 
         }
 
+
+
         #endregion
+
+        private void btnEditCompanies_Click(object sender, EventArgs e)
+        {
+            CompanyEditor companyDialog = new CompanyEditor();
+            companyDialog.ShowDialog();
+            FillCompanyControl();
+        }
+
+        private void btnEditColors_Click(object sender, EventArgs e)
+        {
+            ColorEditor colorDialog = new ColorEditor();
+
+            colorDialog.Show();
+            FillColorControl();
+        }
     }
 }
