@@ -20,14 +20,15 @@ namespace programowanie_SSprint
             this.view = view;
             this.model = model;
 
-            //view.insertTshirt += View_insertTshirt;
-            //view.getAllThsirts += View_getAllThsirts;
+            //zamówienia
+            view.getAllOrders += View_getAllElements<order>;
+            view.insertOrder += View_insertElement<order>;
+            view.removeOrder += View_removeElement<order>;
 
             //poj. zamówienia
-      //      view.getSingleOrder += View_find<order>;
-         //   view.insertSingleOrder += View_insertElement<order>;
             view.insertListOfItems += View_insertListOfElements<singleItemOrder>;
-
+            view.deleteListOfItems += View_removeListOfElements<singleItemOrder>;
+            
             //kolory
             view.insertColor += View_insertElement<color>;
             view.getAllColors += View_getAllElements<color>;
@@ -54,7 +55,10 @@ namespace programowanie_SSprint
             view.removeTshirt += View_removeElement<tshirt>;
         }
 
-        private bool View_removeElement<elementType>(IErrorable windowInterface, elementType itemToRemove)
+        
+
+        private bool View_removeElement<elementType>
+            (IErrorable windowInterface, ICommunicative windowCommunicator, elementType itemToRemove)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
             try
@@ -68,7 +72,16 @@ namespace programowanie_SSprint
                 return false;
             }
         }
-        private List<elementType> View_getAllElements<elementType>(IErrorable windowInterface)
+        private bool View_removeListOfElements<elementType>
+            (IErrorable windowInterface, ICommunicative windowCommunicator, List<singleItemOrder> itemsToRemove)
+            where elementType : Communicator.CommunicatorElement<elementType>
+        {
+            throw new NotImplementedException();
+        }
+
+
+        private List<elementType> View_getAllElements<elementType>
+            (IErrorable windowInterface, ICommunicative windowCommunicator)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
             try
@@ -81,7 +94,10 @@ namespace programowanie_SSprint
                 return null;
             }
         }
-        private bool View_insertElement<elementType>(IErrorable windowInterface, elementType newItem)
+
+
+        private bool View_insertElement<elementType>
+            (IErrorable windowInterface, ICommunicative windowCommunicator, elementType newItem)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
             try
@@ -95,7 +111,8 @@ namespace programowanie_SSprint
                 return false;
             }
         }
-        private bool View_insertListOfElements<elementType>(IErrorable windowInterface, List<elementType> newItems)
+        private bool View_insertListOfElements<elementType>
+            (IErrorable windowInterface, ICommunicative windowCommunicator, List<elementType> newItems)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
             try
@@ -109,7 +126,10 @@ namespace programowanie_SSprint
                 return false;
             }
         }
-        private elementType View_find<elementType>(IErrorable windowInterface, int elementID)
+
+
+        private elementType View_find<elementType>
+            (IErrorable windowInterface, ICommunicative windowCommunicator, int elementID)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
             try
