@@ -14,10 +14,12 @@ namespace programowanie_SSprint
     {
 
         #region EVENTS
-        public event Func<IErrorable, int, order> getSingleOrder; //pobiera jeden order o danym ID
+        public event Func<IErrorable, List<order>, bool> getAllOrders;
+        public event Func<IErrorable, order, bool> insertOrder;//jesli order.id==null, to dodaje nowy order, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Func<IErrorable, order, bool> deleteOrder;
+        public event Func<IErrorable, List<singleItemOrder>, bool> insertListOfItems;//wstawia listę zamówionych koszulek. MAją one ustawione order_id. UWAGA: czesc z nich moze juz istnieć w bazie, wtedy robi się UPDATE. Zwraca bool czy się udało
+        public event Func<IErrorable, List<singleItemOrder>, bool> deleteListOfItems; //usuwa liste zamówionych koszulek
 
-        public event Func<IErrorable, order, bool> insertSingleOrder;//jesli order.id==null, to dodaje nowy order, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
-        public event Func<IErrorable, List<singleItemOrder>,bool> insertListOfItems;//wstawia listę zamówionych koszulek. MAją one ustawione order_id. Zwraca bool czy się udało
 
         public event Func<IErrorable, color, bool> insertColor; //jesli color.id==null, to dodaje nowy color, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
         public event Func<IErrorable, List<color>> getAllColors; //zwraca listę wszystkich kolorów
@@ -165,69 +167,100 @@ namespace programowanie_SSprint
         }
         #endregion
         #region GENERATED_EVENTS
-        private void MainWindow_Load(object sender, EventArgs e)
-        {
-     
-           // colorEditorWindow.ShowDialog();
-        }
-        private void tshirtsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // TODO
-            // event odpowiadający za dodawanie/usuwanie/edytowanie stanu magazynowego koszulek
-            tshirtEditorWindow.ShowDialog();
 
-        }
+            #region TOP_MENU
+            private void tshirtsToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+                // TODO
+                // event odpowiadający za dodawanie/usuwanie/edytowanie stanu magazynowego koszulek
+                tshirtEditorWindow.ShowDialog();
 
-        private void companiesToolStripMenuItem_Click(object sender, EventArgs e)
+            }
+
+            private void companiesToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+                // TODO
+                // event odpowiadający za dodawanie/usuwanie/edytowanie firm
+                //
+                companyEditorWindow.ShowDialog();
+            }
+
+            private void colorsToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+                // TODO
+                // event odpowiadający za dodawanie/usuwanie/edytowanie kolorów
+                //
+
+                colorEditorWindow.ShowDialog();
+            }
+
+            private void stylesToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+                // TODO
+                // event odpowiadający za dodawanie/usuwanie/edytowanie styli
+                //
+
+                styleEditorWindow.ShowDialog();
+            }
+
+            private void getDataToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+                // TODO
+                // event odpowiadający za odświeżanie danych bazowych
+                //
+            }
+            private void btnCurrentOrderBrowseImage_Click(object sender, EventArgs e)
+            {
+                pictureEditorWindow.ShowDialog();
+            }
+            #endregion
+
+        private void MainWindow_Shown(object sender, EventArgs e)
         {
-            // TODO
-            // event odpowiadający za dodawanie/usuwanie/edytowanie firm
-            //
-            companyEditorWindow.ShowDialog();
+            VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllTshirts(this));
+           // FillOrderList(getall)
         }
 
-        private void colorsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // TODO
-            // event odpowiadający za dodawanie/usuwanie/edytowanie kolorów
-            //
-
-            colorEditorWindow.ShowDialog();
-        }
-
-        private void stylesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // TODO
-            // event odpowiadający za dodawanie/usuwanie/edytowanie styli
-            //
-
-            styleEditorWindow.ShowDialog();
-        }
-
-        private void getDataToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // TODO
-            // event odpowiadający za odświeżanie danych bazowych
-            //
-        }
-        private void btnCurrentOrderBrowseImage_Click(object sender, EventArgs e)
-        {
-            pictureEditorWindow.ShowDialog();
-        }
-   
-    #endregion
-    #region PRIVATE_VARIABLES_PROPERTIES
-    private ColorEditor colorEditorWindow;
+        #endregion
+        #region PRIVATE_VARIABLES_PROPERTIES
+        private ColorEditor colorEditorWindow;
         private PictureEditor pictureEditorWindow;
         private StyleEditor styleEditorWindow;
         private CompanyEditor companyEditorWindow;
 
         private TshirtEditor tshirtEditorWindow;
-        // private 
+
+        private order currentlySelectedOrder;
+        private order currentlyEditedOrder;
+
+        private order CurrentlySelectedOrder
+        {
+            get { return currentlySelectedOrder; }
+            set
+            {
+                currentlySelectedOrder = value;
+            }
+        }
         #endregion
 
         #region PRIVATE_METHODS
+        private void FillOrderList(List<order> theList)
+        {
+            lvAllOrders.Items.Clear();
+
+            ListViewItem item;
+
+            foreach(order o in theList)
+            {
+                item = new ListViewItem(o.id.ToString());
+                item.Tag = o;
+                item.SubItems.AddRange(new string[] { o.end_date.ToString() });
+               
+            }
+        }
+
         #endregion
 
+       
     }
 }
