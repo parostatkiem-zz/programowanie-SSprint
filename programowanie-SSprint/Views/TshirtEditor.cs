@@ -43,7 +43,7 @@ namespace programowanie_SSprint
 
         private void TshirtEditor_Load(object sender, EventArgs e)
         {
-            RefreshTshirtList(getAllThsirts(this));
+            VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllThsirts(this));
             FillAllControls();
             CurrentlySelectedTshirt = null;
         }
@@ -117,7 +117,7 @@ namespace programowanie_SSprint
             {
 
                 treeViewProductBrowser.Visible = true;
-                RefreshTshirtList(getAllThsirts(this));
+                VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllThsirts(this));
             }
             btnAddNew.Visible = true;
             btnDelete.Visible = true;
@@ -131,7 +131,8 @@ namespace programowanie_SSprint
             if (dialogResult == DialogResult.No) return;
 
             removeTshirt(this, CurrentlySelectedTshirt);
-            RefreshTshirtList(getAllThsirts(this));
+            VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllThsirts(this));
+    
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -234,57 +235,7 @@ namespace programowanie_SSprint
 
         }
 
-        private void RefreshTshirtList(List<tshirt> theList)
-        {
-            treeViewProductBrowser.Nodes.Clear();
-            TreeNode tmp;
-            TreeNode currentParentNode;
-
-
-            foreach (tshirt t in theList)
-            {
-                //firma
-                tmp = new TreeNode(t.company.name);
-                tmp.Name = t.company.name;
-                if (!treeViewProductBrowser.Nodes.ContainsKey(tmp.Name))
-                {
-                    //nie ma jeszcze takiej firmy
-                    treeViewProductBrowser.Nodes.Add(tmp);
-                }
-                currentParentNode = treeViewProductBrowser.Nodes.Find(tmp.Name, false).First();
-
-
-                //plec
-                tmp = new TreeNode(t.sex);
-                tmp.Name = t.sex;
-                if (!currentParentNode.Nodes.ContainsKey(tmp.Name))
-                {
-                    //nie ma jeszcze takiej firmy
-                    currentParentNode.Nodes.Add(tmp);
-                }
-                currentParentNode = currentParentNode.Nodes.Find(tmp.Name, false).First();
-
-                //styl
-                tmp = new TreeNode(t.style.name);
-                tmp.Name = t.style.name;
-                if (!currentParentNode.Nodes.ContainsKey(tmp.Name))
-                {
-                    //nie ma jeszcze takiej firmy
-                    currentParentNode.Nodes.Add(tmp);
-                }
-                currentParentNode = currentParentNode.Nodes.Find(tmp.Name, false).First();
-
-
-                //konkretna koszulka
-                tmp = new TreeNode(t.ToString());
-                tmp.Tag = t;
-                tmp.NodeFont = new Font(treeViewProductBrowser.Font, FontStyle.Bold);
-
-                currentParentNode.Nodes.Add(tmp);
-            }
-
-
-        }
+        
         private void FillCompanyControl()
         {
             comboBoxCompany.Items.Clear();

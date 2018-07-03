@@ -89,6 +89,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SSprintDataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="StaticClasses.cs" />
     <Compile Include="style.cs">
       <DependentUpon>SSprintDataModel.tt</DependentUpon>
     </Compile>
