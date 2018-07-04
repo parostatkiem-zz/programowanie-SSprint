@@ -219,7 +219,7 @@ namespace programowanie_SSprint
         {
             // VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllTshirts(this));
             CurrentlySelectedOrder = null;
-            // FillOrderList(getall)
+            RefreshOrderList(getAllOrders(this, this));
 
         }
 
@@ -249,6 +249,7 @@ namespace programowanie_SSprint
                     return;
                 }
                 currentlyEditedOrder = value;
+
                 splitContainerHorizLeft.Visible = true;
                 gbSelectedOrderParams.Visible = true;
 
@@ -270,7 +271,7 @@ namespace programowanie_SSprint
                 item = new ListViewItem(o.id.ToString());
                 item.Tag = o;
                 item.SubItems.AddRange(new string[] { o.end_date.ToString() });
-
+                lvAllOrders.Items.Add(item);
             }
         }
 
@@ -345,17 +346,54 @@ namespace programowanie_SSprint
 
         private void btnSelectedOrderSave_Click(object sender, EventArgs e)
         {
-           
+            if (currentlyEditedOrder == null)
+            {
+                ShowError("Wygląda na to, że nie edytujesz obiecnie żadnego zamówienia");
+                return;
+            }
+                
             insertOrder(this, this, currentlyEditedOrder);
             if (!lvAllOrders.Visible)
             {
 
                 lvAllOrders.Visible = true;
-                RefreshOrderList(getAllOrders(this, this));
+              
             }
             btnAddNew.Visible = true;
             btnDelete.Visible = true;
             gbSelectedOrderParams.Visible = false;
+            RefreshOrderList(getAllOrders(this, this));
+
+        }
+
+        private void tbSelectedOrderName_TextChanged(object sender, EventArgs e)
+        {
+            currentlyEditedOrder.client_name = tbSelectedOrderName.Text;
+        }
+
+        private void tbSelectedOrderEmail_TextChanged(object sender, EventArgs e)
+        {
+            currentlyEditedOrder.client_email = tbSelectedOrderEmail.Text;
+        }
+
+        private void tbSelectedOrderPhone_TextChanged(object sender, EventArgs e)
+        {
+            currentlyEditedOrder.client_phone = tbSelectedOrderPhone.Text;
+        }
+
+        private void dateTimeEnd_ValueChanged(object sender, EventArgs e)
+        {
+            currentlyEditedOrder.end_date = dateTimeEnd.Value;
+        }
+
+        private void comboBoxSelectedOrderStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentlyEditedOrder.status = comboBoxSelectedOrderStatus.SelectedIndex;
+        }
+
+        private void numClientPrice_ValueChanged(object sender, EventArgs e)
+        {
+            currentlyEditedOrder.price_for_client =(int) numClientPrice.Value;
         }
     }
 }
