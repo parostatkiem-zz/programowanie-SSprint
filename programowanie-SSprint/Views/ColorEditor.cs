@@ -35,6 +35,7 @@ namespace programowanie_SSprint
         #endregion
         private color currentlyEditedColor;
         private color currentlySelectedColor;
+        private EditMode editMode;
         private color CurrentlySelectedColor
         {
             get { return currentlySelectedColor; }
@@ -70,13 +71,14 @@ namespace programowanie_SSprint
         private void lvColors_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lvColors.SelectedItems.Count <= 0 || lvColors.SelectedItems[0].Tag == null) return; //nic nie jest zaznaczone
-
+            editMode = EditMode.Edit;
             CurrentlySelectedColor = lvColors.SelectedItems[0].Tag as color;
         }
 
         private void displaySingleColor(color c)
         {
-            currentlyEditedColor = c;
+            if(editMode!=EditMode.AddNew)
+                currentlyEditedColor = c;
             if (c != null)
             {
                 tbName.Text = c.name;
@@ -102,7 +104,7 @@ namespace programowanie_SSprint
 
         private void tbHex_TextChanged(object sender, EventArgs e)
         {
-            if (tbHex.Text.Length <= 0) { return; }//error
+          //  if (tbHex.Text.Length <= 0) { return; }//error
 
             currentlyEditedColor.hex_value = tbHex.Text;
         }
@@ -130,6 +132,7 @@ namespace programowanie_SSprint
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
+            editMode = EditMode.AddNew;
             CurrentlySelectedColor = null;
             currentlyEditedColor = new color();
             groupBoxColorList.Visible = false;

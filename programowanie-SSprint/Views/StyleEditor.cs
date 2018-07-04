@@ -38,6 +38,7 @@ namespace programowanie_SSprint
         #endregion
         private style currentlyEditedStyle;
         private style currentlySelectedStyle;
+        private EditMode editMode;
         private style CurrentlySelectedStyle
         {
             get { return currentlySelectedStyle; }
@@ -72,13 +73,14 @@ namespace programowanie_SSprint
         private void lvStyles_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lvStyles.SelectedItems.Count <= 0 || lvStyles.SelectedItems[0].Tag == null) return; //nic nie jest zaznaczone
-
+            editMode = EditMode.Edit;
             CurrentlySelectedStyle = lvStyles.SelectedItems[0].Tag as style;
         }
 
         private void displaySingleStyle(style c)
         {
-            currentlyEditedStyle = c;
+            if (editMode != EditMode.AddNew)
+                currentlyEditedStyle = c;
             if (c != null)
             {
                 tbName.Text = c.name;
@@ -124,6 +126,7 @@ namespace programowanie_SSprint
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
+            editMode = EditMode.AddNew;
             CurrentlySelectedStyle = null;
             currentlyEditedStyle = new style();
             groupBoxStyleList.Visible = false;

@@ -35,6 +35,7 @@ namespace programowanie_SSprint
         #endregion
         private company currentlyEditedCompany;
         private company currentlySelectedCompany;
+        private EditMode editMode;
         private company CurrentlySelectedCompany
         {
             get { return currentlySelectedCompany; }
@@ -69,13 +70,14 @@ namespace programowanie_SSprint
         private void lvCompanies_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lvCompanies.SelectedItems.Count <= 0 || lvCompanies.SelectedItems[0].Tag == null) return; //nic nie jest zaznaczone
-
+            editMode = EditMode.Edit;
             CurrentlySelectedCompany = lvCompanies.SelectedItems[0].Tag as company;
         }
 
         private void displaySingleCompany(company c)
         {
-            currentlyEditedCompany = c;
+            if (editMode != EditMode.AddNew)
+                currentlyEditedCompany = c;
             if (c != null)
             {
                 tbName.Text = c.name;
@@ -137,6 +139,7 @@ namespace programowanie_SSprint
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
+            editMode = EditMode.AddNew;
             CurrentlySelectedCompany = null;
             currentlyEditedCompany = new company();
             groupBoxCompanyList.Visible = false;

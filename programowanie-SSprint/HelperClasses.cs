@@ -62,4 +62,6 @@ namespace programowanie_SSprint
 
         }
     }
+
+    public enum EditMode { Edit,AddNew};
 }
