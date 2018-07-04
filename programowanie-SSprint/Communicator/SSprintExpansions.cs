@@ -75,7 +75,7 @@ namespace programowanie_SSprint
             this.end_date = otherOrder.end_date;
             this.picture_id = otherOrder.picture_id;
             this.status = otherOrder.status;
-            this.singleItemOrders = otherOrder.singleItemOrders;
+            //this.singleItemOrders = otherOrder.singleItemOrders;
             this.price_for_client = otherOrder.price_for_client;
         }
 
