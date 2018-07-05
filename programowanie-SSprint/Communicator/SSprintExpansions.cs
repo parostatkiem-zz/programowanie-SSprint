@@ -83,6 +83,38 @@ namespace programowanie_SSprint
         {
             return this.id;
         }
+
+        public virtual int SingleItemOrderTypesCount
+        {
+            get
+            {
+                return this.singleItemOrders.GroupBy(f => f.getId()).Count();
+            }
+        }
+
+        public virtual int SingleItemOrderCount
+        {
+            get
+            {
+                return this.singleItemOrders.Count;
+            }
+        }
+
+        public virtual int Cost
+        {
+            get
+            {
+                return this.singleItemOrders.Sum(x => x.TotalCost);
+            }
+        }
+
+        public virtual int Profit
+        {
+            get
+            {
+                return this.price_for_client - this.Cost;
+            }
+        }
     }
 
     public partial class picture : Communicator.CommunicatorElement<picture>
@@ -112,6 +144,22 @@ namespace programowanie_SSprint
         public override int getId()
         {
             return this.id;
+        }
+
+        public virtual int TotalReservedAmound
+        {
+            get
+            {
+                return this.amount * this.tshirt.default_loss_percentage + this.amount;
+            }
+        }
+
+        public virtual int TotalCost
+        {
+            get
+            {
+                return this.tshirt.price;
+            }
         }
     }
 
