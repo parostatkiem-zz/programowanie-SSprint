@@ -10,43 +10,48 @@ namespace programowanie_SSprint.Communicator
     abstract class BaseCommunicator<elementType> where elementType : CommunicatorElement<elementType>
     {
         protected static SSprintContext dataBase;
-        protected static readonly Exception threadConflict;
-        protected static readonly Exception badDataType;
-        protected static readonly Exception connectionFailure;
-        protected static readonly Exception savingFailure;
-        protected static readonly Exception badBaseConfiguration;
-        protected static readonly Exception findingFailure;
-        protected static readonly Exception nullReference;
+
+        protected static readonly Exception threadConflictException;
+        protected static readonly Exception badDataTypeException;
+        protected static readonly Exception connectionException;
+        protected static readonly Exception savingException;
+        protected static readonly Exception badBaseConfigurationException;
+        protected static readonly Exception findingException;
+        protected static readonly Exception nullReferenceException;
+        protected static readonly Exception operationException;
 
         static BaseCommunicator()
         {
-            threadConflict = new Exception("Zbyt wiele operacji wykonywanych na jednej bazie!");
-            threadConflict.HelpLink = "Błąd wynika z powodu źle zaprojektowanej obsługi tego zdarzenia. Skontaktuj się z pomocą techniczną i przekaż informacje o tym!";
+            threadConflictException = new Exception("Zbyt wiele operacji wykonywanych na jednej bazie!");
+            threadConflictException.HelpLink = "Błąd wynika z powodu źle zaprojektowanej obsługi tego zdarzenia. Skontaktuj się z pomocą techniczną i przekaż informacje o tym!";
 
-            badDataType = new Exception("Zły format danych! Upewnij się, że wszystko zostało poprawnie wypełnione.");
-            badDataType.HelpLink = "Upewnij się, że wszystkie dane posiadają odpowiedni typ i formatowanie.";
+            badDataTypeException = new Exception("Zły format danych! Upewnij się, że wszystko zostało poprawnie wypełnione.");
+            badDataTypeException.HelpLink = "Upewnij się, że wszystkie dane posiadają odpowiedni typ i formatowanie.";
 
-            connectionFailure = new Exception("Brak połączenia z bazą. Upewnij się, że jesteś podłączony z internetem i podałeś poprawne dane logowania do bazy.");
-            connectionFailure.HelpLink = "Sprawdź swoje połączenie z internetem.\nUpewnij się, że plik z danymi logowania został wypełniony prawidłowo.";
+            connectionException = new Exception("Brak połączenia z bazą. Upewnij się, że jesteś podłączony z internetem i podałeś poprawne dane logowania do bazy.");
+            connectionException.HelpLink = "Sprawdź swoje połączenie z internetem.\nUpewnij się, że plik z danymi logowania został wypełniony prawidłowo.";
 
-            savingFailure = new Exception("Błąd zapisywania danych.");
-            savingFailure.HelpLink = "Baza odmówiła zapisania zmian. \nUpewnij się, że pola NOT NULL nie zostały puste oraz baza nie uległa zmianie.";
+            savingException = new Exception("Błąd zapisywania danych.");
+            savingException.HelpLink = "Baza odmówiła zapisania zmian. \nUpewnij się, że pola NOT NULL nie zostały puste oraz baza nie uległa zmianie. \nUpewnij się, że masz prawa do edycji tego obiektu.";
 
-            badBaseConfiguration = new Exception("Baza nie pozwoliła na wykonanie tej operacji.");
-            badBaseConfiguration.HelpLink = "Upewnij się, że obiekt istnieje oraz masz do niego dostęp.";
+            badBaseConfigurationException = new Exception("Baza nie pozwoliła na wykonanie tej operacji.");
+            badBaseConfigurationException.HelpLink = "Upewnij się, że obiekt istnieje oraz masz do niego dostęp.";
 
-            findingFailure = new Exception("Baza nie znalazła tego obiektu.");
-            findingFailure.HelpLink = "Upewnij się, że wskazywany obiekt istnieje w bazie.";
+            findingException = new Exception("Baza nie znalazła tego obiektu.");
+            findingException.HelpLink = "Upewnij się, że wskazywany obiekt istnieje w bazie.";
 
-            nullReference = new Exception("Do bazy nie został przesłany żaden obiekt.");
-            nullReference.HelpLink = "Upewnij się, że wskazywany obiekt został wypełniony poprawnie";
+            nullReferenceException = new Exception("Do bazy nie został przesłany żaden obiekt.");
+            nullReferenceException.HelpLink = "Upewnij się, że wskazywany obiekt został wypełniony poprawnie";
+
+            operationException = new Exception("Baza odmówiła operacji na tym obiekcie");
+            operationException.HelpLink = "Upewnij się, że masz prawa do wykonania tej operacji";
         }
         ~BaseCommunicator()
         {
             dataBase = null;
         }
 
-        protected virtual SSprintContext GetBase()
+        public virtual SSprintContext GetBase()
         {
             return dataBase;
         }
@@ -58,11 +63,11 @@ namespace programowanie_SSprint.Communicator
                 if (dataBase == null)
                     dataBase = new SSprintContext();
                 else
-                    throw threadConflict;
+                    throw threadConflictException;
             }
             catch
             {
-                throw connectionFailure;
+                throw connectionException;
             }
         }
 
@@ -74,7 +79,7 @@ namespace programowanie_SSprint.Communicator
             }
             catch
             {
-                throw savingFailure;
+                throw savingException;
             }
             finally
             {

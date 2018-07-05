@@ -13,17 +13,14 @@ namespace programowanie_SSprint
         public void InsertElement<elementType>(elementType objToInsert) 
             where elementType : Communicator.CommunicatorElement<elementType>
         {
-            lock (mainThreadLock)
+            try
             {
-                try
-                {
-                    this.InsertListOfElements<elementType>(new List<elementType>() { objToInsert });
-                }
-                catch(Exception ex)
-                {
-                    throw ex;
-                }
-            } 
+                this.InsertListOfElements<elementType>(new List<elementType>() { objToInsert });
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public void InsertListOfElements<elementType>(List<elementType> listToInsert) 
@@ -88,16 +85,13 @@ namespace programowanie_SSprint
         public void RemoveElement<elementType>(elementType objToRemove) 
             where elementType : Communicator.CommunicatorElement<elementType>
         {
-            lock (mainThreadLock)
+            try
             {
-                try
-                {
-                    this.RemoveListOfElements<elementType>(new List<elementType>() { objToRemove });
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
+                this.RemoveListOfElements<elementType>(new List<elementType>() { objToRemove });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
