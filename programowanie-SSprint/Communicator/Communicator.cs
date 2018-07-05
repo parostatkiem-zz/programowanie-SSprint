@@ -15,11 +15,14 @@ namespace programowanie_SSprint.Communicator
         {
             try
             {
-                return dataBase.Set<elementType>().Find(elementID);
+                elementType foundedElement = dataBase.Set<elementType>().Find(elementID);
+                if (dataBase == null)
+                    this.Connect();
+                return foundedElement;
             }
             catch
             {
-                throw findingFailure;
+                throw findingException;
             }
         }
 
@@ -31,7 +34,7 @@ namespace programowanie_SSprint.Communicator
             }
             catch
             {
-                throw badBaseConfiguration;
+                throw badBaseConfigurationException;
             }
         }
 
@@ -43,11 +46,11 @@ namespace programowanie_SSprint.Communicator
             }
             catch (NullReferenceException)
             {
-                throw nullReference;
+                throw nullReferenceException;
             }
             catch
             {
-                throw badDataType;
+                throw badDataTypeException;
             }
         }
 
@@ -59,11 +62,11 @@ namespace programowanie_SSprint.Communicator
             }
             catch (NullReferenceException)
             {
-                throw nullReference;
+                throw nullReferenceException;
             }
             catch
             {
-                throw badDataType;
+                throw badDataTypeException;
             }
         }
 
@@ -75,11 +78,15 @@ namespace programowanie_SSprint.Communicator
             }
             catch (NullReferenceException)
             {
-                throw nullReference;
+                throw nullReferenceException;
+            }
+            catch (InvalidOperationException)
+            {
+                throw operationException;
             }
             catch
             {
-                throw findingFailure;
+                throw findingException;
             }
         }
 
@@ -91,11 +98,11 @@ namespace programowanie_SSprint.Communicator
             }
             catch (NullReferenceException)
             {
-                throw nullReference;
+                throw nullReferenceException;
             }
             catch
             {
-                throw badDataType;
+                throw badDataTypeException;
             }
         }
     }
