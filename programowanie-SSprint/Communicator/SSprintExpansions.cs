@@ -88,7 +88,7 @@ namespace programowanie_SSprint
         {
             get
             {
-                return this.singleItemOrders.GroupBy(f => f.getId()).Count();
+                return (this.singleItemOrders != null) ? this.singleItemOrders.GroupBy(f => f.getId()).Count() : 0;
             }
         }
 
@@ -96,7 +96,7 @@ namespace programowanie_SSprint
         {
             get
             {
-                return this.singleItemOrders.Count;
+                return (this.singleItemOrders != null) ? this.singleItemOrders.Count : 0;
             }
         }
 
@@ -104,7 +104,7 @@ namespace programowanie_SSprint
         {
             get
             {
-                return this.singleItemOrders.Sum(x => x.TotalCost);
+                return (this.singleItemOrders != null) ? this.singleItemOrders.Sum(x => x.TotalCost) : 0;
             }
         }
 
@@ -150,7 +150,7 @@ namespace programowanie_SSprint
         {
             get
             {
-                return this.amount * this.tshirt.default_loss_percentage + this.amount;
+                return (this.tshirt != null) ? this.amount * this.tshirt.default_loss_percentage + this.amount : 0;
             }
         }
 
@@ -158,7 +158,7 @@ namespace programowanie_SSprint
         {
             get
             {
-                return this.tshirt.price;
+                return (this.tshirt != null) ? this.tshirt.price : 0;
             }
         }
     }
