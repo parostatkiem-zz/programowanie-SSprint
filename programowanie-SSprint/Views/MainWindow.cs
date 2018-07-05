@@ -223,7 +223,8 @@ namespace programowanie_SSprint
             // VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllTshirts(this));
             CurrentlySelectedOrder = null;
             RefreshOrderList(getAllOrders(this, this));
-            VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllTshirts(this, this));
+            localTshirtList = getAllTshirts(this, this);
+            VisualHelper.RefreshTshirtList(treeViewProductBrowser,localTshirtList);
             CurrentlySelectedTshirt = null;
         }
 
@@ -239,6 +240,8 @@ namespace programowanie_SSprint
         private order currentlySelectedOrder;
         private order currentlyEditedOrder;
 
+
+        private List<tshirt> localTshirtList;
         private tshirt currentlySelectedTshirt;
         private tshirt CurrentlySelectedTshirt
         {
@@ -320,14 +323,17 @@ namespace programowanie_SSprint
 
             ListViewItem item;
             tshirt currentTshirt;
-
+            int reserved_amount;
             foreach(singleItemOrder o_item in theList)
             {
-                currentTshirt = treeViewProductBrowser.Nodes.Cast<TreeNode>().Where(x => (x.Tag as tshirt).id == o_item.tshirt_id).ToArray()[0].Tag as tshirt;
+                currentTshirt = localTshirtList.Find(t => t.id == o_item.tshirt_id);
                 if (currentTshirt == null) currentTshirt = new tshirt();
-                item = new ListViewItem(o_item.tshirt.company.name);
+                decimal a = ((decimal)currentTshirt.default_loss_percentage / 100);
+                reserved_amount =(int)Math.Ceiling( (decimal)(a* o_item.amount) + o_item.amount);
+                item = new ListViewItem(currentTshirt.company.name);
                 item.Tag = o_item;
-                item.SubItems.AddRange(new string[] { currentTshirt.style.name, currentTshirt.sex, currentTshirt.color.name,o_item.amount.ToString(),o_item.TotalReservedAmound.ToString() });
+                item.SubItems.AddRange(new string[] { currentTshirt.style.name, currentTshirt.sex, currentTshirt.color.name,o_item.amount.ToString(),reserved_amount.ToString() });
+
                 lvOrderedProducts.Items.Add(item);
             }
         }
@@ -360,6 +366,16 @@ namespace programowanie_SSprint
             catch { }
             comboBoxSelectedOrderStatus.SelectedIndex = o.status;
             numClientPrice.Value = o.price_for_client;
+        }
+
+        private void DeleteProperOrderItems(List<singleItemOrder> old, List<singleItemOrder> updated)
+        {
+            List<singleItemOrder> ordersToDelete = new List<singleItemOrder>();
+            foreach(singleItemOrder i in old)
+            {
+                if (updated.Find(o => o.id == i.id) == null)
+                    ordersToDelete.Add(i);
+            }
         }
 
         private void btnSelectedOrderDelete_Click(object sender, EventArgs e)
@@ -401,6 +417,7 @@ namespace programowanie_SSprint
             btnDelete.Visible = true;
         }
 
+        
         private void btnSelectedOrderSave_Click(object sender, EventArgs e)
         {
             if (currentlyEditedOrder == null)
@@ -408,8 +425,11 @@ namespace programowanie_SSprint
                 ShowError("Wygląda na to, że nie edytujesz obiecnie żadnego zamówienia");
                 return;
             }
+
                 
             insertOrder(this, this, currentlyEditedOrder);
+            insertListOfItems(this, this, currentListOfItems);
+            DeleteProperOrderItems(currentlyEditedOrder.singleItemOrders.ToList(), currentListOfItems);
             if (!lvAllOrders.Visible)
             {
 
