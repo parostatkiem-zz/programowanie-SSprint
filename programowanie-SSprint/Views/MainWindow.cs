@@ -252,8 +252,9 @@ namespace programowanie_SSprint
 
                 splitContainerHorizLeft.Visible = true;
                 gbSelectedOrderParams.Visible = true;
-
+              
                 DisplaySingleOrder(currentlyEditedOrder);
+                RefreshOrderItemList(currentlyEditedOrder);
 
             }
         }
@@ -272,6 +273,20 @@ namespace programowanie_SSprint
                 item.Tag = o;
                 item.SubItems.AddRange(new string[] { o.end_date.ToString() });
                 lvAllOrders.Items.Add(item);
+            }
+        }
+
+        private void RefreshOrderItemList(order o)
+        {
+            lvOrderedProducts.Items.Clear();
+            if (o.singleItemOrders == null || o.SingleItemOrderCount <= 0) return;
+            ListViewItem item;
+            foreach(singleItemOrder o_item in o.singleItemOrders)
+            {
+                item = new ListViewItem(o_item.tshirt.company.name);
+                item.Tag = o_item;
+                item.SubItems.AddRange(new string[] { o_item.tshirt.style.name, o_item.tshirt.sex, o_item.tshirt.color.name,o_item.amount.ToString(),o_item.TotalReservedAmound.ToString() });
+                lvOrderedProducts.Items.Add(item);
             }
         }
 

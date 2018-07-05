@@ -147,6 +147,7 @@ namespace programowanie_SSprint
             }
 
             removeColor(this, this, CurrentlySelectedColor);
+            RefreshColorList();
         }
 
        

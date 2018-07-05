@@ -154,6 +154,8 @@ namespace programowanie_SSprint
             }
 
             removeCompany(this, this, CurrentlySelectedCompany);
+            RefreshCompanyList();
+         
         }
 
       

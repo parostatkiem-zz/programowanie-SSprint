@@ -117,11 +117,12 @@ namespace programowanie_SSprint
             {
 
                 treeViewProductBrowser.Visible = true;
-                VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllThsirts(this, this));
+                
             }
             btnAddNew.Visible = true;
             btnDelete.Visible = true;
-            //  TryToSelectNode(theNodeId);
+           // VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllThsirts(this, this));
+          
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -154,7 +155,7 @@ namespace programowanie_SSprint
             currentlyEditedTshirt.singleItemOrders = new List<singleItemOrder>();
             btnAddNew.Visible = false;
             btnDelete.Visible = false;
-            //currentlyEditedTshirt.
+            VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllThsirts(this, this));
         }
 
         #endregion

@@ -141,7 +141,8 @@ namespace programowanie_SSprint
             }
 
             removeStyle(this, this, CurrentlySelectedStyle);
+            RefreshStyleList();
         }
-
+     
     }
 }
