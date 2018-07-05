@@ -81,6 +81,9 @@ namespace programowanie_SSprint
             tshirtEditorWindow.removeTshirt += TshirtEditorWindow_removeTshirt;
 
 
+            currentListOfItems = new List<singleItemOrder>();
+
+
         }
 
         private bool TshirtEditorWindow_removeTshirt(IErrorable arg1, ICommunicative arg3, tshirt arg2)
@@ -220,7 +223,8 @@ namespace programowanie_SSprint
             // VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllTshirts(this));
             CurrentlySelectedOrder = null;
             RefreshOrderList(getAllOrders(this, this));
-
+            VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllTshirts(this, this));
+            CurrentlySelectedTshirt = null;
         }
 
         #endregion
@@ -234,6 +238,33 @@ namespace programowanie_SSprint
 
         private order currentlySelectedOrder;
         private order currentlyEditedOrder;
+
+        private tshirt currentlySelectedTshirt;
+        private tshirt CurrentlySelectedTshirt
+        {
+            get { return currentlySelectedTshirt; }
+            set
+            {
+                currentlySelectedTshirt = value;
+                if (value == null)
+                {
+                    lSelectedTshirtName.Text = "";
+                    btnAddProductToOrder.Visible = false;
+                    numericAddingProductAmount.Visible = false;
+                }
+                else
+                {
+                    lSelectedTshirtName.Text = value.ToString();
+                    btnAddProductToOrder.Visible = true;
+                    numericAddingProductAmount.Visible = true;
+                    numericAddingProductAmount.Value = 1;
+                    numericAddingProductAmount.Maximum = value.getNotOrdered();
+                }
+                    
+            }
+        }
+
+        private List<singleItemOrder> currentListOfItems;
 
         private order CurrentlySelectedOrder
         {
@@ -252,9 +283,12 @@ namespace programowanie_SSprint
 
                 splitContainerHorizLeft.Visible = true;
                 gbSelectedOrderParams.Visible = true;
-              
+
+                currentListOfItems.Clear();
+                currentListOfItems.AddRange(value.singleItemOrders.ToArray());
+
                 DisplaySingleOrder(currentlyEditedOrder);
-                RefreshOrderItemList(currentlyEditedOrder);
+                RefreshOrderItemList(currentListOfItems);
 
             }
         }
@@ -276,16 +310,24 @@ namespace programowanie_SSprint
             }
         }
 
-        private void RefreshOrderItemList(order o)
+        private void RefreshOrderItemList(List<singleItemOrder> theList)
         {
             lvOrderedProducts.Items.Clear();
-            if (o.singleItemOrders == null || o.SingleItemOrderCount <= 0) return;
+           
+            
+            if (theList == null) return;
+            
+
             ListViewItem item;
-            foreach(singleItemOrder o_item in o.singleItemOrders)
+            tshirt currentTshirt;
+
+            foreach(singleItemOrder o_item in theList)
             {
+                currentTshirt = treeViewProductBrowser.Nodes.Cast<TreeNode>().Where(x => (x.Tag as tshirt).id == o_item.tshirt_id).ToArray()[0].Tag as tshirt;
+                if (currentTshirt == null) currentTshirt = new tshirt();
                 item = new ListViewItem(o_item.tshirt.company.name);
                 item.Tag = o_item;
-                item.SubItems.AddRange(new string[] { o_item.tshirt.style.name, o_item.tshirt.sex, o_item.tshirt.color.name,o_item.amount.ToString(),o_item.TotalReservedAmound.ToString() });
+                item.SubItems.AddRange(new string[] { currentTshirt.style.name, currentTshirt.sex, currentTshirt.color.name,o_item.amount.ToString(),o_item.TotalReservedAmound.ToString() });
                 lvOrderedProducts.Items.Add(item);
             }
         }
@@ -409,6 +451,22 @@ namespace programowanie_SSprint
         private void numClientPrice_ValueChanged(object sender, EventArgs e)
         {
             currentlyEditedOrder.price_for_client =(int) numClientPrice.Value;
+        }
+
+        private void treeViewProductBrowser_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (treeViewProductBrowser.SelectedNode.Tag as tshirt == null) return;
+            CurrentlySelectedTshirt = treeViewProductBrowser.SelectedNode.Tag as tshirt;
+        }
+
+        private void btnAddProductToOrder_Click(object sender, EventArgs e)
+        {
+            singleItemOrder item = new singleItemOrder();
+            item.order_id = currentlyEditedOrder.id;
+            item.tshirt_id = CurrentlySelectedTshirt.id;
+            item.amount = (int)numericAddingProductAmount.Value;
+            currentListOfItems.Add(item);
+            RefreshOrderItemList(currentListOfItems);
         }
     }
 }
