@@ -376,6 +376,7 @@ namespace programowanie_SSprint
                 if (updated.Find(o => o.id == i.id) == null)
                     ordersToDelete.Add(i);
             }
+            deleteListOfItems(this, this, ordersToDelete);
         }
 
         private void btnSelectedOrderDelete_Click(object sender, EventArgs e)
@@ -487,6 +488,15 @@ namespace programowanie_SSprint
             item.amount = (int)numericAddingProductAmount.Value;
             currentListOfItems.Add(item);
             RefreshOrderItemList(currentListOfItems);
+        }
+
+        private void lvOrderedProducts_DoubleClick(object sender, EventArgs e)
+        {
+            var clickedItem = lvOrderedProducts.SelectedItems[0].Tag as singleItemOrder;
+            if (clickedItem == null) return;
+            currentListOfItems.Remove(clickedItem);
+            RefreshOrderItemList(currentListOfItems);
+
         }
     }
 }
