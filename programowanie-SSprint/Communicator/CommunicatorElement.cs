@@ -10,6 +10,7 @@ namespace programowanie_SSprint.Communicator
     public abstract class CommunicatorElement<elementType> where elementType : class
     {
         public abstract void CopyFrom(elementType otherELement);
-        public abstract int getId();
+        public abstract int GetId();
+        public abstract elementType GetCopyOfThis { get; }
     }
 }

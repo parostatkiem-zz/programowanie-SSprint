@@ -56,7 +56,7 @@ namespace programowanie_SSprint.Communicator
             return dataBase;
         }
 
-        public virtual void Connect()
+        public virtual void NewConnection()
         {
             try
             {
@@ -80,10 +80,6 @@ namespace programowanie_SSprint.Communicator
             catch
             {
                 throw savingException;
-            }
-            finally
-            {
-                this.FinalizeBase();
             }
         }
         public virtual void FinalizeBase()

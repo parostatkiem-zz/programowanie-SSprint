@@ -17,7 +17,7 @@ namespace programowanie_SSprint.Communicator
             {
                 elementType foundedElement = dataBase.Set<elementType>().Find(elementID);
                 if (dataBase == null)
-                    this.Connect();
+                    this.NewConnection();
                 return foundedElement;
             }
             catch
