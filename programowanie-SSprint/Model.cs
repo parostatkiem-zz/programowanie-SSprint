@@ -23,32 +23,50 @@ namespace programowanie_SSprint
             }
         }
 
-        public void InsertListOfElements<elementType>(List<elementType> listToInsert) 
+        public void InsertListOfElements<elementType>(List<elementType> listToInsert, bool reUpload = false) 
             where elementType : Communicator.CommunicatorElement<elementType>
         {
             lock (mainThreadLock)
             {
                 Communicator.Communicator<elementType> baseCommunicator = new Communicator.Communicator<elementType>();
+                List<elementType> bufferAdded = new List<elementType>();
+                List<elementType> bufferModified = new List<elementType>();
                 try
                 {
-                    baseCommunicator.Connect();
+                    baseCommunicator.NewConnection();
                     
                     foreach(elementType objToInsert in listToInsert)
                     {
-                        elementType foundedElem = baseCommunicator.Find(objToInsert.getId());
+                        elementType foundedElem = baseCommunicator.Find(objToInsert.GetId());
                         if (foundedElem != null)
                         {
+                            elementType tmp = foundedElem.GetCopyOfThis;
+
                             baseCommunicator.Update(ref foundedElem, objToInsert);
+                            baseCommunicator.SaveChanges();
+
+                            bufferModified.Add(tmp);
                         }
                         else
+                        {
                             baseCommunicator.Insert(objToInsert);
+                            baseCommunicator.SaveChanges();
+
+                            bufferAdded.Add(objToInsert.GetCopyOfThis);
+                        } 
                     }
                     
-                    baseCommunicator.SaveChanges();
+                    
                 }
                 catch (Exception ex)
                 {
-                    throw ex;
+                    if(!reUpload)
+                    {
+                        baseCommunicator.FinalizeBase();
+                        this.RemoveListOfElements<elementType>(bufferAdded, reUpload = true);
+                        this.InsertListOfElements<elementType>(bufferModified, reUpload = true);
+                        throw ex;
+                    }
                 }
                 finally
                 {
@@ -65,7 +83,7 @@ namespace programowanie_SSprint
                 Communicator.Communicator<elementType> baseCommunicator = new Communicator.Communicator<elementType>();
                 try
                 {
-                    baseCommunicator.Connect();
+                    baseCommunicator.NewConnection();
 
                     List<elementType> toReturn = baseCommunicator.getEntireTable();
                     baseCommunicator.FinalizeBase();
@@ -95,25 +113,34 @@ namespace programowanie_SSprint
             }
         }
 
-        public void RemoveListOfElements<elementType>(List<elementType> elementsToRemove)
+        public void RemoveListOfElements<elementType>(List<elementType> elementsToRemove, bool reUpload = false)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
             lock (mainThreadLock)
             {
                 Communicator.Communicator<elementType> baseCommunicator = new Communicator.Communicator<elementType>();
+                List<elementType> bufferRemoved = new List<elementType>();
                 try
                 {
-                    baseCommunicator.Connect();
+                    baseCommunicator.NewConnection();
 
                     foreach(elementType element in elementsToRemove)
                     {
-                        baseCommunicator.Remove(baseCommunicator.Find(element.getId()));
+                        baseCommunicator.Remove(baseCommunicator.Find(element.GetId()));
+                        baseCommunicator.SaveChanges();
+
+                        bufferRemoved.Add(element.GetCopyOfThis);
                     }
-                    baseCommunicator.SaveChanges();
+                    
                 }
                 catch(Exception ex)
                 {
-                    throw ex;
+                    if (!reUpload)
+                    {
+                        baseCommunicator.FinalizeBase();
+                        this.InsertListOfElements<elementType>(bufferRemoved, reUpload = true);
+                        throw ex;
+                    }  
                 }
                 finally
                 {
@@ -130,7 +157,7 @@ namespace programowanie_SSprint
                 Communicator.Communicator<elementType> baseCommunicator = new Communicator.Communicator<elementType>();
                 try
                 {
-                    baseCommunicator.Connect();
+                    baseCommunicator.NewConnection();
 
                     elementType toReturn = baseCommunicator.Find(elementID);
 

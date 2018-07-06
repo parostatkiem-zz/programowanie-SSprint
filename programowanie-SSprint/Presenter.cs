@@ -73,10 +73,19 @@ namespace programowanie_SSprint
             }
         }
         private bool View_removeListOfElements<elementType>
-            (IErrorable windowInterface, ICommunicative windowCommunicator, List<singleItemOrder> itemsToRemove)
+            (IErrorable windowInterface, ICommunicative windowCommunicator, List<elementType> itemsToRemove)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
-            throw new NotImplementedException();
+            try
+            {
+                model.RemoveListOfElements<elementType>(itemsToRemove);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
+                return false;
+            }
         }
 
 
