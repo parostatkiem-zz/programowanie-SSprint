@@ -108,6 +108,12 @@
     <Compile Include="Views\HelperViews\Error.Designer.cs">
       <DependentUpon>Error.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\HelperViews\NotificationPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\HelperViews\NotificationPanel.Designer.cs">
+      <DependentUpon>NotificationPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ICommunicative.cs" />
     <Compile Include="Views\IErrorable.cs" />
     <Compile Include="Views\PictureEditor.cs">
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\HelperViews\Error.resx">
       <DependentUpon>Error.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\HelperViews\NotificationPanel.resx">
+      <DependentUpon>NotificationPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PictureEditor.resx">
       <DependentUpon>PictureEditor.cs</DependentUpon>
@@ -207,6 +216,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_edit.png" />
+    <None Include="Resources\notification_icon_green.png" />
+    <None Include="Resources\notification_icon_red.png" />
+    <None Include="Resources\notification_icon_yellow.png" />
     <Content Include="SSprintDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SSprintDataModel.edmx</DependentUpon>

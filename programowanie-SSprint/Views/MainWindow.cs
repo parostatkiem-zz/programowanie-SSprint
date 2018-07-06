@@ -222,9 +222,12 @@ namespace programowanie_SSprint
         {
             // VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllTshirts(this));
             CurrentlySelectedOrder = null;
-            RefreshOrderList(getAllOrders(this, this));
+
+            
+           RefreshOrderList(getAllOrders(this, this));
             localTshirtList = getAllTshirts(this, this);
             VisualHelper.RefreshTshirtList(treeViewProductBrowser,localTshirtList);
+            
             CurrentlySelectedTshirt = null;
         }
 
@@ -497,6 +500,11 @@ namespace programowanie_SSprint
             currentListOfItems.Remove(clickedItem);
             RefreshOrderItemList(currentListOfItems);
 
+        }
+        Random rnd = new Random();
+        private void button1_Click(object sender, EventArgs e)
+        {
+            notificationPanel1.PushNotification("aaa jajaj cocojambo", rnd.Next(3));
         }
     }
 }

@@ -11,5 +11,7 @@ namespace programowanie_SSprint
     {
 
        // void PushNotification(string message, NotificationTypes type = NotificationTypes.Information, string duration="medium");
+
+      //  ReturnList(List<Communicator.CommunicatorElement<elementType>)
     }
 }
