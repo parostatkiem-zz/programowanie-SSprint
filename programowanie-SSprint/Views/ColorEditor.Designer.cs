@@ -48,6 +48,7 @@
             this.btnAddNew = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.groupBoxColorList = new System.Windows.Forms.GroupBox();
+            this.notificationPanel1 = new programowanie_SSprint.Views.HelperViews.NotificationPanel();
             this.groupBoxEditArea.SuspendLayout();
             this.groupBoxColorList.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +68,7 @@
             listViewItem1});
             this.lvColors.Location = new System.Drawing.Point(3, 16);
             this.lvColors.Name = "lvColors";
-            this.lvColors.Size = new System.Drawing.Size(214, 161);
+            this.lvColors.Size = new System.Drawing.Size(248, 178);
             this.lvColors.TabIndex = 0;
             this.lvColors.UseCompatibleStateImageBehavior = false;
             this.lvColors.View = System.Windows.Forms.View.Details;
@@ -100,9 +101,9 @@
             this.groupBoxEditArea.Controls.Add(this.lName);
             this.groupBoxEditArea.Controls.Add(this.tbHex);
             this.groupBoxEditArea.Controls.Add(this.tbName);
-            this.groupBoxEditArea.Location = new System.Drawing.Point(230, 30);
+            this.groupBoxEditArea.Location = new System.Drawing.Point(267, 42);
             this.groupBoxEditArea.Name = "groupBoxEditArea";
-            this.groupBoxEditArea.Size = new System.Drawing.Size(196, 193);
+            this.groupBoxEditArea.Size = new System.Drawing.Size(196, 232);
             this.groupBoxEditArea.TabIndex = 2;
             this.groupBoxEditArea.TabStop = false;
             this.groupBoxEditArea.Text = "Edycja zaznaczonego koloru";
@@ -113,7 +114,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.BackColor = System.Drawing.Color.Tomato;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel.Location = new System.Drawing.Point(6, 135);
+            this.btnCancel.Location = new System.Drawing.Point(6, 174);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(184, 23);
             this.btnCancel.TabIndex = 8;
@@ -146,7 +147,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnApplyChanges.BackColor = System.Drawing.Color.LightGreen;
             this.btnApplyChanges.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnApplyChanges.Location = new System.Drawing.Point(6, 164);
+            this.btnApplyChanges.Location = new System.Drawing.Point(6, 203);
             this.btnApplyChanges.Name = "btnApplyChanges";
             this.btnApplyChanges.Size = new System.Drawing.Size(184, 23);
             this.btnApplyChanges.TabIndex = 5;
@@ -198,7 +199,7 @@
             this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddNew.BackColor = System.Drawing.Color.LightBlue;
             this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAddNew.Location = new System.Drawing.Point(139, 186);
+            this.btnAddNew.Location = new System.Drawing.Point(173, 203);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(75, 23);
             this.btnAddNew.TabIndex = 3;
@@ -211,7 +212,7 @@
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDelete.BackColor = System.Drawing.Color.Tomato;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelete.Location = new System.Drawing.Point(6, 186);
+            this.btnDelete.Location = new System.Drawing.Point(6, 203);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 4;
@@ -227,18 +228,32 @@
             this.groupBoxColorList.Controls.Add(this.lvColors);
             this.groupBoxColorList.Controls.Add(this.btnDelete);
             this.groupBoxColorList.Controls.Add(this.btnAddNew);
-            this.groupBoxColorList.Location = new System.Drawing.Point(4, 8);
+            this.groupBoxColorList.Location = new System.Drawing.Point(4, 42);
             this.groupBoxColorList.Name = "groupBoxColorList";
-            this.groupBoxColorList.Size = new System.Drawing.Size(220, 215);
+            this.groupBoxColorList.Size = new System.Drawing.Size(254, 232);
             this.groupBoxColorList.TabIndex = 5;
             this.groupBoxColorList.TabStop = false;
             this.groupBoxColorList.Text = "Lista wprowadzonych kolorów";
+            // 
+            // notificationPanel1
+            // 
+            this.notificationPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.notificationPanel1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.notificationPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.notificationPanel1.Location = new System.Drawing.Point(7, 5);
+            this.notificationPanel1.MinimumSize = new System.Drawing.Size(245, 20);
+            this.notificationPanel1.Name = "notificationPanel1";
+            this.notificationPanel1.NotificationTime = 8000;
+            this.notificationPanel1.Size = new System.Drawing.Size(456, 31);
+            this.notificationPanel1.TabIndex = 6;
             // 
             // ColorEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(441, 235);
+            this.ClientSize = new System.Drawing.Size(475, 286);
+            this.Controls.Add(this.notificationPanel1);
             this.Controls.Add(this.groupBoxColorList);
             this.Controls.Add(this.groupBoxEditArea);
             this.MinimumSize = new System.Drawing.Size(457, 274);
@@ -270,5 +285,6 @@
         private System.Windows.Forms.Label lID;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.GroupBox groupBoxColorList;
+        private Views.HelperViews.NotificationPanel notificationPanel1;
     }
 }

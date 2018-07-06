@@ -49,6 +49,7 @@
             this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAddNew = new System.Windows.Forms.Button();
+            this.notificationPanel1 = new programowanie_SSprint.Views.HelperViews.NotificationPanel();
             this.groupBoxEditArea.SuspendLayout();
             this.groupBoxCompanyList.SuspendLayout();
             this.SuspendLayout();
@@ -67,9 +68,9 @@
             this.groupBoxEditArea.Controls.Add(this.btnApplyChanges);
             this.groupBoxEditArea.Controls.Add(this.lName);
             this.groupBoxEditArea.Controls.Add(this.tbName);
-            this.groupBoxEditArea.Location = new System.Drawing.Point(325, 28);
+            this.groupBoxEditArea.Location = new System.Drawing.Point(345, 43);
             this.groupBoxEditArea.Name = "groupBoxEditArea";
-            this.groupBoxEditArea.Size = new System.Drawing.Size(281, 293);
+            this.groupBoxEditArea.Size = new System.Drawing.Size(281, 263);
             this.groupBoxEditArea.TabIndex = 8;
             this.groupBoxEditArea.TabStop = false;
             this.groupBoxEditArea.Text = "Edycja zaznaczonej firmy";
@@ -120,7 +121,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.BackColor = System.Drawing.Color.Tomato;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel.Location = new System.Drawing.Point(6, 235);
+            this.btnCancel.Location = new System.Drawing.Point(6, 205);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(269, 23);
             this.btnCancel.TabIndex = 8;
@@ -153,7 +154,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnApplyChanges.BackColor = System.Drawing.Color.LightGreen;
             this.btnApplyChanges.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnApplyChanges.Location = new System.Drawing.Point(6, 264);
+            this.btnApplyChanges.Location = new System.Drawing.Point(6, 234);
             this.btnApplyChanges.Name = "btnApplyChanges";
             this.btnApplyChanges.Size = new System.Drawing.Size(269, 23);
             this.btnApplyChanges.TabIndex = 5;
@@ -189,9 +190,9 @@
             this.groupBoxCompanyList.Controls.Add(this.lvCompanies);
             this.groupBoxCompanyList.Controls.Add(this.btnDelete);
             this.groupBoxCompanyList.Controls.Add(this.btnAddNew);
-            this.groupBoxCompanyList.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxCompanyList.Location = new System.Drawing.Point(12, 43);
             this.groupBoxCompanyList.Name = "groupBoxCompanyList";
-            this.groupBoxCompanyList.Size = new System.Drawing.Size(307, 309);
+            this.groupBoxCompanyList.Size = new System.Drawing.Size(327, 263);
             this.groupBoxCompanyList.TabIndex = 9;
             this.groupBoxCompanyList.TabStop = false;
             this.groupBoxCompanyList.Text = "Lista wprowadzonych firm";
@@ -210,7 +211,7 @@
             listViewItem1});
             this.lvCompanies.Location = new System.Drawing.Point(3, 16);
             this.lvCompanies.Name = "lvCompanies";
-            this.lvCompanies.Size = new System.Drawing.Size(304, 258);
+            this.lvCompanies.Size = new System.Drawing.Size(324, 212);
             this.lvCompanies.TabIndex = 0;
             this.lvCompanies.UseCompatibleStateImageBehavior = false;
             this.lvCompanies.View = System.Windows.Forms.View.Details;
@@ -231,7 +232,7 @@
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDelete.BackColor = System.Drawing.Color.Tomato;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelete.Location = new System.Drawing.Point(6, 280);
+            this.btnDelete.Location = new System.Drawing.Point(6, 234);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 4;
@@ -244,7 +245,7 @@
             this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddNew.BackColor = System.Drawing.Color.LightBlue;
             this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAddNew.Location = new System.Drawing.Point(226, 280);
+            this.btnAddNew.Location = new System.Drawing.Point(246, 234);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(75, 23);
             this.btnAddNew.TabIndex = 3;
@@ -252,14 +253,28 @@
             this.btnAddNew.UseVisualStyleBackColor = false;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
+            // notificationPanel1
+            // 
+            this.notificationPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.notificationPanel1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.notificationPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.notificationPanel1.Location = new System.Drawing.Point(12, 9);
+            this.notificationPanel1.MinimumSize = new System.Drawing.Size(245, 20);
+            this.notificationPanel1.Name = "notificationPanel1";
+            this.notificationPanel1.NotificationTime = 8000;
+            this.notificationPanel1.Size = new System.Drawing.Size(614, 28);
+            this.notificationPanel1.TabIndex = 10;
+            // 
             // CompanyEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 333);
+            this.ClientSize = new System.Drawing.Size(638, 318);
+            this.Controls.Add(this.notificationPanel1);
             this.Controls.Add(this.groupBoxEditArea);
             this.Controls.Add(this.groupBoxCompanyList);
-            this.MinimumSize = new System.Drawing.Size(590, 283);
+            this.MinimumSize = new System.Drawing.Size(580, 300);
             this.Name = "CompanyEditor";
             this.Text = "Edycja firm";
             this.Load += new System.EventHandler(this.CompanyEditor_Load);
@@ -289,5 +304,6 @@
         private System.Windows.Forms.TextBox tbPhone;
         private System.Windows.Forms.Label lEmail;
         private System.Windows.Forms.TextBox tbEmail;
+        private Views.HelperViews.NotificationPanel notificationPanel1;
     }
 }

@@ -47,6 +47,7 @@
             this.btnAddNew = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.groupBoxGraphicList = new System.Windows.Forms.GroupBox();
+            this.notificationPanel1 = new programowanie_SSprint.Views.HelperViews.NotificationPanel();
             this.groupBoxEditArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGraphics)).BeginInit();
             this.groupBoxGraphicList.SuspendLayout();
@@ -67,7 +68,7 @@
             listViewItem1});
             this.lvPictures.Location = new System.Drawing.Point(3, 16);
             this.lvPictures.Name = "lvPictures";
-            this.lvPictures.Size = new System.Drawing.Size(325, 265);
+            this.lvPictures.Size = new System.Drawing.Size(324, 197);
             this.lvPictures.TabIndex = 0;
             this.lvPictures.UseCompatibleStateImageBehavior = false;
             this.lvPictures.View = System.Windows.Forms.View.Details;
@@ -99,9 +100,9 @@
             this.groupBoxEditArea.Controls.Add(this.btnApplyChanges);
             this.groupBoxEditArea.Controls.Add(this.lName);
             this.groupBoxEditArea.Controls.Add(this.tbName);
-            this.groupBoxEditArea.Location = new System.Drawing.Point(349, 12);
+            this.groupBoxEditArea.Location = new System.Drawing.Point(348, 47);
             this.groupBoxEditArea.Name = "groupBoxEditArea";
-            this.groupBoxEditArea.Size = new System.Drawing.Size(196, 316);
+            this.groupBoxEditArea.Size = new System.Drawing.Size(196, 248);
             this.groupBoxEditArea.TabIndex = 2;
             this.groupBoxEditArea.TabStop = false;
             this.groupBoxEditArea.Text = "Edycja zaznaczonej grafiki";
@@ -112,7 +113,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.BackColor = System.Drawing.Color.Tomato;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel.Location = new System.Drawing.Point(6, 258);
+            this.btnCancel.Location = new System.Drawing.Point(6, 190);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(184, 23);
             this.btnCancel.TabIndex = 9;
@@ -129,7 +130,7 @@
             this.pictureBoxGraphics.InitialImage = global::programowanie_SSprint.Properties.Resources.empty_image;
             this.pictureBoxGraphics.Location = new System.Drawing.Point(9, 71);
             this.pictureBoxGraphics.Name = "pictureBoxGraphics";
-            this.pictureBoxGraphics.Size = new System.Drawing.Size(181, 173);
+            this.pictureBoxGraphics.Size = new System.Drawing.Size(181, 105);
             this.pictureBoxGraphics.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxGraphics.TabIndex = 8;
             this.pictureBoxGraphics.TabStop = false;
@@ -159,7 +160,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnApplyChanges.BackColor = System.Drawing.Color.LightGreen;
             this.btnApplyChanges.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnApplyChanges.Location = new System.Drawing.Point(6, 287);
+            this.btnApplyChanges.Location = new System.Drawing.Point(6, 219);
             this.btnApplyChanges.Name = "btnApplyChanges";
             this.btnApplyChanges.Size = new System.Drawing.Size(184, 23);
             this.btnApplyChanges.TabIndex = 5;
@@ -192,7 +193,7 @@
             this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddNew.BackColor = System.Drawing.Color.LightBlue;
             this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAddNew.Location = new System.Drawing.Point(250, 287);
+            this.btnAddNew.Location = new System.Drawing.Point(249, 219);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(75, 23);
             this.btnAddNew.TabIndex = 3;
@@ -205,7 +206,7 @@
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDelete.BackColor = System.Drawing.Color.Tomato;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelete.Location = new System.Drawing.Point(6, 287);
+            this.btnDelete.Location = new System.Drawing.Point(6, 219);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 4;
@@ -221,21 +222,35 @@
             this.groupBoxGraphicList.Controls.Add(this.lvPictures);
             this.groupBoxGraphicList.Controls.Add(this.btnAddNew);
             this.groupBoxGraphicList.Controls.Add(this.btnDelete);
-            this.groupBoxGraphicList.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxGraphicList.Location = new System.Drawing.Point(12, 47);
             this.groupBoxGraphicList.Name = "groupBoxGraphicList";
-            this.groupBoxGraphicList.Size = new System.Drawing.Size(331, 316);
+            this.groupBoxGraphicList.Size = new System.Drawing.Size(330, 248);
             this.groupBoxGraphicList.TabIndex = 5;
             this.groupBoxGraphicList.TabStop = false;
             this.groupBoxGraphicList.Text = "Lista dostępnych grafik";
+            // 
+            // notificationPanel1
+            // 
+            this.notificationPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.notificationPanel1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.notificationPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.notificationPanel1.Location = new System.Drawing.Point(12, 12);
+            this.notificationPanel1.MinimumSize = new System.Drawing.Size(245, 20);
+            this.notificationPanel1.Name = "notificationPanel1";
+            this.notificationPanel1.NotificationTime = 8000;
+            this.notificationPanel1.Size = new System.Drawing.Size(532, 28);
+            this.notificationPanel1.TabIndex = 6;
             // 
             // PictureEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 340);
+            this.ClientSize = new System.Drawing.Size(559, 307);
+            this.Controls.Add(this.notificationPanel1);
             this.Controls.Add(this.groupBoxGraphicList);
             this.Controls.Add(this.groupBoxEditArea);
-            this.MinimumSize = new System.Drawing.Size(510, 274);
+            this.MinimumSize = new System.Drawing.Size(510, 320);
             this.Name = "PictureEditor";
             this.Text = "Edytor grafik";
             this.Load += new System.EventHandler(this.PictureEditor_Load);
@@ -264,5 +279,6 @@
         private System.Windows.Forms.PictureBox pictureBoxGraphics;
         private System.Windows.Forms.GroupBox groupBoxGraphicList;
         private System.Windows.Forms.Button btnCancel;
+        private Views.HelperViews.NotificationPanel notificationPanel1;
     }
 }

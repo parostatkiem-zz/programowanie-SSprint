@@ -25,6 +25,10 @@ namespace programowanie_SSprint
             ErrorWindow.ShowDialog();
         }
 
+        public void PushNotification(string text, int type = 0)
+        {
+            notificationPanel1.PushNotification(text, type);
+        }
 
         public CompanyEditor()
         {

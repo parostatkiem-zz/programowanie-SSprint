@@ -35,6 +35,10 @@ namespace programowanie_SSprint
             var ErrorWindow = new Views.HelperViews.Error(message, longMessage, title);
             ErrorWindow.ShowDialog();
         }
+        public void PushNotification(string text, int type = 0)
+        {
+            notificationPanel1.PushNotification(text, type);
+        }
 
 
         #endregion

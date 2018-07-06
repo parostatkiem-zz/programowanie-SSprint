@@ -32,6 +32,12 @@ namespace programowanie_SSprint
             currentlySelectedColor = null;
             currentlyEditedColor = new color();
         }
+
+        public void PushNotification(string text, int type = 0)
+        {
+            notificationPanel1.PushNotification(text, type);
+        }
+
         #endregion
         private color currentlyEditedColor;
         private color currentlySelectedColor;

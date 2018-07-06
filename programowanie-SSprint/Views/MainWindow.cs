@@ -86,6 +86,18 @@ namespace programowanie_SSprint
 
         }
 
+        public void PushNotification(string text, int type=0)
+        {
+            ///<summary>
+            ///This method lets you to push some notifications here.
+            ///You can push as many of them as you want.
+            ///</summary>
+            ///<para>line1</para>
+            ///<para>line2</para>
+
+            notificationPanel1.PushNotification(text, type);
+        }
+
         private bool TshirtEditorWindow_removeTshirt(IErrorable arg1, ICommunicative arg3, tshirt arg2)
         {
             return removeTshirt(arg1, arg3, arg2);

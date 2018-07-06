@@ -99,6 +99,7 @@
             this.lCompany = new System.Windows.Forms.Label();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.notificationPanel1 = new programowanie_SSprint.Views.HelperViews.NotificationPanel();
             this.gbTshirtProperties.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericDefaultLoss)).BeginInit();
@@ -110,7 +111,7 @@
             this.treeViewProductBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.treeViewProductBrowser.Location = new System.Drawing.Point(12, 12);
+            this.treeViewProductBrowser.Location = new System.Drawing.Point(12, 47);
             this.treeViewProductBrowser.Name = "treeViewProductBrowser";
             treeNode1.Name = "Node15";
             treeNode1.Text = "S (dostępne: 530) 20zł";
@@ -158,7 +159,7 @@
             treeNode16,
             treeNode19,
             treeNode21});
-            this.treeViewProductBrowser.Size = new System.Drawing.Size(432, 496);
+            this.treeViewProductBrowser.Size = new System.Drawing.Size(382, 481);
             this.treeViewProductBrowser.TabIndex = 1;
             this.treeViewProductBrowser.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewProductBrowser_AfterSelect);
             // 
@@ -193,9 +194,9 @@
             this.gbTshirtProperties.Controls.Add(this.lModel);
             this.gbTshirtProperties.Controls.Add(this.lSex);
             this.gbTshirtProperties.Controls.Add(this.lCompany);
-            this.gbTshirtProperties.Location = new System.Drawing.Point(450, 12);
+            this.gbTshirtProperties.Location = new System.Drawing.Point(400, 47);
             this.gbTshirtProperties.Name = "gbTshirtProperties";
-            this.gbTshirtProperties.Size = new System.Drawing.Size(251, 410);
+            this.gbTshirtProperties.Size = new System.Drawing.Size(251, 416);
             this.gbTshirtProperties.TabIndex = 2;
             this.gbTshirtProperties.TabStop = false;
             this.gbTshirtProperties.Text = "Właściwości koszulki";
@@ -280,7 +281,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.BackColor = System.Drawing.Color.Tomato;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel.Location = new System.Drawing.Point(10, 349);
+            this.btnCancel.Location = new System.Drawing.Point(10, 355);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(235, 23);
             this.btnCancel.TabIndex = 11;
@@ -303,7 +304,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnApplyChanges.BackColor = System.Drawing.Color.LightGreen;
             this.btnApplyChanges.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnApplyChanges.Location = new System.Drawing.Point(10, 378);
+            this.btnApplyChanges.Location = new System.Drawing.Point(10, 384);
             this.btnApplyChanges.Name = "btnApplyChanges";
             this.btnApplyChanges.Size = new System.Drawing.Size(235, 23);
             this.btnApplyChanges.TabIndex = 10;
@@ -502,7 +503,7 @@
             this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddNew.BackColor = System.Drawing.Color.SkyBlue;
             this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAddNew.Location = new System.Drawing.Point(626, 486);
+            this.btnAddNew.Location = new System.Drawing.Point(576, 506);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(75, 23);
             this.btnAddNew.TabIndex = 3;
@@ -515,7 +516,7 @@
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelete.BackColor = System.Drawing.Color.Tomato;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelete.Location = new System.Drawing.Point(450, 486);
+            this.btnDelete.Location = new System.Drawing.Point(400, 506);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 4;
@@ -523,16 +524,30 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // notificationPanel1
+            // 
+            this.notificationPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.notificationPanel1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.notificationPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.notificationPanel1.Location = new System.Drawing.Point(12, 13);
+            this.notificationPanel1.MinimumSize = new System.Drawing.Size(245, 20);
+            this.notificationPanel1.Name = "notificationPanel1";
+            this.notificationPanel1.NotificationTime = 8000;
+            this.notificationPanel1.Size = new System.Drawing.Size(639, 28);
+            this.notificationPanel1.TabIndex = 5;
+            // 
             // TshirtEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(705, 515);
+            this.ClientSize = new System.Drawing.Size(655, 535);
+            this.Controls.Add(this.notificationPanel1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.gbTshirtProperties);
             this.Controls.Add(this.treeViewProductBrowser);
-            this.MinimumSize = new System.Drawing.Size(506, 495);
+            this.MinimumSize = new System.Drawing.Size(506, 535);
             this.Name = "TshirtEditor";
             this.Text = "Edytor koszulek w magazynie";
             this.Load += new System.EventHandler(this.TshirtEditor_Load);
@@ -579,5 +594,6 @@
         private System.Windows.Forms.Button btnEditCompanies;
         private System.Windows.Forms.Button btnEditColors;
         private System.Windows.Forms.Button btnEditStyles;
+        private Views.HelperViews.NotificationPanel notificationPanel1;
     }
 }
