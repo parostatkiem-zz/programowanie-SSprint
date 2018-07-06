@@ -12,7 +12,7 @@ using programowanie_SSprint.Properties;
 namespace programowanie_SSprint.Views.HelperViews
 {
     public partial class NotificationPanel : UserControl
-    {
+    { 
         public NotificationPanel()
         {
             InitializeComponent();
