@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 
 //todo : obgadać i dodać lepszą obsługę komunikatów przy zwracaniu wyjątku
@@ -14,6 +15,8 @@ namespace programowanie_SSprint
     {
         ImainView view;
         Model model;
+
+        public event Action<List<object>> tmp;
 
         public Presenter(Model model, ImainView view)
         {
@@ -61,31 +64,38 @@ namespace programowanie_SSprint
             (IErrorable windowInterface, ICommunicative windowCommunicator, elementType itemToRemove)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
-            try
+            new Task(() =>
             {
-                model.RemoveElement<elementType>(itemToRemove);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
-                return false;
-            }
+                try
+                {
+                    model.RemoveElement<elementType>(itemToRemove);
+                }
+                catch (Exception ex)
+                {
+                    windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
+                }
+            }).RunSynchronously();
+
+            return true;
         }
         private bool View_removeListOfElements<elementType>
             (IErrorable windowInterface, ICommunicative windowCommunicator, List<elementType> itemsToRemove)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
-            try
+            new Task(() => 
             {
-                model.RemoveListOfElements<elementType>(itemsToRemove);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
-                return false;
-            }
+                try
+                {
+                    model.RemoveListOfElements<elementType>(itemsToRemove);
+                    
+                }
+                catch (Exception ex)
+                {
+                    windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
+                }
+            }).RunSynchronously();
+
+            return true;
         }
 
 
@@ -93,15 +103,21 @@ namespace programowanie_SSprint
             (IErrorable windowInterface, ICommunicative windowCommunicator)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
-            try
-            {
-                return model.GetAllElements<elementType>();
-            }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
-                return null;
-            }
+            new Task(() => {
+                
+                try
+                {
+                    windowCommunicator.ReturnListOfObjects(model.GetAllElements<elementType>().OfType<object>().ToList());
+                    windowCommunicator.PushNotification("Poprawnie wczytałem dane", 0);
+                }
+                catch (Exception ex)
+                {
+                    windowCommunicator.PushNotification("Błąd wczytywania danych", 3);
+                    windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
+                }
+            }).RunSynchronously();
+
+            return null;
         }
 
 
@@ -109,31 +125,36 @@ namespace programowanie_SSprint
             (IErrorable windowInterface, ICommunicative windowCommunicator, elementType newItem)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
-            try
+            new Task(() =>
             {
-                model.InsertElement<elementType>(newItem);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
-                return false;
-            }
+                try
+                {
+                    model.InsertElement<elementType>(newItem);
+                }
+                catch (Exception ex)
+                {
+                    windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
+                }
+            }).RunSynchronously();
+
+            return true;
         }
         private bool View_insertListOfElements<elementType>
             (IErrorable windowInterface, ICommunicative windowCommunicator, List<elementType> newItems)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
-            try
+            new Task(() =>
             {
-                model.InsertListOfElements<elementType>(newItems);
-                return true;
-            }
-            catch(Exception ex)
-            {
-                windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
-                return false;
-            }
+                try
+                {
+                    model.InsertListOfElements<elementType>(newItems);
+                }
+                catch (Exception ex)
+                {
+                    windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
+                }
+            }).RunSynchronously();
+            return true;
         }
 
 
@@ -145,11 +166,11 @@ namespace programowanie_SSprint
             {
                 return model.Find<elementType>(elementID);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
                 return null;
-            }
+            } 
         }
     }
 }
