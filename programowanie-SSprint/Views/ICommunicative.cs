@@ -10,14 +10,16 @@ namespace programowanie_SSprint
     public interface ICommunicative
     {
 
-        // void PushNotification(string message, NotificationTypes type = NotificationTypes.Information, string duration="medium");
         ///<summary>
         ///This method lets you to push some notifications here.
         ///You can push as many of them as you want.
         ///type={0: info, 1: warning, 2: error}, default=0 (info)
         ///</summary>
-
         void PushNotification(string text, int type = 0);
-       
+
+        event Action<object> ReturnSingleObject;
+
+        event Action<List<object>> ReturnListOfObjects;
+
     }
 }

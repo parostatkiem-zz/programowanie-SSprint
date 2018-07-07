@@ -44,7 +44,8 @@ namespace programowanie_SSprint
         public event Func<IErrorable, ICommunicative, List<tshirt>> getAllTshirts; //zwraca listę wszystkich tshirt
         public event Func<IErrorable, ICommunicative, tshirt, bool> removeTshirt; //usuwa tshirt. Istotne jest tylko tshirt.id. Zwraca bool czy się udało
 
-
+        public event Action<object> ReturnSingleObject;
+        public event Action<List<object>> ReturnListOfObjects;
         #endregion
 
         #region PUBLIC

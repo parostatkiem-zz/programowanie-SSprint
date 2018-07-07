@@ -18,6 +18,9 @@ namespace programowanie_SSprint
         public event Func<IErrorable, ICommunicative, List<picture>> getAllPictures; //zwraca listę wszystkich obrazow
         public event Func<IErrorable, ICommunicative, picture, bool> removePicture; //usuwa obraz. Istotne jest tylko picture.id. Zwraca bool czy się udało
 
+        public event Action<object> ReturnSingleObject;
+        public event Action<List<object>> ReturnListOfObjects;
+
         #endregion
         public PictureEditor()
         {
