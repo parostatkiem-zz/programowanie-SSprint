@@ -1,23 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace programowanie_SSprint
 {
-    public partial class ColorEditor : Form,IErrorable, ICommunicative
+    public partial class ColorEditor : Form, IErrorable, ICommunicative
     {
         #region EVENTS
         public event Func<IErrorable, ICommunicative, color, bool> insertColor; //jesli color.id==null, to dodaje nowy color, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
         public event Func<IErrorable, ICommunicative, List<color>> getAllColors; //zwraca listę wszystkich kolorów
         public event Func<IErrorable, ICommunicative, color, bool> removeColor; //usuwa kolor. Istotne jest tylko color.id. Zwraca bool czy się udało
 
-       
+
         public event Action<List<object>> ReturnListOfObjects;
         #endregion
 
@@ -27,7 +22,7 @@ namespace programowanie_SSprint
             var ErrorWindow = new Views.HelperViews.Error(message, longMessage, title);
             ErrorWindow.ShowDialog();
         }
-       
+
         public ColorEditor()
         {
             InitializeComponent();
@@ -52,6 +47,8 @@ namespace programowanie_SSprint
         }
 
         #endregion
+
+        #region PRIVATE
         private color currentlyEditedColor;
         private color currentlySelectedColor;
         private EditMode editMode;
@@ -61,18 +58,12 @@ namespace programowanie_SSprint
             set
             {
                 currentlySelectedColor = value;
-                displaySingleColor(currentlySelectedColor);
+                DisplaySingleColor(currentlySelectedColor);
             }
         }
-
-        private void ColorEditor_Load(object sender, EventArgs e)
-        {
-            RefreshColorList();
-        }
-
         private void RefreshColorList()
         {
-            getAllColors(this,this);
+            getAllColors(this, this);
         }
 
         private void DisplayColorList(List<color> theList)
@@ -88,17 +79,9 @@ namespace programowanie_SSprint
                 lvColors.Items.Add(item);
             }
         }
-
-        private void lvColors_SelectedIndexChanged(object sender, EventArgs e)
+        private void DisplaySingleColor(color c)
         {
-            if (lvColors.SelectedItems.Count <= 0 || lvColors.SelectedItems[0].Tag == null) return; //nic nie jest zaznaczone
-            editMode = EditMode.Edit;
-            CurrentlySelectedColor = lvColors.SelectedItems[0].Tag as color;
-        }
-
-        private void displaySingleColor(color c)
-        {
-            if(editMode!=EditMode.AddNew)
+            if (editMode != EditMode.AddNew)
                 currentlyEditedColor = c;
             if (c != null)
             {
@@ -115,6 +98,23 @@ namespace programowanie_SSprint
             }
             return;
         }
+        #endregion
+
+        #region GENERATED_EVENTS
+        private void ColorEditor_Load(object sender, EventArgs e)
+        {
+            RefreshColorList();
+        }
+
+
+        private void lvColors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvColors.SelectedItems.Count <= 0 || lvColors.SelectedItems[0].Tag == null) return; //nic nie jest zaznaczone
+            editMode = EditMode.Edit;
+            CurrentlySelectedColor = lvColors.SelectedItems[0].Tag as color;
+        }
+
+
 
         private void tbName_TextChanged(object sender, EventArgs e)
         {
@@ -125,7 +125,7 @@ namespace programowanie_SSprint
 
         private void tbHex_TextChanged(object sender, EventArgs e)
         {
-          //  if (tbHex.Text.Length <= 0) { return; }//error
+            //  if (tbHex.Text.Length <= 0) { return; }//error
 
             currentlyEditedColor.hex_value = tbHex.Text;
         }
@@ -144,7 +144,7 @@ namespace programowanie_SSprint
             //wypada dać potwierdzenie
             DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz odrzucić wprowadzone zmiany?", "Potwierdzenie odrzucenia zmian", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.No) return;
-            
+
             groupBoxColorList.Visible = true;
             currentlyEditedColor = null;
             CurrentlySelectedColor = CurrentlySelectedColor; //odswiezenie
@@ -170,7 +170,7 @@ namespace programowanie_SSprint
             removeColor(this, this, CurrentlySelectedColor);
             RefreshColorList();
         }
+        #endregion
 
-       
     }
 }

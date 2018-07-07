@@ -1,24 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace programowanie_SSprint
 {
-    public partial class PictureEditor : Form,IErrorable, ICommunicative
+    public partial class PictureEditor : Form, IErrorable, ICommunicative
     {
         #region EVENTS
-       
+
         public event Func<IErrorable, ICommunicative, picture, bool> insertPicture; //jesli color.id==null, to dodaje nowy obraz, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
         public event Func<IErrorable, ICommunicative, List<picture>> getAllPictures; //zwraca listę wszystkich obrazow
         public event Func<IErrorable, ICommunicative, picture, bool> removePicture; //usuwa obraz. Istotne jest tylko picture.id. Zwraca bool czy się udało
 
-       
+
         public event Action<List<object>> ReturnListOfObjects;
 
         #endregion
@@ -28,16 +23,6 @@ namespace programowanie_SSprint
             currentlySelectedPicture = null;
             currentlyEditedPicture = new picture();
             this.ReturnListOfObjects += PictureEditor_ReturnListOfObjects;
-        }
-
-        private void PictureEditor_ReturnListOfObjects(List<object> obj)
-        {
-            List<picture> recievedPictures = obj.OfType<picture>().ToList();
-            if (recievedPictures != null)
-            {
-                DisplayPictureList(recievedPictures);
-                return;
-            }
         }
 
         public void ShowError(string message, string longMessage = null, string title = null)
@@ -60,16 +45,22 @@ namespace programowanie_SSprint
             set
             {
                 currentlySelectedPicture = value;
-                displaySinglePicture(currentlySelectedPicture);
+                DisplaySinglePicture(currentlySelectedPicture);
             }
         }
-        #endregion
-
-      
+        private void PictureEditor_ReturnListOfObjects(List<object> obj)
+        {
+            List<picture> recievedPictures = obj.OfType<picture>().ToList();
+            if (recievedPictures != null)
+            {
+                DisplayPictureList(recievedPictures);
+                return;
+            }
+        }
 
         private void RefreshPictureList()
         {
-          getAllPictures(this, this);
+            getAllPictures(this, this);
         }
 
         private void DisplayPictureList(List<picture> theList)
@@ -89,7 +80,7 @@ namespace programowanie_SSprint
 
         }
 
-        private void displaySinglePicture(picture p)
+        private void DisplaySinglePicture(picture p)
         {
             currentlyEditedPicture = p;
             if (p != null)
@@ -107,13 +98,16 @@ namespace programowanie_SSprint
             }
             return;
         }
+        #endregion
+
+
+
 
         #region GENERATED_EVENTS
         private void PictureEditor_Load(object sender, EventArgs e)
         {
             RefreshPictureList();
         }
-        #endregion
 
         private void lvPictures_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -167,5 +161,7 @@ namespace programowanie_SSprint
 
             removePicture(this, this, CurrentlySelectedPicture);
         }
+        #endregion
+
     }
 }

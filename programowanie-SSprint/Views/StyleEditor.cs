@@ -1,25 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace programowanie_SSprint
 {
-    public partial class StyleEditor : Form,IErrorable, ICommunicative
+    public partial class StyleEditor : Form, IErrorable, ICommunicative
     {
-      
 
-      
+
+
         public event Func<IErrorable, ICommunicative, style, bool> insertStyle; //jesli style.id==null, to dodaje nowy style, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
         public event Func<IErrorable, ICommunicative, List<style>> getAllStyles; //zwraca listę wszystkich kolorów
         public event Func<IErrorable, ICommunicative, style, bool> removeStyle; //usuwa kolor. Istotne jest tylko style.id. Zwraca bool czy się udało
 
-       
+
         public event Action<List<object>> ReturnListOfObjects;
 
         #region PUBLIC
@@ -61,14 +56,10 @@ namespace programowanie_SSprint
             set
             {
                 currentlySelectedStyle = value;
-                displaySingleStyle(currentlySelectedStyle);
+                DisplaySingleStyle(currentlySelectedStyle);
             }
         }
 
-        private void StyleEditor_Load(object sender, EventArgs e)
-        {
-            RefreshStyleList();
-        }
 
         private void RefreshStyleList()
         {
@@ -79,7 +70,7 @@ namespace programowanie_SSprint
         private void DisplayStyleList(List<style> theList)
         {
             lvStyles.Items.Clear();
-            
+
             ListViewItem item;
             foreach (var c in theList)
             {
@@ -89,14 +80,8 @@ namespace programowanie_SSprint
                 lvStyles.Items.Add(item);
             }
         }
-        private void lvStyles_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lvStyles.SelectedItems.Count <= 0 || lvStyles.SelectedItems[0].Tag == null) return; //nic nie jest zaznaczone
-            editMode = EditMode.Edit;
-            CurrentlySelectedStyle = lvStyles.SelectedItems[0].Tag as style;
-        }
 
-        private void displaySingleStyle(style c)
+        private void DisplaySingleStyle(style c)
         {
             if (editMode != EditMode.AddNew)
                 currentlyEditedStyle = c;
@@ -112,6 +97,12 @@ namespace programowanie_SSprint
                 tbID.Text = "";
             }
             return;
+        }
+
+        #region GENERATED_EVENTS
+        private void StyleEditor_Load(object sender, EventArgs e)
+        {
+            RefreshStyleList();
         }
 
         private void tbName_TextChanged(object sender, EventArgs e)
@@ -162,6 +153,13 @@ namespace programowanie_SSprint
             removeStyle(this, this, CurrentlySelectedStyle);
             RefreshStyleList();
         }
-     
+        private void lvStyles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvStyles.SelectedItems.Count <= 0 || lvStyles.SelectedItems[0].Tag == null) return; //nic nie jest zaznaczone
+            editMode = EditMode.Edit;
+            CurrentlySelectedStyle = lvStyles.SelectedItems[0].Tag as style;
+        }
+
+        #endregion
     }
 }

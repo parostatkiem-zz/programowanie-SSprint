@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace programowanie_SSprint
@@ -49,6 +44,7 @@ namespace programowanie_SSprint
             }
         }
         #endregion
+
         private company currentlyEditedCompany;
         private company currentlySelectedCompany;
         private EditMode editMode;
@@ -62,10 +58,7 @@ namespace programowanie_SSprint
             }
         }
 
-        private void CompanyEditor_Load(object sender, EventArgs e)
-        {
-            RefreshCompanyList();
-        }
+       
 
         private void RefreshCompanyList()
         {
@@ -85,13 +78,7 @@ namespace programowanie_SSprint
             }
         }
 
-        private void lvCompanies_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lvCompanies.SelectedItems.Count <= 0 || lvCompanies.SelectedItems[0].Tag == null) return; //nic nie jest zaznaczone
-            editMode = EditMode.Edit;
-            CurrentlySelectedCompany = lvCompanies.SelectedItems[0].Tag as company;
-        }
-
+     
         private void displaySingleCompany(company c)
         {
             if (editMode != EditMode.AddNew)
@@ -115,6 +102,17 @@ namespace programowanie_SSprint
             return;
         }
 
+        #region GENERATED_EVENTS
+        private void CompanyEditor_Load(object sender, EventArgs e)
+        {
+            RefreshCompanyList();
+        }
+        private void lvCompanies_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvCompanies.SelectedItems.Count <= 0 || lvCompanies.SelectedItems[0].Tag == null) return; //nic nie jest zaznaczone
+            editMode = EditMode.Edit;
+            CurrentlySelectedCompany = lvCompanies.SelectedItems[0].Tag as company;
+        }
         private void tbName_TextChanged(object sender, EventArgs e)
         {
             if (tbName.Text.Length <= 0) { return; }//error
@@ -123,7 +121,7 @@ namespace programowanie_SSprint
         }
         private void tbEmail_TextChanged(object sender, EventArgs e)
         {
-           // if (tbEmail.Text.Length <= 0) { return; }//error
+            // if (tbEmail.Text.Length <= 0) { return; }//error
 
             currentlyEditedCompany.email = tbEmail.Text;
         }
@@ -173,9 +171,10 @@ namespace programowanie_SSprint
 
             removeCompany(this, this, CurrentlySelectedCompany);
             RefreshCompanyList();
-         
+
         }
 
-      
+        #endregion
+
     }
 }

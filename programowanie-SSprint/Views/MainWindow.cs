@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace programowanie_SSprint
@@ -44,7 +39,7 @@ namespace programowanie_SSprint
         public event Func<IErrorable, ICommunicative, List<tshirt>> getAllTshirts; //zwraca listę wszystkich tshirt
         public event Func<IErrorable, ICommunicative, tshirt, bool> removeTshirt; //usuwa tshirt. Istotne jest tylko tshirt.id. Zwraca bool czy się udało
 
-       
+
         public event Action<List<object>> ReturnListOfObjects;
         #endregion
 
@@ -88,26 +83,7 @@ namespace programowanie_SSprint
 
         }
 
-        private void MainWindow_ReturnListOfObjects(List<object> obj)
-        {
-            List<order> recievedOrders = obj.OfType<order>().ToList();
-            if (recievedOrders != null)
-            {
-                DisplayOrderList(recievedOrders);
-                return;
-            }
-
-            List<tshirt> recievedTshirts = obj.OfType<tshirt>().ToList();
-            if (recievedTshirts != null)
-            {
-                localTshirtList =recievedTshirts;
-                VisualHelper.RefreshTshirtList(treeViewProductBrowser, localTshirtList);
-                return;
-            }
-
-        }
-
-        public void PushNotification(string text, int type=0)
+        public void PushNotification(string text, int type = 0)
         {
             ///<summary>
             ///This method lets you to push some notifications here.
@@ -119,21 +95,15 @@ namespace programowanie_SSprint
             notificationPanel1.PushNotification(text, type);
         }
 
-        private void DisplayOrderList(List<order> theList)
+        public void ShowError(string message, string longMessage = null, string title = null)
         {
-
-            lvAllOrders.Items.Clear();
-
-            ListViewItem item;
-
-            foreach (order o in theList)
-            {
-                item = new ListViewItem(o.id.ToString());
-                item.Tag = o;
-                item.SubItems.AddRange(new string[] { o.end_date.ToString() });
-                lvAllOrders.Items.Add(item);
-            }
+            var ErrorWindow = new Views.HelperViews.Error(message, longMessage, title);
+            ErrorWindow.ShowDialog();
         }
+
+        #endregion
+
+        #region CHILD_EVENT_METHODS
         private bool TshirtEditorWindow_removeTshirt(IErrorable arg1, ICommunicative arg3, tshirt arg2)
         {
             return removeTshirt(arg1, arg3, arg2);
@@ -144,9 +114,9 @@ namespace programowanie_SSprint
             return insertTshirt(arg1, arg3, arg2);
         }
 
-        private List<tshirt> TshirtEditorWindow_getAllThsirts(IErrorable arg,ICommunicative arg1)
+        private List<tshirt> TshirtEditorWindow_getAllThsirts(IErrorable arg, ICommunicative arg1)
         {
-            return getAllTshirts(arg,arg1);
+            return getAllTshirts(arg, arg1);
         }
 
         private bool CompanyEditorWindow_removeCompany(IErrorable arg1, ICommunicative arg3, company arg2)
@@ -154,25 +124,15 @@ namespace programowanie_SSprint
             return removeCompany(arg1, arg3, arg2);
         }
 
-        private List<company> _getAllCompanies(IErrorable arg,ICommunicative arg1)
+        private List<company> _getAllCompanies(IErrorable arg, ICommunicative arg1)
         {
-            return getAllCompanies(arg,arg1);
+            return getAllCompanies(arg, arg1);
         }
 
         private bool CompanyEditorWindow_insertCompany(IErrorable arg1, ICommunicative arg3, company arg2)
         {
             return insertCompany(arg1, arg3, arg2);
         }
-
-        public void ShowError(string message, string longMessage = null, string title = null)
-        {
-            var ErrorWindow = new Views.HelperViews.Error(message, longMessage, title);
-            ErrorWindow.ShowDialog();
-        }
-
-        #endregion
-
-        #region CHILD_EVENT_METHODS
 
         private bool ColorEditorWindow_removeColor(IErrorable arg1, ICommunicative arg3, color arg2)
         {
@@ -184,18 +144,18 @@ namespace programowanie_SSprint
             return insertColor(arg1, arg3, arg2);
         }
 
-        private List<color> _getAllColors(IErrorable arg,ICommunicative arg1)
+        private List<color> _getAllColors(IErrorable arg, ICommunicative arg1)
         {
-            return getAllColors(arg,arg1);
+            return getAllColors(arg, arg1);
         }
 
         private bool PictureEditorWindow_insertPicture(IErrorable arg1, ICommunicative arg3, picture arg2)
         {
             return insertPicture(arg1, arg3, arg2);
         }
-        private List<picture> PictureEditorWindow_getAllPictures(IErrorable arg,ICommunicative arg1)
+        private List<picture> PictureEditorWindow_getAllPictures(IErrorable arg, ICommunicative arg1)
         {
-            return getAllPictures(arg,arg1);
+            return getAllPictures(arg, arg1);
         }
         private bool PictureEditorWindow_removePicture(IErrorable arg1, ICommunicative arg3, picture arg2)
         {
@@ -207,9 +167,9 @@ namespace programowanie_SSprint
             return removeStyle(arg1, arg3, arg2);
         }
 
-        private List<style> _getAllStyles(IErrorable arg,ICommunicative arg1)
+        private List<style> _getAllStyles(IErrorable arg, ICommunicative arg1)
         {
-            return getAllStyles(arg,arg1);
+            return getAllStyles(arg, arg1);
         }
 
         private bool StyleEditorWindow_insertStyle(IErrorable arg1, ICommunicative arg3, style arg2)
@@ -217,6 +177,7 @@ namespace programowanie_SSprint
             return insertStyle(arg1, arg3, arg2);
         }
         #endregion
+
         #region GENERATED_EVENTS
 
         #region TOP_MENU
@@ -266,19 +227,10 @@ namespace programowanie_SSprint
         }
         #endregion
 
-        private void MainWindow_Shown(object sender, EventArgs e)
-        {
-            // VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllTshirts(this));
-            CurrentlySelectedOrder = null;
-            getAllOrders(this, this);
 
-            getAllTshirts(this, this);
-            
-            
-            CurrentlySelectedTshirt = null;
-        }
 
         #endregion
+
         #region PRIVATE_VARIABLES_PROPERTIES
         private ColorEditor colorEditorWindow;
         private PictureEditor pictureEditorWindow;
@@ -313,7 +265,7 @@ namespace programowanie_SSprint
                     numericAddingProductAmount.Value = 1;
                     numericAddingProductAmount.Maximum = value.getNotOrdered();
                 }
-                    
+
             }
         }
 
@@ -348,50 +300,49 @@ namespace programowanie_SSprint
         #endregion
 
         #region PRIVATE_METHODS
-
-        private void RefreshOrderItemList(List<singleItemOrder> theList)
+        private void DisplayOrderList(List<order> theList)
         {
-            lvOrderedProducts.Items.Clear();
-           
-            
-            if (theList == null) return;
-            
+
+            lvAllOrders.Items.Clear();
 
             ListViewItem item;
-            tshirt currentTshirt;
-            int reserved_amount;
-            foreach(singleItemOrder o_item in theList)
-            {
-                currentTshirt = localTshirtList.Find(t => t.id == o_item.tshirt_id);
-                if (currentTshirt == null) currentTshirt = new tshirt();
-                decimal a = ((decimal)currentTshirt.default_loss_percentage / 100);
-                reserved_amount =(int)Math.Ceiling( (decimal)(a* o_item.amount) + o_item.amount);
-                item = new ListViewItem(currentTshirt.company.name);
-                item.Tag = o_item;
-                item.SubItems.AddRange(new string[] { currentTshirt.style.name, currentTshirt.sex, currentTshirt.color.name,o_item.amount.ToString(),reserved_amount.ToString() });
 
-                lvOrderedProducts.Items.Add(item);
+            foreach (order o in theList)
+            {
+                item = new ListViewItem(o.id.ToString());
+                item.Tag = o;
+                item.SubItems.AddRange(new string[] { o.end_date.ToString() });
+                lvAllOrders.Items.Add(item);
             }
         }
 
-
-        #endregion
-
-        private void lvAllOrders_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        private void MainWindow_ReturnListOfObjects(List<object> obj)
         {
-            if (lvAllOrders.SelectedItems.Count <= 0 || (lvAllOrders.SelectedItems[0].Tag as order) == null) return;
-            CurrentlySelectedOrder = lvAllOrders.SelectedItems[0].Tag as order;
-        }
+            List<order> recievedOrders = obj.OfType<order>().ToList();
+            if (recievedOrders != null)
+            {
+                DisplayOrderList(recievedOrders);
+                return;
+            }
 
+            List<tshirt> recievedTshirts = obj.OfType<tshirt>().ToList();
+            if (recievedTshirts != null)
+            {
+                localTshirtList = recievedTshirts;
+                VisualHelper.RefreshTshirtList(treeViewProductBrowser, localTshirtList);
+                return;
+            }
+
+        }
         private void DisplaySingleOrder(order o)
         {
-            if(o==null)
+            if (o == null)
             {
                 tbSelectedOrderName.Text = "";
                 tbSelectedOrderEmail.Text = "";
                 tbSelectedOrderPhone.Text = "";
                 dateTimeBegin.Value = DateTime.Today;
-                dateTimeEnd.Value= DateTime.Today;
+                dateTimeEnd.Value = DateTime.Today;
                 comboBoxSelectedOrderStatus.SelectedIndex = 0;
                 numClientPrice.Value = 0;
             }
@@ -407,13 +358,63 @@ namespace programowanie_SSprint
         private void DeleteProperOrderItems(List<singleItemOrder> old, List<singleItemOrder> updated)
         {
             List<singleItemOrder> ordersToDelete = new List<singleItemOrder>();
-            foreach(singleItemOrder i in old)
+            foreach (singleItemOrder i in old)
             {
                 if (updated.Find(o => o.id == i.id) == null)
                     ordersToDelete.Add(i);
             }
             deleteListOfItems(this, this, ordersToDelete);
         }
+
+        private void RefreshOrderItemList(List<singleItemOrder> theList)
+        {
+            lvOrderedProducts.Items.Clear();
+
+
+            if (theList == null) return;
+
+
+            ListViewItem item;
+            tshirt currentTshirt;
+            int reserved_amount;
+            foreach (singleItemOrder o_item in theList)
+            {
+                currentTshirt = localTshirtList.Find(t => t.id == o_item.tshirt_id);
+                if (currentTshirt == null) currentTshirt = new tshirt();
+                decimal a = ((decimal)currentTshirt.default_loss_percentage / 100);
+                reserved_amount = (int)Math.Ceiling((decimal)(a * o_item.amount) + o_item.amount);
+                item = new ListViewItem(currentTshirt.company.name);
+                item.Tag = o_item;
+                item.SubItems.AddRange(new string[] { currentTshirt.style.name, currentTshirt.sex, currentTshirt.color.name, o_item.amount.ToString(), reserved_amount.ToString() });
+
+                lvOrderedProducts.Items.Add(item);
+            }
+        }
+
+
+        #endregion
+
+        #region GENERATED_EVENTS
+
+
+        private void MainWindow_Shown(object sender, EventArgs e)
+        {
+            CurrentlySelectedOrder = null;
+            getAllOrders(this, this);
+
+            getAllTshirts(this, this);
+
+
+            CurrentlySelectedTshirt = null;
+        }
+
+        private void lvAllOrders_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            if (lvAllOrders.SelectedItems.Count <= 0 || (lvAllOrders.SelectedItems[0].Tag as order) == null) return;
+            CurrentlySelectedOrder = lvAllOrders.SelectedItems[0].Tag as order;
+        }
+
+
 
         private void btnSelectedOrderDelete_Click(object sender, EventArgs e)
         {
@@ -454,7 +455,7 @@ namespace programowanie_SSprint
             btnDelete.Visible = true;
         }
 
-        
+
         private void btnSelectedOrderSave_Click(object sender, EventArgs e)
         {
             if (currentlyEditedOrder == null)
@@ -463,7 +464,7 @@ namespace programowanie_SSprint
                 return;
             }
 
-                
+
             insertOrder(this, this, currentlyEditedOrder);
             insertListOfItems(this, this, currentListOfItems);
             DeleteProperOrderItems(currentlyEditedOrder.singleItemOrders.ToList(), currentListOfItems);
@@ -471,7 +472,7 @@ namespace programowanie_SSprint
             {
 
                 lvAllOrders.Visible = true;
-              
+
             }
             btnAddNew.Visible = true;
             btnDelete.Visible = true;
@@ -507,7 +508,7 @@ namespace programowanie_SSprint
 
         private void numClientPrice_ValueChanged(object sender, EventArgs e)
         {
-            currentlyEditedOrder.price_for_client =(int) numClientPrice.Value;
+            currentlyEditedOrder.price_for_client = (int)numClientPrice.Value;
         }
 
         private void treeViewProductBrowser_AfterSelect(object sender, TreeViewEventArgs e)
@@ -534,6 +535,7 @@ namespace programowanie_SSprint
             RefreshOrderItemList(currentListOfItems);
 
         }
-      
+        #endregion
+
     }
 }

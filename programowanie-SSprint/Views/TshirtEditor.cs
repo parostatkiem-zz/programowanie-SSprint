@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace programowanie_SSprint
-{ 
-    public partial class TshirtEditor : Form,IErrorable, ICommunicative
+{
+    public partial class TshirtEditor : Form, IErrorable, ICommunicative
     {
         #region EVENTS
         public event Func<IErrorable, ICommunicative, List<tshirt>> getAllThsirts; //pobiera wszystkie dane z tabeli Tshirts
@@ -20,17 +15,18 @@ namespace programowanie_SSprint
         public event Func<IErrorable, ICommunicative, List<color>> getAllColors; //zwraca listę wszystkich kolorów
         public event Func<IErrorable, ICommunicative, List<style>> getAllStyles; //zwraca listę wszystkich kolorów
 
-       
+
         public event Action<List<object>> ReturnListOfObjects;
 
 
         #endregion
+
         #region PUBLIC
         public TshirtEditor()
         {
             InitializeComponent();
             this.ReturnListOfObjects += TshirtEditor_ReturnListOfObjects;
-            
+
         }
 
         private void TshirtEditor_ReturnListOfObjects(List<object> obj)
@@ -77,31 +73,21 @@ namespace programowanie_SSprint
 
         #endregion
 
-        private void DisplayTshirtList(List<tshirt> theList)
-        {
-            VisualHelper.RefreshTshirtList(treeViewProductBrowser, theList);
-        }
-
-        private void DisplayCompanyList(List<company> theList)
-        {
-            comboBoxCompany.Items.Clear();
-            comboBoxCompany.Items.AddRange(theList.ToArray());
-        }
-
-        private void DisplayColorList(List<color> theList)
-        {
-            comboBoxColor.Items.Clear();
-            comboBoxColor.Items.AddRange(theList.ToArray());
-        }
-
-        private void DisplayStyleList(List<style> theList)
-        {
-            comboBoxModel.Items.Clear();
-            comboBoxModel.Items.AddRange(theList.ToArray());
-        }
-
         #region GENERATED_EVENTS
+        private void btnEditCompanies_Click(object sender, EventArgs e)
+        {
+            CompanyEditor companyDialog = new CompanyEditor();
+            companyDialog.ShowDialog();
+            FillCompanyControl();
+        }
 
+        private void btnEditColors_Click(object sender, EventArgs e)
+        {
+            ColorEditor colorDialog = new ColorEditor();
+
+            colorDialog.Show();
+            FillColorControl();
+        }
         private void TshirtEditor_Load(object sender, EventArgs e)
         {
             getAllThsirts(this, this);
@@ -172,18 +158,16 @@ namespace programowanie_SSprint
 
         private void btnApplyChanges_Click(object sender, EventArgs e)
         {
-            // int theNodeId = currentlyEditedTshirt.id;
             insertSingleTshirt(this, this, currentlyEditedTshirt);
             if (!treeViewProductBrowser.Visible)
             {
 
                 treeViewProductBrowser.Visible = true;
-                
+
             }
             btnAddNew.Visible = true;
             btnDelete.Visible = true;
-           // VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllThsirts(this, this));
-          
+            getAllThsirts(this, this);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -193,8 +177,8 @@ namespace programowanie_SSprint
             if (dialogResult == DialogResult.No) return;
 
             removeTshirt(this, this, CurrentlySelectedTshirt);
-            VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllThsirts(this, this));
-    
+            getAllThsirts(this, this);
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -216,7 +200,7 @@ namespace programowanie_SSprint
             currentlyEditedTshirt.singleItemOrders = new List<singleItemOrder>();
             btnAddNew.Visible = false;
             btnDelete.Visible = false;
-            VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllThsirts(this, this));
+            getAllThsirts(this, this);
         }
 
         #endregion
@@ -297,23 +281,23 @@ namespace programowanie_SSprint
 
         }
 
-        
+
         private void FillCompanyControl()
         {
             getAllCompanies(this, this);
-          
+
         }
 
         private void FillStyleControl()
         {
             getAllStyles(this, this);
-          
+
         }
 
         private void FillColorControl()
         {
             getAllColors(this, this);
-            
+
         }
         private void FillAllControls()
         {
@@ -337,24 +321,32 @@ namespace programowanie_SSprint
             catch { }
 
         }
+        private void DisplayTshirtList(List<tshirt> theList)
+        {
+            VisualHelper.RefreshTshirtList(treeViewProductBrowser, theList);
+        }
 
+        private void DisplayCompanyList(List<company> theList)
+        {
+            comboBoxCompany.Items.Clear();
+            comboBoxCompany.Items.AddRange(theList.ToArray());
+        }
+
+        private void DisplayColorList(List<color> theList)
+        {
+            comboBoxColor.Items.Clear();
+            comboBoxColor.Items.AddRange(theList.ToArray());
+        }
+
+        private void DisplayStyleList(List<style> theList)
+        {
+            comboBoxModel.Items.Clear();
+            comboBoxModel.Items.AddRange(theList.ToArray());
+        }
 
 
         #endregion
 
-        private void btnEditCompanies_Click(object sender, EventArgs e)
-        {
-            CompanyEditor companyDialog = new CompanyEditor();
-            companyDialog.ShowDialog();
-            FillCompanyControl();
-        }
 
-        private void btnEditColors_Click(object sender, EventArgs e)
-        {
-            ColorEditor colorDialog = new ColorEditor();
-
-            colorDialog.Show();
-            FillColorControl();
-        }
     }
 }

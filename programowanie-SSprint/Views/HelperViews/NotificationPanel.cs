@@ -1,18 +1,17 @@
-﻿using System;
+﻿using programowanie_SSprint.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using programowanie_SSprint.Properties;
 
 namespace programowanie_SSprint.Views.HelperViews
 {
     public partial class NotificationPanel : UserControl
-    { 
+    {
+        #region PUBLIC
         public NotificationPanel()
         {
             InitializeComponent();
@@ -21,7 +20,7 @@ namespace programowanie_SSprint.Views.HelperViews
 
             lText.Text = "";
             localNotifications = new List<Notification>();
-            
+
             if (NotificationTime <= 0)
                 NotificationTime = 8000;
             localNotificationTime = 0;
@@ -38,7 +37,32 @@ namespace programowanie_SSprint.Views.HelperViews
             ShowNoNotification();
 
         }
+        public int NotificationTime { get; set; }
+        public void PushNotification(string text, int type = 0)
+        {
+            localNotifications.Add(new Notification(text, type));
+            UpdateNotificationAmount();
+            if (!theBgWorker.IsBusy)
+                theBgWorker.RunWorkerAsync();
+        }
 
+        #endregion
+
+
+        private List<Notification> localNotifications;
+        private int localNotificationTime;
+        private Dictionary<int, Color> colorsOfTypes;
+        private Dictionary<int, Image> imagesOfTypes;
+        private class Notification
+        {
+            public Notification(string text, int type = 0)
+            {
+                this.Type = type;
+                this.Text = text;
+            }
+            public int Type { get; private set; }
+            public string Text { get; private set; }
+        }
         private void TheBgWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (localNotificationTime == 0) localNotificationTime = NotificationTime;
@@ -62,30 +86,9 @@ namespace programowanie_SSprint.Views.HelperViews
               Thread.Sleep(localNotificationTime);
         }
 
-        public void PushNotification(string text, int type = 0)
-        {
-            localNotifications.Add(new Notification(text, type));
-            UpdateNotificationAmount();
-            if (!theBgWorker.IsBusy)
-                theBgWorker.RunWorkerAsync();
-        }
 
-        public int NotificationTime {get;set;}
 
-        private Dictionary<int, Color> colorsOfTypes;
-        private Dictionary<int, Image> imagesOfTypes;
-        private class Notification
-        {
-            public Notification(string text, int type=0)
-            {
-                this.Type = type;
-                this.Text = text;
-            }
-            public int Type { get; private set; }
-            public string Text { get; private set; }
-        }
-        private List<Notification> localNotifications;
-        private int localNotificationTime;
+        
         private void ShowNextNotification()
         {
             UpdateNotificationAmount();
