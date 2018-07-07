@@ -15,22 +15,17 @@ namespace programowanie_SSprint
         public event Func<IErrorable, ICommunicative, List<color>> getAllColors; //zwraca listę wszystkich kolorów
         public event Func<IErrorable, ICommunicative, List<style>> getAllStyles; //zwraca listę wszystkich kolorów
 
-
-        public event Action<List<object>> ReturnListOfObjects;
-
-
         #endregion
 
         #region PUBLIC
         public TshirtEditor()
         {
             InitializeComponent();
-            this.ReturnListOfObjects += TshirtEditor_ReturnListOfObjects;
-
         }
 
-        private void TshirtEditor_ReturnListOfObjects(List<object> obj)
+        public void ReturnListOfObjects(List<object> obj)
         {
+
             List<tshirt> recievedTshirts = obj.OfType<tshirt>().ToList();
             if (recievedTshirts != null)
             {
@@ -59,6 +54,8 @@ namespace programowanie_SSprint
                 return;
             }
         }
+
+
 
         public void ShowError(string message, string longMessage = null, string title = null)
         {

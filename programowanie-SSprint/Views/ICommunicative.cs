@@ -14,7 +14,7 @@ namespace programowanie_SSprint
         ///</summary>
         void PushNotification(string text, int type = 0);
 
-        event Action<List<object>> ReturnListOfObjects;
+        void ReturnListOfObjects(List<object> returnedList);
 
     }
 }

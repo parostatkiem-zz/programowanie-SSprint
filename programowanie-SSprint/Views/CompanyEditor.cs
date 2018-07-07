@@ -12,7 +12,7 @@ namespace programowanie_SSprint
         public event Func<IErrorable, ICommunicative, company, bool> removeCompany; //usuwa kolor. Istotne jest tylko company.id. Zwraca bool czy się udało
 
        
-        public event Action<List<object>> ReturnListOfObjects;
+ 
 
         #region PUBLIC
         public void ShowError(string message, string longMessage = null, string title = null)
@@ -31,10 +31,10 @@ namespace programowanie_SSprint
             InitializeComponent();
             currentlySelectedCompany = null;
             currentlyEditedCompany = new company();
-            this.ReturnListOfObjects += CompanyEditor_ReturnListOfObjects;
+        
         }
 
-        private void CompanyEditor_ReturnListOfObjects(List<object> obj)
+        public void ReturnListOfObjects(List<object> obj)
         {
             List<company> recievedCompanies = obj.OfType<company>().ToList();
             if (recievedCompanies != null)
@@ -57,9 +57,6 @@ namespace programowanie_SSprint
                 displaySingleCompany(currentlySelectedCompany);
             }
         }
-
-       
-
         private void RefreshCompanyList()
         {
            getAllCompanies(this, this);
@@ -76,9 +73,7 @@ namespace programowanie_SSprint
                 item.SubItems.Add(c.name);
                 lvCompanies.Items.Add(item);
             }
-        }
-
-     
+        } 
         private void displaySingleCompany(company c)
         {
             if (editMode != EditMode.AddNew)

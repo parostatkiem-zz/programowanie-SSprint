@@ -15,9 +15,13 @@ namespace programowanie_SSprint
         public event Func<IErrorable, ICommunicative, style, bool> removeStyle; //usuwa kolor. Istotne jest tylko style.id. Zwraca bool czy się udało
 
 
-        public event Action<List<object>> ReturnListOfObjects;
-
         #region PUBLIC
+        public StyleEditor()
+        {
+            InitializeComponent();
+            currentlySelectedStyle = null;
+            currentlyEditedStyle = new style();
+        }
         public void ShowError(string message, string longMessage = null, string title = null)
         {
             var ErrorWindow = new Views.HelperViews.Error(message, longMessage, title);
@@ -29,15 +33,7 @@ namespace programowanie_SSprint
         }
 
 
-        public StyleEditor()
-        {
-            InitializeComponent();
-            currentlySelectedStyle = null;
-            currentlyEditedStyle = new style();
-            this.ReturnListOfObjects += StyleEditor_ReturnListOfObjects;
-        }
-
-        private void StyleEditor_ReturnListOfObjects(List<object> obj)
+        public void ReturnListOfObjects(List<object> obj)
         {
             List<style> recievedStyles = obj.OfType<style>().ToList();
             if (recievedStyles != null)

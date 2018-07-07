@@ -14,15 +14,13 @@ namespace programowanie_SSprint
         public event Func<IErrorable, ICommunicative, picture, bool> removePicture; //usuwa obraz. Istotne jest tylko picture.id. Zwraca bool czy się udało
 
 
-        public event Action<List<object>> ReturnListOfObjects;
-
         #endregion
         public PictureEditor()
         {
             InitializeComponent();
             currentlySelectedPicture = null;
             currentlyEditedPicture = new picture();
-            this.ReturnListOfObjects += PictureEditor_ReturnListOfObjects;
+          
         }
 
         public void ShowError(string message, string longMessage = null, string title = null)
@@ -48,7 +46,7 @@ namespace programowanie_SSprint
                 DisplaySinglePicture(currentlySelectedPicture);
             }
         }
-        private void PictureEditor_ReturnListOfObjects(List<object> obj)
+        public void ReturnListOfObjects(List<object> obj)
         {
             List<picture> recievedPictures = obj.OfType<picture>().ToList();
             if (recievedPictures != null)
@@ -57,6 +55,7 @@ namespace programowanie_SSprint
                 return;
             }
         }
+
 
         private void RefreshPictureList()
         {
@@ -99,9 +98,6 @@ namespace programowanie_SSprint
             return;
         }
         #endregion
-
-
-
 
         #region GENERATED_EVENTS
         private void PictureEditor_Load(object sender, EventArgs e)

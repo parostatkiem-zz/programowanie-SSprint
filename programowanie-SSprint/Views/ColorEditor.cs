@@ -12,8 +12,6 @@ namespace programowanie_SSprint
         public event Func<IErrorable, ICommunicative, List<color>> getAllColors; //zwraca listę wszystkich kolorów
         public event Func<IErrorable, ICommunicative, color, bool> removeColor; //usuwa kolor. Istotne jest tylko color.id. Zwraca bool czy się udało
 
-
-        public event Action<List<object>> ReturnListOfObjects;
         #endregion
 
         #region PUBLIC
@@ -28,10 +26,9 @@ namespace programowanie_SSprint
             InitializeComponent();
             currentlySelectedColor = null;
             currentlyEditedColor = new color();
-            this.ReturnListOfObjects += ColorEditor_ReturnListOfObjects;
         }
 
-        private void ColorEditor_ReturnListOfObjects(List<object> obj)
+        public void ReturnListOfObjects(List<object> obj)
         {
             List<color> recievedColors = obj.OfType<color>().ToList();
             if (recievedColors != null)
