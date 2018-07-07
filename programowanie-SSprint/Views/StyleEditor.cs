@@ -19,7 +19,7 @@ namespace programowanie_SSprint
         public event Func<IErrorable, ICommunicative, List<style>> getAllStyles; //zwraca listę wszystkich kolorów
         public event Func<IErrorable, ICommunicative, style, bool> removeStyle; //usuwa kolor. Istotne jest tylko style.id. Zwraca bool czy się udało
 
-        public event Action<object> ReturnSingleObject;
+       
         public event Action<List<object>> ReturnListOfObjects;
 
         #region PUBLIC

@@ -20,7 +20,7 @@ namespace programowanie_SSprint
         public event Func<IErrorable, ICommunicative, List<color>> getAllColors; //zwraca listę wszystkich kolorów
         public event Func<IErrorable, ICommunicative, List<style>> getAllStyles; //zwraca listę wszystkich kolorów
 
-        public event Action<object> ReturnSingleObject;
+       
         public event Action<List<object>> ReturnListOfObjects;
 
 
