@@ -36,6 +36,17 @@ namespace programowanie_SSprint
             InitializeComponent();
             currentlySelectedCompany = null;
             currentlyEditedCompany = new company();
+            this.ReturnListOfObjects += CompanyEditor_ReturnListOfObjects;
+        }
+
+        private void CompanyEditor_ReturnListOfObjects(List<object> obj)
+        {
+            List<company> recievedCompanies = obj.OfType<company>().ToList();
+            if (recievedCompanies != null)
+            {
+                DisplayCompanyList(recievedCompanies);
+                return;
+            }
         }
         #endregion
         private company currentlyEditedCompany;
@@ -58,12 +69,14 @@ namespace programowanie_SSprint
 
         private void RefreshCompanyList()
         {
+           getAllCompanies(this, this);
+        }
+
+        private void DisplayCompanyList(List<company> theList)
+        {
             lvCompanies.Items.Clear();
-
-            List<company> recievedCompanies = getAllCompanies(this, this);
-
             ListViewItem item;
-            foreach (var c in recievedCompanies)
+            foreach (var c in theList)
             {
                 item = new ListViewItem(c.id.ToString());
                 item.Tag = c;

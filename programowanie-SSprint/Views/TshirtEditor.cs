@@ -29,8 +29,41 @@ namespace programowanie_SSprint
         public TshirtEditor()
         {
             InitializeComponent();
+            this.ReturnListOfObjects += TshirtEditor_ReturnListOfObjects;
             
         }
+
+        private void TshirtEditor_ReturnListOfObjects(List<object> obj)
+        {
+            List<tshirt> recievedTshirts = obj.OfType<tshirt>().ToList();
+            if (recievedTshirts != null)
+            {
+                DisplayTshirtList(recievedTshirts);
+                return;
+            }
+
+            List<company> recievedCompanies = obj.OfType<company>().ToList();
+            if (recievedCompanies != null)
+            {
+                DisplayCompanyList(recievedCompanies);
+                return;
+            }
+
+            List<color> recievedColors = obj.OfType<color>().ToList();
+            if (recievedColors != null)
+            {
+                DisplayColorList(recievedColors);
+                return;
+            }
+
+            List<style> recievedStyles = obj.OfType<style>().ToList();
+            if (recievedStyles != null)
+            {
+                DisplayStyleList(recievedStyles);
+                return;
+            }
+        }
+
         public void ShowError(string message, string longMessage = null, string title = null)
         {
             var ErrorWindow = new Views.HelperViews.Error(message, longMessage, title);
@@ -44,11 +77,34 @@ namespace programowanie_SSprint
 
         #endregion
 
+        private void DisplayTshirtList(List<tshirt> theList)
+        {
+            VisualHelper.RefreshTshirtList(treeViewProductBrowser, theList);
+        }
+
+        private void DisplayCompanyList(List<company> theList)
+        {
+            comboBoxCompany.Items.Clear();
+            comboBoxCompany.Items.AddRange(theList.ToArray());
+        }
+
+        private void DisplayColorList(List<color> theList)
+        {
+            comboBoxColor.Items.Clear();
+            comboBoxColor.Items.AddRange(theList.ToArray());
+        }
+
+        private void DisplayStyleList(List<style> theList)
+        {
+            comboBoxModel.Items.Clear();
+            comboBoxModel.Items.AddRange(theList.ToArray());
+        }
+
         #region GENERATED_EVENTS
 
         private void TshirtEditor_Load(object sender, EventArgs e)
         {
-            VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllThsirts(this, this));
+            getAllThsirts(this, this);
             FillAllControls();
             CurrentlySelectedTshirt = null;
         }
@@ -244,20 +300,20 @@ namespace programowanie_SSprint
         
         private void FillCompanyControl()
         {
-            comboBoxCompany.Items.Clear();
-            comboBoxCompany.Items.AddRange(getAllCompanies(this, this).ToArray());
+            getAllCompanies(this, this);
+          
         }
 
         private void FillStyleControl()
         {
-            comboBoxModel.Items.Clear();
-            comboBoxModel.Items.AddRange(getAllStyles(this, this).ToArray());
+            getAllStyles(this, this);
+          
         }
 
         private void FillColorControl()
         {
-            comboBoxColor.Items.Clear();
-            comboBoxColor.Items.AddRange(getAllColors(this,this).ToArray());
+            getAllColors(this, this);
+            
         }
         private void FillAllControls()
         {

@@ -84,6 +84,26 @@ namespace programowanie_SSprint
 
             currentListOfItems = new List<singleItemOrder>();
 
+            this.ReturnListOfObjects += MainWindow_ReturnListOfObjects;
+
+        }
+
+        private void MainWindow_ReturnListOfObjects(List<object> obj)
+        {
+            List<order> recievedOrders = obj.OfType<order>().ToList();
+            if (recievedOrders != null)
+            {
+                DisplayOrderList(recievedOrders);
+                return;
+            }
+
+            List<tshirt> recievedTshirts = obj.OfType<tshirt>().ToList();
+            if (recievedTshirts != null)
+            {
+                localTshirtList =recievedTshirts;
+                VisualHelper.RefreshTshirtList(treeViewProductBrowser, localTshirtList);
+                return;
+            }
 
         }
 
@@ -99,6 +119,21 @@ namespace programowanie_SSprint
             notificationPanel1.PushNotification(text, type);
         }
 
+        private void DisplayOrderList(List<order> theList)
+        {
+
+            lvAllOrders.Items.Clear();
+
+            ListViewItem item;
+
+            foreach (order o in theList)
+            {
+                item = new ListViewItem(o.id.ToString());
+                item.Tag = o;
+                item.SubItems.AddRange(new string[] { o.end_date.ToString() });
+                lvAllOrders.Items.Add(item);
+            }
+        }
         private bool TshirtEditorWindow_removeTshirt(IErrorable arg1, ICommunicative arg3, tshirt arg2)
         {
             return removeTshirt(arg1, arg3, arg2);
@@ -235,11 +270,10 @@ namespace programowanie_SSprint
         {
             // VisualHelper.RefreshTshirtList(treeViewProductBrowser, getAllTshirts(this));
             CurrentlySelectedOrder = null;
+            getAllOrders(this, this);
 
+            getAllTshirts(this, this);
             
-           RefreshOrderList(getAllOrders(this, this));
-            localTshirtList = getAllTshirts(this, this);
-            VisualHelper.RefreshTshirtList(treeViewProductBrowser,localTshirtList);
             
             CurrentlySelectedTshirt = null;
         }
@@ -314,20 +348,6 @@ namespace programowanie_SSprint
         #endregion
 
         #region PRIVATE_METHODS
-        private void RefreshOrderList(List<order> theList)
-        {
-            lvAllOrders.Items.Clear();
-
-            ListViewItem item;
-
-            foreach (order o in theList)
-            {
-                item = new ListViewItem(o.id.ToString());
-                item.Tag = o;
-                item.SubItems.AddRange(new string[] { o.end_date.ToString() });
-                lvAllOrders.Items.Add(item);
-            }
-        }
 
         private void RefreshOrderItemList(List<singleItemOrder> theList)
         {
@@ -402,7 +422,7 @@ namespace programowanie_SSprint
             if (dialogResult == DialogResult.No) return;
 
             removeOrder(this, this, CurrentlySelectedOrder);
-            RefreshOrderList(getAllOrders(this, this));
+            getAllOrders(this, this);
         }
 
         private void btnCurrentOrderCancel_Click(object sender, EventArgs e)
@@ -456,7 +476,7 @@ namespace programowanie_SSprint
             btnAddNew.Visible = true;
             btnDelete.Visible = true;
             gbSelectedOrderParams.Visible = false;
-            RefreshOrderList(getAllOrders(this, this));
+            getAllOrders(this, this);
 
         }
 
@@ -514,10 +534,6 @@ namespace programowanie_SSprint
             RefreshOrderItemList(currentListOfItems);
 
         }
-        Random rnd = new Random();
-        private void button1_Click(object sender, EventArgs e)
-        {
-            notificationPanel1.PushNotification("aaa jajaj cocojambo", rnd.Next(3));
-        }
+      
     }
 }

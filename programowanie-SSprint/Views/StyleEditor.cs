@@ -39,6 +39,17 @@ namespace programowanie_SSprint
             InitializeComponent();
             currentlySelectedStyle = null;
             currentlyEditedStyle = new style();
+            this.ReturnListOfObjects += StyleEditor_ReturnListOfObjects;
+        }
+
+        private void StyleEditor_ReturnListOfObjects(List<object> obj)
+        {
+            List<style> recievedStyles = obj.OfType<style>().ToList();
+            if (recievedStyles != null)
+            {
+                DisplayStyleList(recievedStyles);
+                return;
+            }
         }
         #endregion
         private style currentlyEditedStyle;
@@ -61,12 +72,16 @@ namespace programowanie_SSprint
 
         private void RefreshStyleList()
         {
+            getAllStyles(this, this);
+        }
+
+
+        private void DisplayStyleList(List<style> theList)
+        {
             lvStyles.Items.Clear();
-
-            List<style> recievedStyles = getAllStyles(this, this);
-
+            
             ListViewItem item;
-            foreach (var c in recievedStyles)
+            foreach (var c in theList)
             {
                 item = new ListViewItem(c.id.ToString());
                 item.Tag = c;
@@ -74,7 +89,6 @@ namespace programowanie_SSprint
                 lvStyles.Items.Add(item);
             }
         }
-
         private void lvStyles_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lvStyles.SelectedItems.Count <= 0 || lvStyles.SelectedItems[0].Tag == null) return; //nic nie jest zaznaczone

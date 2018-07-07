@@ -27,7 +27,19 @@ namespace programowanie_SSprint
             InitializeComponent();
             currentlySelectedPicture = null;
             currentlyEditedPicture = new picture();
+            this.ReturnListOfObjects += PictureEditor_ReturnListOfObjects;
         }
+
+        private void PictureEditor_ReturnListOfObjects(List<object> obj)
+        {
+            List<picture> recievedPictures = obj.OfType<picture>().ToList();
+            if (recievedPictures != null)
+            {
+                DisplayPictureList(recievedPictures);
+                return;
+            }
+        }
+
         public void ShowError(string message, string longMessage = null, string title = null)
         {
             var ErrorWindow = new Views.HelperViews.Error(message, longMessage, title);
@@ -57,19 +69,24 @@ namespace programowanie_SSprint
 
         private void RefreshPictureList()
         {
+          getAllPictures(this, this);
+        }
+
+        private void DisplayPictureList(List<picture> theList)
+        {
             lvPictures.Items.Clear();
 
-            List<picture> recievedPictures = getAllPictures(this, this);
 
             ListViewItem item;
-            foreach (var c in recievedPictures)
+            foreach (var c in theList)
             {
                 item = new ListViewItem(c.id.ToString());
                 item.Tag = c;
                 item.SubItems.Add(c.name);
-               item.SubItems.Add(c.orders.ToString()); //TODO do poprawki
+                item.SubItems.Add(c.orders.ToString()); //TODO do poprawki
                 lvPictures.Items.Add(item);
             }
+
         }
 
         private void displaySinglePicture(picture p)
