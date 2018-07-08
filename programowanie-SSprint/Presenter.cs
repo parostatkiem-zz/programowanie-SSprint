@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 
 //todo : obgadać i dodać lepszą obsługę komunikatów przy zwracaniu wyjątku
@@ -78,7 +80,7 @@ namespace programowanie_SSprint
                     windowCommunicator.PushNotification(badResult, 2);
                     windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
                 }
-            }).RunSynchronously();
+            }).Start();
         }
         private void View_removeListOfElements<elementType>
             (IErrorable windowInterface, ICommunicative windowCommunicator, List<elementType> itemsToRemove)
@@ -96,14 +98,13 @@ namespace programowanie_SSprint
                     windowCommunicator.PushNotification(badResult, 2);
                     windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
                 }
-            }).RunSynchronously();
+            }).Start();
         }
-
 
         private void View_getAllElements<elementType>
             (IErrorable windowInterface, ICommunicative windowCommunicator)
             where elementType : Communicator.CommunicatorElement<elementType>
-        {
+        {            
             new Task(() => {
                 
                 try
@@ -116,7 +117,7 @@ namespace programowanie_SSprint
                     windowCommunicator.PushNotification(badResult, 3);
                     windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
                 }
-            }).RunSynchronously();
+            }).Start();
         }
 
 
@@ -136,7 +137,7 @@ namespace programowanie_SSprint
                     windowCommunicator.PushNotification(badResult, 3);
                     windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
                 }
-            }).RunSynchronously();
+            }).Start();
         }
         private void View_insertListOfElements<elementType>
             (IErrorable windowInterface, ICommunicative windowCommunicator, List<elementType> newItems)
@@ -154,7 +155,7 @@ namespace programowanie_SSprint
                     windowCommunicator.PushNotification(badResult, 3);
                     windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
                 }
-            }).RunSynchronously();
+            }).Start();
         }
 
 
@@ -167,7 +168,7 @@ namespace programowanie_SSprint
                 try
                 {
                     elementType tmp = model.Find<elementType>(elementID);
-                    // windowCommunicator.ReturnObject((object)tmp);
+                    //windowCommunicator.ReturnObject((object)tmp);
                     windowCommunicator.PushNotification(goodResult, 0);
                 }
                 catch (Exception ex)
@@ -176,7 +177,7 @@ namespace programowanie_SSprint
                     windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
                     
                 }
-            }).RunSynchronously();
+            }).Start();
         }
     }
 }
