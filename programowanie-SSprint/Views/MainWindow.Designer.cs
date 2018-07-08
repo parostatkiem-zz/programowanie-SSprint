@@ -21,45 +21,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("S (dostępne: 530) 20zł");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("M (dostępne: 13) 25zł");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("L (dostępne: 51) 27zł");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Męski", new System.Windows.Forms.TreeNode[] {
-            treeNode22,
-            treeNode23,
-            treeNode24});
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("S (dostępne: 10) 18zł");
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("M (dostępne: 64) 21zł");
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Damski", new System.Windows.Forms.TreeNode[] {
-            treeNode26,
-            treeNode27});
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("L (dostępne: 11) 20zł");
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("XXL (dostepne: 3) 35zł");
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Unisex", new System.Windows.Forms.TreeNode[] {
-            treeNode29,
-            treeNode30});
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Model A", new System.Windows.Forms.TreeNode[] {
-            treeNode25,
-            treeNode28,
-            treeNode31});
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Męski");
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("T-shirt", new System.Windows.Forms.TreeNode[] {
-            treeNode33});
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Unisex");
-            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Koszulka Polo", new System.Windows.Forms.TreeNode[] {
-            treeNode35});
-            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Firma A", new System.Windows.Forms.TreeNode[] {
-            treeNode32,
-            treeNode34,
-            treeNode36});
-            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Model A");
-            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Bluza");
-            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Firma B", new System.Windows.Forms.TreeNode[] {
-            treeNode38,
-            treeNode39});
-            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Model C");
-            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("Firma C", new System.Windows.Forms.TreeNode[] {
-            treeNode41});
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("S (dostępne: 530) 20zł");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("M (dostępne: 13) 25zł");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("L (dostępne: 51) 27zł");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Męski", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("S (dostępne: 10) 18zł");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("M (dostępne: 64) 21zł");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Damski", new System.Windows.Forms.TreeNode[] {
+            treeNode5,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("L (dostępne: 11) 20zł");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("XXL (dostepne: 3) 35zł");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Unisex", new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode9});
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Model A", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode7,
+            treeNode10});
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Męski");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("T-shirt", new System.Windows.Forms.TreeNode[] {
+            treeNode12});
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Unisex");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Koszulka Polo", new System.Windows.Forms.TreeNode[] {
+            treeNode14});
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Firma A", new System.Windows.Forms.TreeNode[] {
+            treeNode11,
+            treeNode13,
+            treeNode15});
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Model A");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Bluza");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Firma B", new System.Windows.Forms.TreeNode[] {
+            treeNode17,
+            treeNode18});
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Model C");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Firma C", new System.Windows.Forms.TreeNode[] {
+            treeNode20});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
             this.splitContainerHorizLeft = new System.Windows.Forms.SplitContainer();
@@ -76,6 +77,7 @@
             this.columnAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnReserved = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnActions = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.notificationPanel1 = new programowanie_SSprint.Views.HelperViews.NotificationPanel();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.gbSelectedOrderParams = new System.Windows.Forms.GroupBox();
             this.dateTimeEnd = new System.Windows.Forms.DateTimePicker();
@@ -90,6 +92,7 @@
             this.lSelectedOrderEndDate = new System.Windows.Forms.Label();
             this.btnSelectedOrderBrowseImage = new System.Windows.Forms.Button();
             this.lSelectedOrderImage = new System.Windows.Forms.Label();
+            this.pictureBoxSelectedOrderImage = new System.Windows.Forms.PictureBox();
             this.gbSelectedOrderData = new System.Windows.Forms.GroupBox();
             this.tbSelectedOrderPhone = new System.Windows.Forms.TextBox();
             this.tbSelectedOrderName = new System.Windows.Forms.TextBox();
@@ -117,8 +120,7 @@
             this.colorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stylesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBoxSelectedOrderImage = new System.Windows.Forms.PictureBox();
-            this.notificationPanel1 = new programowanie_SSprint.Views.HelperViews.NotificationPanel();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
@@ -131,9 +133,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericAddingProductAmount)).BeginInit();
             this.gbSelectedOrderParams.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numClientPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedOrderImage)).BeginInit();
             this.gbSelectedOrderData.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedOrderImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerMain
@@ -240,52 +243,52 @@
             this.treeViewProductBrowser.Dock = System.Windows.Forms.DockStyle.Top;
             this.treeViewProductBrowser.Location = new System.Drawing.Point(0, 0);
             this.treeViewProductBrowser.Name = "treeViewProductBrowser";
-            treeNode22.Name = "Node15";
-            treeNode22.Text = "S (dostępne: 530) 20zł";
-            treeNode23.Name = "Node16";
-            treeNode23.Text = "M (dostępne: 13) 25zł";
-            treeNode24.Name = "Node17";
-            treeNode24.Text = "L (dostępne: 51) 27zł";
-            treeNode25.Name = "Node10";
-            treeNode25.Text = "Męski";
-            treeNode26.Name = "Node18";
-            treeNode26.Text = "S (dostępne: 10) 18zł";
-            treeNode27.Name = "Node19";
-            treeNode27.Text = "M (dostępne: 64) 21zł";
-            treeNode28.Name = "Node13";
-            treeNode28.Text = "Damski";
-            treeNode29.Name = "Node20";
-            treeNode29.Text = "L (dostępne: 11) 20zł";
-            treeNode30.Name = "Node21";
-            treeNode30.Text = "XXL (dostepne: 3) 35zł";
-            treeNode31.Name = "Node14";
-            treeNode31.Text = "Unisex";
-            treeNode32.Name = "Node3";
-            treeNode32.Text = "Model A";
-            treeNode33.Name = "Node11";
-            treeNode33.Text = "Męski";
-            treeNode34.Name = "Node5";
-            treeNode34.Text = "T-shirt";
-            treeNode35.Name = "Node12";
-            treeNode35.Text = "Unisex";
-            treeNode36.Name = "Node6";
-            treeNode36.Text = "Koszulka Polo";
-            treeNode37.Name = "Node0";
-            treeNode37.Text = "Firma A";
-            treeNode38.Name = "Node7";
-            treeNode38.Text = "Model A";
-            treeNode39.Name = "Node8";
-            treeNode39.Text = "Bluza";
-            treeNode40.Name = "Node1";
-            treeNode40.Text = "Firma B";
-            treeNode41.Name = "Node9";
-            treeNode41.Text = "Model C";
-            treeNode42.Name = "Node2";
-            treeNode42.Text = "Firma C";
+            treeNode1.Name = "Node15";
+            treeNode1.Text = "S (dostępne: 530) 20zł";
+            treeNode2.Name = "Node16";
+            treeNode2.Text = "M (dostępne: 13) 25zł";
+            treeNode3.Name = "Node17";
+            treeNode3.Text = "L (dostępne: 51) 27zł";
+            treeNode4.Name = "Node10";
+            treeNode4.Text = "Męski";
+            treeNode5.Name = "Node18";
+            treeNode5.Text = "S (dostępne: 10) 18zł";
+            treeNode6.Name = "Node19";
+            treeNode6.Text = "M (dostępne: 64) 21zł";
+            treeNode7.Name = "Node13";
+            treeNode7.Text = "Damski";
+            treeNode8.Name = "Node20";
+            treeNode8.Text = "L (dostępne: 11) 20zł";
+            treeNode9.Name = "Node21";
+            treeNode9.Text = "XXL (dostepne: 3) 35zł";
+            treeNode10.Name = "Node14";
+            treeNode10.Text = "Unisex";
+            treeNode11.Name = "Node3";
+            treeNode11.Text = "Model A";
+            treeNode12.Name = "Node11";
+            treeNode12.Text = "Męski";
+            treeNode13.Name = "Node5";
+            treeNode13.Text = "T-shirt";
+            treeNode14.Name = "Node12";
+            treeNode14.Text = "Unisex";
+            treeNode15.Name = "Node6";
+            treeNode15.Text = "Koszulka Polo";
+            treeNode16.Name = "Node0";
+            treeNode16.Text = "Firma A";
+            treeNode17.Name = "Node7";
+            treeNode17.Text = "Model A";
+            treeNode18.Name = "Node8";
+            treeNode18.Text = "Bluza";
+            treeNode19.Name = "Node1";
+            treeNode19.Text = "Firma B";
+            treeNode20.Name = "Node9";
+            treeNode20.Text = "Model C";
+            treeNode21.Name = "Node2";
+            treeNode21.Text = "Firma C";
             this.treeViewProductBrowser.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode37,
-            treeNode40,
-            treeNode42});
+            treeNode16,
+            treeNode19,
+            treeNode21});
             this.treeViewProductBrowser.Size = new System.Drawing.Size(529, 315);
             this.treeViewProductBrowser.TabIndex = 0;
             this.treeViewProductBrowser.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewProductBrowser_AfterSelect);
@@ -342,6 +345,19 @@
             this.columnActions.Text = "Akcje";
             this.columnActions.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnActions.Width = 121;
+            // 
+            // notificationPanel1
+            // 
+            this.notificationPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.notificationPanel1.BackColor = System.Drawing.Color.White;
+            this.notificationPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.notificationPanel1.Location = new System.Drawing.Point(156, 530);
+            this.notificationPanel1.MinimumSize = new System.Drawing.Size(245, 20);
+            this.notificationPanel1.Name = "notificationPanel1";
+            this.notificationPanel1.NotificationTime = 7000;
+            this.notificationPanel1.Size = new System.Drawing.Size(251, 23);
+            this.notificationPanel1.TabIndex = 8;
             // 
             // btnAddNew
             // 
@@ -518,6 +534,18 @@
             this.lSelectedOrderImage.Size = new System.Drawing.Size(45, 13);
             this.lSelectedOrderImage.TabIndex = 2;
             this.lSelectedOrderImage.Text = "Nadruk:";
+            // 
+            // pictureBoxSelectedOrderImage
+            // 
+            this.pictureBoxSelectedOrderImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxSelectedOrderImage.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxSelectedOrderImage.Image")));
+            this.pictureBoxSelectedOrderImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxSelectedOrderImage.InitialImage")));
+            this.pictureBoxSelectedOrderImage.Location = new System.Drawing.Point(369, 39);
+            this.pictureBoxSelectedOrderImage.Name = "pictureBoxSelectedOrderImage";
+            this.pictureBoxSelectedOrderImage.Size = new System.Drawing.Size(161, 141);
+            this.pictureBoxSelectedOrderImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxSelectedOrderImage.TabIndex = 1;
+            this.pictureBoxSelectedOrderImage.TabStop = false;
             // 
             // gbSelectedOrderData
             // 
@@ -753,30 +781,9 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.helpToolStripMenuItem.Text = "Pomoc";
             // 
-            // pictureBoxSelectedOrderImage
+            // errorProvider1
             // 
-            this.pictureBoxSelectedOrderImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxSelectedOrderImage.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxSelectedOrderImage.Image")));
-            this.pictureBoxSelectedOrderImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxSelectedOrderImage.InitialImage")));
-            this.pictureBoxSelectedOrderImage.Location = new System.Drawing.Point(369, 39);
-            this.pictureBoxSelectedOrderImage.Name = "pictureBoxSelectedOrderImage";
-            this.pictureBoxSelectedOrderImage.Size = new System.Drawing.Size(161, 141);
-            this.pictureBoxSelectedOrderImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxSelectedOrderImage.TabIndex = 1;
-            this.pictureBoxSelectedOrderImage.TabStop = false;
-            // 
-            // notificationPanel1
-            // 
-            this.notificationPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.notificationPanel1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.notificationPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.notificationPanel1.Location = new System.Drawing.Point(156, 530);
-            this.notificationPanel1.MinimumSize = new System.Drawing.Size(245, 20);
-            this.notificationPanel1.Name = "notificationPanel1";
-            this.notificationPanel1.NotificationTime = 7000;
-            this.notificationPanel1.Size = new System.Drawing.Size(251, 23);
-            this.notificationPanel1.TabIndex = 8;
+            this.errorProvider1.ContainerControl = this;
             // 
             // MainWindow
             // 
@@ -805,11 +812,12 @@
             this.gbSelectedOrderParams.ResumeLayout(false);
             this.gbSelectedOrderParams.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numClientPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedOrderImage)).EndInit();
             this.gbSelectedOrderData.ResumeLayout(false);
             this.gbSelectedOrderData.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedOrderImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -875,6 +883,7 @@
         private System.Windows.Forms.DateTimePicker dateTimeBegin;
         private System.Windows.Forms.Label lSelectedTshirtName;
         private Views.HelperViews.NotificationPanel notificationPanel1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 

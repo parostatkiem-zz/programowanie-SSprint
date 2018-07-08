@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace programowanie_SSprint
@@ -255,6 +256,9 @@ namespace programowanie_SSprint
         private order currentlySelectedOrder;
         private order currentlyEditedOrder;
 
+        private Regex emailFieldRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+        private Regex phoneFieldRegex = new Regex(@"^[0-9]*$");
+
 
         private List<tshirt> localTshirtList;
         private tshirt currentlySelectedTshirt;
@@ -354,6 +358,7 @@ namespace programowanie_SSprint
             catch { }
             comboBoxSelectedOrderStatus.SelectedIndex = o.status;
             numClientPrice.Value = o.price_for_client;
+
         }
 
         private void DeleteProperOrderItems(List<singleItemOrder> old, List<singleItemOrder> updated)
@@ -402,7 +407,6 @@ namespace programowanie_SSprint
             getAllOrders(this, this);
 
             getAllTshirts(this, this);
-
 
             CurrentlySelectedTshirt = null;
         }
@@ -454,12 +458,21 @@ namespace programowanie_SSprint
 
         private void btnSelectedOrderSave_Click(object sender, EventArgs e)
         {
+          
             if (currentlyEditedOrder == null)
             {
                 ShowError("Wygląda na to, że nie edytujesz obiecnie żadnego zamówienia");
                 return;
             }
+            foreach (Control c in gbSelectedOrderData.Controls)
+            {
+                if (errorProvider1.GetError(c).Length > 0) return;
+            }
 
+            foreach (Control c in gbSelectedOrderParams.Controls)
+            {
+                if (errorProvider1.GetError(c).Length > 0) return;
+            }
 
             insertOrder(this, this, currentlyEditedOrder);
             insertListOfItems(this, this, currentListOfItems);
@@ -479,21 +492,47 @@ namespace programowanie_SSprint
 
         private void tbSelectedOrderName_TextChanged(object sender, EventArgs e)
         {
+            if(tbSelectedOrderName.Text.Length<=0)
+            {
+                errorProvider1.SetError(tbSelectedOrderName, "Wartośc tego pola nie może być pusta");
+                return;
+            }
+            errorProvider1.SetError(tbSelectedOrderName, "");
             currentlyEditedOrder.client_name = tbSelectedOrderName.Text;
         }
 
         private void tbSelectedOrderEmail_TextChanged(object sender, EventArgs e)
         {
+            if(tbSelectedOrderEmail.Text.Length > 0 && !emailFieldRegex.IsMatch(tbSelectedOrderEmail.Text))
+            {
+                errorProvider1.SetError(tbSelectedOrderEmail, "To nie wygląda jak e-mail...");
+                return;
+            }
+            errorProvider1.SetError(tbSelectedOrderEmail, "");
+
             currentlyEditedOrder.client_email = tbSelectedOrderEmail.Text;
         }
 
         private void tbSelectedOrderPhone_TextChanged(object sender, EventArgs e)
         {
+            if (tbSelectedOrderPhone.Text.Length>0 && !phoneFieldRegex.IsMatch(tbSelectedOrderPhone.Text))
+            {
+                errorProvider1.SetError(tbSelectedOrderPhone, "Dozwolone tylko cyfry");
+                return;
+            }
+            errorProvider1.SetError(tbSelectedOrderPhone, "");
+
             currentlyEditedOrder.client_phone = tbSelectedOrderPhone.Text;
         }
 
         private void dateTimeEnd_ValueChanged(object sender, EventArgs e)
         {
+            if(dateTimeEnd.Value<currentlyEditedOrder.order_date)
+            {
+                errorProvider1.SetError(dateTimeEnd, "Niby jak chcesz zakończyć zlecenie przed jego rozpoczęciem? :)");
+                return;
+            }
+            errorProvider1.SetError(dateTimeEnd, "");
             currentlyEditedOrder.end_date = dateTimeEnd.Value;
         }
 

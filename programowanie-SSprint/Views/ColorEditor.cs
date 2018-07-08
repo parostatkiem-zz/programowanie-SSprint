@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace programowanie_SSprint
@@ -58,6 +59,8 @@ namespace programowanie_SSprint
                 DisplaySingleColor(currentlySelectedColor);
             }
         }
+
+        private Regex hexFieldRegex = new Regex(@"^(^$|[#][0-9abcdefABCDEF]{3}|[#][0-9abcdefABCDEF]{6})$");
         private void RefreshColorList()
         {
             getAllColors(this, this);
@@ -103,7 +106,6 @@ namespace programowanie_SSprint
             RefreshColorList();
         }
 
-
         private void lvColors_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lvColors.SelectedItems.Count <= 0 || lvColors.SelectedItems[0].Tag == null) return; //nic nie jest zaznaczone
@@ -111,25 +113,36 @@ namespace programowanie_SSprint
             CurrentlySelectedColor = lvColors.SelectedItems[0].Tag as color;
         }
 
-
-
         private void tbName_TextChanged(object sender, EventArgs e)
         {
-            if (tbName.Text.Length <= 0) { return; }//error
-
+            if (tbName.Text.Length <= 0)
+            {
+                errorProvider1.SetError(tbName, "Wartośc nie może byc pusta");
+                return;
+            }//error
+            errorProvider1.SetError(tbName, "");
             currentlyEditedColor.name = tbName.Text;
         }
 
         private void tbHex_TextChanged(object sender, EventArgs e)
         {
             //  if (tbHex.Text.Length <= 0) { return; }//error
-
+            if (!hexFieldRegex.IsMatch(tbHex.Text))
+            {
+                errorProvider1.SetError(tbHex, "Wprowadź wartość w formacie: #aaa lub #aaaaaa");
+                return;
+             }
+            errorProvider1.SetError(tbHex, "");
             currentlyEditedColor.hex_value = tbHex.Text;
         }
 
         private void btnApplyChanges_Click(object sender, EventArgs e)
         {
-            //sprawdzanie poprawnosci
+            foreach (Control c in groupBoxEditArea.Controls)
+            {
+                if (errorProvider1.GetError(c).Length > 0) return;
+            }
+
             if (currentlyEditedColor == null) return;
             insertColor(this, this, currentlyEditedColor);
             groupBoxColorList.Visible = true;

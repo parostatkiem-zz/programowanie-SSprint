@@ -98,7 +98,6 @@ namespace programowanie_SSprint
             CurrentlySelectedTshirt = treeViewProductBrowser.SelectedNode.Tag as tshirt;
         }
 
-
         private void comboBoxCompany_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxCompany.SelectedItem == null) return;
@@ -191,6 +190,10 @@ namespace programowanie_SSprint
 
         private void btnApply_Click(object sender, EventArgs e)
         {
+            foreach (Control c in gbTshirtProperties.Controls)
+            {
+                if (errorProvider1.GetError(c).Length > 0) return;
+            }
             treeViewProductBrowser.Visible = false;
             CurrentlySelectedTshirt = null;
             currentlyEditedTshirt = new tshirt();
