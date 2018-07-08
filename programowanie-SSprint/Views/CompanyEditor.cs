@@ -24,7 +24,11 @@ namespace programowanie_SSprint
 
         public void PushNotification(string text, int type = 0)
         {
-            notificationPanel1.PushNotification(text, type);
+            BeginInvoke(new MethodInvoker(delegate
+            {
+                notificationPanel1.PushNotification(text, type);
+            }));
+          
         }
 
         public CompanyEditor()
@@ -34,16 +38,15 @@ namespace programowanie_SSprint
             currentlyEditedCompany = new company();
         
         }
-
         public void ReturnListOfObjects(List<object> obj)
         {
-            List<company> recievedCompanies = obj.OfType<company>().ToList();
-            if (recievedCompanies != null)
+            BeginInvoke(new MethodInvoker(delegate
             {
-                DisplayCompanyList(recievedCompanies);
-                return;
-            }
+                _ReturnListOfObjects(obj);
+            }));
+
         }
+        
         #endregion
 
         private company currentlyEditedCompany;
@@ -65,7 +68,15 @@ namespace programowanie_SSprint
         {
            getAllCompanies(this, this);
         }
-
+        private void _ReturnListOfObjects(List<object> obj)
+        {
+            List<company> recievedCompanies = obj.OfType<company>().ToList();
+            if (recievedCompanies != null)
+            {
+                DisplayCompanyList(recievedCompanies);
+                return;
+            }
+        }
         private void DisplayCompanyList(List<company> theList)
         {
             lvCompanies.Items.Clear();

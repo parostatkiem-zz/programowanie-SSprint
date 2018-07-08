@@ -27,19 +27,22 @@ namespace programowanie_SSprint
         }
         public void PushNotification(string text, int type = 0)
         {
-            notificationPanel1.PushNotification(text, type);
+            BeginInvoke(new MethodInvoker(delegate
+            {
+                notificationPanel1.PushNotification(text, type);
+            }));
+           
         }
-
-
         public void ReturnListOfObjects(List<object> obj)
         {
-            List<style> recievedStyles = obj.OfType<style>().ToList();
-            if (recievedStyles != null)
+            BeginInvoke(new MethodInvoker(delegate
             {
-                DisplayStyleList(recievedStyles);
-                return;
-            }
+                _ReturnListOfObjects(obj);
+            }));
         }
+
+
+       
         #endregion
         private style currentlyEditedStyle;
         private style currentlySelectedStyle;
@@ -53,7 +56,15 @@ namespace programowanie_SSprint
                 DisplaySingleStyle(currentlySelectedStyle);
             }
         }
-
+        private void _ReturnListOfObjects(List<object> obj)
+        {
+            List<style> recievedStyles = obj.OfType<style>().ToList();
+            if (recievedStyles != null)
+            {
+                DisplayStyleList(recievedStyles);
+                return;
+            }
+        }
 
         private void RefreshStyleList()
         {

@@ -22,40 +22,14 @@ namespace programowanie_SSprint
         {
             InitializeComponent();
         }
-
         public void ReturnListOfObjects(List<object> obj)
         {
-
-            List<tshirt> recievedTshirts = obj.OfType<tshirt>().ToList();
-            if (recievedTshirts != null && recievedTshirts.Count > 0)
+            BeginInvoke(new MethodInvoker(delegate
             {
-                DisplayTshirtList(recievedTshirts);
-                return;
-            }
-
-            List<company> recievedCompanies = obj.OfType<company>().ToList();
-            if (recievedCompanies != null && recievedCompanies.Count > 0)
-            {
-                DisplayCompanyList(recievedCompanies);
-                return;
-            }
-
-            List<color> recievedColors = obj.OfType<color>().ToList();
-            if (recievedColors != null && recievedColors.Count > 0)
-            {
-                DisplayColorList(recievedColors);
-                return;
-            }
-
-            List<style> recievedStyles = obj.OfType<style>().ToList();
-            if (recievedStyles != null && recievedStyles.Count > 0)
-            {
-                DisplayStyleList(recievedStyles);
-                return;
-            }
+                _ReturnListOfObjects(obj);
+            }));
         }
-
-
+      
 
         public void ShowError(string message, string longMessage = null, string title = null)
         {
@@ -64,7 +38,11 @@ namespace programowanie_SSprint
         }
         public void PushNotification(string text, int type = 0)
         {
-            notificationPanel1.PushNotification(text, type);
+            BeginInvoke(new MethodInvoker(delegate
+            {
+                notificationPanel1.PushNotification(text, type);
+            }));
+           
         }
 
 
@@ -229,6 +207,38 @@ namespace programowanie_SSprint
                 }
             }
         }
+        private void _ReturnListOfObjects(List<object> obj)
+        {
+
+            List<tshirt> recievedTshirts = obj.OfType<tshirt>().ToList();
+            if (recievedTshirts != null && recievedTshirts.Count > 0)
+            {
+                DisplayTshirtList(recievedTshirts);
+                return;
+            }
+
+            List<company> recievedCompanies = obj.OfType<company>().ToList();
+            if (recievedCompanies != null && recievedCompanies.Count > 0)
+            {
+                DisplayCompanyList(recievedCompanies);
+                return;
+            }
+
+            List<color> recievedColors = obj.OfType<color>().ToList();
+            if (recievedColors != null && recievedColors.Count > 0)
+            {
+                DisplayColorList(recievedColors);
+                return;
+            }
+
+            List<style> recievedStyles = obj.OfType<style>().ToList();
+            if (recievedStyles != null && recievedStyles.Count > 0)
+            {
+                DisplayStyleList(recievedStyles);
+                return;
+            }
+        }
+
 
         private void DisplaySingleTshirt(tshirt t)
         {

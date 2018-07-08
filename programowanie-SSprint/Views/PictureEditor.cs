@@ -31,7 +31,18 @@ namespace programowanie_SSprint
         }
         public void PushNotification(string text, int type = 0)
         {
-            notificationPanel1.PushNotification(text, type);
+            BeginInvoke(new MethodInvoker(delegate
+            {
+                notificationPanel1.PushNotification(text, type);
+            }));
+          
+        }
+        public void ReturnListOfObjects(List<object> obj)
+        {
+            BeginInvoke(new MethodInvoker(delegate
+            {
+                _ReturnListOfObjects(obj);
+            }));
         }
 
         #region PRIVATE
@@ -47,7 +58,7 @@ namespace programowanie_SSprint
                 DisplaySinglePicture(currentlySelectedPicture);
             }
         }
-        public void ReturnListOfObjects(List<object> obj)
+        private void _ReturnListOfObjects(List<object> obj)
         {
             List<picture> recievedPictures = obj.OfType<picture>().ToList();
             if (recievedPictures != null)

@@ -28,20 +28,21 @@ namespace programowanie_SSprint
             currentlySelectedColor = null;
             currentlyEditedColor = new color();
         }
-
         public void ReturnListOfObjects(List<object> obj)
         {
-            List<color> recievedColors = obj.OfType<color>().ToList();
-            if (recievedColors != null)
+            BeginInvoke(new MethodInvoker(delegate
             {
-                DisplayColorList(recievedColors);
-                return;
-            }
+                _ReturnListOfObjects(obj);
+            }));
         }
-
+        
         public void PushNotification(string text, int type = 0)
         {
-            notificationPanel1.PushNotification(text, type);
+            BeginInvoke(new MethodInvoker(delegate
+            {
+                notificationPanel1.PushNotification(text, type);
+            }));
+           
         }
 
         #endregion
@@ -64,6 +65,15 @@ namespace programowanie_SSprint
         private void RefreshColorList()
         {
             getAllColors(this, this);
+        }
+        private void _ReturnListOfObjects(List<object> obj)
+        {
+            List<color> recievedColors = obj.OfType<color>().ToList();
+            if (recievedColors != null)
+            {
+                DisplayColorList(recievedColors);
+                return;
+            }
         }
 
         private void DisplayColorList(List<color> theList)

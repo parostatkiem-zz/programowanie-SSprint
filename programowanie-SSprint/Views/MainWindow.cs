@@ -81,6 +81,11 @@ namespace programowanie_SSprint
         }
         public void ReturnListOfObjects(List<object> obj)
         {
+            BeginInvoke(new MethodInvoker(delegate { _ReturnListOfObjects(obj); }));
+        }
+
+        private void _ReturnListOfObjects(List<object> obj)
+        {
             List<order> recievedOrders = obj.OfType<order>().ToList();
             if (recievedOrders != null && recievedOrders.Count>0)
             {
@@ -99,14 +104,8 @@ namespace programowanie_SSprint
         }
         public void PushNotification(string text, int type = 0)
         {
-            ///<summary>
-            ///This method lets you to push some notifications here.
-            ///You can push as many of them as you want.
-            ///</summary>
-            ///<para>line1</para>
-            ///<para>line2</para>
-
-            notificationPanel1.PushNotification(text, type);
+            BeginInvoke(new MethodInvoker(delegate { notificationPanel1.PushNotification(text, type); }));
+            
         }
 
         public void ShowError(string message, string longMessage = null, string title = null)
