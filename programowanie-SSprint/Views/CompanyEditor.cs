@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace programowanie_SSprint
@@ -57,6 +58,9 @@ namespace programowanie_SSprint
                 displaySingleCompany(currentlySelectedCompany);
             }
         }
+
+        private Regex emailFieldRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+        private Regex phoneFieldRegex = new Regex(@"^[0-9]*$");
         private void RefreshCompanyList()
         {
            getAllCompanies(this, this);
@@ -110,26 +114,42 @@ namespace programowanie_SSprint
         }
         private void tbName_TextChanged(object sender, EventArgs e)
         {
-            if (tbName.Text.Length <= 0) { return; }//error
-
+            if (tbName.Text.Length <= 0)
+            {
+                errorProvider1.SetError(tbName, "Wartośc nie może byc pusta");
+                return; }//error
+            errorProvider1.SetError(tbName, "");
             currentlyEditedCompany.name = tbName.Text;
         }
         private void tbEmail_TextChanged(object sender, EventArgs e)
         {
-            // if (tbEmail.Text.Length <= 0) { return; }//error
-
+             if (!emailFieldRegex.IsMatch(tbEmail.Text) ){
+                errorProvider1.SetError(tbEmail, "Wprowadź poprawny adres e-mail");
+                return;
+            }//error
+            errorProvider1.SetError(tbEmail, "");
             currentlyEditedCompany.email = tbEmail.Text;
         }
 
         private void tbPhone_TextChanged(object sender, EventArgs e)
         {
+            if (!phoneFieldRegex.IsMatch(tbPhone.Text))
+            {
+                errorProvider1.SetError(tbPhone, "Dozwolone są tylko cyfry");
+                return;
+            }//error
+            errorProvider1.SetError(tbPhone, "");
             currentlyEditedCompany.phone = tbPhone.Text;
         }
 
 
         private void btnApplyChanges_Click(object sender, EventArgs e)
         {
-            //sprawdzanie poprawnosci
+            foreach (Control c in groupBoxEditArea.Controls)
+            {
+                if (errorProvider1.GetError(c).Length > 0) return;
+            }
+
             if (currentlyEditedCompany == null) return;
             insertCompany(this, this, currentlyEditedCompany);
             groupBoxCompanyList.Visible = true;

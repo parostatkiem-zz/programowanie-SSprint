@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "Czerwony",
             "#ff0000"}, -1);
@@ -46,8 +47,10 @@
             this.btnAddNew = new System.Windows.Forms.Button();
             this.groupBoxStyleList = new System.Windows.Forms.GroupBox();
             this.notificationPanel1 = new programowanie_SSprint.Views.HelperViews.NotificationPanel();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBoxEditArea.SuspendLayout();
             this.groupBoxStyleList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lvStyles
@@ -61,7 +64,7 @@
             this.lvStyles.FullRowSelect = true;
             this.lvStyles.GridLines = true;
             this.lvStyles.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem2});
             this.lvStyles.Location = new System.Drawing.Point(3, 16);
             this.lvStyles.Name = "lvStyles";
             this.lvStyles.Size = new System.Drawing.Size(262, 179);
@@ -118,7 +121,7 @@
             this.tbID.Location = new System.Drawing.Point(33, 60);
             this.tbID.Name = "tbID";
             this.tbID.ReadOnly = true;
-            this.tbID.Size = new System.Drawing.Size(172, 20);
+            this.tbID.Size = new System.Drawing.Size(160, 20);
             this.tbID.TabIndex = 7;
             // 
             // lID
@@ -160,7 +163,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbName.Location = new System.Drawing.Point(61, 34);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(144, 20);
+            this.tbName.Size = new System.Drawing.Size(132, 20);
             this.tbName.TabIndex = 0;
             this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
@@ -218,6 +221,10 @@
             this.notificationPanel1.Size = new System.Drawing.Size(479, 28);
             this.notificationPanel1.TabIndex = 8;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // StyleEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -233,6 +240,7 @@
             this.groupBoxEditArea.ResumeLayout(false);
             this.groupBoxEditArea.PerformLayout();
             this.groupBoxStyleList.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -253,5 +261,6 @@
         private System.Windows.Forms.Button btnAddNew;
         private System.Windows.Forms.GroupBox groupBoxStyleList;
         private Views.HelperViews.NotificationPanel notificationPanel1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
