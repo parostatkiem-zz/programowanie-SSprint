@@ -16,7 +16,9 @@ namespace programowanie_SSprint
         ImainView view;
         Model model;
 
-        public event Action<List<object>> tmp;
+        private readonly string goodResult = "Operacja powiodła się";
+        private readonly string badResult = "Operacja nie powiodła się";
+        private readonly string errorableTitle = "Wystąpił Błąd";
 
         public Presenter(Model model, ImainView view)
         {
@@ -60,25 +62,25 @@ namespace programowanie_SSprint
 
         
 
-        private bool View_removeElement<elementType>
+        private void View_removeElement<elementType>
             (IErrorable windowInterface, ICommunicative windowCommunicator, elementType itemToRemove)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
             new Task(() =>
             {
                 try
-                {
+                {                    
                     model.RemoveElement<elementType>(itemToRemove);
+                    windowCommunicator.PushNotification(goodResult, 0);
                 }
                 catch (Exception ex)
                 {
-                    windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
+                    windowCommunicator.PushNotification(badResult, 2);
+                    windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
                 }
             }).RunSynchronously();
-
-            return true;
         }
-        private bool View_removeListOfElements<elementType>
+        private void View_removeListOfElements<elementType>
             (IErrorable windowInterface, ICommunicative windowCommunicator, List<elementType> itemsToRemove)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
@@ -87,19 +89,18 @@ namespace programowanie_SSprint
                 try
                 {
                     model.RemoveListOfElements<elementType>(itemsToRemove);
-                    
+                    windowCommunicator.PushNotification(goodResult, 0);
                 }
                 catch (Exception ex)
                 {
-                    windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
+                    windowCommunicator.PushNotification(badResult, 2);
+                    windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
                 }
             }).RunSynchronously();
-
-            return true;
         }
 
 
-        private List<elementType> View_getAllElements<elementType>
+        private void View_getAllElements<elementType>
             (IErrorable windowInterface, ICommunicative windowCommunicator)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
@@ -108,20 +109,18 @@ namespace programowanie_SSprint
                 try
                 {
                     windowCommunicator.ReturnListOfObjects(model.GetAllElements<elementType>().OfType<object>().ToList());
-                    windowCommunicator.PushNotification("Poprawnie wczytałem dane", 0);
+                    windowCommunicator.PushNotification(goodResult, 0);
                 }
                 catch (Exception ex)
                 {
-                    windowCommunicator.PushNotification("Błąd wczytywania danych", 3);
-                    windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
+                    windowCommunicator.PushNotification(badResult, 3);
+                    windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
                 }
             }).RunSynchronously();
-
-            return null;
         }
 
 
-        private bool View_insertElement<elementType>
+        private void View_insertElement<elementType>
             (IErrorable windowInterface, ICommunicative windowCommunicator, elementType newItem)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
@@ -130,16 +129,16 @@ namespace programowanie_SSprint
                 try
                 {
                     model.InsertElement<elementType>(newItem);
+                    windowCommunicator.PushNotification(goodResult, 0);
                 }
                 catch (Exception ex)
                 {
-                    windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
+                    windowCommunicator.PushNotification(badResult, 3);
+                    windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
                 }
             }).RunSynchronously();
-
-            return true;
         }
-        private bool View_insertListOfElements<elementType>
+        private void View_insertListOfElements<elementType>
             (IErrorable windowInterface, ICommunicative windowCommunicator, List<elementType> newItems)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
@@ -148,29 +147,36 @@ namespace programowanie_SSprint
                 try
                 {
                     model.InsertListOfElements<elementType>(newItems);
+                    windowCommunicator.PushNotification(goodResult, 0);
                 }
                 catch (Exception ex)
                 {
-                    windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
+                    windowCommunicator.PushNotification(badResult, 3);
+                    windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
                 }
             }).RunSynchronously();
-            return true;
         }
 
 
-        private elementType View_find<elementType>
+        private void View_find<elementType>
             (IErrorable windowInterface, ICommunicative windowCommunicator, int elementID)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
-            try
+            new Task(() =>
             {
-                return model.Find<elementType>(elementID);
-            }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
-                return null;
-            } 
+                try
+                {
+                    elementType tmp = model.Find<elementType>(elementID);
+                    // windowCommunicator.ReturnObject((object)tmp);
+                    windowCommunicator.PushNotification(goodResult, 0);
+                }
+                catch (Exception ex)
+                {
+                    windowCommunicator.PushNotification(badResult, 3);
+                    windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
+                    
+                }
+            }).RunSynchronously();
         }
     }
 }
