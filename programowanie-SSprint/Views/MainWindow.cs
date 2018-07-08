@@ -375,10 +375,7 @@ namespace programowanie_SSprint
         private void RefreshOrderItemList(List<singleItemOrder> theList)
         {
             lvOrderedProducts.Items.Clear();
-
-
             if (theList == null) return;
-
 
             ListViewItem item;
             tshirt currentTshirt;
@@ -392,7 +389,7 @@ namespace programowanie_SSprint
                 item = new ListViewItem(currentTshirt.company.name);
                 item.Tag = o_item;
                 item.SubItems.AddRange(new string[] { currentTshirt.style.name, currentTshirt.sex, currentTshirt.color.name, o_item.amount.ToString(), reserved_amount.ToString() });
-
+                item.ToolTipText = "Kliknij mnie dwukrotnie, by usunąć z listy";
                 lvOrderedProducts.Items.Add(item);
             }
         }
