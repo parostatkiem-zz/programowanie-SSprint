@@ -159,7 +159,7 @@
             this.splitContainerMain.Panel2.Controls.Add(this.gbSelectedOrderParams);
             this.splitContainerMain.Panel2.Controls.Add(this.btnDelete);
             this.splitContainerMain.Panel2.Controls.Add(this.lvAllOrders);
-            this.splitContainerMain.Panel2MinSize = 450;
+            this.splitContainerMain.Panel2MinSize = 475;
             this.splitContainerMain.Size = new System.Drawing.Size(1077, 558);
             this.splitContainerMain.SplitterDistance = 531;
             this.splitContainerMain.TabIndex = 0;
@@ -416,7 +416,7 @@
             // 
             // btnCurrentOrderCancel
             // 
-            this.btnCurrentOrderCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCurrentOrderCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCurrentOrderCancel.BackColor = System.Drawing.Color.Salmon;
             this.btnCurrentOrderCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCurrentOrderCancel.Location = new System.Drawing.Point(53, 227);
