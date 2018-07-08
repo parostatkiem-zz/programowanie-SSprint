@@ -114,14 +114,21 @@ namespace programowanie_SSprint
 
         private void tbName_TextChanged(object sender, EventArgs e)
         {
-            if (tbName.Text.Length <= 0) { return; }//error
+            if (tbName.Text.Length <= 0)
+            {
+             errorProvider1.SetError(tbName, "Wartośc nie może byc pusta");
+             return;
+            }//error
 
             currentlyEditedPicture.name = tbName.Text;
         }
 
         private void btnApplyChanges_Click(object sender, EventArgs e)
         {
-            //sprawdzanie poprawnosci
+            foreach (Control c in groupBoxEditArea.Controls)
+            {
+                if (errorProvider1.GetError(c).Length > 0) return;
+            }
             if (currentlyEditedPicture == null) return;
             insertPicture(this, this, currentlyEditedPicture);
             groupBoxGraphicList.Visible = true;

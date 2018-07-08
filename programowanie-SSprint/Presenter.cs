@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 
 //todo : obgadać i dodać lepszą obsługę komunikatów przy zwracaniu wyjątku
@@ -14,6 +15,10 @@ namespace programowanie_SSprint
     {
         ImainView view;
         Model model;
+
+        private readonly string goodResult = "Operacja powiodła się";
+        private readonly string badResult = "Operacja nie powiodła się";
+        private readonly string errorableTitle = "Wystąpił Błąd";
 
         public Presenter(Model model, ImainView view)
         {
@@ -57,99 +62,121 @@ namespace programowanie_SSprint
 
         
 
-        private bool View_removeElement<elementType>
+        private void View_removeElement<elementType>
             (IErrorable windowInterface, ICommunicative windowCommunicator, elementType itemToRemove)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
-            try
+            new Task(() =>
             {
-                model.RemoveElement<elementType>(itemToRemove);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
-                return false;
-            }
+                try
+                {                    
+                    model.RemoveElement<elementType>(itemToRemove);
+                    windowCommunicator.PushNotification(goodResult, 0);
+                }
+                catch (Exception ex)
+                {
+                    windowCommunicator.PushNotification(badResult, 2);
+                    windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
+                }
+            }).RunSynchronously();
         }
-        private bool View_removeListOfElements<elementType>
+        private void View_removeListOfElements<elementType>
             (IErrorable windowInterface, ICommunicative windowCommunicator, List<elementType> itemsToRemove)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
-            try
+            new Task(() => 
             {
-                model.RemoveListOfElements<elementType>(itemsToRemove);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
-                return false;
-            }
+                try
+                {
+                    model.RemoveListOfElements<elementType>(itemsToRemove);
+                    windowCommunicator.PushNotification(goodResult, 0);
+                }
+                catch (Exception ex)
+                {
+                    windowCommunicator.PushNotification(badResult, 2);
+                    windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
+                }
+            }).RunSynchronously();
         }
 
 
-        private List<elementType> View_getAllElements<elementType>
+        private void View_getAllElements<elementType>
             (IErrorable windowInterface, ICommunicative windowCommunicator)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
-            try
-            {
-                return model.GetAllElements<elementType>();
-            }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
-                return null;
-            }
+            new Task(() => {
+                
+                try
+                {
+                    windowCommunicator.ReturnListOfObjects(model.GetAllElements<elementType>().OfType<object>().ToList());
+                    windowCommunicator.PushNotification(goodResult, 0);
+                }
+                catch (Exception ex)
+                {
+                    windowCommunicator.PushNotification(badResult, 3);
+                    windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
+                }
+            }).RunSynchronously();
         }
 
 
-        private bool View_insertElement<elementType>
+        private void View_insertElement<elementType>
             (IErrorable windowInterface, ICommunicative windowCommunicator, elementType newItem)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
-            try
+            new Task(() =>
             {
-                model.InsertElement<elementType>(newItem);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
-                return false;
-            }
+                try
+                {
+                    model.InsertElement<elementType>(newItem);
+                    windowCommunicator.PushNotification(goodResult, 0);
+                }
+                catch (Exception ex)
+                {
+                    windowCommunicator.PushNotification(badResult, 3);
+                    windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
+                }
+            }).RunSynchronously();
         }
-        private bool View_insertListOfElements<elementType>
+        private void View_insertListOfElements<elementType>
             (IErrorable windowInterface, ICommunicative windowCommunicator, List<elementType> newItems)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
-            try
+            new Task(() =>
             {
-                model.InsertListOfElements<elementType>(newItems);
-                return true;
-            }
-            catch(Exception ex)
-            {
-                windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
-                return false;
-            }
+                try
+                {
+                    model.InsertListOfElements<elementType>(newItems);
+                    windowCommunicator.PushNotification(goodResult, 0);
+                }
+                catch (Exception ex)
+                {
+                    windowCommunicator.PushNotification(badResult, 3);
+                    windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
+                }
+            }).RunSynchronously();
         }
 
 
-        private elementType View_find<elementType>
+        private void View_find<elementType>
             (IErrorable windowInterface, ICommunicative windowCommunicator, int elementID)
             where elementType : Communicator.CommunicatorElement<elementType>
         {
-            try
+            new Task(() =>
             {
-                return model.Find<elementType>(elementID);
-            }
-            catch(Exception ex)
-            {
-                windowInterface.ShowError(ex.Message, ex.HelpLink, "Błąd");
-                return null;
-            }
+                try
+                {
+                    elementType tmp = model.Find<elementType>(elementID);
+                    // windowCommunicator.ReturnObject((object)tmp);
+                    windowCommunicator.PushNotification(goodResult, 0);
+                }
+                catch (Exception ex)
+                {
+                    windowCommunicator.PushNotification(badResult, 3);
+                    windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
+                    
+                }
+            }).RunSynchronously();
         }
     }
 }

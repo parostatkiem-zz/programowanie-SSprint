@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "Czerwony",
             "#ff0000"}, -1);
@@ -50,8 +51,10 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.notificationPanel1 = new programowanie_SSprint.Views.HelperViews.NotificationPanel();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBoxEditArea.SuspendLayout();
             this.groupBoxCompanyList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxEditArea
@@ -91,7 +94,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbPhone.Location = new System.Drawing.Point(61, 86);
             this.tbPhone.Name = "tbPhone";
-            this.tbPhone.Size = new System.Drawing.Size(214, 20);
+            this.tbPhone.Size = new System.Drawing.Size(194, 20);
             this.tbPhone.TabIndex = 11;
             this.tbPhone.TextChanged += new System.EventHandler(this.tbPhone_TextChanged);
             // 
@@ -111,7 +114,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbEmail.Location = new System.Drawing.Point(61, 60);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(214, 20);
+            this.tbEmail.Size = new System.Drawing.Size(194, 20);
             this.tbEmail.TabIndex = 9;
             this.tbEmail.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
             // 
@@ -136,7 +139,7 @@
             this.tbID.Location = new System.Drawing.Point(61, 112);
             this.tbID.Name = "tbID";
             this.tbID.ReadOnly = true;
-            this.tbID.Size = new System.Drawing.Size(214, 20);
+            this.tbID.Size = new System.Drawing.Size(194, 20);
             this.tbID.TabIndex = 7;
             // 
             // lID
@@ -178,7 +181,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbName.Location = new System.Drawing.Point(61, 34);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(214, 20);
+            this.tbName.Size = new System.Drawing.Size(194, 20);
             this.tbName.TabIndex = 0;
             this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
@@ -208,7 +211,7 @@
             this.lvCompanies.FullRowSelect = true;
             this.lvCompanies.GridLines = true;
             this.lvCompanies.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem2});
             this.lvCompanies.Location = new System.Drawing.Point(3, 16);
             this.lvCompanies.Name = "lvCompanies";
             this.lvCompanies.Size = new System.Drawing.Size(324, 212);
@@ -266,6 +269,10 @@
             this.notificationPanel1.Size = new System.Drawing.Size(614, 28);
             this.notificationPanel1.TabIndex = 10;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // CompanyEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,6 +288,7 @@
             this.groupBoxEditArea.ResumeLayout(false);
             this.groupBoxEditArea.PerformLayout();
             this.groupBoxCompanyList.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -305,5 +313,6 @@
         private System.Windows.Forms.Label lEmail;
         private System.Windows.Forms.TextBox tbEmail;
         private Views.HelperViews.NotificationPanel notificationPanel1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
