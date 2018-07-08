@@ -242,7 +242,7 @@
             // 
             this.notificationPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.notificationPanel1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.notificationPanel1.BackColor = System.Drawing.Color.White;
             this.notificationPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.notificationPanel1.Location = new System.Drawing.Point(7, 5);
             this.notificationPanel1.MinimumSize = new System.Drawing.Size(245, 20);

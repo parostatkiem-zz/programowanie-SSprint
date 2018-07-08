@@ -67,14 +67,13 @@ namespace programowanie_SSprint
         {
             lvPictures.Items.Clear();
 
-
             ListViewItem item;
             foreach (var c in theList)
             {
                 item = new ListViewItem(c.id.ToString());
                 item.Tag = c;
                 item.SubItems.Add(c.name);
-                item.SubItems.Add(c.orders.ToString()); //TODO do poprawki
+                item.SubItems.Add(""); //TODO do poprawki
                 lvPictures.Items.Add(item);
             }
 
@@ -94,7 +93,6 @@ namespace programowanie_SSprint
                 //wyswietlanie pustego obrazka
                 tbName.Text = "";
                 tbID.Text = "";
-                //tbHex.Text = "";
             }
             return;
         }
@@ -114,7 +112,16 @@ namespace programowanie_SSprint
             RefreshPictureList();
 
         }
+        private void btnChooseSelected_Click(object sender, EventArgs e)
+        {
+            if (CurrentlySelectedPicture == null)
+            {
+                ShowError("Wygląda na to, że żaden obrazek nie jest zaznaczony.");
+                return;
+            }
 
+            this.Close();
+        }
         private void lvPictures_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lvPictures.SelectedItems.Count <= 0 || lvPictures.SelectedItems[0].Tag == null) return; //nic nie jest zaznaczone
@@ -176,15 +183,6 @@ namespace programowanie_SSprint
         }
         #endregion
 
-        private void btnChooseSelected_Click(object sender, EventArgs e)
-        {
-            if(CurrentlySelectedPicture==null)
-            {
-                ShowError("Wygląda na to, że żaden obrazek nie jest zaznaczony.");
-                return;
-            }
-
-            this.Close();
-        }
+       
     }
 }

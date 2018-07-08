@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "Słoneczko",
             "JanuszSoft"}, -1);
@@ -69,7 +69,7 @@
             this.lvPictures.FullRowSelect = true;
             this.lvPictures.GridLines = true;
             this.lvPictures.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem3});
             this.lvPictures.Location = new System.Drawing.Point(3, 16);
             this.lvPictures.Name = "lvPictures";
             this.lvPictures.Size = new System.Drawing.Size(356, 205);
@@ -238,7 +238,7 @@
             // 
             this.notificationPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.notificationPanel1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.notificationPanel1.BackColor = System.Drawing.Color.White;
             this.notificationPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.notificationPanel1.Location = new System.Drawing.Point(12, 12);
             this.notificationPanel1.MinimumSize = new System.Drawing.Size(245, 20);

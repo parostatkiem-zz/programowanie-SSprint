@@ -386,7 +386,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimeEnd.Location = new System.Drawing.Point(92, 160);
             this.dateTimeEnd.Name = "dateTimeEnd";
-            this.dateTimeEnd.Size = new System.Drawing.Size(265, 20);
+            this.dateTimeEnd.Size = new System.Drawing.Size(246, 20);
             this.dateTimeEnd.TabIndex = 1;
             this.dateTimeEnd.ValueChanged += new System.EventHandler(this.dateTimeEnd_ValueChanged);
             // 
@@ -397,7 +397,7 @@
             this.dateTimeBegin.Enabled = false;
             this.dateTimeBegin.Location = new System.Drawing.Point(105, 138);
             this.dateTimeBegin.Name = "dateTimeBegin";
-            this.dateTimeBegin.Size = new System.Drawing.Size(252, 20);
+            this.dateTimeBegin.Size = new System.Drawing.Size(233, 20);
             this.dateTimeBegin.TabIndex = 0;
             // 
             // numClientPrice
@@ -553,7 +553,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbSelectedOrderPhone.Location = new System.Drawing.Point(96, 83);
             this.tbSelectedOrderPhone.Name = "tbSelectedOrderPhone";
-            this.tbSelectedOrderPhone.Size = new System.Drawing.Size(255, 20);
+            this.tbSelectedOrderPhone.Size = new System.Drawing.Size(236, 20);
             this.tbSelectedOrderPhone.TabIndex = 2;
             this.tbSelectedOrderPhone.TextChanged += new System.EventHandler(this.tbSelectedOrderPhone_TextChanged);
             // 
@@ -563,7 +563,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbSelectedOrderName.Location = new System.Drawing.Point(96, 23);
             this.tbSelectedOrderName.Name = "tbSelectedOrderName";
-            this.tbSelectedOrderName.Size = new System.Drawing.Size(255, 20);
+            this.tbSelectedOrderName.Size = new System.Drawing.Size(236, 20);
             this.tbSelectedOrderName.TabIndex = 0;
             this.tbSelectedOrderName.TextChanged += new System.EventHandler(this.tbSelectedOrderName_TextChanged);
             // 
@@ -573,7 +573,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbSelectedOrderEmail.Location = new System.Drawing.Point(96, 52);
             this.tbSelectedOrderEmail.Name = "tbSelectedOrderEmail";
-            this.tbSelectedOrderEmail.Size = new System.Drawing.Size(255, 20);
+            this.tbSelectedOrderEmail.Size = new System.Drawing.Size(236, 20);
             this.tbSelectedOrderEmail.TabIndex = 1;
             this.tbSelectedOrderEmail.TextChanged += new System.EventHandler(this.tbSelectedOrderEmail_TextChanged);
             // 
