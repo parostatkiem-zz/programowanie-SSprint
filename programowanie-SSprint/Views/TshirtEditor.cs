@@ -8,12 +8,12 @@ namespace programowanie_SSprint
     public partial class TshirtEditor : Form, IErrorable, ICommunicative
     {
         #region EVENTS
-        public event Func<IErrorable, ICommunicative, List<tshirt>> getAllThsirts; //pobiera wszystkie dane z tabeli Tshirts
-        public event Func<IErrorable, ICommunicative, tshirt, bool> insertSingleTshirt;//jesli tshirt.id==null, to dodaje nowy tshirt, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
-        public event Func<IErrorable, ICommunicative, tshirt, bool> removeTshirt;
-        public event Func<IErrorable, ICommunicative, List<company>> getAllCompanies; //zwraca listę wszystkich firm
-        public event Func<IErrorable, ICommunicative, List<color>> getAllColors; //zwraca listę wszystkich kolorów
-        public event Func<IErrorable, ICommunicative, List<style>> getAllStyles; //zwraca listę wszystkich kolorów
+        public event Action<IErrorable, ICommunicative> getAllThsirts; //pobiera wszystkie dane z tabeli Tshirts
+        public event Action<IErrorable, ICommunicative, tshirt> insertSingleTshirt;//jesli tshirt.id==null, to dodaje nowy tshirt, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Action<IErrorable, ICommunicative, tshirt> removeTshirt;
+        public event Action<IErrorable, ICommunicative> getAllCompanies; //zwraca listę wszystkich firm
+        public event Action<IErrorable, ICommunicative> getAllColors; //zwraca listę wszystkich kolorów
+        public event Action<IErrorable, ICommunicative> getAllStyles; //zwraca listę wszystkich kolorów
 
         #endregion
 

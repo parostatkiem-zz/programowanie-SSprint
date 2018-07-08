@@ -9,9 +9,9 @@ namespace programowanie_SSprint
     {
         #region EVENTS
 
-        public event Func<IErrorable, ICommunicative, picture, bool> insertPicture; //jesli color.id==null, to dodaje nowy obraz, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
-        public event Func<IErrorable, ICommunicative, List<picture>> getAllPictures; //zwraca listę wszystkich obrazow
-        public event Func<IErrorable, ICommunicative, picture, bool> removePicture; //usuwa obraz. Istotne jest tylko picture.id. Zwraca bool czy się udało
+        public event Action<IErrorable, ICommunicative, picture> insertPicture; //jesli color.id==null, to dodaje nowy obraz, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Action<IErrorable, ICommunicative> getAllPictures; //zwraca listę wszystkich obrazow
+        public event Action<IErrorable, ICommunicative, picture> removePicture; //usuwa obraz. Istotne jest tylko picture.id. Zwraca bool czy się udało
 
 
         #endregion

@@ -8,9 +8,9 @@ namespace programowanie_SSprint
 {
     public partial class CompanyEditor : Form,IErrorable, ICommunicative
     {
-        public event Func<IErrorable, ICommunicative, company, bool> insertCompany; //jesli company.id==null, to dodaje nowy company, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
-        public event Func<IErrorable, ICommunicative, List<company>> getAllCompanies; //zwraca listę wszystkich kolorów
-        public event Func<IErrorable, ICommunicative, company, bool> removeCompany; //usuwa kolor. Istotne jest tylko company.id. Zwraca bool czy się udało
+        public event Action<IErrorable, ICommunicative, company> insertCompany; //jesli company.id==null, to dodaje nowy company, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Action<IErrorable, ICommunicative> getAllCompanies; //zwraca listę wszystkich kolorów
+        public event Action<IErrorable, ICommunicative, company> removeCompany; //usuwa kolor. Istotne jest tylko company.id. Zwraca bool czy się udało
 
        
  

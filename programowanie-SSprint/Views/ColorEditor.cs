@@ -9,9 +9,9 @@ namespace programowanie_SSprint
     public partial class ColorEditor : Form, IErrorable, ICommunicative
     {
         #region EVENTS
-        public event Func<IErrorable, ICommunicative, color, bool> insertColor; //jesli color.id==null, to dodaje nowy color, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
-        public event Func<IErrorable, ICommunicative, List<color>> getAllColors; //zwraca listę wszystkich kolorów
-        public event Func<IErrorable, ICommunicative, color, bool> removeColor; //usuwa kolor. Istotne jest tylko color.id. Zwraca bool czy się udało
+        public event Action<IErrorable, ICommunicative, color> insertColor; //jesli color.id==null, to dodaje nowy color, jeśli !=null to aktualizuje istniejący. Zwraca bool czy się udało
+        public event Action<IErrorable, ICommunicative> getAllColors; //zwraca listę wszystkich kolorów
+        public event Action<IErrorable, ICommunicative, color> removeColor; //usuwa kolor. Istotne jest tylko color.id. Zwraca bool czy się udało
 
         #endregion
 
