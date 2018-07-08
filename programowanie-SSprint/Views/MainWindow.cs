@@ -78,7 +78,24 @@ namespace programowanie_SSprint
             currentListOfItems = new List<singleItemOrder>();
 
         }
+        public void ReturnListOfObjects(List<object> obj)
+        {
+            List<order> recievedOrders = obj.OfType<order>().ToList();
+            if (recievedOrders != null)
+            {
+                DisplayOrderList(recievedOrders);
+                return;
+            }
 
+            List<tshirt> recievedTshirts = obj.OfType<tshirt>().ToList();
+            if (recievedTshirts != null)
+            {
+                localTshirtList = recievedTshirts;
+                VisualHelper.RefreshTshirtList(treeViewProductBrowser, localTshirtList);
+                return;
+            }
+
+        }
         public void PushNotification(string text, int type = 0)
         {
             ///<summary>
@@ -298,38 +315,26 @@ namespace programowanie_SSprint
         #region PRIVATE_METHODS
         private void DisplayOrderList(List<order> theList)
         {
-
             lvAllOrders.Items.Clear();
-
             ListViewItem item;
 
             foreach (order o in theList)
             {
                 item = new ListViewItem(o.id.ToString());
                 item.Tag = o;
-                item.SubItems.AddRange(new string[] { o.end_date.ToString() });
+                item.SubItems.AddRange(new string[] {
+                    o.SingleItemOrderTypesCount.ToString(),
+                    o.SingleItemOrderCount.ToString(),
+                    o.end_date.ToString(),
+                    o.client_name,
+                    o.price_for_client.ToString(),
+                    o.singleItemOrders.Sum(i=>i.TotalCost).ToString(),
+                    o.Profit.ToString()
+                });
                 lvAllOrders.Items.Add(item);
             }
         }
-
-        public void ReturnListOfObjects(List<object> obj)
-        {
-            List<order> recievedOrders = obj.OfType<order>().ToList();
-            if (recievedOrders != null)
-            {
-                DisplayOrderList(recievedOrders);
-                return;
-            }
-
-            List<tshirt> recievedTshirts = obj.OfType<tshirt>().ToList();
-            if (recievedTshirts != null)
-            {
-                localTshirtList = recievedTshirts;
-                VisualHelper.RefreshTshirtList(treeViewProductBrowser, localTshirtList);
-                return;
-            }
-
-        }
+      
         private void DisplaySingleOrder(order o)
         {
             if (o == null)
@@ -391,8 +396,6 @@ namespace programowanie_SSprint
         #endregion
 
         #region GENERATED_EVENTS
-
-
         private void MainWindow_Shown(object sender, EventArgs e)
         {
             CurrentlySelectedOrder = null;
@@ -409,8 +412,6 @@ namespace programowanie_SSprint
             if (lvAllOrders.SelectedItems.Count <= 0 || (lvAllOrders.SelectedItems[0].Tag as order) == null) return;
             CurrentlySelectedOrder = lvAllOrders.SelectedItems[0].Tag as order;
         }
-
-
 
         private void btnSelectedOrderDelete_Click(object sender, EventArgs e)
         {
@@ -450,7 +451,6 @@ namespace programowanie_SSprint
             btnAddNew.Visible = true;
             btnDelete.Visible = true;
         }
-
 
         private void btnSelectedOrderSave_Click(object sender, EventArgs e)
         {
