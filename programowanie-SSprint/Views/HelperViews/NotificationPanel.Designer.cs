@@ -41,11 +41,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lText.AutoEllipsis = true;
-            this.lText.Font = new System.Drawing.Font("Lucida Sans Typewriter", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)), true);
-            this.lText.Location = new System.Drawing.Point(41, 1);
+            this.lText.Font = new System.Drawing.Font("Lucida Sans Typewriter", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)), true);
+            this.lText.Location = new System.Drawing.Point(33, 1);
             this.lText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 0);
             this.lText.Name = "lText";
-            this.lText.Size = new System.Drawing.Size(228, 25);
+            this.lText.Size = new System.Drawing.Size(236, 25);
             this.lText.TabIndex = 0;
             this.lText.Text = "dsdsdgasdgsdgasdgsdgas dgasdas gdasg asd dgas gdasg ds g";
             // 
