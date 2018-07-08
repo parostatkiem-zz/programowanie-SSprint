@@ -506,6 +506,7 @@
             this.btnSelectedOrderBrowseImage.TabIndex = 2;
             this.btnSelectedOrderBrowseImage.Text = "Wybierz z listy";
             this.btnSelectedOrderBrowseImage.UseVisualStyleBackColor = true;
+            this.btnSelectedOrderBrowseImage.Click += new System.EventHandler(this.btnSelectedOrderBrowseImage_Click);
             // 
             // lSelectedOrderImage
             // 

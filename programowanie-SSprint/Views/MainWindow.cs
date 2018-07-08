@@ -266,6 +266,26 @@ namespace programowanie_SSprint
         #endregion
 
         #region PRIVATE_METHODS
+        private void ApplySelectedPicture(picture p)
+        {
+            if (currentlyEditedOrder == null) return;
+
+          
+            if (p == null)
+            {
+                btnSelectedOrderBrowseImage.Text = "Wybierz obrazek";
+                btnSelectedOrderBrowseImage.Font = new System.Drawing.Font(DefaultFont, System.Drawing.FontStyle.Regular);
+                currentlyEditedOrder.picture_id = null;
+            }
+               
+            else
+            {
+                btnSelectedOrderBrowseImage.Text = p.name;
+                currentlyEditedOrder.picture_id = p.id;
+                btnSelectedOrderBrowseImage.Font = new System.Drawing.Font(DefaultFont, System.Drawing.FontStyle.Bold);
+            }
+           
+        }
         private void DisplayOrderList(List<order> theList)
         {
             lvAllOrders.Items.Clear();
@@ -299,6 +319,7 @@ namespace programowanie_SSprint
                 dateTimeEnd.Value = DateTime.Today;
                 comboBoxSelectedOrderStatus.SelectedIndex = 0;
                 numClientPrice.Value = 0;
+                return;
             }
             tbSelectedOrderName.Text = o.client_name;
             tbSelectedOrderEmail.Text = o.client_email;
@@ -307,6 +328,7 @@ namespace programowanie_SSprint
             catch { }
             comboBoxSelectedOrderStatus.SelectedIndex = o.status;
             numClientPrice.Value = o.price_for_client;
+            ApplySelectedPicture(o.picture);
 
         }
 
@@ -403,6 +425,13 @@ namespace programowanie_SSprint
 
             CurrentlySelectedTshirt = null;
         }
+        private void btnSelectedOrderBrowseImage_Click(object sender, EventArgs e)
+        {
+            pictureEditorWindow.ShowDialog();
+            ApplySelectedPicture(pictureEditorWindow.SelectedPicture);
+
+        }
+
 
         private void lvAllOrders_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
@@ -565,5 +594,6 @@ namespace programowanie_SSprint
         }
         #endregion
 
+       
     }
 }

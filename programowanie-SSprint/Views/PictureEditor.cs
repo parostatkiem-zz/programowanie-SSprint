@@ -20,8 +20,9 @@ namespace programowanie_SSprint
             InitializeComponent();
             currentlySelectedPicture = null;
             currentlyEditedPicture = new picture();
-          
+            btnChooseSelected.Visible = false;
         }
+        public picture SelectedPicture { get { return CurrentlySelectedPicture; } }
 
         public void ShowError(string message, string longMessage = null, string title = null)
         {
@@ -102,7 +103,16 @@ namespace programowanie_SSprint
         #region GENERATED_EVENTS
         private void PictureEditor_Load(object sender, EventArgs e)
         {
+            if (this.Modal)
+            {
+                //opened as dialog
+                btnChooseSelected.Visible = true;
+            }
+            else
+                btnChooseSelected.Visible = false;
+
             RefreshPictureList();
+
         }
 
         private void lvPictures_SelectedIndexChanged(object sender, EventArgs e)
@@ -166,5 +176,15 @@ namespace programowanie_SSprint
         }
         #endregion
 
+        private void btnChooseSelected_Click(object sender, EventArgs e)
+        {
+            if(CurrentlySelectedPicture==null)
+            {
+                ShowError("Wygląda na to, że żaden obrazek nie jest zaznaczony.");
+                return;
+            }
+
+            this.Close();
+        }
     }
 }
