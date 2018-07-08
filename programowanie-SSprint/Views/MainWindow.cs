@@ -82,14 +82,14 @@ namespace programowanie_SSprint
         public void ReturnListOfObjects(List<object> obj)
         {
             List<order> recievedOrders = obj.OfType<order>().ToList();
-            if (recievedOrders != null)
+            if (recievedOrders != null && recievedOrders.Count>0)
             {
                 DisplayOrderList(recievedOrders);
                 return;
             }
 
             List<tshirt> recievedTshirts = obj.OfType<tshirt>().ToList();
-            if (recievedTshirts != null)
+            if (recievedTshirts != null && recievedTshirts.Count > 0)
             {
                 localTshirtList = recievedTshirts;
                 VisualHelper.RefreshTshirtList(treeViewProductBrowser, localTshirtList);

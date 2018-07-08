@@ -27,28 +27,28 @@ namespace programowanie_SSprint
         {
 
             List<tshirt> recievedTshirts = obj.OfType<tshirt>().ToList();
-            if (recievedTshirts != null)
+            if (recievedTshirts != null && recievedTshirts.Count > 0)
             {
                 DisplayTshirtList(recievedTshirts);
                 return;
             }
 
             List<company> recievedCompanies = obj.OfType<company>().ToList();
-            if (recievedCompanies != null)
+            if (recievedCompanies != null && recievedCompanies.Count > 0)
             {
                 DisplayCompanyList(recievedCompanies);
                 return;
             }
 
             List<color> recievedColors = obj.OfType<color>().ToList();
-            if (recievedColors != null)
+            if (recievedColors != null && recievedColors.Count > 0)
             {
                 DisplayColorList(recievedColors);
                 return;
             }
 
             List<style> recievedStyles = obj.OfType<style>().ToList();
-            if (recievedStyles != null)
+            if (recievedStyles != null && recievedStyles.Count > 0)
             {
                 DisplayStyleList(recievedStyles);
                 return;
