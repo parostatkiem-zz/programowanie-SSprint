@@ -40,6 +40,11 @@ namespace programowanie_SSprint.Views.HelperViews
         public int NotificationTime { get; set; }
         public void PushNotification(string text, int type = 0)
         {
+            if (type > 2 || type < 0)
+            { 
+                type = 0;
+                Console.WriteLine("NotificationPanel: given parameter type(int) was wrong therefore set to 0 ");
+            }
             localNotifications.Add(new Notification(text, type));
             UpdateNotificationAmount();
             if (!theBgWorker.IsBusy)

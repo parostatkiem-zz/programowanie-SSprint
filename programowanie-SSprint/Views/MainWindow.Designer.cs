@@ -76,7 +76,6 @@
             this.columnColor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnReserved = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnActions = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.notificationPanel1 = new programowanie_SSprint.Views.HelperViews.NotificationPanel();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.gbSelectedOrderParams = new System.Windows.Forms.GroupBox();
@@ -302,8 +301,7 @@
             this.columnSex,
             this.columnColor,
             this.columnAmount,
-            this.columnReserved,
-            this.columnActions});
+            this.columnReserved});
             this.lvOrderedProducts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvOrderedProducts.FullRowSelect = true;
             this.lvOrderedProducts.GridLines = true;
@@ -318,10 +316,12 @@
             // columnCompany
             // 
             this.columnCompany.Text = "Firma";
+            this.columnCompany.Width = 88;
             // 
             // columnStyle
             // 
             this.columnStyle.Text = "Styl";
+            this.columnStyle.Width = 129;
             // 
             // columnSex
             // 
@@ -330,6 +330,7 @@
             // columnColor
             // 
             this.columnColor.Text = "Kolor";
+            this.columnColor.Width = 69;
             // 
             // columnAmount
             // 
@@ -338,13 +339,7 @@
             // columnReserved
             // 
             this.columnReserved.Text = "Rezerwacja";
-            this.columnReserved.Width = 71;
-            // 
-            // columnActions
-            // 
-            this.columnActions.Text = "Akcje";
-            this.columnActions.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnActions.Width = 121;
+            this.columnReserved.Width = 89;
             // 
             // notificationPanel1
             // 
@@ -832,7 +827,6 @@
         private System.Windows.Forms.ColumnHeader columnSex;
         private System.Windows.Forms.ColumnHeader columnColor;
         private System.Windows.Forms.ColumnHeader columnAmount;
-        private System.Windows.Forms.ColumnHeader columnActions;
         private System.Windows.Forms.SplitContainer splitContainerHorizLeft;
         private System.Windows.Forms.TreeView treeViewProductBrowser;
         private System.Windows.Forms.Panel panelProductSelector;
