@@ -107,7 +107,7 @@
             this.groupBoxEditArea.Location = new System.Drawing.Point(281, 42);
             this.groupBoxEditArea.Name = "groupBoxEditArea";
             this.groupBoxEditArea.Size = new System.Drawing.Size(196, 236);
-            this.groupBoxEditArea.TabIndex = 2;
+            this.groupBoxEditArea.TabIndex = 0;
             this.groupBoxEditArea.TabStop = false;
             this.groupBoxEditArea.Text = "Edycja zaznaczonego koloru";
             // 
@@ -120,7 +120,7 @@
             this.btnCancel.Location = new System.Drawing.Point(6, 178);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(184, 23);
-            this.btnCancel.TabIndex = 8;
+            this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Anuluj";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -153,7 +153,7 @@
             this.btnApplyChanges.Location = new System.Drawing.Point(6, 207);
             this.btnApplyChanges.Name = "btnApplyChanges";
             this.btnApplyChanges.Size = new System.Drawing.Size(184, 23);
-            this.btnApplyChanges.TabIndex = 5;
+            this.btnApplyChanges.TabIndex = 3;
             this.btnApplyChanges.Text = "Zapisz zmiany";
             this.btnApplyChanges.UseVisualStyleBackColor = false;
             this.btnApplyChanges.Click += new System.EventHandler(this.btnApplyChanges_Click);
@@ -205,7 +205,7 @@
             this.btnAddNew.Location = new System.Drawing.Point(187, 207);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(75, 23);
-            this.btnAddNew.TabIndex = 3;
+            this.btnAddNew.TabIndex = 0;
             this.btnAddNew.Text = "Dodaj nowy";
             this.btnAddNew.UseVisualStyleBackColor = false;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
@@ -218,7 +218,7 @@
             this.btnDelete.Location = new System.Drawing.Point(6, 207);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 4;
+            this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "Usuń";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);

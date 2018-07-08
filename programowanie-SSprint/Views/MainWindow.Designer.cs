@@ -76,7 +76,6 @@
             this.columnColor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnReserved = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.notificationPanel1 = new programowanie_SSprint.Views.HelperViews.NotificationPanel();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.gbSelectedOrderParams = new System.Windows.Forms.GroupBox();
             this.dateTimeEnd = new System.Windows.Forms.DateTimePicker();
@@ -120,6 +119,7 @@
             this.stylesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.notificationPanel1 = new programowanie_SSprint.Views.HelperViews.NotificationPanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
@@ -341,19 +341,6 @@
             this.columnReserved.Text = "Rezerwacja";
             this.columnReserved.Width = 89;
             // 
-            // notificationPanel1
-            // 
-            this.notificationPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.notificationPanel1.BackColor = System.Drawing.Color.White;
-            this.notificationPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.notificationPanel1.Location = new System.Drawing.Point(156, 530);
-            this.notificationPanel1.MinimumSize = new System.Drawing.Size(245, 20);
-            this.notificationPanel1.Name = "notificationPanel1";
-            this.notificationPanel1.NotificationTime = 7000;
-            this.notificationPanel1.Size = new System.Drawing.Size(251, 23);
-            this.notificationPanel1.TabIndex = 8;
-            // 
             // btnAddNew
             // 
             this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -362,7 +349,7 @@
             this.btnAddNew.Location = new System.Drawing.Point(3, 530);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(133, 23);
-            this.btnAddNew.TabIndex = 0;
+            this.btnAddNew.TabIndex = 1;
             this.btnAddNew.Text = "Dodaj zamówienie";
             this.btnAddNew.UseVisualStyleBackColor = false;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
@@ -389,7 +376,7 @@
             this.gbSelectedOrderParams.Location = new System.Drawing.Point(3, 265);
             this.gbSelectedOrderParams.Name = "gbSelectedOrderParams";
             this.gbSelectedOrderParams.Size = new System.Drawing.Size(534, 259);
-            this.gbSelectedOrderParams.TabIndex = 7;
+            this.gbSelectedOrderParams.TabIndex = 1;
             this.gbSelectedOrderParams.TabStop = false;
             this.gbSelectedOrderParams.Text = "Parametry zamówienia";
             // 
@@ -400,7 +387,7 @@
             this.dateTimeEnd.Location = new System.Drawing.Point(92, 160);
             this.dateTimeEnd.Name = "dateTimeEnd";
             this.dateTimeEnd.Size = new System.Drawing.Size(265, 20);
-            this.dateTimeEnd.TabIndex = 457;
+            this.dateTimeEnd.TabIndex = 1;
             this.dateTimeEnd.ValueChanged += new System.EventHandler(this.dateTimeEnd_ValueChanged);
             // 
             // dateTimeBegin
@@ -411,7 +398,7 @@
             this.dateTimeBegin.Location = new System.Drawing.Point(105, 138);
             this.dateTimeBegin.Name = "dateTimeBegin";
             this.dateTimeBegin.Size = new System.Drawing.Size(252, 20);
-            this.dateTimeBegin.TabIndex = 456;
+            this.dateTimeBegin.TabIndex = 0;
             // 
             // numClientPrice
             // 
@@ -424,7 +411,7 @@
             0});
             this.numClientPrice.Name = "numClientPrice";
             this.numClientPrice.Size = new System.Drawing.Size(120, 20);
-            this.numClientPrice.TabIndex = 455;
+            this.numClientPrice.TabIndex = 3;
             this.numClientPrice.ValueChanged += new System.EventHandler(this.numClientPrice_ValueChanged);
             // 
             // btnCurrentOrderCancel
@@ -435,7 +422,7 @@
             this.btnCurrentOrderCancel.Location = new System.Drawing.Point(53, 227);
             this.btnCurrentOrderCancel.Name = "btnCurrentOrderCancel";
             this.btnCurrentOrderCancel.Size = new System.Drawing.Size(181, 23);
-            this.btnCurrentOrderCancel.TabIndex = 1;
+            this.btnCurrentOrderCancel.TabIndex = 5;
             this.btnCurrentOrderCancel.Text = "Anuluj / Wyczyść ";
             this.btnCurrentOrderCancel.UseVisualStyleBackColor = false;
             this.btnCurrentOrderCancel.Click += new System.EventHandler(this.btnCurrentOrderCancel_Click);
@@ -448,7 +435,7 @@
             this.btnSelectedOrderSave.Location = new System.Drawing.Point(309, 227);
             this.btnSelectedOrderSave.Name = "btnSelectedOrderSave";
             this.btnSelectedOrderSave.Size = new System.Drawing.Size(172, 23);
-            this.btnSelectedOrderSave.TabIndex = 0;
+            this.btnSelectedOrderSave.TabIndex = 4;
             this.btnSelectedOrderSave.Text = "Zapisz zmiany";
             this.btnSelectedOrderSave.UseVisualStyleBackColor = false;
             this.btnSelectedOrderSave.Click += new System.EventHandler(this.btnSelectedOrderSave_Click);
@@ -474,7 +461,7 @@
             this.comboBoxSelectedOrderStatus.Location = new System.Drawing.Point(52, 185);
             this.comboBoxSelectedOrderStatus.Name = "comboBoxSelectedOrderStatus";
             this.comboBoxSelectedOrderStatus.Size = new System.Drawing.Size(130, 21);
-            this.comboBoxSelectedOrderStatus.TabIndex = 1;
+            this.comboBoxSelectedOrderStatus.TabIndex = 2;
             this.comboBoxSelectedOrderStatus.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelectedOrderStatus_SelectedIndexChanged);
             // 
             // lSelectedOrderStatus
@@ -555,7 +542,7 @@
             this.gbSelectedOrderData.Location = new System.Drawing.Point(6, 19);
             this.gbSelectedOrderData.Name = "gbSelectedOrderData";
             this.gbSelectedOrderData.Size = new System.Drawing.Size(357, 113);
-            this.gbSelectedOrderData.TabIndex = 7;
+            this.gbSelectedOrderData.TabIndex = 0;
             this.gbSelectedOrderData.TabStop = false;
             this.gbSelectedOrderData.Text = "Dane zamawiającego";
             // 
@@ -624,7 +611,7 @@
             this.btnDelete.Location = new System.Drawing.Point(422, 530);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(115, 23);
-            this.btnDelete.TabIndex = 1;
+            this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Usuń zamówienie";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnSelectedOrderDelete_Click);
@@ -647,7 +634,7 @@
             this.lvAllOrders.Location = new System.Drawing.Point(0, 0);
             this.lvAllOrders.Name = "lvAllOrders";
             this.lvAllOrders.Size = new System.Drawing.Size(540, 259);
-            this.lvAllOrders.TabIndex = 6;
+            this.lvAllOrders.TabIndex = 4;
             this.lvAllOrders.UseCompatibleStateImageBehavior = false;
             this.lvAllOrders.View = System.Windows.Forms.View.Details;
             this.lvAllOrders.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvAllOrders_ItemSelectionChanged);
@@ -779,6 +766,19 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // notificationPanel1
+            // 
+            this.notificationPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.notificationPanel1.BackColor = System.Drawing.Color.White;
+            this.notificationPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.notificationPanel1.Location = new System.Drawing.Point(156, 530);
+            this.notificationPanel1.MinimumSize = new System.Drawing.Size(245, 20);
+            this.notificationPanel1.Name = "notificationPanel1";
+            this.notificationPanel1.NotificationTime = 7000;
+            this.notificationPanel1.Size = new System.Drawing.Size(251, 23);
+            this.notificationPanel1.TabIndex = 8;
             // 
             // MainWindow
             // 

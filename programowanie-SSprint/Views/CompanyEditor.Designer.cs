@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "Czerwony",
             "#ff0000"}, -1);
@@ -74,7 +74,7 @@
             this.groupBoxEditArea.Location = new System.Drawing.Point(345, 43);
             this.groupBoxEditArea.Name = "groupBoxEditArea";
             this.groupBoxEditArea.Size = new System.Drawing.Size(281, 263);
-            this.groupBoxEditArea.TabIndex = 8;
+            this.groupBoxEditArea.TabIndex = 0;
             this.groupBoxEditArea.TabStop = false;
             this.groupBoxEditArea.Text = "Edycja zaznaczonej firmy";
             // 
@@ -95,7 +95,7 @@
             this.tbPhone.Location = new System.Drawing.Point(61, 86);
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(194, 20);
-            this.tbPhone.TabIndex = 11;
+            this.tbPhone.TabIndex = 2;
             this.tbPhone.TextChanged += new System.EventHandler(this.tbPhone_TextChanged);
             // 
             // lEmail
@@ -115,7 +115,7 @@
             this.tbEmail.Location = new System.Drawing.Point(61, 60);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(194, 20);
-            this.tbEmail.TabIndex = 9;
+            this.tbEmail.TabIndex = 1;
             this.tbEmail.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
             // 
             // btnCancel
@@ -127,7 +127,7 @@
             this.btnCancel.Location = new System.Drawing.Point(6, 205);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(269, 23);
-            this.btnCancel.TabIndex = 8;
+            this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Anuluj";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -160,7 +160,7 @@
             this.btnApplyChanges.Location = new System.Drawing.Point(6, 234);
             this.btnApplyChanges.Name = "btnApplyChanges";
             this.btnApplyChanges.Size = new System.Drawing.Size(269, 23);
-            this.btnApplyChanges.TabIndex = 5;
+            this.btnApplyChanges.TabIndex = 4;
             this.btnApplyChanges.Text = "Zapisz zmiany";
             this.btnApplyChanges.UseVisualStyleBackColor = false;
             this.btnApplyChanges.Click += new System.EventHandler(this.btnApplyChanges_Click);
@@ -211,7 +211,7 @@
             this.lvCompanies.FullRowSelect = true;
             this.lvCompanies.GridLines = true;
             this.lvCompanies.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
             this.lvCompanies.Location = new System.Drawing.Point(3, 16);
             this.lvCompanies.Name = "lvCompanies";
             this.lvCompanies.Size = new System.Drawing.Size(324, 212);
@@ -238,7 +238,7 @@
             this.btnDelete.Location = new System.Drawing.Point(6, 234);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 4;
+            this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "Usuń";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -251,7 +251,7 @@
             this.btnAddNew.Location = new System.Drawing.Point(246, 234);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(75, 23);
-            this.btnAddNew.TabIndex = 3;
+            this.btnAddNew.TabIndex = 0;
             this.btnAddNew.Text = "Dodaj nowy";
             this.btnAddNew.UseVisualStyleBackColor = false;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
