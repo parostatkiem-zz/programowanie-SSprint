@@ -468,7 +468,7 @@
             this.btnAddNew.TabIndex = 1;
             this.btnAddNew.Text = "Dodaj nową";
             this.btnAddNew.UseVisualStyleBackColor = false;
-            this.btnAddNew.Click += new System.EventHandler(this.btnApply_Click);
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // btnDelete
             // 

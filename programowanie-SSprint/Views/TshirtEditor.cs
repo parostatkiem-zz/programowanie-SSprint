@@ -132,6 +132,10 @@ namespace programowanie_SSprint
 
         private void btnApplyChanges_Click(object sender, EventArgs e)
         {
+            foreach (Control c in gbTshirtProperties.Controls)
+            {
+                if (errorProvider1.GetError(c).Length > 0) return;
+            }
             insertSingleTshirt(this, this, currentlyEditedTshirt);
             if (!treeViewProductBrowser.Visible)
             {
@@ -166,19 +170,17 @@ namespace programowanie_SSprint
             btnDelete.Visible = true;
         }
 
-        private void btnApply_Click(object sender, EventArgs e)
+        private void btnAddNew_Click(object sender, EventArgs e)
         {
-            foreach (Control c in gbTshirtProperties.Controls)
-            {
-                if (errorProvider1.GetError(c).Length > 0) return;
-            }
+            
             treeViewProductBrowser.Visible = false;
             CurrentlySelectedTshirt = null;
             currentlyEditedTshirt = new tshirt();
             currentlyEditedTshirt.singleItemOrders = new List<singleItemOrder>();
             btnAddNew.Visible = false;
             btnDelete.Visible = false;
-            getAllThsirts(this, this);
+            gbTshirtProperties.Visible = true;
+            //   getAllThsirts(this, this);
         }
 
         #endregion
