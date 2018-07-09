@@ -145,7 +145,7 @@ namespace programowanie_SSprint
             }
             btnAddNew.Visible = true;
             btnDelete.Visible = true;
-            getAllThsirts(this, this);
+            //getAllThsirts(this, this);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

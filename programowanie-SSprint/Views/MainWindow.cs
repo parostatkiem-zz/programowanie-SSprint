@@ -344,6 +344,7 @@ namespace programowanie_SSprint
 
         private void RefreshOrderItemList(List<singleItemOrder> theList)
         {
+            if (localTshirtList == null) return;
             lvOrderedProducts.Items.Clear();
             if (theList == null) return;
 
@@ -352,7 +353,7 @@ namespace programowanie_SSprint
             int reserved_amount;
             foreach (singleItemOrder o_item in theList)
             {
-                currentTshirt = localTshirtList.Find(t => t.id == o_item.tshirt_id);
+                currentTshirt = localTshirtList?.Find(t => t.id == o_item.tshirt_id);
                 if (currentTshirt == null) currentTshirt = new tshirt();
                 decimal a = ((decimal)currentTshirt.default_loss_percentage / 100);
                 reserved_amount = (int)Math.Ceiling((decimal)(a * o_item.amount) + o_item.amount);
