@@ -344,25 +344,29 @@ namespace programowanie_SSprint
 
         private void RefreshOrderItemList(List<singleItemOrder> theList)
         {
-            if (localTshirtList == null) return;
-            lvOrderedProducts.Items.Clear();
-            if (theList == null) return;
-
-            ListViewItem item;
-            tshirt currentTshirt;
-            int reserved_amount;
-            foreach (singleItemOrder o_item in theList)
+            try
             {
-                currentTshirt = localTshirtList?.Find(t => t.id == o_item.tshirt_id);
-                if (currentTshirt == null) currentTshirt = new tshirt();
-                decimal a = ((decimal)currentTshirt.default_loss_percentage / 100);
-                reserved_amount = (int)Math.Ceiling((decimal)(a * o_item.amount) + o_item.amount);
-                item = new ListViewItem(currentTshirt.company.name);
-                item.Tag = o_item;
-                item.SubItems.AddRange(new string[] { currentTshirt.style.name, currentTshirt.sex, currentTshirt.color.name, o_item.amount.ToString(), reserved_amount.ToString() });
-                item.ToolTipText = "Kliknij mnie dwukrotnie, by usunąć z listy";
-                lvOrderedProducts.Items.Add(item);
+                if (localTshirtList == null) return;
+                lvOrderedProducts.Items.Clear();
+                if (theList == null) return;
+
+                ListViewItem item;
+                tshirt currentTshirt;
+                int reserved_amount;
+                foreach (singleItemOrder o_item in theList)
+                {
+                    currentTshirt = localTshirtList?.Find(t => t.id == o_item.tshirt_id);
+                    if (currentTshirt == null) currentTshirt = new tshirt();
+                    decimal a = ((decimal)currentTshirt.default_loss_percentage / 100);
+                    reserved_amount = (int)Math.Ceiling((decimal)(a * o_item.amount) + o_item.amount);
+                    item = new ListViewItem(currentTshirt.company.name);
+                    item.Tag = o_item;
+                    item.SubItems.AddRange(new string[] { currentTshirt.style.name, currentTshirt.sex, currentTshirt.color.name, o_item.amount.ToString(), reserved_amount.ToString() });
+                    item.ToolTipText = "Kliknij mnie dwukrotnie, by usunąć z listy";
+                    lvOrderedProducts.Items.Add(item);
+                }
             }
+            catch { lvOrderedProducts.Items.Clear(); this.PushNotification("Nie udało się wyświetlić listy produktów", 2); }
         }
 
 
@@ -419,9 +423,10 @@ namespace programowanie_SSprint
         private void MainWindow_Shown(object sender, EventArgs e)
         {
             CurrentlySelectedOrder = null;
+            getAllTshirts(this, this);
             getAllOrders(this, this);
 
-            getAllTshirts(this, this);
+           
 
             CurrentlySelectedTshirt = null;
         }

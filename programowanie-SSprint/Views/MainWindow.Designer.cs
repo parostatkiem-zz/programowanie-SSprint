@@ -349,11 +349,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.notificationPanel1.BackColor = System.Drawing.Color.White;
             this.notificationPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.notificationPanel1.Location = new System.Drawing.Point(156, 530);
+            this.notificationPanel1.Location = new System.Drawing.Point(128, 530);
             this.notificationPanel1.MinimumSize = new System.Drawing.Size(245, 20);
             this.notificationPanel1.Name = "notificationPanel1";
             this.notificationPanel1.NotificationTime = 7000;
-            this.notificationPanel1.Size = new System.Drawing.Size(251, 23);
+            this.notificationPanel1.Size = new System.Drawing.Size(303, 23);
             this.notificationPanel1.TabIndex = 8;
             // 
             // btnAddNew
@@ -363,7 +363,7 @@
             this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddNew.Location = new System.Drawing.Point(3, 530);
             this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(133, 23);
+            this.btnAddNew.Size = new System.Drawing.Size(119, 23);
             this.btnAddNew.TabIndex = 1;
             this.btnAddNew.Text = "Dodaj zamówienie";
             this.btnAddNew.UseVisualStyleBackColor = false;
@@ -624,9 +624,9 @@
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelete.BackColor = System.Drawing.Color.Salmon;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelete.Location = new System.Drawing.Point(422, 530);
+            this.btnDelete.Location = new System.Drawing.Point(437, 530);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(115, 23);
+            this.btnDelete.Size = new System.Drawing.Size(100, 23);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Usuń zamówienie";
             this.btnDelete.UseVisualStyleBackColor = false;
