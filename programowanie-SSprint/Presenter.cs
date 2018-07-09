@@ -18,8 +18,15 @@ namespace programowanie_SSprint
         ImainView view;
         Model model;
 
-        private readonly string goodResult = "Operacja powiodła się";
-        private readonly string badResult = "Operacja nie powiodła się";
+        private readonly string goodInsertingResult = "Zapisano dane w bazie";
+        private readonly string badInsertingResult = "Nie zapisano danych w bazie";
+
+        private readonly string goodRemovingResult = "Usunięto dane z bazy";
+        private readonly string badRemovingResult = "Nie usunięto danych z bazy";
+
+        private readonly string goodGettingResult = "Pobrano dane z bazy";
+        private readonly string badGettingResult = "Nie pobrano danych z bazy";
+
         private readonly string errorableTitle = "Wystąpił Błąd";
 
         public Presenter(Model model, ImainView view)
@@ -73,11 +80,11 @@ namespace programowanie_SSprint
                 try
                 {                    
                     model.RemoveElement<elementType>(itemToRemove);
-                    windowCommunicator.PushNotification(goodResult, 0);
+                    windowCommunicator.PushNotification(goodRemovingResult, 0);
                 }
                 catch (Exception ex)
                 {
-                    windowCommunicator.PushNotification(badResult, 2);
+                    windowCommunicator.PushNotification(badRemovingResult, 2);
                     windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
                 }
             }).Start();
@@ -91,11 +98,11 @@ namespace programowanie_SSprint
                 try
                 {
                     model.RemoveListOfElements<elementType>(itemsToRemove);
-                    windowCommunicator.PushNotification(goodResult, 0);
+                    windowCommunicator.PushNotification(goodRemovingResult, 0);
                 }
                 catch (Exception ex)
                 {
-                    windowCommunicator.PushNotification(badResult, 2);
+                    windowCommunicator.PushNotification(badRemovingResult, 2);
                     windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
                 }
             }).Start();
@@ -110,11 +117,11 @@ namespace programowanie_SSprint
                 try
                 {
                     windowCommunicator.ReturnListOfObjects(model.GetAllElements<elementType>().OfType<object>().ToList());
-                    windowCommunicator.PushNotification(goodResult, 0);
+                    windowCommunicator.PushNotification(goodGettingResult, 0);
                 }
                 catch (Exception ex)
                 {
-                    windowCommunicator.PushNotification(badResult, 2);
+                    windowCommunicator.PushNotification(badGettingResult, 2);
                     windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
                 }
             }).Start();
@@ -130,11 +137,11 @@ namespace programowanie_SSprint
                 try
                 {
                     model.InsertElement<elementType>(newItem);
-                    windowCommunicator.PushNotification(goodResult, 0);
+                    windowCommunicator.PushNotification(goodInsertingResult, 0);
                 }
                 catch (Exception ex)
                 {
-                    windowCommunicator.PushNotification(badResult, 2);
+                    windowCommunicator.PushNotification(badInsertingResult, 2);
                     windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
                 }
             }).Start();
@@ -148,11 +155,11 @@ namespace programowanie_SSprint
                 try
                 {
                     model.InsertListOfElements<elementType>(newItems);
-                    windowCommunicator.PushNotification(goodResult, 0);
+                    windowCommunicator.PushNotification(goodInsertingResult, 0);
                 }
                 catch (Exception ex)
                 {
-                    windowCommunicator.PushNotification(badResult, 2);
+                    windowCommunicator.PushNotification(badInsertingResult, 2);
                     windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
                 }
             }).Start();
@@ -169,11 +176,11 @@ namespace programowanie_SSprint
                 {
                     elementType tmp = model.Find<elementType>(elementID);
                     //windowCommunicator.ReturnObject((object)tmp);
-                    windowCommunicator.PushNotification(goodResult, 0);
+                    windowCommunicator.PushNotification(goodGettingResult, 0);
                 }
                 catch (Exception ex)
                 {
-                    windowCommunicator.PushNotification(badResult, 2);
+                    windowCommunicator.PushNotification(badGettingResult, 2);
                     windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
                     
                 }
