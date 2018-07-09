@@ -14,6 +14,9 @@ namespace programowanie_SSprint
             int sum = 0;
             foreach(singleItemOrder order in shirt.singleItemOrders.ToList())
             {
+                if (order == null || order.order == null)
+                    return 0;
+
                 if (order.order.status == 2)
                     continue;
                 sum += order.amount;
