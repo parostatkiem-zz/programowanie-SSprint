@@ -12,5 +12,6 @@ namespace programowanie_SSprint.Communicator
         public abstract void CopyFrom(elementType otherELement);
         public abstract int GetId();
         public abstract elementType GetCopyOfThis { get; }
+        public abstract void UpdateEntities(int depth);
     }
 }

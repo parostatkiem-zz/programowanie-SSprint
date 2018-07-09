@@ -114,7 +114,7 @@ namespace programowanie_SSprint
                 }
                 catch (Exception ex)
                 {
-                    windowCommunicator.PushNotification(badResult, 3);
+                    windowCommunicator.PushNotification(badResult, 2);
                     windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
                 }
             }).Start();
@@ -134,7 +134,7 @@ namespace programowanie_SSprint
                 }
                 catch (Exception ex)
                 {
-                    windowCommunicator.PushNotification(badResult, 3);
+                    windowCommunicator.PushNotification(badResult, 2);
                     windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
                 }
             }).Start();
@@ -152,7 +152,7 @@ namespace programowanie_SSprint
                 }
                 catch (Exception ex)
                 {
-                    windowCommunicator.PushNotification(badResult, 3);
+                    windowCommunicator.PushNotification(badResult, 2);
                     windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
                 }
             }).Start();
@@ -173,7 +173,7 @@ namespace programowanie_SSprint
                 }
                 catch (Exception ex)
                 {
-                    windowCommunicator.PushNotification(badResult, 3);
+                    windowCommunicator.PushNotification(badResult, 2);
                     windowInterface.ShowError(ex.Message, ex.HelpLink, errorableTitle);
                     
                 }
