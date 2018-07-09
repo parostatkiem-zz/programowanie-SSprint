@@ -102,6 +102,12 @@
     <Compile Include="Views\CompanyEditor.Designer.cs">
       <DependentUpon>CompanyEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\HelperViews\AboutWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\HelperViews\AboutWindow.Designer.cs">
+      <DependentUpon>AboutWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\HelperViews\Error.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
     </Compile>
     <EmbeddedResource Include="Views\CompanyEditor.resx">
       <DependentUpon>CompanyEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\HelperViews\AboutWindow.resx">
+      <DependentUpon>AboutWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\HelperViews\Error.resx">
       <DependentUpon>Error.cs</DependentUpon>

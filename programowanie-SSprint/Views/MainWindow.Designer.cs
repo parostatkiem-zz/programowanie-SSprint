@@ -90,7 +90,6 @@
             this.lSelectedOrderEndDate = new System.Windows.Forms.Label();
             this.btnSelectedOrderBrowseImage = new System.Windows.Forms.Button();
             this.lSelectedOrderImage = new System.Windows.Forms.Label();
-            this.pictureBoxSelectedOrderImage = new System.Windows.Forms.PictureBox();
             this.gbSelectedOrderData = new System.Windows.Forms.GroupBox();
             this.tbSelectedOrderPhone = new System.Windows.Forms.TextBox();
             this.tbSelectedOrderName = new System.Windows.Forms.TextBox();
@@ -120,6 +119,7 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.notificationPanel1 = new programowanie_SSprint.Views.HelperViews.NotificationPanel();
+            this.pictureBoxSelectedOrderImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
@@ -132,10 +132,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericAddingProductAmount)).BeginInit();
             this.gbSelectedOrderParams.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numClientPrice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedOrderImage)).BeginInit();
             this.gbSelectedOrderData.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedOrderImage)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerMain
@@ -520,18 +520,6 @@
             this.lSelectedOrderImage.TabIndex = 2;
             this.lSelectedOrderImage.Text = "Nadruk:";
             // 
-            // pictureBoxSelectedOrderImage
-            // 
-            this.pictureBoxSelectedOrderImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxSelectedOrderImage.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxSelectedOrderImage.Image")));
-            this.pictureBoxSelectedOrderImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxSelectedOrderImage.InitialImage")));
-            this.pictureBoxSelectedOrderImage.Location = new System.Drawing.Point(369, 39);
-            this.pictureBoxSelectedOrderImage.Name = "pictureBoxSelectedOrderImage";
-            this.pictureBoxSelectedOrderImage.Size = new System.Drawing.Size(161, 141);
-            this.pictureBoxSelectedOrderImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxSelectedOrderImage.TabIndex = 1;
-            this.pictureBoxSelectedOrderImage.TabStop = false;
-            // 
             // gbSelectedOrderData
             // 
             this.gbSelectedOrderData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -767,6 +755,7 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.helpToolStripMenuItem.Text = "Pomoc";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // errorProvider1
             // 
@@ -784,6 +773,18 @@
             this.notificationPanel1.NotificationTime = 6000;
             this.notificationPanel1.Size = new System.Drawing.Size(303, 23);
             this.notificationPanel1.TabIndex = 8;
+            // 
+            // pictureBoxSelectedOrderImage
+            // 
+            this.pictureBoxSelectedOrderImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxSelectedOrderImage.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxSelectedOrderImage.Image")));
+            this.pictureBoxSelectedOrderImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxSelectedOrderImage.InitialImage")));
+            this.pictureBoxSelectedOrderImage.Location = new System.Drawing.Point(369, 39);
+            this.pictureBoxSelectedOrderImage.Name = "pictureBoxSelectedOrderImage";
+            this.pictureBoxSelectedOrderImage.Size = new System.Drawing.Size(161, 141);
+            this.pictureBoxSelectedOrderImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxSelectedOrderImage.TabIndex = 1;
+            this.pictureBoxSelectedOrderImage.TabStop = false;
             // 
             // MainWindow
             // 
@@ -812,12 +813,12 @@
             this.gbSelectedOrderParams.ResumeLayout(false);
             this.gbSelectedOrderParams.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numClientPrice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedOrderImage)).EndInit();
             this.gbSelectedOrderData.ResumeLayout(false);
             this.gbSelectedOrderData.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelectedOrderImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -858,7 +859,6 @@
         private System.Windows.Forms.Label lSelectedOrderEndDate;
         private System.Windows.Forms.Button btnSelectedOrderBrowseImage;
         private System.Windows.Forms.Label lSelectedOrderImage;
-        private System.Windows.Forms.PictureBox pictureBoxSelectedOrderImage;
         private System.Windows.Forms.GroupBox gbSelectedOrderData;
         private System.Windows.Forms.TextBox tbSelectedOrderPhone;
         private System.Windows.Forms.TextBox tbSelectedOrderName;
@@ -883,6 +883,7 @@
         private System.Windows.Forms.Label lSelectedTshirtName;
         private Views.HelperViews.NotificationPanel notificationPanel1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.PictureBox pictureBoxSelectedOrderImage;
     }
 }
 

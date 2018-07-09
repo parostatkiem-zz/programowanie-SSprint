@@ -75,6 +75,8 @@ namespace programowanie_SSprint
             tshirtEditorWindow.insertSingleTshirt += TshirtEditorWindow_insertSingleTshirt;
             tshirtEditorWindow.removeTshirt += TshirtEditorWindow_removeTshirt;
 
+            aboutWindow = new AboutWindow();
+
 
             currentListOfItems = new List<singleItemOrder>();
 
@@ -202,6 +204,7 @@ namespace programowanie_SSprint
         private CompanyEditor companyEditorWindow;
 
         private TshirtEditor tshirtEditorWindow;
+        private AboutWindow aboutWindow;
 
         private order currentlySelectedOrder;
         private order currentlyEditedOrder;
@@ -420,6 +423,11 @@ namespace programowanie_SSprint
         {
             pictureEditorWindow.ShowDialog();
         }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            aboutWindow.ShowDialog();
+        }
         #endregion
 
         private void MainWindow_Shown(object sender, EventArgs e)
@@ -599,8 +607,9 @@ namespace programowanie_SSprint
             RefreshOrderItemList(currentListOfItems);
 
         }
+
         #endregion
 
-       
+        
     }
 }
