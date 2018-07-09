@@ -78,6 +78,8 @@ namespace programowanie_SSprint
 
             currentListOfItems = new List<singleItemOrder>();
 
+            treeViewProductBrowser.Nodes.Clear();
+
         }
         public void ReturnListOfObjects(List<object> obj)
         {
@@ -424,11 +426,9 @@ namespace programowanie_SSprint
         {
             PushNotification("Trwa pobieranie danych w tle",1);
             CurrentlySelectedOrder = null;
-            getAllTshirts(this, this);
             getAllOrders(this, this);
-
-           
-
+            getAllTshirts(this, this);
+          
             CurrentlySelectedTshirt = null;
         }
         private void btnSelectedOrderBrowseImage_Click(object sender, EventArgs e)

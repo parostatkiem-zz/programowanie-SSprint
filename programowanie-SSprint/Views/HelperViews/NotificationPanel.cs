@@ -26,7 +26,7 @@ namespace programowanie_SSprint.Views.HelperViews
             localNotificationTime = 0;
             colorsOfTypes = new Dictionary<int, Color>();
             colorsOfTypes.Add(0, Color.Green);
-            colorsOfTypes.Add(1, Color.Gold);
+            colorsOfTypes.Add(1, Color.Orange);
             colorsOfTypes.Add(2, Color.Tomato);
 
             imagesOfTypes = new Dictionary<int, Image>();
