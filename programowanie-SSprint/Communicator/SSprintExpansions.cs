@@ -25,6 +25,7 @@ namespace programowanie_SSprint
             return shirt.in_stock - getOrdered(shirt);
         }
     }
+
     public partial class color : Communicator.CommunicatorElement<color>
     {
         public override color GetCopyOfThis
@@ -52,6 +53,22 @@ namespace programowanie_SSprint
         public override string ToString()
         {
             return this.name;
+        }
+
+        public override void UpdateEntities(int depth)
+        {
+            var a = this.hex_value;
+            var b = this.name;
+            var c = this.id;
+
+            if (depth <= 0)
+                return;
+
+            foreach (tshirt item in this.tshirts)
+            {
+                if (item != null)
+                    item.UpdateEntities(depth - 1);
+            }
         }
     }
 
@@ -83,6 +100,23 @@ namespace programowanie_SSprint
         public override string ToString()
         {
             return this.name;
+        }
+
+        public override void UpdateEntities(int depth)
+        {
+            var a = this.email;
+            var b = this.name;
+            var c = this.id;
+            var d = this.phone;
+
+            if (depth <= 0)
+                return;
+
+            foreach (tshirt item in this.tshirts)
+            {
+                if (item != null)
+                    item.UpdateEntities(depth - 1);
+            }
         }
     }
 
@@ -148,6 +182,31 @@ namespace programowanie_SSprint
                 return this.price_for_client - this.Cost;
             }
         }
+
+        public override void UpdateEntities(int depth)
+        {
+            var a = this.client_email;
+            var b = this.client_name;
+            var c = this.client_phone;
+            var d = this.Cost;
+            var e = this.end_date;
+            var f = this.id;
+            var g = this.order_date;
+            var h = this.picture_id;
+            var i = this.price_for_client;
+            var j = this.status;
+
+            if (depth <= 0)
+                return;
+
+            if(this.picture != null) this.picture.UpdateEntities(depth - 1);
+
+            foreach (singleItemOrder item in this.singleItemOrders)
+            {
+                if(item != null)
+                    item.UpdateEntities(depth - 1);
+            }
+        }
     }
 
     public partial class picture : Communicator.CommunicatorElement<picture>
@@ -173,6 +232,22 @@ namespace programowanie_SSprint
         public override int GetId()
         {
             return this.id;
+        }
+
+        public override void UpdateEntities(int depth)
+        {
+            var a = this.id;
+            var b = this.picture_data;
+            var c = this.name;
+
+            if (depth <= 0)
+                return;
+            
+            foreach (order item in this.orders)
+            {
+                if (item != null)
+                    item.UpdateEntities(depth - 1);
+            }
         }
     }
 
@@ -216,6 +291,20 @@ namespace programowanie_SSprint
                 return (this.tshirt != null) ? this.tshirt.price : 0;
             }
         }
+
+        public override void UpdateEntities(int depth)
+        {
+            var a = this.amount;
+            var b = this.id;
+            var c = this.order_id;
+            var d = this.tshirt_id;
+
+            if (depth <= 0)
+                return;
+
+            if (this.tshirt != null) this.tshirt.UpdateEntities(depth - 1);
+            if (this.order != null) this.order.UpdateEntities(depth - 1);
+        }
     }
 
     public partial class style : Communicator.CommunicatorElement<style>
@@ -245,6 +334,21 @@ namespace programowanie_SSprint
         public override string ToString()
         {
             return this.name;
+        }
+
+        public override void UpdateEntities(int depth)
+        {
+            var a = this.id;
+            var b = this.name;
+
+            if (depth <= 0)
+                return;
+
+            foreach (tshirt item in this.tshirts)
+            {
+                if (item != null)
+                    item.UpdateEntities(depth - 1);
+            }
         }
     }
 
@@ -282,6 +386,31 @@ namespace programowanie_SSprint
         public override string ToString()
         {
             return this.color.name + " | " + this.size + " | ( dostępne: " + this.getNotOrdered() + " ) " + this.price + "zł";
+        }
+
+        public override void UpdateEntities(int depth)
+        {
+            var a = this.id;
+            var b = this.color_id;
+            var c = this.company_id;
+            var d = this.default_loss_percentage;
+            var e = this.in_stock;
+            var f = this.price;
+            var g = this.sex;
+            var h = this.size;
+            var i = this.style_id;
+
+            if (depth <= 0)
+                return;
+
+            if (this.color != null) this.color.UpdateEntities(depth - 1);
+            if (this.company != null) this.company.UpdateEntities(depth - 1);
+            if (this.style != null) this.style.UpdateEntities(depth - 1);
+            foreach (singleItemOrder item in this.singleItemOrders)
+            {
+                if (item != null)
+                    item.UpdateEntities(depth - 1);
+            }
         }
     }
     

@@ -30,7 +30,12 @@ namespace programowanie_SSprint.Communicator
         {
             try
             {
-                return dataBase.Set<elementType>().ToList();
+                var data = dataBase.Set<elementType>().ToList(); 
+
+                foreach(elementType element in data)
+                    element.UpdateEntities(2);
+
+                return data;
             }
             catch
             {
