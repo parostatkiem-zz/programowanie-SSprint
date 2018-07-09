@@ -76,7 +76,6 @@
             this.columnColor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnReserved = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.notificationPanel1 = new programowanie_SSprint.Views.HelperViews.NotificationPanel();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.gbSelectedOrderParams = new System.Windows.Forms.GroupBox();
             this.dateTimeEnd = new System.Windows.Forms.DateTimePicker();
@@ -120,6 +119,7 @@
             this.stylesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.notificationPanel1 = new programowanie_SSprint.Views.HelperViews.NotificationPanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
@@ -342,19 +342,6 @@
             // 
             this.columnReserved.Text = "Rezerwacja";
             this.columnReserved.Width = 89;
-            // 
-            // notificationPanel1
-            // 
-            this.notificationPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.notificationPanel1.BackColor = System.Drawing.Color.White;
-            this.notificationPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.notificationPanel1.Location = new System.Drawing.Point(128, 530);
-            this.notificationPanel1.MinimumSize = new System.Drawing.Size(245, 20);
-            this.notificationPanel1.Name = "notificationPanel1";
-            this.notificationPanel1.NotificationTime = 7000;
-            this.notificationPanel1.Size = new System.Drawing.Size(303, 23);
-            this.notificationPanel1.TabIndex = 8;
             // 
             // btnAddNew
             // 
@@ -784,6 +771,19 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // notificationPanel1
+            // 
+            this.notificationPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.notificationPanel1.BackColor = System.Drawing.Color.White;
+            this.notificationPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.notificationPanel1.Location = new System.Drawing.Point(128, 530);
+            this.notificationPanel1.MinimumSize = new System.Drawing.Size(245, 20);
+            this.notificationPanel1.Name = "notificationPanel1";
+            this.notificationPanel1.NotificationTime = 6000;
+            this.notificationPanel1.Size = new System.Drawing.Size(303, 23);
+            this.notificationPanel1.TabIndex = 8;
             // 
             // MainWindow
             // 

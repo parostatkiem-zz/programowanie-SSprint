@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "Słoneczko",
             "JanuszSoft"}, -1);
@@ -48,9 +48,9 @@
             this.btnAddNew = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.groupBoxGraphicList = new System.Windows.Forms.GroupBox();
+            this.btnChooseSelected = new System.Windows.Forms.Button();
             this.notificationPanel1 = new programowanie_SSprint.Views.HelperViews.NotificationPanel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnChooseSelected = new System.Windows.Forms.Button();
             this.groupBoxEditArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGraphics)).BeginInit();
             this.groupBoxGraphicList.SuspendLayout();
@@ -69,7 +69,7 @@
             this.lvPictures.FullRowSelect = true;
             this.lvPictures.GridLines = true;
             this.lvPictures.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem1});
             this.lvPictures.Location = new System.Drawing.Point(3, 16);
             this.lvPictures.Name = "lvPictures";
             this.lvPictures.Size = new System.Drawing.Size(356, 205);
@@ -234,23 +234,6 @@
             this.groupBoxGraphicList.TabStop = false;
             this.groupBoxGraphicList.Text = "Lista dostępnych grafik";
             // 
-            // notificationPanel1
-            // 
-            this.notificationPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.notificationPanel1.BackColor = System.Drawing.Color.White;
-            this.notificationPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.notificationPanel1.Location = new System.Drawing.Point(12, 12);
-            this.notificationPanel1.MinimumSize = new System.Drawing.Size(245, 20);
-            this.notificationPanel1.Name = "notificationPanel1";
-            this.notificationPanel1.NotificationTime = 8000;
-            this.notificationPanel1.Size = new System.Drawing.Size(564, 28);
-            this.notificationPanel1.TabIndex = 6;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // btnChooseSelected
             // 
             this.btnChooseSelected.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -265,6 +248,23 @@
             this.btnChooseSelected.Text = "Wybierz zaznaczony element";
             this.btnChooseSelected.UseVisualStyleBackColor = false;
             this.btnChooseSelected.Click += new System.EventHandler(this.btnChooseSelected_Click);
+            // 
+            // notificationPanel1
+            // 
+            this.notificationPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.notificationPanel1.BackColor = System.Drawing.Color.White;
+            this.notificationPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.notificationPanel1.Location = new System.Drawing.Point(12, 12);
+            this.notificationPanel1.MinimumSize = new System.Drawing.Size(245, 20);
+            this.notificationPanel1.Name = "notificationPanel1";
+            this.notificationPanel1.NotificationTime = 6000;
+            this.notificationPanel1.Size = new System.Drawing.Size(564, 28);
+            this.notificationPanel1.TabIndex = 6;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // PictureEditor
             // 

@@ -492,7 +492,7 @@
             this.notificationPanel1.Location = new System.Drawing.Point(12, 13);
             this.notificationPanel1.MinimumSize = new System.Drawing.Size(245, 20);
             this.notificationPanel1.Name = "notificationPanel1";
-            this.notificationPanel1.NotificationTime = 8000;
+            this.notificationPanel1.NotificationTime = 6000;
             this.notificationPanel1.Size = new System.Drawing.Size(639, 28);
             this.notificationPanel1.TabIndex = 5;
             // 

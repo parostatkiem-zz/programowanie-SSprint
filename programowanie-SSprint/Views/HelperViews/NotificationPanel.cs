@@ -22,7 +22,7 @@ namespace programowanie_SSprint.Views.HelperViews
             localNotifications = new List<Notification>();
 
             if (NotificationTime <= 0)
-                NotificationTime = 8000;
+                NotificationTime = 6000;
             localNotificationTime = 0;
             colorsOfTypes = new Dictionary<int, Color>();
             colorsOfTypes.Add(0, Color.Green);

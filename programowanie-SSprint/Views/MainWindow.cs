@@ -422,6 +422,7 @@ namespace programowanie_SSprint
 
         private void MainWindow_Shown(object sender, EventArgs e)
         {
+            PushNotification("Trwa pobieranie danych w tle",1);
             CurrentlySelectedOrder = null;
             getAllTshirts(this, this);
             getAllOrders(this, this);
