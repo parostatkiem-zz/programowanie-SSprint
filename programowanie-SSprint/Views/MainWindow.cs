@@ -473,6 +473,9 @@ namespace programowanie_SSprint
             btnDelete.Visible = true;
             lvAllOrders.Visible = true;
             gbSelectedOrderParams.Visible = false;
+
+            CurrentlySelectedOrder = null;
+            //currentlyEditedOrder = null;
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
