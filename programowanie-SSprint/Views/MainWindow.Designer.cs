@@ -76,6 +76,7 @@
             this.columnColor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnReserved = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.notificationPanel1 = new programowanie_SSprint.Views.HelperViews.NotificationPanel();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.gbSelectedOrderParams = new System.Windows.Forms.GroupBox();
             this.dateTimeEnd = new System.Windows.Forms.DateTimePicker();
@@ -119,7 +120,6 @@
             this.stylesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.notificationPanel1 = new programowanie_SSprint.Views.HelperViews.NotificationPanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
@@ -239,7 +239,9 @@
             // 
             // treeViewProductBrowser
             // 
-            this.treeViewProductBrowser.Dock = System.Windows.Forms.DockStyle.Top;
+            this.treeViewProductBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.treeViewProductBrowser.Location = new System.Drawing.Point(0, 0);
             this.treeViewProductBrowser.Name = "treeViewProductBrowser";
             treeNode1.Name = "Node15";
@@ -288,7 +290,7 @@
             treeNode16,
             treeNode19,
             treeNode21});
-            this.treeViewProductBrowser.Size = new System.Drawing.Size(529, 315);
+            this.treeViewProductBrowser.Size = new System.Drawing.Size(529, 277);
             this.treeViewProductBrowser.TabIndex = 0;
             this.treeViewProductBrowser.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewProductBrowser_AfterSelect);
             // 
@@ -340,6 +342,19 @@
             // 
             this.columnReserved.Text = "Rezerwacja";
             this.columnReserved.Width = 89;
+            // 
+            // notificationPanel1
+            // 
+            this.notificationPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.notificationPanel1.BackColor = System.Drawing.Color.White;
+            this.notificationPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.notificationPanel1.Location = new System.Drawing.Point(156, 530);
+            this.notificationPanel1.MinimumSize = new System.Drawing.Size(245, 20);
+            this.notificationPanel1.Name = "notificationPanel1";
+            this.notificationPanel1.NotificationTime = 7000;
+            this.notificationPanel1.Size = new System.Drawing.Size(251, 23);
+            this.notificationPanel1.TabIndex = 8;
             // 
             // btnAddNew
             // 
@@ -619,6 +634,9 @@
             // 
             // lvAllOrders
             // 
+            this.lvAllOrders.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lvAllOrders.BackColor = System.Drawing.SystemColors.Window;
             this.lvAllOrders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderID,
@@ -629,7 +647,6 @@
             this.columnHeaderPrice,
             this.columnHeaderCost,
             this.columnHeaderProfit});
-            this.lvAllOrders.Dock = System.Windows.Forms.DockStyle.Top;
             this.lvAllOrders.FullRowSelect = true;
             this.lvAllOrders.GridLines = true;
             this.lvAllOrders.Location = new System.Drawing.Point(0, 0);
@@ -767,19 +784,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // notificationPanel1
-            // 
-            this.notificationPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.notificationPanel1.BackColor = System.Drawing.Color.White;
-            this.notificationPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.notificationPanel1.Location = new System.Drawing.Point(156, 530);
-            this.notificationPanel1.MinimumSize = new System.Drawing.Size(245, 20);
-            this.notificationPanel1.Name = "notificationPanel1";
-            this.notificationPanel1.NotificationTime = 7000;
-            this.notificationPanel1.Size = new System.Drawing.Size(251, 23);
-            this.notificationPanel1.TabIndex = 8;
             // 
             // MainWindow
             // 
