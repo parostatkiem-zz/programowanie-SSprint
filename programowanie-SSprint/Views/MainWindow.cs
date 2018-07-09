@@ -508,6 +508,7 @@ namespace programowanie_SSprint
             btnDelete.Visible = true;
             gbSelectedOrderParams.Visible = false;
             getAllOrders(this, this);
+            getAllTshirts(this, this);
 
         }
 
