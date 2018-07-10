@@ -332,3 +332,4 @@ programowanie-SSprint/db_dump_29.06.2018.sql
 
 # DataBase connection string
 programowanie-SSprint/App.config
+*.config
